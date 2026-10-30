@@ -201,7 +201,7 @@ def search_page():
           <aside class="facets" aria-label="Filter results">
             <div class="facets-head"><h2 class="facet-title">Filter by</h2></div>
             <div data-facet-host></div>
-            {n("Counts update as you filter. A filter group with only one option is hidden, as agreed for Travers Smith.", "REQ-039, REQ-031")}
+            {n("Counts update as you filter. A filter group with only one option is hidden.", "REQ-039, REQ-031")}
           </aside>
           <div>
             <div class="ai-answer" data-ai-answer hidden>
@@ -257,7 +257,7 @@ def advanced():
       <!-- Advanced search (REQ-039) -->
       <h1>Advanced search</h1>
       <p class="lead">Opens on the search you came from, so you can refine it.</p>
-      {n("Opens pre-filled from the results page ('Refine in advanced search'), or empty if opened from the menu. Fixed for Travers Smith: it never keeps a stale earlier search.", "REQ-039")}
+      {n("Opens pre-filled from the results page ('Refine in advanced search'), or empty if opened from the menu. It never keeps a stale earlier search.", "REQ-039")}
       <form class="form-step" data-advanced-form>
         <div class="field"><label for="adv-all">All of these words</label><input type="text" id="adv-all" name="all"></div>
         <div class="field"><label for="adv-phrase">This exact phrase</label><input type="text" id="adv-phrase" name="phrase"></div>

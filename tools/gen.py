@@ -17,7 +17,7 @@ VERSION = 'v0.1, first draft'
 SITEMAP = [
     ('Global', [
         ('home.html', 'Home', 'Task-led home page, personalised for members, with events, training, news carousel and the RSS family', 'REQ-101, REQ-238, REQ-237, REQ-239, REQ-240'),
-        ('search.html?q=chartered+statistician', 'Search results', 'The Travers Smith search model: facets with counts, synonyms, typo tolerance, document text, AI summary', 'REQ-037 to REQ-046'),
+        ('search.html?q=chartered+statistician', 'Search results', 'Facets with counts, synonyms, typo tolerance, document text, AI summary', 'REQ-037 to REQ-046'),
         ('search-advanced.html', 'Advanced search', 'Opens pre-filled from the search you came from', 'REQ-039'),
         ('basket.html', 'Basket', 'Several purchases in one payment, with promo codes', 'REQ-094, REQ-087'),
         ('sign-in.html', 'Sign in and create an account', 'MFA, registration, password reset, staff sign-in', 'REQ-074 to REQ-080'),
@@ -125,7 +125,7 @@ def hub():
             <li><p><strong>Annotations are off.</strong> Switch them on in the dark bar at the top of every page. Yellow notes explain behaviour and CMS capability; red notes are questions for RSS. Each note names the requirement it answers, e.g. <span class="wf-req">REQ-201</span>.</p></li>
             <li><p><strong>View as</strong> (dark bar) switches between signed out, a registered non-member, a member and a lapsed member, so you can see what changes for each.</p></li>
             <li><p>Navigation, search, filters, the calendar, tabs, accordions, forms (with validation), the basket and the cookie banner all work. Individual article and profile links go nowhere by design.</p></li>
-            <li><p>Search follows the Travers Smith model. Try "CStat", "bayseian" (a typo) or "census" (found inside a PDF).</p></li>
+            <li><p>Search is fully working. Try "CStat", "bayseian" (a typo) or "census" (found inside a PDF).</p></li>
             <li><p>All people, employers, fees and figures are placeholders.</p></li>
           </ul>
         </section>
