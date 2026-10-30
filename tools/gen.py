@@ -9,9 +9,9 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *  # noqa
-import pages_a, pages_b, pages_c, pages_d  # noqa
+import pages_a, pages_b, pages_c, pages_d, pages_e  # noqa
 
-VERSION = 'v0.2'
+VERSION = 'v0.3'
 
 # Contents hub: grouped by the proposed top-level navigation, so the hub doubles as the sitemap
 SITEMAP = [
@@ -20,6 +20,8 @@ SITEMAP = [
         ('search.html?q=chartered+statistician', 'Search results', 'Facets with counts, synonyms, typo tolerance, document text, AI summary', 'REQ-037 to REQ-046'),
         ('search-advanced.html', 'Advanced search', 'Opens pre-filled from the search you came from', 'REQ-039'),
         ('basket.html', 'Basket', 'Several purchases in one payment, with promo codes', 'REQ-094, REQ-087'),
+        ('pay.html?for=join&amount=230.00&desc=RSS+membership+2027&method=card', 'Secure payment (payment provider)', 'Card with 3-D Secure, or Direct Debit mandate; a card ending 0002 is declined', 'REQ-084, REQ-086'),
+        ('payment-complete.html?for=join&amount=230.00&desc=RSS+membership+2027&method=card&ref=RSS-104233', 'Payment complete', 'Confirmation and receipt, varying by what was bought', 'REQ-087, REQ-089'),
         ('sign-in.html', 'Sign in and create an account', 'MFA, registration, password reset, staff sign-in', 'REQ-074 to REQ-080'),
     ]),
     ('Membership', [
@@ -62,6 +64,7 @@ SITEMAP = [
         ('find-an-expert.html', 'Find an expert', 'Professional Register, Consultants and Fellows directories', 'REQ-192, REQ-193, REQ-194'),
         ('jobs.html', 'Jobs', 'Listing, featured posts, advertise', 'REQ-249, REQ-088, REQ-251'),
         ('job.html', 'Job page', 'Description and Apply now', 'REQ-250'),
+        ('post-job.html', 'Advertise a job', 'Submit and pay for a standard or featured advert', 'REQ-088, REQ-095'),
     ]),
     ('About', [
         ('about.html', 'About the RSS', 'Content page, contact form, security reporting', 'REQ-029, REQ-069, REQ-093'),
@@ -154,7 +157,7 @@ def hub():
 
       <section>
         <h2 class="section-title">Change log</h2>
-        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li></ol>
+        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li><li>v0.3: compact header switches without disappearing; payment added to joining, course booking, basket checkout, donations, renewal, invoices and job adverts, via a hosted payment page and a confirmation page.</li></ol>
       </section>
     </div>
   </main>
@@ -245,6 +248,7 @@ if __name__ == '__main__':
     pages_b.build()
     pages_c.build()
     pages_d.build()
+    pages_e.build()
     hub()
     library()
     c = requirements()

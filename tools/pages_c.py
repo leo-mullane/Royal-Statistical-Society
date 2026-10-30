@@ -133,7 +133,7 @@ def donate():
           <h1>Donate</h1>
           <p class="lead">Your gift helps more people understand and use statistics, from school classrooms to Parliament.</p>
           <!-- Donations with Gift Aid (REQ-090) -->
-          <form class="form-step" data-validate novalidate>
+          <form class="form-step" data-validate data-pay-for="donation" data-pay-desc="Donation to the Royal Statistical Society" novalidate>
             <fieldset class="field"><legend>Amount</legend>
               <div class="radio-cards">
                 <label class="radio-card"><input type="radio" name="amount" value="10" data-price="10" required data-error="Choose an amount"> <strong>£10</strong>Buys a classroom resource pack</label>

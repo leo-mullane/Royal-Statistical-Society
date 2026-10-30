@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure payment | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include protobar.html -->
+  <!-- Hosted payment page: belongs to the payment provider, not rss.org.uk (REQ-086, REQ-084) -->
+  <div class="provider-bar">
+    <div class="container provider-bar-inner">
+      <span class="wf-placeholder logo">RSS logo</span>
+      <span class="provider-name">Secure payment provided by [payment provider]</span>
+    </div>
+  </div>
+  <main id="main" data-pay-page>
+    <div class="container">
+      <h1>Pay the Royal Statistical Society</h1>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Integration</span>This page is hosted by the payment provider (currently Elavon for cards, Access Paysuite for Direct Debit). RSS's site never handles card or bank details; it hands over the amount and reference, and the provider returns the result. Card payments use tokenisation, AVS, CVV and 3-D Secure. <span class="wf-req">REQ-086, REQ-084, REQ-091</span></div>
+      <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: Confirm the card provider and product (Elavon bought Opayo) and whether the hosted page can carry RSS branding. <span class="wf-req">REQ-086, REQ-153</span></div>
+      <div class="pay-layout">
+        <div>
+          <div class="tabs" role="tablist">
+            <button class="tab active" type="button" data-tab="pay-card" data-tab-key="card">Card</button>
+            <button class="tab" type="button" data-tab="pay-dd" data-tab-key="dd">Direct Debit</button>
+          </div>
+          <div>
+            <div class="tab-panel active" id="pay-card">
+              <div class="error-summary" data-declined hidden role="alert">
+                <h2>Your payment was declined</h2>
+                <p>Your bank did not authorise this payment, and you have not been charged. Check your card details or try another card.</p>
+              </div>
+              <form data-card-form novalidate>
+                <div class="field"><label for="cc-name">Name on card</label><input type="text" id="cc-name" name="ccname" required autocomplete="cc-name"></div>
+                <div class="field"><label for="cc-num">Card number</label><input type="text" id="cc-num" name="cardnumber" required inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456"></div>
+                <div class="card-row">
+                  <div class="field"><label for="cc-exp">Expiry date (MM/YY)</label><input type="text" id="cc-exp" name="exp" required autocomplete="cc-exp" placeholder="MM/YY"></div>
+                  <div class="field"><label for="cc-cvc">Security code</label><input type="text" id="cc-cvc" name="cvc" required inputmode="numeric" autocomplete="cc-csc"><p class="field-hint">The last 3 digits on the back</p></div>
+                </div>
+                <div class="field"><label for="cc-post">Billing postcode</label><input type="text" id="cc-post" name="postcode" required autocomplete="postal-code"></div>
+                <p><button class="btn" type="submit">Pay <span data-pay-amount></span></button> <a href="#" data-pay-back>Cancel and go back</a></p>
+              </form>
+              <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Try any card number to see 3-D Secure and a successful payment, or one ending 0002 to see a decline. A declined or abandoned payment triggers the payment-unsuccessful or abandoned-application email. <span class="wf-req">REQ-089, REQ-152</span></div>
+            </div>
+            <div class="tab-panel" id="pay-dd">
+              <form data-dd-form novalidate>
+                <div class="field"><label for="dd-name">Account holder name</label><input type="text" id="dd-name" name="ddname" required></div>
+                <div class="card-row">
+                  <div class="field"><label for="dd-sort">Sort code</label><input type="text" id="dd-sort" name="sort" required inputmode="numeric" placeholder="00-00-00"></div>
+                  <div class="field"><label for="dd-acc">Account number</label><input type="text" id="dd-acc" name="account" required inputmode="numeric"></div>
+                </div>
+                <div class="field"><label for="dd-sched">Collection</label><select id="dd-sched" name="schedule"><option>Annually, on 1 January</option><option>Quarterly instalments</option><option>Monthly</option></select></div>
+                <div class="field"><label class="check"><input type="checkbox" name="sole" required data-error="Confirm you can authorise Direct Debits on this account"> I am the account holder and the only person needed to authorise Direct Debits from this account</label></div>
+                <div class="dd-guarantee"><strong>The Direct Debit Guarantee</strong><p>This Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits. You will be told in advance of any change to the amount, date or frequency. You can cancel at any time by contacting your bank.</p></div>
+                <p style="margin-top:1rem"><button class="btn" type="submit">Set up Direct Debit</button> <a href="#" data-pay-back>Cancel and go back</a></p>
+              </form>
+              <div class="wf-note" data-note="4"><span class="wf-note-label">Integration</span>Mandate set up through Access Paysuite, with instalments where offered. Confirmation of the mandate is emailed within three working days, as the scheme requires. Webhooks update Dynamics. <span class="wf-req">REQ-084, REQ-091, REQ-188</span></div>
+            </div>
+          </div>
+        </div>
+        <aside class="panel surface order-summary">
+          <h2 class="h4">You are paying</h2>
+          <p data-pay-desc></p>
+          <p class="amount" data-pay-amount></p>
+          <p class="wf-meta">Royal Statistical Society, 12 Errol Street, London</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <div class="wf-modal" id="three-ds" role="dialog" aria-modal="true" aria-labelledby="tds-title">
+    <div class="wf-modal-panel">
+      <h2 id="tds-title">Verify it's you</h2>
+      <p>Your bank needs to confirm this payment. Approve it in your banking app, or enter the code we sent to your phone.</p>
+      <div class="wf-placeholder embed">Your bank's 3-D Secure screen</div>
+      <p style="margin-top:1rem"><button class="btn" type="button" data-3ds-approve>Approve payment</button></p>
+    </div>
+  </div>
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

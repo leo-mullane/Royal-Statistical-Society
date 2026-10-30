@@ -142,7 +142,7 @@ def jobs():
         <aside class="stack" id="advertise">
           <div class="panel surface"><h2 class="h4">Advertise a job</h2>
             <dl class="summary-list"><dt>Standard</dt><dd>£[price], 30 days</dd><dt>Featured</dt><dd>£[price], top of the list and in the newsletter</dd></dl>
-            <a class="btn btn-block" href="#">Post a job</a></div>
+            <a class="btn btn-block" href="~/pages/post-job.html">Post a job</a></div>
           {n("Employers submit and pay online; staff review before publishing. Prices are placeholders.", "REQ-095, REQ-088, REQ-116")}
           <div class="panel"><h2 class="h4">Careers advice</h2><ul class="stack"><li><a href="#">Careers in statistics</a></li><li><a href="#">Career profiles</a></li></ul></div>
           {n("'Advertise with us' and careers content sit within the Jobs section.", "REQ-251")}
@@ -338,7 +338,7 @@ def myrss():
           <section id="renew" class="panel" data-show-for="lapsed" hidden>
             <h2>Renew your membership</h2>
             <p>Outstanding: <strong>£165.00</strong> for 2026 to 2027 <span class="status-pill warn">Unpaid</span></p>
-            <p><a class="btn" href="~/pages/basket.html">Pay now by card</a> <a class="btn btn-secondary" href="#">Set up Direct Debit</a></p>
+            <p><a class="btn" href="~/pages/pay.html?for=renewal&amp;amount=165.00&amp;desc=RSS+membership+renewal%2C+2026+to+2027&amp;method=card">Pay now by card</a> <a class="btn btn-secondary" href="~/pages/pay.html?for=renewal&amp;amount=165.00&amp;desc=RSS+membership+renewal%2C+2026+to+2027&amp;method=dd">Set up Direct Debit</a></p>
             <p class="wf-meta">An invoice and receipt are emailed once paid. Journal access returns immediately.</p>
           </section>
           <section class="panel" data-show-for="member" hidden><p>No outstanding balance <span class="status-pill">Paid</span></p></section>
@@ -424,7 +424,7 @@ def myrss_bookings():
               <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col"></th></tr></thead><tbody>
                 <tr><td><a href="~/pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a></td></tr>
                 <tr><td><a href="~/pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Cancel</a></td></tr>
-                <tr><td><a href="~/pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="~/pages/basket.html">Pay invoice</a></td></tr>
+                <tr><td><a href="~/pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="~/pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay invoice</a></td></tr>
               </tbody></table>
             </div>
             <div class="tab-panel" id="b-past">

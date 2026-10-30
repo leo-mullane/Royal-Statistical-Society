@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertise a job | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="resources">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/resources.html">Resources</a></li><li class="breadcrumb-item"><a href="~/pages/jobs.html">Jobs</a></li><li class="breadcrumb-item" aria-current="page">Advertise a job</li></ul></nav>
+
+      <div class="split">
+        <div>
+          <h1>Advertise a job</h1>
+          <p class="lead">Reach 10,000 statisticians and data scientists. Adverts run for 30 days.</p>
+          <form class="form-step" data-validate data-pay-for="job" data-pay-desc="Job advert" novalidate>
+            <fieldset class="field"><legend>Advert type</legend>
+              <label class="radio-card"><input type="radio" name="tier" value="standard" data-price="250" required data-error="Choose an advert type"> <strong>Standard</strong>Listed for 30 days. £250</label>
+              <label class="radio-card"><input type="radio" name="tier" value="featured" data-price="450"> <strong>Featured</strong>Top of the list, with your logo, and in the monthly newsletter. £450</label>
+            </fieldset>
+            <div class="field"><label for="pj-title">Job title</label><input type="text" id="pj-title" name="title" required></div>
+            <div class="field-row">
+              <div class="field"><label for="pj-emp">Employer</label><input type="text" id="pj-emp" name="employer" required></div>
+              <div class="field"><label for="pj-loc">Location</label><input type="text" id="pj-loc" name="location" required></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="pj-sal">Salary</label><input type="text" id="pj-sal" name="salary" required></div>
+              <div class="field"><label for="pj-close">Closing date</label><input type="date" id="pj-close" name="closes" required></div>
+            </div>
+            <div class="field"><label for="pj-desc">Description</label><textarea id="pj-desc" name="desc" rows="6" required></textarea></div>
+            <div class="field"><label for="pj-url">Link to apply</label><input type="url" id="pj-url" name="url" required></div>
+            <div class="field"><label for="pj-logo">Logo (optional, featured adverts)</label><input type="file" id="pj-logo" name="logo" accept=".jpg,.png"></div>
+            <p>Total: <strong data-total>£0</strong> (plus VAT)</p>
+            <button class="btn" type="submit">Continue to payment</button>
+          </form>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Employers submit and pay online; staff review before the advert is published. It unpublishes itself on the closing date. Prices are placeholders. <span class="wf-req">REQ-088, REQ-095, REQ-116</span></div>
+        </div>
+        <aside class="panel surface"><h2 class="h4">Need an invoice?</h2><p>Recruitment agencies and employers with an account can pay by invoice. <a href="~/pages/about.html#contact">Contact us</a>.</p></aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

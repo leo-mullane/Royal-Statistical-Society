@@ -21,7 +21,7 @@
       <ol class="steps" aria-label="Booking progress"><li>Who is attending</li><li>Delegate details</li><li>Your organisation</li><li>Check and pay</li></ol>
       <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS. <span class="wf-req">REQ-215, REQ-216, REQ-204</span></div>
       <div class="split">
-        <form data-steps novalidate>
+        <form data-steps data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R, 10 to 11 November 2026, online" novalidate>
           <section class="form-step">
             <h2>Who is attending?</h2>
             <fieldset class="field"><legend>I am booking for</legend>
@@ -61,7 +61,7 @@
             <div class="field"><label for="b-code">Discount code (optional)</label><div class="inline-field"><input type="text" id="b-code" name="code"><button class="btn btn-secondary btn-small" type="button">Apply</button></div></div>
             <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Discount codes are entered here and validated with the payment provider. Member and early-bird prices are applied automatically. <span class="wf-req">REQ-217, REQ-087</span></div>
             <div class="field"><label class="check"><input type="checkbox" name="terms" required data-error="Accept the booking terms"> I accept the <a href="#">booking terms and cancellation policy</a></label></div>
-            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Pay £345</button></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: £345</button></div>
           </section>
           <section class="form-success" data-complete hidden>
             <h2>Booking confirmed</h2>

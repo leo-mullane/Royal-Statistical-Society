@@ -24,7 +24,7 @@
       <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Multi-step form built with the form builder: required fields marked, hints inline, an error summary at the top of each step, and save-and-resume. Try continuing without choosing a grade. <span class="wf-req">REQ-186, REQ-082, REQ-050, REQ-097</span></div>
       <div class="split">
         <!-- Online joining form (REQ-186) -->
-        <form data-steps novalidate>
+        <form data-steps data-pay-for="join" data-pay-desc="RSS membership 2027" novalidate>
           <section class="form-step">
             <h2>Choose your membership</h2>
             <fieldset class="field"><legend>Membership grade</legend><div class="radio-cards"><label class="radio-card"><input type="radio" name="grade" value="fellow" data-price="165" required data-error="Choose a membership grade"> <strong>Fellow</strong>The standard grade, for anyone with an interest in statistics or data. No qualifications needed. <span class="wf-meta">£165 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="gradstat" data-price="185" required data-error="Choose a membership grade"> <strong>Graduate Statistician (GradStat)</strong>For graduates with a degree that meets our academic standard. <span class="wf-meta">£185 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="cstat" data-price="230" required data-error="Choose a membership grade"> <strong>Chartered Statistician (CStat)</strong>Our highest professional award: qualifications plus at least five years of experience. <span class="wf-meta">£230 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="analyst" data-price="165" required data-error="Choose a membership grade"> <strong>Data Analyst</strong>For people working with data, from apprentices to experienced analysts. <span class="wf-meta">£165 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="fis" data-price="95" required data-error="Choose a membership grade"> <strong>Fellow or Member of an International Society (FIS/MIS)</strong>For members of partner societies outside the UK. <span class="wf-meta">£95 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="student" data-price="25" required data-error="Choose a membership grade"> <strong>e-Student</strong>For full-time students. Digital journals and events at student rates. <span class="wf-meta">£25 a year</span></label></div></fieldset>
@@ -102,14 +102,15 @@
             <p class="panel surface">Total to pay today: <strong data-total>£0</strong></p>
             <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Everything entered so far, grouped by step, each with a Change link that returns to that step. <span class="wf-req">REQ-186, REQ-050</span></div>
             <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm that you agree to the Society's charter and code of conduct"> I agree to abide by the Society's charter, bylaws and code of conduct</label></div>
-            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Confirm and pay</button></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment</button></div>
+            <div class="wf-note" data-note="8"><span class="wf-note-label">Behaviour</span>Card and Direct Debit go to the payment provider's secure page and back to a confirmation page. Invoice skips payment and confirms the application. <span class="wf-req">REQ-186, REQ-086, REQ-084</span></div>
           </section>
 
           <section class="form-success" data-complete hidden>
             <h2>Welcome to the Royal Statistical Society</h2>
             <p>Your membership number is <strong>01234567</strong>. We have emailed your receipt and a welcome pack.</p>
             <p><a class="btn" href="~/pages/myrss.html">Go to MyRSS</a></p>
-            <div class="wf-note" data-note="8"><span class="wf-note-label">Behaviour</span>Payment confirmation page and email with an HMRC-compliant receipt. The onboarding email sequence starts, varying by member type. If someone leaves mid-application, an abandoned-application email follows. <span class="wf-req">REQ-089, REQ-149, REQ-152, REQ-087</span></div>
+            <div class="wf-note" data-note="9"><span class="wf-note-label">Behaviour</span>Payment confirmation page and email with an HMRC-compliant receipt. The onboarding email sequence starts, varying by member type. If someone leaves mid-application, an abandoned-application email follows. <span class="wf-req">REQ-089, REQ-149, REQ-152, REQ-087</span></div>
           </section>
         </form>
 
@@ -118,8 +119,8 @@
           <p>Total to pay today: <strong data-total>£0</strong></p>
           <p class="wf-meta">Prices update as you choose. Annual fee for 2027.</p>
           <p><button class="btn-link" type="button">Save and finish later</button></p>
-          <div class="wf-note" data-note="9"><span class="wf-note-label">Behaviour</span>Save and resume emails a link to the saved application. <span class="wf-req">REQ-082</span></div>
-          <div class="wf-note" data-note="10"><span class="wf-note-label">CMS</span>RSS staff edit headings, hints and help text in the form builder without a developer, and can save forms as templates. <span class="wf-req">REQ-083, REQ-098</span></div>
+          <div class="wf-note" data-note="10"><span class="wf-note-label">Behaviour</span>Save and resume emails a link to the saved application. <span class="wf-req">REQ-082</span></div>
+          <div class="wf-note" data-note="11"><span class="wf-note-label">CMS</span>RSS staff edit headings, hints and help text in the form builder without a developer, and can save forms as templates. <span class="wf-req">REQ-083, REQ-098</span></div>
         </aside>
       </div>
 

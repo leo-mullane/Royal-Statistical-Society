@@ -393,7 +393,7 @@ def join():
       {n("Multi-step form built with the form builder: required fields marked, hints inline, an error summary at the top of each step, and save-and-resume. Try continuing without choosing a grade.", "REQ-186, REQ-082, REQ-050, REQ-097")}
       <div class="split">
         <!-- Online joining form (REQ-186) -->
-        <form data-steps novalidate>
+        <form data-steps data-pay-for="join" data-pay-desc="RSS membership 2027" novalidate>
           <section class="form-step">
             <h2>Choose your membership</h2>
             <fieldset class="field"><legend>Membership grade</legend><div class="radio-cards">{grade_radios}</div></fieldset>
@@ -471,7 +471,8 @@ def join():
             <p class="panel surface">Total to pay today: <strong data-total>£0</strong></p>
             {n("Everything entered so far, grouped by step, each with a Change link that returns to that step.", "REQ-186, REQ-050")}
             <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm that you agree to the Society's charter and code of conduct"> I agree to abide by the Society's charter, bylaws and code of conduct</label></div>
-            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Confirm and pay</button></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment</button></div>
+            {n("Card and Direct Debit go to the payment provider's secure page and back to a confirmation page. Invoice skips payment and confirms the application.", "REQ-186, REQ-086, REQ-084")}
           </section>
 
           <section class="form-success" data-complete hidden>

@@ -56,11 +56,9 @@
 :root { --compact-header: 64px; }
 .header-shell { position: relative; z-index: 1001; }
 .site-header { position: relative; background: var(--wf-page); border-bottom: 1px solid var(--wf-border); }
-.header-compact .site-header { position: fixed; top: 0; left: 0; right: 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); animation: header-in 0.18s ease-out; }
+.header-compact .site-header { position: fixed; top: 0; left: 0; right: 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); }
 .header-compact .utility-bar { display: none; }
 .header-compact .main-inner { min-height: var(--compact-header); padding-top: 0; padding-bottom: 0; flex-wrap: nowrap; }
-@keyframes header-in { from { transform: translateY(-100%); } to { transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) { .header-compact .site-header { animation: none; } }
 @media (min-width: 1201px) {
   .header-compact .site-logo { display: none; }
   .header-compact .primary-nav { order: 0; flex: 1; flex-basis: auto; border-top: 0; }
@@ -290,3 +288,14 @@ input[type="date"], input[type="tel"], input[type="number"], input[type="passwor
 
 /* Anchor links and focused headings land below the compact header */
 html { scroll-padding-top: calc(var(--compact-header) + 1rem); }
+
+/* Hosted payment page (payment provider, not rss.org.uk) */
+.provider-bar { border-bottom: 1px solid var(--wf-border); background: var(--wf-surface); }
+.provider-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.75rem; padding-bottom: 0.75rem; flex-wrap: wrap; }
+.provider-name { font-size: 0.875rem; color: var(--wf-text-muted); }
+.pay-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start; max-width: 960px; }
+.order-summary .amount { font-size: 2rem; font-weight: 700; }
+.card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.dd-guarantee { border: 1px solid var(--wf-border-strong); border-radius: var(--wf-radius); padding: 1rem; font-size: 0.875rem; }
+@media (max-width: 768px) { .pay-layout, .card-row { grid-template-columns: 1fr; } }
+aside .summary-list, .panel .summary-list { grid-template-columns: minmax(5.5rem, auto) 1fr; }

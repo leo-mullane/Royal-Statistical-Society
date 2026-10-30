@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment complete | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Payment complete</li></ul></nav>
+
+      <!-- Payment confirmation page (REQ-089, REQ-087) -->
+      <section data-pay-complete class="split">
+        <div>
+          <div data-pay-method-block="card dd">
+            <h1>Payment successful</h1>
+            <p class="lead">Thank you. We have emailed your receipt.</p>
+          </div>
+          <div data-pay-method-block="invoice" hidden>
+            <h1>Application received</h1>
+            <p class="lead">We will email an invoice to your organisation. Your membership starts when it is paid.</p>
+          </div>
+
+          <div data-pay-for-block="join" hidden class="stack">
+            <h2>Welcome to the Royal Statistical Society</h2>
+            <p>Your membership number is <strong>01234567</strong>. Your welcome pack is on its way, and you can sign in to MyRSS now.</p>
+            <p><a class="btn" href="~/pages/myrss.html">Go to MyRSS</a> <a href="~/pages/groups.html">Join a section or local group</a></p>
+            <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The onboarding email sequence starts, varying by member type. <span class="wf-req">REQ-149</span></div>
+          </div>
+          <div data-pay-for-block="renewal" hidden class="stack">
+            <h2>Your membership is renewed</h2>
+            <p>Thank you for staying with us. Your journal access and professional status continue without a break.</p>
+            <p><a class="btn" href="~/pages/myrss.html">Back to MyRSS</a></p>
+          </div>
+          <div data-pay-for-block="course" hidden class="stack">
+            <h2>Your place is booked</h2>
+            <p>Joining instructions are on their way to the delegate. The course now appears in My Training.</p>
+            <p><a class="btn" href="~/pages/myrss-bookings.html">View my bookings</a> <a href="#">Add to calendar</a></p>
+          </div>
+          <div data-pay-for-block="basket" hidden class="stack">
+            <h2>Your order is confirmed</h2>
+            <p>Your tickets and bookings are in MyRSS, with confirmation emails for each.</p>
+            <p><a class="btn" href="~/pages/myrss-bookings.html">View my bookings</a></p>
+          </div>
+          <div data-pay-for-block="invoice" hidden class="stack">
+            <h2>Invoice paid</h2>
+            <p>Your booking status is now Paid.</p>
+            <p><a class="btn" href="~/pages/myrss-bookings.html">Back to my bookings</a></p>
+          </div>
+          <div data-pay-for-block="donation" hidden class="stack">
+            <h2>Thank you for your gift</h2>
+            <p>Your donation supports statistical education and the public understanding of statistics. If you added Gift Aid, we have emailed a copy of your declaration.</p>
+            <div class="share-row"><span class="wf-meta">Tell others:</span><a href="#">LinkedIn</a><a href="#">Bluesky</a><a href="#">Email</a></div>
+          </div>
+          <div data-pay-for-block="job" hidden class="stack">
+            <h2>Your job advert is with us</h2>
+            <p>We check every advert before it goes live, usually within one working day. We will email you when it is published.</p>
+            <p><a class="btn" href="~/pages/jobs.html">Back to jobs</a></p>
+          </div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Every payment ends here, back on rss.org.uk: what happens next depends on what was bought. A confirmation email follows; free events have their own wording without payment language. <span class="wf-req">REQ-089, REQ-150, REQ-152, REQ-207</span></div>
+        </div>
+        <aside class="panel surface" aria-label="Receipt">
+          <h2 class="h4">Receipt</h2>
+          <dl class="summary-list">
+            <dt>Item</dt><dd data-pay-desc></dd>
+            <dt>Amount</dt><dd data-pay-amount></dd>
+            <dt>Paid by</dt><dd data-pay-method></dd>
+            <dt>Reference</dt><dd data-pay-ref></dd>
+            <dt>Date</dt><dd>30 October 2026</dd>
+          </dl>
+          <p><a href="#">Download receipt (PDF)</a></p>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Downloadable receipt that meets HMRC requirements, with VAT shown where it applies. The transaction is written to Dynamics and the purchase is tracked in analytics. <span class="wf-req">REQ-087, REQ-091, REQ-114, REQ-116</span></div>
+        </aside>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

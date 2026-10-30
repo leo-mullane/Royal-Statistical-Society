@@ -1,0 +1,19 @@
+  <!-- Prototype bar: not part of the site. Contents link, viewer switch and notes toggle -->
+  <div class="proto-bar">
+    <div class="container proto-bar-inner">
+      <a class="proto-bar-home" href="~/index.html">RSS prototype <span>contents</span></a>
+      <label class="proto-persona">View as
+        <select data-persona-select aria-label="View the site as">
+          <option value="guest">Signed out</option>
+          <option value="registered">Registered, not a member</option>
+          <option value="member">Member (CStat)</option>
+          <option value="lapsed">Lapsed member</option>
+        </select>
+      </label>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Annotations off</span>
+      </button>
+    </div>
+  </div>
+
