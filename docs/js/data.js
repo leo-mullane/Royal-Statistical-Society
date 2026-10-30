@@ -540,6 +540,62 @@ window.RSS_INDEX = [
  },
  {
   "type": "Event",
+  "title": "Discussion meeting: Small area estimation with administrative data",
+  "url": "event.html",
+  "path": "rss.org.uk › Events and training",
+  "summary": "Combining survey and administrative sources to produce reliable estimates for small populations. Hybrid. RSS, Errol Street, London, and online.",
+  "kw": "Discussion meeting  RSS",
+  "date": "2026-12-15",
+  "when": "15 December 2026",
+  "topicLabels": [
+   "Official statistics",
+   "Methodology"
+  ],
+  "audLabels": [
+   "Statisticians and data professionals",
+   "Policymakers"
+  ],
+  "access": "public"
+ },
+ {
+  "type": "Event",
+  "title": "Discussion meeting: Measuring fairness in algorithmic decisions",
+  "url": "event.html",
+  "path": "rss.org.uk › Events and training",
+  "summary": "A paper comparing statistical definitions of fairness, with case studies from lending and recruitment. Hybrid. RSS, Errol Street, London, and online.",
+  "kw": "Discussion meeting  RSS",
+  "date": "2027-02-24",
+  "when": "24 February 2027",
+  "topicLabels": [
+   "Data science and AI",
+   "Methodology"
+  ],
+  "audLabels": [
+   "Statisticians and data professionals",
+   "Policymakers"
+  ],
+  "access": "public"
+ },
+ {
+  "type": "Event",
+  "title": "Discussion meeting: Adaptive platform trials",
+  "url": "event.html",
+  "path": "rss.org.uk › Events and training",
+  "summary": "Design, analysis and regulatory questions for trials that test several treatments under one protocol. Hybrid. RSS, Errol Street, London, and online.",
+  "kw": "Discussion meeting  RSS",
+  "date": "2027-03-17",
+  "when": "17 March 2027",
+  "topicLabels": [
+   "Medical and health statistics",
+   "Methodology"
+  ],
+  "audLabels": [
+   "Statisticians and data professionals"
+  ],
+  "access": "public"
+ },
+ {
+  "type": "Event",
   "title": "Discussion meeting: Statistics and the climate emergency",
   "url": "event.html",
   "path": "rss.org.uk › Events and training",
@@ -553,24 +609,6 @@ window.RSS_INDEX = [
   ],
   "audLabels": [
    "Statisticians and data professionals"
-  ],
-  "access": "public"
- },
- {
-  "type": "Course",
-  "title": "Introduction to R (September)",
-  "url": "course.html",
-  "path": "rss.org.uk › Events and training",
-  "summary": "Past course date. See the November date above. Online. Online (Zoom).",
-  "kw": "Public course Foundation RSS Training",
-  "date": "2026-09-29",
-  "when": "29 to 30 September 2026",
-  "topicLabels": [
-   "Statistical computing"
-  ],
-  "audLabels": [
-   "Statisticians and data professionals",
-   "Students and early career"
   ],
   "access": "public"
  },

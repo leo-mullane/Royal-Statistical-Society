@@ -106,6 +106,35 @@
       if (item) item.classList.add('is-current');
     }
     $$('[data-year]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
+
+    /* Compact header: once the full header has scrolled out of view, a 64px
+       row is fixed to the top. The shell keeps the full height in the page so
+       nothing jumps; hysteresis stops it flickering at the threshold. */
+    var shell = $('[data-header-shell]');
+    if (!shell) return;
+    var header = $('.site-header', shell);
+    var full = 0, compact = false, ticking = false;
+    function measure() {
+      if (compact) return;
+      full = header.offsetHeight;
+      shell.style.minHeight = full + 'px';
+    }
+    function update() {
+      ticking = false;
+      var y = window.pageYOffset;
+      var top = shell.offsetTop;
+      var want = compact ? y > top + full - 80 : y > top + full;
+      if (want !== compact) {
+        compact = want;
+        document.body.classList.toggle('header-compact', compact);
+      }
+    }
+    measure();
+    window.addEventListener('resize', function () { measure(); update(); });
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
   }
 
   /* --- Search engine shared by type-ahead and results ------------------- */
@@ -860,31 +889,46 @@
     $$('[data-total]', scope).forEach(function (el) { el.textContent = '£' + Math.max(total, 0).toFixed(2).replace(/\.00$/, ''); });
   }
 
+  /* "Check your answers": one block per earlier step, each with a Change link.
+     Steps themselves are hidden at this point, so only conditional sections
+     that are switched off (.reveal[hidden]) are left out. */
+  function optionText(label) {
+    var strong = $('strong', label);
+    return (strong ? strong.textContent : label.textContent).trim();
+  }
   function buildSummary(form) {
-    $$('[data-summary]', form).forEach(function (dl) {
+    var steps = $$('.form-step', form);
+    $$('[data-summary]', form).forEach(function (host) {
       var html = '';
-      var done = {};
-      $$('input, select, textarea', form).forEach(function (input) {
-        if (!input.name || done[input.name] || input.type === 'hidden' || input.closest('[hidden]') || input.closest('[data-summary-skip]')) return;
-        var value;
-        if (input.type === 'radio') {
-          var r = $$('input[name="' + input.name + '"]:checked', form)[0];
-          if (!r) return;
-          value = r.closest('label').textContent.trim().split('\n')[0];
-        } else if (input.type === 'checkbox') {
-          var boxes = $$('input[name="' + input.name + '"]:checked', form);
-          if (!boxes.length) return;
-          value = boxes.map(function (b) { return b.closest('label').textContent.trim(); }).join(', ');
-        } else if (input.tagName === 'SELECT') {
-          value = input.options[input.selectedIndex] ? input.options[input.selectedIndex].textContent : '';
-        } else {
-          value = input.type === 'password' ? '••••••••' : input.value;
-        }
-        done[input.name] = true;
-        if (!value) return;
-        html += '<dt>' + esc(fieldLabel(input)) + '</dt><dd>' + esc(value) + '</dd>';
+      steps.forEach(function (step, i) {
+        if (step.hasAttribute('data-review')) return;
+        var rows = '', done = {};
+        $$('input, select, textarea', step).forEach(function (input) {
+          if (!input.name || done[input.name] || input.type === 'hidden' || input.type === 'file') return;
+          var rev = input.closest('.reveal');
+          if (rev && rev.hidden) return;
+          done[input.name] = true;
+          var value;
+          if (input.type === 'radio') {
+            var r = $$('input[name="' + input.name + '"]:checked', step)[0];
+            value = r ? optionText(r.closest('label')) : '';
+          } else if (input.type === 'checkbox') {
+            value = $$('input[name="' + input.name + '"]:checked', step).map(function (b) { return optionText(b.closest('label')); }).join(', ');
+          } else if (input.tagName === 'SELECT') {
+            var opt = input.options[input.selectedIndex];
+            value = opt && !/^(choose|any )/i.test(opt.textContent) ? opt.textContent : '';
+          } else {
+            value = input.type === 'password' ? (input.value ? 'Set (hidden)' : '') : input.value.trim();
+          }
+          rows += '<dt>' + esc(fieldLabel(input)) + '</dt><dd>' + (value ? esc(value) : '<span class="wf-meta">Not given</span>') + '</dd>';
+        });
+        if (!rows) return;
+        var h = $('h2', step);
+        html += '<div class="summary-block"><div class="summary-block-head"><h3>' + esc(h ? h.textContent : 'Step ' + (i + 1)) + '</h3>' +
+          '<button class="btn-link" type="button" data-goto="' + i + '">Change<span class="visually-hidden"> ' + esc(h ? h.textContent : '') + '</span></button></div>' +
+          '<dl class="summary-list">' + rows + '</dl></div>';
       });
-      dl.innerHTML = html;
+      host.innerHTML = html;
     });
   }
 
