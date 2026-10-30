@@ -113,24 +113,32 @@
     var shell = $('[data-header-shell]');
     if (!shell) return;
     var header = $('.site-header', shell);
-    var full = 0, compact = false, ticking = false;
+    var compact = false, ticking = false, pin = 0;
+    /* The row that stays visible is the main navigation on desktop, or the
+       logo/menu row below 1200px. The header becomes fixed at exactly the
+       scroll position where that row reaches the top of the window, so it is
+       never out of view. */
     function measure() {
       if (compact) return;
-      full = header.offsetHeight;
-      shell.style.minHeight = full + 'px';
+      shell.style.minHeight = header.offsetHeight + 'px';
+      var desktop = window.matchMedia('(min-width: 1201px)').matches;
+      var row = desktop ? $('.primary-nav', header) : $('.main-bar', header);
+      pin = row.getBoundingClientRect().top + window.pageYOffset;
     }
     function update() {
       ticking = false;
       var y = window.pageYOffset;
-      var top = shell.offsetTop;
-      var want = compact ? y > top + full - 80 : y > top + full;
+      var want = compact ? y > pin - 4 : y >= pin;
       if (want !== compact) {
         compact = want;
         document.body.classList.toggle('header-compact', compact);
       }
     }
     measure();
-    window.addEventListener('resize', function () { measure(); update(); });
+    window.addEventListener('resize', function () {
+      if (compact) { compact = false; document.body.classList.remove('header-compact'); }
+      measure(); update();
+    });
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
     }, { passive: true });
@@ -886,7 +894,30 @@
     });
     /* The running total may sit beside the form (e.g. a summary panel) */
     var scope = form.closest('.split') || form;
-    $$('[data-total]', scope).forEach(function (el) { el.textContent = '£' + Math.max(total, 0).toFixed(2).replace(/\.00$/, ''); });
+    total = Math.max(total, 0);
+    $$('[data-total]', scope).forEach(function (el) { el.textContent = money(total); });
+    return total;
+  }
+  function money(n) { return '£' + Number(n).toFixed(2).replace(/\.00$/, ''); }
+
+  /* --- Payment (REQ-084, REQ-086, REQ-089) ------------------------------
+     A form with data-pay-for hands over to the payment provider's hosted
+     page (pay.html) with what is being paid for, the amount and the method.
+     The hosted page returns to payment-complete.html. Invoice skips payment. */
+  function goToPayment(form) {
+    var amount = form.hasAttribute('data-pay-amount') ? parseFloat(form.getAttribute('data-pay-amount')) : updateTotals(form);
+    var method = 'card';
+    var pay = $('input[name="pay"]:checked', form);
+    if (pay) method = pay.value;
+    var freq = $('input[name="freq"]:checked', form);
+    if (freq && freq.value === 'monthly') method = 'dd';
+    var other = form.elements.other;
+    if (other && !other.closest('[hidden]')) amount += parseFloat(other.value) || 0;
+    var desc = form.getAttribute('data-pay-desc') || 'Payment';
+    var grade = $('input[name="grade"]:checked', form);
+    if (grade) desc += ': ' + optionText(grade.closest('label'));
+    var p = new URLSearchParams({ for: form.getAttribute('data-pay-for'), amount: amount.toFixed(2), desc: desc, method: method });
+    window.location.href = (method === 'invoice' ? 'payment-complete.html?' : 'pay.html?') + p.toString();
   }
 
   /* "Check your answers": one block per earlier step, each with a Change link.
@@ -943,6 +974,7 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!validate(form)) return;
+        if (form.hasAttribute('data-pay-for')) { goToPayment(form); return; }
         var ok = $('.form-success', form);
         if (ok) { ok.hidden = false; ok.setAttribute('tabindex', '-1'); ok.focus(); }
         $$('button[type="submit"]', form).forEach(function (b) { b.disabled = true; });
@@ -981,6 +1013,7 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!validate(steps[idx])) return;
+        if (form.hasAttribute('data-pay-for')) { goToPayment(form); return; }
         var done = $('[data-complete]', form);
         steps.forEach(function (s) { s.hidden = true; });
         marks.forEach(function (m) { m.classList.add('done'); m.classList.remove('current'); });
@@ -1047,6 +1080,17 @@
       refreshBasketCount();
       draw();
     });
+    $$('[data-checkout]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        var items = basket();
+        if (!items.length) return;
+        var sub = items.reduce(function (s, it) { return s + it.price; }, 0);
+        var total = sub * (store('rss-promo') === 'MEMBER10' ? 0.9 : 1);
+        var desc = items.length === 1 ? items[0].title : items.length + ' items: ' + items.map(function (it) { return it.title; }).join(', ');
+        window.location.href = 'pay.html?' + new URLSearchParams({ for: 'basket', amount: total.toFixed(2), desc: desc, method: 'card' }).toString();
+      });
+    });
     var promo = $('[data-promo-form]');
     if (promo) {
       promo.addEventListener('submit', function (e) {
@@ -1059,6 +1103,82 @@
       });
     }
     draw();
+  }
+
+  /* --- Hosted payment page (pay.html) ---------------------------------- */
+  function initPayPage() {
+    var root = $('[data-pay-page]');
+    if (!root) return;
+    var p = params();
+    var amount = parseFloat(p.get('amount') || '0');
+    var method = p.get('method') || 'card';
+    $$('[data-pay-desc]').forEach(function (el) { el.textContent = p.get('desc') || 'Payment to the Royal Statistical Society'; });
+    $$('[data-pay-amount]').forEach(function (el) { el.textContent = money(amount); });
+    $$('[data-pay-back]').forEach(function (a) { a.setAttribute('href', document.referrer || 'home.html'); });
+
+    var tab = $('.tab[data-tab-key="' + (method === 'dd' ? 'dd' : 'card') + '"]', root);
+    if (tab) tab.click();
+    /* Direct Debit only where the item allows it */
+    if (!/^(join|renewal|donation)$/.test(p.get('for') || '')) {
+      var ddTab = $('.tab[data-tab-key="dd"]', root);
+      if (ddTab) ddTab.hidden = true;
+    }
+
+    function finish(m) {
+      var out = new URLSearchParams(p.toString());
+      out.set('method', m);
+      out.set('ref', 'RSS-' + String(Math.floor(100000 + Math.random() * 900000)));
+      window.location.href = 'payment-complete.html?' + out.toString();
+    }
+
+    var card = $('[data-card-form]', root);
+    var threeDs = $('#three-ds');
+    card.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var declined = $('[data-declined]', root);
+      declined.hidden = true;
+      if (!validate(card)) return;
+      var digits = card.elements.cardnumber.value.replace(/\D/g, '');
+      if (/0002$/.test(digits)) {
+        declined.hidden = false;
+        declined.setAttribute('tabindex', '-1');
+        declined.focus();
+        return;
+      }
+      threeDs.classList.add('open');
+      $('.wf-modal-panel', threeDs).focus();
+    });
+    $('[data-3ds-approve]').addEventListener('click', function () { finish('card'); });
+
+    var dd = $('[data-dd-form]', root);
+    dd.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate(dd)) return;
+      finish('dd');
+    });
+  }
+
+  /* --- Payment confirmation (payment-complete.html) ---------------------- */
+  function initPaymentComplete() {
+    var root = $('[data-pay-complete]');
+    if (!root) return;
+    var p = params();
+    var what = p.get('for') || 'basket';
+    var method = p.get('method') || 'card';
+    var labels = { card: 'Card', dd: 'Direct Debit', invoice: 'Invoice' };
+    $$('[data-pay-desc]').forEach(function (el) { el.textContent = p.get('desc') || ''; });
+    $$('[data-pay-amount]').forEach(function (el) { el.textContent = money(parseFloat(p.get('amount') || '0')); });
+    $$('[data-pay-ref]').forEach(function (el) { el.textContent = p.get('ref') || 'RSS-INV-204517'; });
+    $$('[data-pay-method]').forEach(function (el) { el.textContent = labels[method] || method; });
+    $$('[data-pay-for-block]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-pay-for-block').split(/\s+/).indexOf(what) === -1;
+    });
+    $$('[data-pay-method-block]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-pay-method-block').split(/\s+/).indexOf(method) === -1;
+    });
+    if (what === 'basket') { basket([]); store('rss-promo', ''); refreshBasketCount(); }
+    /* In the prototype, joining or renewing makes you a member */
+    if (what === 'join' || what === 'renewal') applyPersona((store('rss-persona', 'member'), 'member'));
   }
 
   /* --- Cookie banner (REQ-248) ------------------------------------------ */
@@ -1131,6 +1251,8 @@
     initForms();
     initBasket();
     initCookies();
+    initPayPage();
+    initPaymentComplete();
     initMisc();
   });
 })();
