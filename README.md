@@ -58,4 +58,4 @@ python3 tools/gen.py && node build-includes.js && node validate.js
 
 ## Search
 
-Search follows the model agreed for Travers Smith: an overlay with type-ahead grouped by content type, curated quick links and suggested searches; one results page for every content type with faceted filters and counts (hiding a filter with one option or none), synonyms, typo tolerance, matches inside documents, highlighted terms, sorting, results per page, zero-results help, and "Refine in advanced search" that carries the current query. An AI-assisted summary (REQ-041) sits above the results.
+Search has an overlay with type-ahead grouped by content type, curated quick links and suggested searches; one results page for every content type with faceted filters and counts (hiding a filter with one option or none), synonyms, typo tolerance, matches inside documents, highlighted terms, sorting, results per page, zero-results help, and "Refine in advanced search" that carries the current query. An AI-assisted summary (REQ-041) sits above the results.
