@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a course | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item"><a href="~/pages/course.html">Introduction to R</a></li><li class="breadcrumb-item" aria-current="page">Book</li></ul></nav>
+
+      <h1>Book: Introduction to R</h1>
+      <p class="lead">10 to 11 November 2026, online</p>
+      <ol class="steps" aria-label="Booking progress"><li>Who is attending</li><li>Delegate details</li><li>Your organisation</li><li>Check and pay</li></ol>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS. <span class="wf-req">REQ-215, REQ-216, REQ-204</span></div>
+      <div class="split">
+        <form data-steps novalidate>
+          <section class="form-step">
+            <h2>Who is attending?</h2>
+            <fieldset class="field"><legend>I am booking for</legend>
+              <label class="radio-card"><input type="radio" name="who" value="me" required data-error="Choose who you are booking for"> <strong>Myself</strong>We will use your MyRSS details</label>
+              <label class="radio-card"><input type="radio" name="who" value="others" data-reveal="others-note"> <strong>Someone else, or a group</strong>You pay; each delegate gets the joining details</label>
+            </fieldset>
+            <div class="reveal" id="others-note" hidden><p>You will add each delegate on the next step. We will create a basic account for each delegate and tell them why.</p>
+              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5 or more</option></select></div></div>
+            <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>Delegate details</h2>
+            <div class="field-row">
+              <div class="field"><label for="b-first">Delegate first name</label><input type="text" id="b-first" name="dfirst" required></div>
+              <div class="field"><label for="b-last">Delegate last name</label><input type="text" id="b-last" name="dlast" required></div>
+            </div>
+            <div class="field"><label for="b-email">Delegate email</label><input type="email" id="b-email" name="demail" required></div>
+            <div class="field"><label for="b-needs">Access or dietary requirements (optional)</label><textarea id="b-needs" name="needs" rows="3"></textarea></div>
+            <div class="field"><label for="b-heard">How did you hear about this course? (optional)</label><select id="b-heard" name="heard"><option value="">Choose one</option><option>RSS newsletter</option><option>Colleague</option><option>Search engine</option><option>Social media</option><option>Employer</option></select></div>
+            <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Fields come from a reusable registration template with event-specific extras (catering, accessibility). Extra fields not held in Dynamics are stored for the organiser or emailed to them. <span class="wf-req">REQ-204, REQ-205, REQ-216</span></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>Your organisation</h2>
+            <div class="field"><label for="b-org">Organisation (optional)</label><input type="text" id="b-org" name="org"></div>
+            <fieldset class="field"><legend>Payment</legend>
+              <label class="check"><input type="radio" name="pay" value="card" required data-error="Choose how to pay"> Card</label>
+              <label class="check"><input type="radio" name="pay" value="invoice" data-reveal="po-field"> Invoice or purchase order</label>
+            </fieldset>
+            <div class="reveal" id="po-field" hidden><div class="field"><label for="b-po">Purchase order number</label><input type="text" id="b-po" name="po"></div></div>
+            <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Is booking by invoice or purchase order offered today? ClerksWell has suggested it (REQ-290, a Could). <span class="wf-req">REQ-290</span></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+          <section class="form-step" hidden data-review>
+            <h2>Check and pay</h2>
+            <dl class="summary-list" data-summary></dl>
+            <div class="field"><label for="b-code">Discount code (optional)</label><div class="inline-field"><input type="text" id="b-code" name="code"><button class="btn btn-secondary btn-small" type="button">Apply</button></div></div>
+            <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Discount codes are entered here and validated with the payment provider. Member and early-bird prices are applied automatically. <span class="wf-req">REQ-217, REQ-087</span></div>
+            <div class="field"><label class="check"><input type="checkbox" name="terms" required data-error="Accept the booking terms"> I accept the <a href="#">booking terms and cancellation policy</a></label></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Pay £345</button></div>
+          </section>
+          <section class="form-success" data-complete hidden>
+            <h2>Booking confirmed</h2>
+            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My Training.</p>
+            <p><a class="btn" href="~/pages/myrss-bookings.html">View in MyRSS</a></p>
+            <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>If the booker leaves before paying, an abandoned-booking reminder is sent. <span class="wf-req">REQ-221, REQ-089</span></div>
+          </section>
+        </form>
+        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br>10 to 11 November 2026, online</p><p>Member price: £345</p></aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

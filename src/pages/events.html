@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find an event or course | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item" aria-current="page">Find an event or course</li></ul></nav>
+
+      <h1>Find an event or course</h1>
+      <p class="lead">Events, discussion meetings and training courses in one list.</p>
+      <!-- Combined events and training finder (REQ-211, REQ-031, REQ-210) -->
+      <section data-listing data-page-size="8">
+        <form class="big-search" role="search">
+          <label for="ev-q" class="visually-hidden">Search events and courses</label>
+          <input type="search" id="ev-q" data-filter="q" placeholder="Search by keyword, speaker or organiser">
+          <button class="btn" type="submit">Search</button>
+        </form>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>One finder for events and training. Filters are topic, format, audience, type and date, using the shared taxonomy. CRM categories ('Section Group Meeting', 'Other Event (non-RSS)') are kept behind the scenes as an 'organiser' field. <span class="wf-req">REQ-211, REQ-031, REQ-213, REQ-017</span></div>
+        <div class="finder">
+          <aside class="facets" aria-label="Filter events and courses">
+            <fieldset class="facet"><legend>Type</legend>
+              <label class="check"><input type="checkbox" data-filter="type" value="event"> Events</label>
+              <label class="check"><input type="checkbox" data-filter="type" value="course"> Training courses</label>
+            </fieldset>
+            <div class="facet field"><label for="ev-when" class="facet-title">When</label>
+              <select id="ev-when" data-filter="when"><option value="upcoming">Upcoming</option><option value="month">Next 30 days</option><option value="quarter">Next three months</option><option value="past">Past events</option><option value="">Any time</option></select></div>
+            <fieldset class="facet"><legend>Format</legend>
+              <label class="check"><input type="checkbox" data-filter="fmt" value="in-person"> In person</label>
+              <label class="check"><input type="checkbox" data-filter="fmt" value="online"> Online</label>
+              <label class="check"><input type="checkbox" data-filter="fmt" value="hybrid"> Hybrid</label>
+            </fieldset>
+            <fieldset class="facet"><legend>Topic</legend><label class="check"><input type="checkbox" data-filter="topic" value="official"> Official statistics</label><label class="check"><input type="checkbox" data-filter="topic" value="datasci"> Data science and AI</label><label class="check"><input type="checkbox" data-filter="topic" value="health"> Medical and health statistics</label><label class="check"><input type="checkbox" data-filter="topic" value="methods"> Methodology</label><label class="check"><input type="checkbox" data-filter="topic" value="education"> Statistical education</label><label class="check"><input type="checkbox" data-filter="topic" value="social"> Social statistics</label><label class="check"><input type="checkbox" data-filter="topic" value="environment"> Environmental statistics</label><label class="check"><input type="checkbox" data-filter="topic" value="business"> Business and industry</label><label class="check"><input type="checkbox" data-filter="topic" value="computing"> Statistical computing</label><label class="check"><input type="checkbox" data-filter="topic" value="public"> Public understanding of statistics</label></fieldset>
+            <fieldset class="facet"><legend>Who it is for</legend><label class="check"><input type="checkbox" data-filter="audience" value="professionals"> Statisticians and data professionals</label><label class="check"><input type="checkbox" data-filter="audience" value="students"> Students and early career</label><label class="check"><input type="checkbox" data-filter="audience" value="educators"> Educators</label><label class="check"><input type="checkbox" data-filter="audience" value="policymakers"> Policymakers</label><label class="check"><input type="checkbox" data-filter="audience" value="public"> The public</label></fieldset>
+          </aside>
+          <div>
+            <div class="results-bar">
+              <p class="result-count" data-count aria-live="polite"></p>
+              <button class="btn btn-secondary btn-small facets-toggle" type="button" data-facets-toggle aria-expanded="false">Filters</button>
+              <div class="field"><label for="ev-sort">Sort</label><select id="ev-sort" data-list-sort><option value="soonest">Soonest first</option><option value="latest">Latest first</option><option value="title">Title A to Z</option></select></div>
+              <div class="view-switch" role="group" aria-label="View"><button type="button" data-view="list" aria-pressed="true">List</button><button type="button" data-view="calendar" aria-pressed="false">Calendar</button></div>
+            </div>
+            <div class="active-filters" data-chips></div>
+            <div data-list-view>
+              <div>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="computing" data-fmt="online" data-audience="professionals students"
+              data-date="2026-09-29" data-end="2026-09-30" data-title="Introduction to R (September)" data-text="Introduction to R (September) Past course date. See the November date above. RSS Training Public course Foundation Statistical computing" data-short="Introduction to R (September)" data-snapshot="Introduction to R (September). 29 to 30 September 2026. Two days. Online. £345 members, £460 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">29</span><span class="m">Sep 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">Online</span><span class="tag">Foundation</span></p>
+                <h3><a href="~/pages/course.html">Introduction to R (September)</a></h3>
+                <p>Past course date. See the November date above.</p>
+                <p class="meta-row"><span>29 to 30 September 2026, Two days</span><span>Online (Zoom)</span><span>£345 members, £460 non-members</span><span>Organised by RSS Training</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">View</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="environment methods" data-fmt="hybrid" data-audience="professionals"
+              data-date="2026-10-14" data-end="2026-10-14" data-title="Discussion meeting: Statistics and the climate emergency" data-text="Discussion meeting: Statistics and the climate emergency Recording now available. The paper and discussion will appear in Series A. RSS Discussion meeting  Environmental statistics Methodology" data-short="Statistics and the climate emergency" data-snapshot="Discussion meeting: Statistics and the climate emergency. 14 October 2026. 17:00 to 19:00 BST. Hybrid. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">14</span><span class="m">Oct 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p>
+                <h3><a href="~/pages/event.html">Discussion meeting: Statistics and the climate emergency</a></h3>
+                <p>Recording now available. The paper and discussion will appear in Series A.</p>
+                <p class="meta-row"><span>14 October 2026, 17:00 to 19:00 BST</span><span>RSS, Errol Street, London, and online</span><span>Free</span><span>Organised by RSS</span></p>
+                <p><span class="tag">Recording available</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">View</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="datasci methods" data-fmt="hybrid" data-audience="professionals"
+              data-date="2026-11-04" data-end="2026-11-04" data-title="Discussion meeting: Statistical aspects of evaluating large language models" data-text="Discussion meeting: Statistical aspects of evaluating large language models A paper read to the Society, followed by an open discussion. Contributions can be made in the room or online. RSS Discussion meeting  Data science and AI Methodology" data-short="Statistical aspects of evaluating larg" data-snapshot="Discussion meeting: Statistical aspects of evaluating large language models. 4 November 2026. 17:00 to 19:00 GMT. Hybrid. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">4</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p>
+                <h3><a href="~/pages/event.html">Discussion meeting: Statistical aspects of evaluating large language models</a></h3>
+                <p>A paper read to the Society, followed by an open discussion. Contributions can be made in the room or online.</p>
+                <p class="meta-row"><span>4 November 2026, 17:00 to 19:00 GMT</span><span>RSS, Errol Street, London, and online</span><span>Free</span><span>Organised by RSS</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="computing" data-fmt="online" data-audience="professionals students"
+              data-date="2026-11-10" data-end="2026-11-11" data-title="Introduction to R" data-text="Introduction to R Import, tidy, summarise and plot data in R, with practical exercises throughout. No previous programming needed. RSS Training Public course Foundation Statistical computing" data-short="Introduction to R" data-snapshot="Introduction to R. 10 to 11 November 2026. 09:30 to 16:30 GMT, two days. Online. £345 members, £460 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">10</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">Online</span><span class="tag">Foundation</span></p>
+                <h3><a href="~/pages/course.html">Introduction to R</a></h3>
+                <p>Import, tidy, summarise and plot data in R, with practical exercises throughout. No previous programming needed.</p>
+                <p class="meta-row"><span>10 to 11 November 2026, 09:30 to 16:30 GMT, two days</span><span>Online (Zoom)</span><span>£345 members, £460 non-members</span><span>Organised by RSS Training</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="health methods" data-fmt="online" data-audience="professionals"
+              data-date="2026-11-12" data-end="2026-11-12" data-title="Medical Section: Estimands in clinical trials, five years on" data-text="Medical Section: Estimands in clinical trials, five years on Three speakers from industry and academia on how the ICH E9 addendum has changed trial design and reporting. Medical Section Section meeting  Medical and health statistics Methodology" data-short="Estimands in clinical trials, five yea" data-snapshot="Medical Section: Estimands in clinical trials, five years on. 12 November 2026. 14:00 to 16:00 GMT. Online. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">12</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Section meeting</span><span class="tag">Online</span></p>
+                <h3><a href="~/pages/event.html">Medical Section: Estimands in clinical trials, five years on</a></h3>
+                <p>Three speakers from industry and academia on how the ICH E9 addendum has changed trial design and reporting.</p>
+                <p class="meta-row"><span>12 November 2026, 14:00 to 16:00 GMT</span><span>Online</span><span>Free</span><span>Organised by Medical Section</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="methods computing" data-fmt="in-person" data-audience="professionals"
+              data-date="2026-11-17" data-end="2026-11-18" data-title="Bayesian statistics with Stan" data-text="Bayesian statistics with Stan Build, fit and check Bayesian models in Stan, from simple regressions to hierarchical models. RSS Training Public course Intermediate Methodology Statistical computing" data-short="Bayesian statistics with Stan" data-snapshot="Bayesian statistics with Stan. 17 to 18 November 2026. 09:30 to 16:30 GMT, two days. In person. £690 members, £920 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">17</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">In person</span><span class="tag">Intermediate</span></p>
+                <h3><a href="~/pages/course.html">Bayesian statistics with Stan</a></h3>
+                <p>Build, fit and check Bayesian models in Stan, from simple regressions to hierarchical models.</p>
+                <p class="meta-row"><span>17 to 18 November 2026, 09:30 to 16:30 GMT, two days</span><span>RSS, Errol Street, London</span><span>£690 members, £920 non-members</span><span>Organised by RSS Training</span></p>
+                <p><strong>Few places left</strong></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="public social" data-fmt="in-person" data-audience="public professionals"
+              data-date="2026-11-19" data-end="2026-11-19" data-title="Merseyside Local Group: The statistics of sport" data-text="Merseyside Local Group: The statistics of sport How clubs use data to recruit players and set tactics, and what the numbers can and cannot tell us. Merseyside Local Group Local group meeting  Public understanding of statistics Social statistics" data-short="The statistics of sport" data-snapshot="Merseyside Local Group: The statistics of sport. 19 November 2026. 18:30 to 20:00 GMT. In person. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">19</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Local group meeting</span><span class="tag">In person</span></p>
+                <h3><a href="~/pages/event.html">Merseyside Local Group: The statistics of sport</a></h3>
+                <p>How clubs use data to recruit players and set tactics, and what the numbers can and cannot tell us.</p>
+                <p class="meta-row"><span>19 November 2026, 18:30 to 20:00 GMT</span><span>University of Liverpool</span><span>Free</span><span>Organised by Merseyside Local Group</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="datasci public" data-fmt="online" data-audience="professionals policymakers"
+              data-date="2026-11-24" data-end="2026-11-24" data-title="Data visualisation for decision makers" data-text="Data visualisation for decision makers Choose the right chart, avoid misleading ones and present uncertainty to people who need to make a decision. RSS Training Public course Foundation Data science and AI Public understanding of statistics" data-short="Data visualisation for decision makers" data-snapshot="Data visualisation for decision makers. 24 November 2026. 09:30 to 13:00 GMT. Online. £295 members, £395 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">24</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">Online</span><span class="tag">Foundation</span></p>
+                <h3><a href="~/pages/course.html">Data visualisation for decision makers</a></h3>
+                <p>Choose the right chart, avoid misleading ones and present uncertainty to people who need to make a decision.</p>
+                <p class="meta-row"><span>24 November 2026, 09:30 to 13:00 GMT</span><span>Online (Zoom)</span><span>£295 members, £395 non-members</span><span>Organised by RSS Training</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="official social" data-fmt="hybrid" data-audience="professionals policymakers"
+              data-date="2026-11-26" data-end="2026-11-26" data-title="Official Statistics Section: Census 2031 and the future of population statistics" data-text="Official Statistics Section: Census 2031 and the future of population statistics Where the recommendation on the future of the census now stands, and what it means for users of small-area data. Official Statistics Section Section meeting  Official statistics Social statistics" data-short="Census 2031 and the future of populati" data-snapshot="Official Statistics Section: Census 2031 and the future of population statistics. 26 November 2026. 16:00 to 18:00 GMT. Hybrid. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">26</span><span class="m">Nov 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Section meeting</span><span class="tag">Hybrid</span></p>
+                <h3><a href="~/pages/event.html">Official Statistics Section: Census 2031 and the future of population statistics</a></h3>
+                <p>Where the recommendation on the future of the census now stands, and what it means for users of small-area data.</p>
+                <p class="meta-row"><span>26 November 2026, 16:00 to 18:00 GMT</span><span>RSS, Errol Street, London, and online</span><span>Free</span><span>Organised by Official Statistics Section</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="datasci computing" data-fmt="online" data-audience="professionals"
+              data-date="2026-12-01" data-end="2026-12-03" data-title="Introduction to machine learning" data-text="Introduction to machine learning Supervised learning, model validation and the trade-offs between interpretability and accuracy, taught by statisticians. RSS Training Public course Intermediate Data science and AI Statistical computing" data-short="Introduction to machine learning" data-snapshot="Introduction to machine learning. 1 to 3 December 2026. 09:30 to 13:00 GMT, three mornings. Online. £520 members, £690 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">1</span><span class="m">Dec 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">Online</span><span class="tag">Intermediate</span></p>
+                <h3><a href="~/pages/course.html">Introduction to machine learning</a></h3>
+                <p>Supervised learning, model validation and the trade-offs between interpretability and accuracy, taught by statisticians.</p>
+                <p class="meta-row"><span>1 to 3 December 2026, 09:30 to 13:00 GMT, three mornings</span><span>Online (Zoom)</span><span>£520 members, £690 non-members</span><span>Organised by RSS Training</span></p>
+                <p><strong>Fully booked: join the waiting list</strong></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="education" data-fmt="in-person" data-audience="students"
+              data-date="2026-12-03" data-end="2026-12-03" data-title="Young Statisticians Section: Careers evening" data-text="Young Statisticians Section: Careers evening Statisticians from government, health, finance and tech talk about how they got started. Networking afterwards. Young Statisticians Section Section meeting  Statistical education" data-short="Careers evening" data-snapshot="Young Statisticians Section: Careers evening. 3 December 2026. 18:00 to 20:30 GMT. In person. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">3</span><span class="m">Dec 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Section meeting</span><span class="tag">In person</span></p>
+                <h3><a href="~/pages/event.html">Young Statisticians Section: Careers evening</a></h3>
+                <p>Statisticians from government, health, finance and tech talk about how they got started. Networking afterwards.</p>
+                <p class="meta-row"><span>3 December 2026, 18:00 to 20:30 GMT</span><span>Manchester Metropolitan University</span><span>Free</span><span>Organised by Young Statisticians Section</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="education public" data-fmt="online" data-audience="educators students public"
+              data-date="2026-12-09" data-end="2026-12-09" data-title="RSS lecture for schools: How do we know what we know?" data-text="RSS lecture for schools: How do we know what we know? A live, interactive lecture for students aged 14 to 18 about evidence, uncertainty and spotting a misleading claim. RSS Public lecture  Statistical education Public understanding of statistics" data-short="How do we know what we know?" data-snapshot="RSS lecture for schools: How do we know what we know?. 9 December 2026. 10:00 to 11:00 GMT. Online. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">9</span><span class="m">Dec 2026</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Public lecture</span><span class="tag">Online</span></p>
+                <h3><a href="~/pages/event.html">RSS lecture for schools: How do we know what we know?</a></h3>
+                <p>A live, interactive lecture for students aged 14 to 18 about evidence, uncertainty and spotting a misleading claim.</p>
+                <p class="meta-row"><span>9 December 2026, 10:00 to 11:00 GMT</span><span>Online</span><span>Free</span><span>Organised by RSS</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="health methods" data-fmt="in-person" data-audience="professionals"
+              data-date="2027-01-14" data-end="2027-01-15" data-title="Survival analysis" data-text="Survival analysis Kaplan-Meier, Cox models and their extensions, with worked examples from clinical and epidemiological studies. RSS Training Public course Intermediate Medical and health statistics Methodology" data-short="Survival analysis" data-snapshot="Survival analysis. 14 to 15 January 2027. 09:30 to 16:30 GMT, two days. In person. £690 members, £920 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">14</span><span class="m">Jan 2027</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">In person</span><span class="tag">Intermediate</span></p>
+                <h3><a href="~/pages/course.html">Survival analysis</a></h3>
+                <p>Kaplan-Meier, Cox models and their extensions, with worked examples from clinical and epidemiological studies.</p>
+                <p class="meta-row"><span>14 to 15 January 2027, 09:30 to 16:30 GMT, two days</span><span>RSS, Errol Street, London</span><span>£690 members, £920 non-members</span><span>Organised by RSS Training</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="public" data-fmt="in-person" data-audience="professionals"
+              data-date="2027-01-20" data-end="2027-01-20" data-title="Statistical Ambassadors training day" data-text="Statistical Ambassadors training day Media and communication training for members joining the Statistical Ambassadors programme. RSS Training day  Public understanding of statistics" data-short="Statistical Ambassadors training day" data-snapshot="Statistical Ambassadors training day. 20 January 2027. 10:00 to 16:00 GMT. In person. Free (selected volunteers)">
+              <div class="date-block" aria-hidden="true"><span class="d">20</span><span class="m">Jan 2027</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training day</span><span class="tag">In person</span></p>
+                <h3><a href="~/pages/event.html">Statistical Ambassadors training day</a></h3>
+                <p>Media and communication training for members joining the Statistical Ambassadors programme.</p>
+                <p class="meta-row"><span>20 January 2027, 10:00 to 16:00 GMT</span><span>RSS, Errol Street, London</span><span>Free (selected volunteers)</span><span>Organised by RSS</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="methods" data-fmt="hybrid" data-audience="professionals"
+              data-date="2027-01-27" data-end="2027-01-27" data-title="Discussion meeting: Causal inference from observational data" data-text="Discussion meeting: Causal inference from observational data A paper on target trial emulation, read to the Society, with discussion to be published in Series A. RSS Discussion meeting  Methodology" data-short="Causal inference from observational da" data-snapshot="Discussion meeting: Causal inference from observational data. 27 January 2027. 17:00 to 19:00 GMT. Hybrid. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">27</span><span class="m">Jan 2027</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p>
+                <h3><a href="~/pages/event.html">Discussion meeting: Causal inference from observational data</a></h3>
+                <p>A paper on target trial emulation, read to the Society, with discussion to be published in Series A.</p>
+                <p class="meta-row"><span>27 January 2027, 17:00 to 19:00 GMT</span><span>RSS, Errol Street, London, and online</span><span>Free</span><span>Organised by RSS</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="course" data-type="course" data-topic="social official" data-fmt="online" data-audience="professionals"
+              data-date="2027-02-02" data-end="2027-02-02" data-title="Practical survey design" data-text="Practical survey design Questionnaire design, sampling and non-response, for people who commission or run surveys. RSS Training Public course Foundation Social statistics Official statistics" data-short="Practical survey design" data-snapshot="Practical survey design. 2 February 2027. 09:30 to 16:30 GMT. Online. £345 members, £460 non-members">
+              <div class="date-block" aria-hidden="true"><span class="d">2</span><span class="m">Feb 2027</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Training course</span><span class="tag">Online</span><span class="tag">Foundation</span></p>
+                <h3><a href="~/pages/course.html">Practical survey design</a></h3>
+                <p>Questionnaire design, sampling and non-response, for people who commission or run surveys.</p>
+                <p class="meta-row"><span>2 February 2027, 09:30 to 16:30 GMT</span><span>Online (Zoom)</span><span>£345 members, £460 non-members</span><span>Organised by RSS Training</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/course.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="official datasci" data-fmt="online" data-audience="professionals policymakers"
+              data-date="2027-02-10" data-end="2027-02-10" data-title="Gulf Local Group: Data science in government" data-text="Gulf Local Group: Data science in government How statistical offices in the region are using administrative data and machine learning. Gulf Local Group Local group meeting  Official statistics Data science and AI" data-short="Data science in government" data-snapshot="Gulf Local Group: Data science in government. 10 February 2027. 18:00 to 19:30 GST. Online. Free">
+              <div class="date-block" aria-hidden="true"><span class="d">10</span><span class="m">Feb 2027</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Local group meeting</span><span class="tag">Online</span></p>
+                <h3><a href="~/pages/event.html">Gulf Local Group: Data science in government</a></h3>
+                <p>How statistical offices in the region are using administrative data and machine learning.</p>
+                <p class="meta-row"><span>10 February 2027, 18:00 to 19:30 GST</span><span>Online</span><span>Free</span><span>Organised by Gulf Local Group</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/event.html">Book</a></div>
+            </article>
+            <article class="list-item" data-item data-kind="event" data-type="event" data-topic="methods datasci official health" data-fmt="in-person" data-audience="professionals students"
+              data-date="2027-09-06" data-end="2027-09-09" data-title="RSS Conference 2027, Edinburgh" data-text="RSS Conference 2027, Edinburgh The UK&#x27;s largest annual statistics and data science conference: more than 500 talks, workshops and posters. RSS Conference  Methodology Data science and AI Official statistics Medical and health statistics" data-short="RSS Conference 2027, Edinburgh" data-snapshot="RSS Conference 2027, Edinburgh. 6 to 9 September 2027. Four days. In person. From £295">
+              <div class="date-block" aria-hidden="true"><span class="d">6</span><span class="m">Sep 2027</span></div>
+              <div>
+                <p class="meta-row"><span class="tag">Conference</span><span class="tag">In person</span></p>
+                <h3><a href="~/pages/conference.html">RSS Conference 2027, Edinburgh</a></h3>
+                <p>The UK&#x27;s largest annual statistics and data science conference: more than 500 talks, workshops and posters.</p>
+                <p class="meta-row"><span>6 to 9 September 2027, Four days</span><span>Edinburgh International Conference Centre</span><span>From £295</span><span>Organised by RSS</span></p>
+                
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="~/pages/conference.html">Book</a></div>
+            </article>
+              </div>
+              <p class="empty-state" data-empty hidden>No events or courses match. Try removing a filter, or <a href="~/pages/events.html?when=past">look at past events</a>.</p>
+              <p style="text-align:center;margin-top:1.5rem"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
+            </div>
+            <div data-calendar hidden>
+              <div class="calendar-head"><button class="btn btn-secondary btn-small" type="button" data-cal-step="-1">&lsaquo; Previous</button><h2 data-cal-label>November 2026</h2><button class="btn btn-secondary btn-small" type="button" data-cal-step="1">Next &rsaquo;</button></div>
+              <div class="calendar-grid" data-cal-grid></div>
+              <p class="cal-legend"><span class="cal-item event">Event</span><span class="cal-item course">Training course</span></p>
+              <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Month view with the same filters. Each item shows a quick snapshot on hover or focus and links to the full listing. Events and courses are told apart by a pattern here; in design, by colour. <span class="wf-req">REQ-210, REQ-212</span></div>
+            </div>
+            <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Each event appears once whatever its format, tagged Hybrid where it is. Multi-day courses appear once, not on every day. Fully booked courses stay listed with a waiting list. <span class="wf-req">REQ-201, REQ-218, REQ-223</span></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

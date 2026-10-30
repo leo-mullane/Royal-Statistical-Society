@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobs | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="resources">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/resources.html">Resources</a></li><li class="breadcrumb-item" aria-current="page">Jobs</li></ul></nav>
+
+      <h1>Jobs</h1>
+      <div class="split">
+        <section data-listing>
+          <form class="filter-bar" role="search">
+            <div class="field"><label for="j-q">Keyword or employer</label><input type="search" id="j-q" data-filter="q"></div>
+            <div class="field"><label for="j-t">Sector</label><select id="j-t" data-filter="topic"><option value="">All sectors</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
+            <div class="field"><label for="j-c">Contract</label><select id="j-c" data-filter="contract"><option value="">Any</option><option value="permanent">Permanent</option><option value="fixed-term">Fixed term</option><option value="graduate-scheme">Graduate scheme</option></select></div>
+          </form>
+          <p class="result-count" data-count aria-live="polite"></p>
+          <div><article class="list-item" data-item data-topic="datasci business" data-contract="permanent" data-date="2026-11-14" data-title="Lead Data Scientist" data-text="Lead Data Scientist Halden Insurance London">
+              <div class="wf-placeholder logo">Employer logo</div>
+              <div><p class="meta-row"><span class="tag tag-strong">Featured</span><span class="tag">Data science and AI</span><span class="tag">Business and industry</span></p><h3><a href="~/pages/job.html">Lead Data Scientist</a></h3>
+                <p class="meta-row"><span><strong>Halden Insurance</strong></span><span>London</span><span>£85,000 to £95,000</span><span>Permanent</span></p>
+                <p class="wf-meta">Closes 14 November 2026</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/job.html">View job</a></div>
+            </article><article class="list-item" data-item data-topic="health" data-contract="permanent" data-date="2026-11-20" data-title="Senior Statistician" data-text="Senior Statistician Northbridge NHS Foundation Trust Leeds (hybrid)">
+              <div class="wf-placeholder logo">Employer logo</div>
+              <div><p class="meta-row"><span class="tag tag-strong">Featured</span><span class="tag">Medical and health statistics</span></p><h3><a href="~/pages/job.html">Senior Statistician</a></h3>
+                <p class="meta-row"><span><strong>Northbridge NHS Foundation Trust</strong></span><span>Leeds (hybrid)</span><span>£52,000 to £60,000</span><span>Permanent</span></p>
+                <p class="wf-meta">Closes 20 November 2026</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/job.html">View job</a></div>
+            </article><article class="list-item" data-item data-topic="health" data-contract="permanent" data-date="2026-11-25" data-title="Principal Biostatistician" data-text="Principal Biostatistician Vantor Pharma Cambridge (hybrid)">
+              <div class="wf-placeholder logo">Employer logo</div>
+              <div><p class="meta-row"><span class="tag">Medical and health statistics</span></p><h3><a href="~/pages/job.html">Principal Biostatistician</a></h3>
+                <p class="meta-row"><span><strong>Vantor Pharma</strong></span><span>Cambridge (hybrid)</span><span>Competitive</span><span>Permanent</span></p>
+                <p class="wf-meta">Closes 25 November 2026</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/job.html">View job</a></div>
+            </article><article class="list-item" data-item data-topic="social official" data-contract="fixed-term" data-date="2026-11-30" data-title="Survey Methodologist" data-text="Survey Methodologist Clearview Research Remote (UK)">
+              <div class="wf-placeholder logo">Employer logo</div>
+              <div><p class="meta-row"><span class="tag">Social statistics</span><span class="tag">Official statistics</span></p><h3><a href="~/pages/job.html">Survey Methodologist</a></h3>
+                <p class="meta-row"><span><strong>Clearview Research</strong></span><span>Remote (UK)</span><span>£45,000</span><span>Fixed term, 2 years</span></p>
+                <p class="wf-meta">Closes 30 November 2026</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/job.html">View job</a></div>
+            </article><article class="list-item" data-item data-topic="education methods" data-contract="permanent" data-date="2026-12-01" data-title="Lecturer in Statistics" data-text="Lecturer in Statistics University of Eastwick Norwich">
+              <div class="wf-placeholder logo">Employer logo</div>
+              <div><p class="meta-row"><span class="tag">Statistical education</span><span class="tag">Methodology</span></p><h3><a href="~/pages/job.html">Lecturer in Statistics</a></h3>
+                <p class="meta-row"><span><strong>University of Eastwick</strong></span><span>Norwich</span><span>£40,000 to £48,000</span><span>Permanent</span></p>
+                <p class="wf-meta">Closes 1 December 2026</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/job.html">View job</a></div>
+            </article><article class="list-item" data-item data-topic="environment business" data-contract="graduate-scheme" data-date="2026-12-12" data-title="Graduate Statistician scheme" data-text="Graduate Statistician scheme Morland Water Bristol">
+              <div class="wf-placeholder logo">Employer logo</div>
+              <div><p class="meta-row"><span class="tag">Environmental statistics</span><span class="tag">Business and industry</span></p><h3><a href="~/pages/job.html">Graduate Statistician scheme</a></h3>
+                <p class="meta-row"><span><strong>Morland Water</strong></span><span>Bristol</span><span>£31,000</span><span>Graduate scheme</span></p>
+                <p class="wf-meta">Closes 12 December 2026</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/job.html">View job</a></div>
+            </article></div>
+          <p class="empty-state" data-empty hidden>No jobs match. <a href="#">Set up a job alert</a>.</p>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Recent posts with salary, location and employer. Featured (paid) posts come first. Each job unpublishes itself on its closing date. <span class="wf-req">REQ-249, REQ-088</span></div>
+        </section>
+        <aside class="stack" id="advertise">
+          <div class="panel surface"><h2 class="h4">Advertise a job</h2>
+            <dl class="summary-list"><dt>Standard</dt><dd>£[price], 30 days</dd><dt>Featured</dt><dd>£[price], top of the list and in the newsletter</dd></dl>
+            <a class="btn btn-block" href="#">Post a job</a></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Employers submit and pay online; staff review before publishing. Prices are placeholders. <span class="wf-req">REQ-095, REQ-088, REQ-116</span></div>
+          <div class="panel"><h2 class="h4">Careers advice</h2><ul class="stack"><li><a href="#">Careers in statistics</a></li><li><a href="#">Career profiles</a></li></ul></div>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>'Advertise with us' and careers content sit within the Jobs section. <span class="wf-req">REQ-251</span></div>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

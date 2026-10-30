@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Section | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="get-involved">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/get-involved.html">Get involved</a></li><li class="breadcrumb-item"><a href="~/pages/groups.html">Sections and groups</a></li><li class="breadcrumb-item" aria-current="page">Medical Section</li></ul></nav>
+
+      <section class="hub-hero">
+        <div>
+          <p class="meta-row"><span class="tag">Section</span></p>
+          <h1>Medical Section</h1>
+          <p class="lead">For statisticians working in clinical trials, epidemiology and health services research.</p>
+          <p data-show-for="member" hidden><button class="btn" type="button">Join this section</button> <span class="wf-meta">Free for members. You'll get the section newsletter.</span></p>
+          <p data-show-for="guest registered lapsed"><a class="btn" href="~/pages/join.html">Join the RSS to join this section</a></p>
+          <p class="share-row"><a href="#">LinkedIn</a><a href="#">Bluesky</a><a href="#">YouTube</a></p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Section, SIG and local group template. News and events tagged with the group are pulled through automatically, with the group's social links. <span class="wf-req">REQ-102</span></div>
+      <div class="split">
+        <div>
+          <section aria-labelledby="g-events"><h2 class="section-title" id="g-events">Upcoming events</h2>
+            <div class="list-item no-thumb"><div><h3><a href="~/pages/event.html">Medical Section: Estimands in clinical trials, five years on</a></h3><p class="meta-row"><span>12 November 2026</span><span>Online</span></p></div></div><div class="list-item no-thumb"><div><h3><a href="~/pages/course.html">Survival analysis</a></h3><p class="meta-row"><span>14 to 15 January 2027</span><span>In person</span></p></div></div><div class="list-item no-thumb"><div><h3><a href="~/pages/conference.html">RSS Conference 2027, Edinburgh</a></h3><p class="meta-row"><span>6 to 9 September 2027</span><span>In person</span></p></div></div>
+            <p><a href="~/pages/events.html?topic=health">All health statistics events &rarr;</a></p></section>
+          <section aria-labelledby="g-news"><h2 class="section-title" id="g-news">News</h2>
+            <div class="list-item no-thumb"><div><h3><a href="~/pages/article.html">Medical Section seeks new committee members</a></h3><p class="meta-row"><span>10 September 2026</span></p></div></div>
+            <div class="list-item no-thumb"><div><h3><a href="~/pages/article.html">From Real World Data Science: validating clinical prediction models</a></h3><p class="meta-row"><span>25 September 2026</span></p></div></div>
+          </section>
+        </div>
+        <aside class="stack">
+          <div class="panel"><h2 class="h4">Committee</h2><ul class="stack"><li>Chair: Dr [Name]</li><li>Secretary: [Name]</li><li>Treasurer: [Name]</li></ul><p><a href="#">Contact the committee</a></p></div>
+          <div class="panel"><h2 class="h4">Section newsletter</h2><p>Sent four times a year to section members.</p></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Group officers write and send their newsletter from the portal using a template that pulls in the group's news and events. Officers see only the minimum personal data about recipients. <span class="wf-req">REQ-163, REQ-165, REQ-167</span></div>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

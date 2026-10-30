@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accreditation | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="professional-development">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/professional-development.html">Professional development</a></li><li class="breadcrumb-item" aria-current="page">Accreditation</li></ul></nav>
+
+      <div class="split">
+        <article>
+          <h1>Accreditation</h1>
+          <p class="lead">We accredit university degrees and data science programmes that meet our standards, so that graduates can apply for GradStat or DSP status more easily.</p>
+          <h2>Routes to accreditation</h2>
+          <div class="grid grid-2">
+            <article class="card"><h3 class="card-title">University accreditation</h3><p class="card-text">For undergraduate and master's degrees with substantial statistical content.</p></article>
+            <article class="card"><h3 class="card-title">Alliance for Data Science Professionals (AfDSP)</h3><p class="card-text">For programmes that lead to Data Science Professional status.</p></article>
+          </div>
+          <h2>How it works</h2>
+          <p>Tell us about your programme using the form. If it looks eligible, we will invite you to apply in the accreditation portal, where you can track your application and see past ones.</p>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Applications are made in a signed-in portal with admin pages for RSS staff and a review workflow for the Professional Affairs Committee: in progress, submitted, under review, approved. The portal is outside this first draft. <span class="wf-req">REQ-190</span></div>
+        </article>
+        <!-- Expression of interest (REQ-191) -->
+        <form class="panel" data-validate novalidate>
+          <h2>Register your interest</h2>
+          <div class="field"><label for="ac-name">Your name</label><input type="text" id="ac-name" name="name" required></div>
+          <div class="field"><label for="ac-email">Work email</label><input type="email" id="ac-email" name="email" required></div>
+          <div class="field"><label for="ac-org">University or provider</label><input type="text" id="ac-org" name="org" required></div>
+          <div class="field"><label for="ac-route">Route</label><select id="ac-route" name="route" required><option value="">Choose a route</option><option>University accreditation</option><option>AfDSP</option><option>Not sure</option></select></div>
+          <div class="field"><label for="ac-prog">Programme name and level (optional)</label><textarea id="ac-prog" name="programme" rows="3"></textarea></div>
+          <button class="btn" type="submit">Send</button>
+          <p class="form-success" hidden>Thank you. The accreditation team will reply within 10 working days.</p>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Spam protection and server-side validation on every public form. <span class="wf-req">REQ-191, REQ-085</span></div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

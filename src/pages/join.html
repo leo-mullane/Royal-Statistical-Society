@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the RSS | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="membership">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/membership.html">Membership</a></li><li class="breadcrumb-item" aria-current="page">Join</li></ul></nav>
+
+      <h1>Join the RSS</h1>
+      <p class="lead">It takes about 10 minutes. You can save your application and come back to it.</p>
+      <ol class="steps" aria-label="Application progress">
+        <li>Membership</li><li>Your details</li><li>Journals and newsletters</li><li>Payment</li><li>Check and confirm</li>
+      </ol>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Multi-step form built with the form builder: required fields marked, hints inline, an error summary at the top of each step, and save-and-resume. Try continuing without choosing a grade. <span class="wf-req">REQ-186, REQ-082, REQ-050, REQ-097</span></div>
+      <div class="split">
+        <!-- Online joining form (REQ-186) -->
+        <form data-steps novalidate>
+          <section class="form-step">
+            <h2>Choose your membership</h2>
+            <fieldset class="field"><legend>Membership grade</legend><div class="radio-cards"><label class="radio-card"><input type="radio" name="grade" value="fellow" data-price="165" required data-error="Choose a membership grade"> <strong>Fellow</strong>The standard grade, for anyone with an interest in statistics or data. No qualifications needed. <span class="wf-meta">£165 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="gradstat" data-price="185" required data-error="Choose a membership grade"> <strong>Graduate Statistician (GradStat)</strong>For graduates with a degree that meets our academic standard. <span class="wf-meta">£185 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="cstat" data-price="230" required data-error="Choose a membership grade"> <strong>Chartered Statistician (CStat)</strong>Our highest professional award: qualifications plus at least five years of experience. <span class="wf-meta">£230 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="analyst" data-price="165" required data-error="Choose a membership grade"> <strong>Data Analyst</strong>For people working with data, from apprentices to experienced analysts. <span class="wf-meta">£165 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="fis" data-price="95" required data-error="Choose a membership grade"> <strong>Fellow or Member of an International Society (FIS/MIS)</strong>For members of partner societies outside the UK. <span class="wf-meta">£95 a year</span></label><label class="radio-card"><input type="radio" name="grade" value="student" data-price="25" required data-error="Choose a membership grade"> <strong>e-Student</strong>For full-time students. Digital journals and events at student rates. <span class="wf-meta">£25 a year</span></label></div></fieldset>
+            <div class="field"><label for="concession">Concession (optional)</label>
+              <select id="concession" name="concession">
+                <option value="">None</option>
+                <option value="career-break" data-price="-40">Career break or parental leave</option>
+                <option value="new-grad" data-price="-40">New graduate (first two years)</option>
+                <option value="retired" data-price="-40">Retired, or aged 60 or over</option>
+                <option value="eda" data-price="-40">Eligible developing country</option>
+              </select>
+              <p class="field-hint">We may ask for evidence later.</p></div>
+            <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+
+          <section class="form-step" hidden>
+            <h2>Your details</h2>
+            <div class="field-row">
+              <div class="field"><label for="j-first">First name</label><input type="text" id="j-first" name="first" required autocomplete="given-name"></div>
+              <div class="field"><label for="j-last">Last name</label><input type="text" id="j-last" name="last" required autocomplete="family-name"></div>
+            </div>
+            <div class="field"><label for="j-email">Email address</label><input type="email" id="j-email" name="email" required autocomplete="email" data-error="Enter an email address in the correct format, like name@example.com"></div>
+            <div class="field"><label for="j-postcode">Postcode</label>
+              <div class="inline-field"><input type="text" id="j-postcode" name="postcode" required autocomplete="postal-code"><button class="btn btn-secondary btn-small" type="button" data-dismiss="address-pick-hint">Find address</button></div>
+              <p class="field-hint" id="address-pick-hint">Or <a href="#">enter your address manually</a></p>
+            </div>
+            <div class="wf-note" data-note="2"><span class="wf-note-label">Integration</span>Address look-up as you type the postcode (Loqate), with a manual option for addresses outside the UK. <span class="wf-req">REQ-092</span></div>
+            <div class="field"><label for="j-employer">Employer or university (optional)</label><input type="text" id="j-employer" name="employer"></div>
+            <div class="field"><label for="j-pass">Create a password</label><input type="password" id="j-pass" name="password" required autocomplete="new-password"><p class="field-hint">At least 12 characters. You will use this to sign in to MyRSS.</p></div>
+            <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>This creates the MyRSS account at the same time. Someone who already has a registered account signs in first and their details are filled in. <span class="wf-req">REQ-076, REQ-075</span></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+
+          <section class="form-step" hidden>
+            <h2>Journals and newsletters</h2>
+            <fieldset class="field"><legend>Print journals (optional)</legend>
+              <p class="field-hint">Online access to Series A, B and C is included. Add print copies if you want them.</p>
+              <label class="check"><input type="checkbox" name="journals" value="a" data-price="45"> Series A: Statistics in Society, print (£45)</label>
+              <label class="check"><input type="checkbox" name="journals" value="b" data-price="45"> Series B: Statistical Methodology, print (£45)</label>
+              <label class="check"><input type="checkbox" name="journals" value="c" data-price="45"> Series C: Applied Statistics, print (£45)</label>
+            </fieldset>
+            <fieldset class="field"><legend>Newsletters (optional)</legend>
+              <label class="check"><input type="checkbox" name="news" value="monthly" checked> RSS monthly news</label>
+              <label class="check"><input type="checkbox" name="news" value="training"> Training and events</label>
+              <label class="check"><input type="checkbox" name="news" value="policy"> Policy updates</label>
+            </fieldset>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+
+          <section class="form-step" hidden>
+            <h2>Payment</h2>
+            <fieldset class="field"><legend>How would you like to pay?</legend>
+              <label class="radio-card"><input type="radio" name="pay" value="card" required data-error="Choose how you would like to pay"> <strong>Card</strong>Pay the full year now</label>
+              <label class="radio-card"><input type="radio" name="pay" value="dd" data-reveal="dd-options"> <strong>Direct Debit</strong>Annually or in instalments</label>
+              <label class="radio-card"><input type="radio" name="pay" value="invoice" data-reveal="invoice-options"> <strong>Invoice my organisation</strong>We will send an invoice</label>
+            </fieldset>
+            <div class="reveal" id="dd-options" hidden>
+              <fieldset class="field"><legend>Direct Debit schedule</legend>
+                <label class="check"><input type="radio" name="dd" value="annual"> Annually</label>
+                <label class="check"><input type="radio" name="dd" value="quarterly"> Quarterly instalments</label>
+              </fieldset>
+            </div>
+            <div class="reveal" id="invoice-options" hidden>
+              <div class="field"><label for="po">Purchase order number (optional)</label><input type="text" id="po" name="po"></div>
+            </div>
+            <div class="wf-note" data-note="4"><span class="wf-note-label">Integration</span>Card payments redirect to the PCI DSS gateway (Elavon) and back. Direct Debit mandates and instalments are set up through Access Paysuite. Both write back to Dynamics. <span class="wf-req">REQ-084, REQ-086, REQ-091</span></div>
+            <div class="wf-note query" data-note="5"><span class="wf-note-label">Open question</span>Q: Is joining by organisation invoice offered today? It is included here as an option to confirm. <span class="wf-req">REQ-186</span></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+
+          <section class="form-step" hidden data-review>
+            <h2>Check your answers</h2>
+            <dl class="summary-list" data-summary></dl>
+            <p><button class="btn-link" type="button" data-goto="0">Change membership</button> &middot; <button class="btn-link" type="button" data-goto="1">Change details</button></p>
+            <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm that you agree to the Society's charter and code of conduct"> I agree to abide by the Society's charter, bylaws and code of conduct</label></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Confirm and pay</button></div>
+          </section>
+
+          <section class="form-success" data-complete hidden>
+            <h2>Welcome to the Royal Statistical Society</h2>
+            <p>Your membership number is <strong>01234567</strong>. We have emailed your receipt and a welcome pack.</p>
+            <p><a class="btn" href="~/pages/myrss.html">Go to MyRSS</a></p>
+            <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Payment confirmation page and email with an HMRC-compliant receipt. The onboarding email sequence starts, varying by member type. If someone leaves mid-application, an abandoned-application email follows. <span class="wf-req">REQ-089, REQ-149, REQ-152, REQ-087</span></div>
+          </section>
+        </form>
+
+        <aside class="panel surface" aria-label="Your membership">
+          <h2 class="h4">Your membership</h2>
+          <p>Total to pay today: <strong data-total>£0</strong></p>
+          <p class="wf-meta">Prices update as you choose. Annual fee for 2027.</p>
+          <p><button class="btn-link" type="button">Save and finish later</button></p>
+          <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Save and resume emails a link to the saved application. <span class="wf-req">REQ-082</span></div>
+          <div class="wf-note" data-note="8"><span class="wf-note-label">CMS</span>RSS staff edit headings, hints and help text in the form builder without a developer, and can save forms as templates. <span class="wf-req">REQ-083, REQ-098</span></div>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

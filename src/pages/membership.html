@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="membership">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Membership</li></ul></nav>
+
+      <section class="hub-hero">
+        <div>
+          <h1>Membership</h1>
+          <p class="lead">Join a community of 10,000 statisticians and data scientists in more than 50 countries.</p>
+          <p data-show-for="guest registered"><a class="btn" href="~/pages/join.html">Join now</a> <a class="btn btn-secondary" href="~/pages/grades-fees.html">Grades and fees</a></p>
+          <p data-show-for="member" hidden><span class="status-pill">You are a member: CStat</span> <a href="~/pages/myrss.html">Manage your membership</a></p>
+          <p data-show-for="lapsed" hidden><a class="btn" href="~/pages/myrss.html#renew">Renew your membership</a></p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+
+      <!-- Benefits (REQ-238) -->
+      <section aria-labelledby="benefits">
+        <h2 class="section-title" id="benefits">What membership gives you</h2>
+        <div class="grid grid-3">
+          <article class="card"><h3 class="card-title">Professional recognition</h3><p class="card-text">Use the letters after your name and work towards GradStat, CStat or Data Analyst status.</p></article>
+          <article class="card"><h3 class="card-title">Journals and Significance</h3><p class="card-text">Online access to Series A, B and C, and Significance in print and online.</p></article>
+          <article class="card"><h3 class="card-title">Training at member rates</h3><p class="card-text">Around 25% off public courses, and CPD you can record in MyRSS.</p></article>
+          <article class="card"><h3 class="card-title">Sections and local groups</h3><p class="card-text">Meetings, newsletters and networks in your field and near you.</p></article>
+          <article class="card"><h3 class="card-title">A voice in policy</h3><p class="card-text">Contribute to consultation responses and campaigns.</p></article>
+          <article class="card"><h3 class="card-title">Directories</h3><p class="card-text">Be listed in the Fellows Directory, and in the Consultants Directory if you offer consultancy.</p></article>
+        </div>
+      </section>
+
+      <!-- Membership grades (REQ-187) -->
+      <section aria-labelledby="grades">
+        <h2 class="section-title" id="grades">Membership grades</h2>
+        <div class="grid grid-3"><article class="card"><h3 class="card-title">Fellow</h3><p class="card-text">The standard grade, for anyone with an interest in statistics or data. No qualifications needed.</p><p><strong>From £165 a year</strong></p></article><article class="card"><h3 class="card-title">Graduate Statistician (GradStat)</h3><p class="card-text">For graduates with a degree that meets our academic standard.</p><p><strong>From £185 a year</strong></p></article><article class="card"><h3 class="card-title">Chartered Statistician (CStat)</h3><p class="card-text">Our highest professional award: qualifications plus at least five years of experience.</p><p><strong>From £230 a year</strong></p></article><article class="card"><h3 class="card-title">Data Analyst</h3><p class="card-text">For people working with data, from apprentices to experienced analysts.</p><p><strong>From £165 a year</strong></p></article><article class="card"><h3 class="card-title">Fellow or Member of an International Society (FIS/MIS)</h3><p class="card-text">For members of partner societies outside the UK.</p><p><strong>From £95 a year</strong></p></article><article class="card"><h3 class="card-title">e-Student</h3><p class="card-text">For full-time students. Digital journals and events at student rates.</p><p><strong>From £25 a year</strong></p></article></div>
+        <p><a href="~/pages/grades-fees.html">Compare grades, fees and concessions &rarr;</a></p>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Six membership classes, each with its own joining and renewal fees and concessions, held in Dynamics. Fees on this page are placeholders. <span class="wf-req">REQ-187, REQ-189</span></div>
+        <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: Does 'Fellow' stay as the name of the standard grade? Many visitors read it as an honour. <span class="wf-req">REQ-187</span></div>
+      </section>
+
+      <section class="content-highlight">
+        <blockquote class="wf-quote"><p>"Becoming chartered gave me the credibility to lead our analytics team, and the Society's courses filled the gaps."</p><cite>Member, CStat, NHS analyst</cite></blockquote>
+        <div><h2>How professional status works</h2><p>Join as a Fellow, then apply for GradStat, CStat or Data Analyst status from MyRSS when you are ready.</p><a href="~/pages/chartered-statistician.html">How to become a Chartered Statistician</a></div>
+      </section>
+      <div class="wf-note" data-note="3"><span class="wf-note-label">Proposed</span>Applying for professional status within the joining journey is ClerksWell's suggestion REQ-277 (a Could), so it is not prototyped here. <span class="wf-req">REQ-277</span></div>
+
+      <!-- FAQs (REQ-104) -->
+      <section aria-labelledby="faqs">
+        <h2 class="section-title" id="faqs">Membership FAQs</h2>
+        <div class="accordion">
+          <div class="accordion-item"><button class="accordion-title" type="button">Do I need a statistics degree to join? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>No. Fellowship is open to anyone with an interest in statistics or data. Professional grades have their own requirements.</p></div></div>
+          <div class="accordion-item"><button class="accordion-title" type="button">Can I pay by Direct Debit? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>Yes. You can pay annually by card or Direct Debit, or in instalments by Direct Debit.</p></div></div>
+          <div class="accordion-item"><button class="accordion-title" type="button">Is there a cooling-off period? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>Yes, 14 days from the date you join.</p></div></div>
+          <div class="accordion-item"><button class="accordion-title" type="button">My employer pays for my membership. What do I do? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>Choose 'Invoice my organisation' at the payment step and give us their details.</p></div></div>
+        </div>
+        <div class="wf-note" data-note="4"><span class="wf-note-label">CMS</span>FAQs are a reusable accordion component; editors add, reorder and remove questions. <span class="wf-req">REQ-104, REQ-013</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

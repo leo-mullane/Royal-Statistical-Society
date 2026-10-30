@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journals and publications | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="news">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/news.html">News and publications</a></li><li class="breadcrumb-item" aria-current="page">Journals and publications</li></ul></nav>
+
+      <h1>Journals and publications</h1>
+      <p class="lead">Four journals, published for the Society by Oxford University Press, plus Significance magazine and Real World Data Science.</p>
+      <!-- Journals with member access via SSO (REQ-198, REQ-033) -->
+      <section class="grid grid-3" aria-label="Journals">
+        <article class="card"><div class="wf-placeholder ratio-4-3">Journal cover</div><h2 class="card-title">Series A: Statistics in Society</h2><p class="card-text">Papers on statistics in public life, policy and society.</p><a class="card-link" href="#">Read Series A</a></article>
+        <article class="card"><div class="wf-placeholder ratio-4-3">Journal cover</div><h2 class="card-title">Series B: Statistical Methodology</h2><p class="card-text">New statistical methods and theory.</p><a class="card-link" href="#">Read Series B</a></article>
+        <article class="card"><div class="wf-placeholder ratio-4-3">Journal cover</div><h2 class="card-title">Series C: Applied Statistics</h2><p class="card-text">Statistics applied to real problems.</p><a class="card-link" href="#">Read Series C</a></article>
+      </section>
+      <div class="panel surface" data-show-for="member" hidden><p><strong>You have online access to Series A, B and C.</strong> Use 'Read' and you will be signed in at OUP automatically.</p></div>
+      <div class="panel surface" data-show-for="guest registered lapsed"><p>Members read every journal online free. <a href="~/pages/sign-in.html">Sign in</a> or <a href="~/pages/join.html">join</a>.</p></div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Integration</span>Members are signed in to the publisher (OUP) automatically, and content unlocks according to member type or paid subscription. Active subscriptions show in MyRSS. <span class="wf-req">REQ-198, REQ-199</span></div>
+      <section id="significance" class="content-highlight">
+        <div class="wf-placeholder ratio-16-9">Significance cover</div>
+        <div><h2>Significance</h2><p>Our magazine for anyone interested in statistics and data, published with the American Statistical Association.</p><ul class="stack"><li><a href="#">The statistics of extreme heat</a></li><li><a href="#">How many people really live in London?</a></li></ul><a href="#">Go to significancemagazine.com</a></div>
+      </section>
+      <section id="rwds" class="content-highlight image-right">
+        <div class="wf-placeholder ratio-16-9">Real World Data Science</div>
+        <div><h2>Real World Data Science</h2><p>Case studies and tutorials for data science practitioners.</p><ul class="stack"><li><a href="#">Validating clinical prediction models</a></li><li><a href="#">A field guide to synthetic data</a></li></ul><a href="#">Go to realworlddatascience.net</a></div>
+      </section>
+      <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Latest items from each site are pulled through and styled as native content. <span class="wf-req">REQ-020, REQ-033</span></div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

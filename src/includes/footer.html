@@ -1,0 +1,100 @@
+  <!-- Footer: secondary menu independent of the main menu, audiences, newsletter sign-up without login (REQ-245, REQ-246, REQ-247) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h2 class="footer-title">About the RSS</h2>
+          <ul>
+            <li><a href="~/pages/about.html">Who we are</a></li>
+            <li><a href="~/pages/about.html#governance">Governance</a></li>
+            <li><a href="~/pages/about.html#reports">Annual reports</a></li>
+            <li><a href="~/pages/about.html#advertise">Advertise with us</a></li>
+            <li><a href="~/pages/about.html#contact">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-title">I am a&hellip;</h2>
+          <ul>
+            <li><a href="~/pages/resources.html#students">Student or early-career statistician</a></li>
+            <li><a href="~/pages/find-an-expert.html">Employer looking for expertise</a></li>
+            <li><a href="~/pages/for-journalists.html">Journalist</a></li>
+            <li><a href="~/pages/resources.html#educators">Educator</a></li>
+            <li><a href="~/pages/policy.html">Policymaker</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-title">Help and policies</h2>
+          <ul>
+            <li><a href="~/pages/membership.html#faqs">Membership FAQs</a></li>
+            <li><a href="#">Accessibility statement</a></li>
+            <li><a href="#">Privacy notice</a></li>
+            <li><a href="#" data-cookie-settings>Cookie settings</a></li>
+            <li><a href="~/pages/about.html#security">Report a security issue</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h2 class="footer-title">Stay in touch</h2>
+          <form class="newsletter-form" data-validate novalidate>
+            <div class="field">
+              <label for="footer-email">Email address</label>
+              <input type="email" id="footer-email" name="email" required autocomplete="email">
+            </div>
+            <fieldset class="field">
+              <legend>Send me</legend>
+              <label class="check"><input type="checkbox" name="list" value="news" checked> RSS news (monthly)</label>
+              <label class="check"><input type="checkbox" name="list" value="training"> Training and events</label>
+            </fieldset>
+            <button class="btn btn-small" type="submit">Sign up</button>
+            <p class="form-success" hidden>Thank you. Please check your inbox to confirm your subscription.</p>
+          </form>
+          <p class="wf-note" data-note="F1"><span class="wf-note-label">Behaviour</span>No sign-in needed. Double opt-in confirmation email; the choice is recorded in Dynamics. Members manage the same lists in MyRSS. <span class="wf-req">REQ-245, REQ-150, REQ-159, REQ-160</span></p>
+        </div>
+      </div>
+      <div class="footer-family">
+        <span>The RSS family:</span>
+        <a href="#">Significance</a>
+        <a href="#">Real World Data Science</a>
+        <a href="~/pages/publications.html">RSS Publications</a>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Royal Statistical Society. Registered charity no. [to confirm]</span>
+        <span>Prototype: structure only, not a design</span>
+      </div>
+      <p class="wf-note" data-note="F2"><span class="wf-note-label">CMS</span>Footer menu is managed separately from the main menu. The year updates automatically. <span class="wf-req">REQ-246, REQ-247</span></p>
+    </div>
+  </footer>
+
+  <!-- Front-end AI assistant (REQ-244) -->
+  <button class="chat-launcher" type="button" data-modal-open="chat-modal">Ask a question</button>
+  <div class="wf-modal" id="chat-modal" role="dialog" aria-modal="true" aria-labelledby="chat-title">
+    <div class="wf-modal-panel">
+      <button class="wf-modal-close" type="button" aria-label="Close">&times;</button>
+      <h2 id="chat-title">Ask a question</h2>
+      <div class="wf-placeholder embed">AI assistant (KnowBot or successor)</div>
+      <p class="wf-note" data-note="A1"><span class="wf-note-label">Behaviour</span>A front-end assistant that answers questions from site content and tailors answers to signed-in members. KnowBot is still being evaluated; it should share the search index and the AI answer in search. <span class="wf-req">REQ-244, REQ-041</span></p>
+    </div>
+  </div>
+
+  <!-- Cookie consent with an equally prominent reject option (REQ-248, REQ-113) -->
+  <div class="cookie-banner" role="region" aria-label="Cookie consent" data-cookie-banner hidden>
+    <div class="container cookie-inner">
+      <p>We use necessary cookies to make this site work. With your permission we'd also like to set analytics cookies to understand how the site is used.</p>
+      <div class="cookie-actions">
+        <button class="btn" type="button" data-cookie="accept">Accept all</button>
+        <button class="btn" type="button" data-cookie="reject">Reject all</button>
+        <button class="btn btn-secondary" type="button" data-modal-open="cookie-modal">Manage preferences</button>
+      </div>
+      <p class="wf-note" data-note="C1"><span class="wf-note-label">Behaviour</span>Accept and Reject are equal in weight. No analytics tags fire before consent; choices are logged. <span class="wf-req">REQ-248, REQ-113</span></p>
+    </div>
+  </div>
+  <div class="wf-modal" id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="wf-modal-panel">
+      <button class="wf-modal-close" type="button" aria-label="Close">&times;</button>
+      <h2 id="cookie-modal-title">Cookie preferences</h2>
+      <label class="check"><input type="checkbox" checked disabled> Strictly necessary (always on)</label>
+      <label class="check"><input type="checkbox" data-cookie-pref="analytics"> Analytics</label>
+      <label class="check"><input type="checkbox" data-cookie-pref="marketing"> Marketing and embedded video</label>
+      <p class="wf-meta">You can change these at any time from Cookie settings in the footer.</p>
+      <button class="btn" type="button" data-cookie="save">Save preferences</button>
+    </div>
+  </div>

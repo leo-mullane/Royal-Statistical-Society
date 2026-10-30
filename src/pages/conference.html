@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS Conference 2027 | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item" aria-current="page">RSS Conference 2027</li></ul></nav>
+
+      <!-- Conference landing page (REQ-224, REQ-225, REQ-226) -->
+      <section class="hub-hero">
+        <div>
+          <p class="meta-row"><span class="tag tag-strong">Conference</span></p>
+          <h1>RSS Conference 2027</h1>
+          <p class="lead">Edinburgh International Conference Centre, 6 to 9 September 2027. More than 500 talks, workshops and posters.</p>
+          <p><a class="btn" href="#tickets">Book now</a> <a class="btn btn-secondary" href="#programme">See the programme</a></p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image or video 16:9</div>
+      </section>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>'Book now' is the primary call to action, high contrast and repeated at key points down the page. <span class="wf-req">REQ-225</span></div>
+      <nav class="audience-strip" aria-label="On this page"><a href="#key-dates">Key dates</a><a href="#speakers">Speakers</a><a href="#programme">Programme</a><a href="#tickets">Tickets</a><a href="#attending">Attending</a><a href="#sponsors">Sponsors</a><a href="#future">Future conferences</a></nav>
+
+      <section class="grid grid-3" id="key-dates" aria-label="Key dates">
+        <div class="stat-item"><div class="stat-value">15 Jan</div><div class="stat-title">Call for talks opens</div></div>
+        <div class="stat-item"><div class="stat-value">31 Mar</div><div class="stat-title">Early-bird booking closes</div></div>
+        <div class="stat-item"><div class="stat-value">6 Sep</div><div class="stat-title">Conference opens</div></div>
+      </section>
+      <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Programme summary, keynote speakers and key dates sit near the top. <span class="wf-req">REQ-226</span></div>
+
+      <section class="panel" aria-labelledby="updates-title">
+        <h2 class="h4" id="updates-title">Conference updates</h2>
+        <ul class="stack"><li><strong>18 September 2026</strong> First three keynote speakers confirmed.</li><li><strong>1 September 2026</strong> Dates and venue announced.</li></ul>
+        <div class="wf-note" data-note="3"><span class="wf-note-label">CMS</span>A light updates block editors change in place, without writing a news article. <span class="wf-req">REQ-229</span></div>
+      </section>
+
+      <section id="speakers" aria-labelledby="sp-title">
+        <h2 class="section-title" id="sp-title">Keynote speakers</h2>
+        <div class="grid grid-3">
+          <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Keynote speaker 1</h3><p class="card-text">Official statistics</p></div>
+          <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Keynote speaker 2</h3><p class="card-text">Statistics and AI</p></div>
+          <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Keynote speaker 3</h3><p class="card-text">Public health</p></div>
+        </div>
+      </section>
+
+      <section id="programme" aria-labelledby="prog-title">
+        <h2 class="section-title" id="prog-title">Programme</h2>
+        <div class="accordion"><div class="accordion-item"><button class="accordion-title" type="button">Monday 6 September <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><table class="data-table"><tbody><tr><th scope=row>09:00</th><td>Registration and welcome</td></tr><tr><th scope=row>10:00</th><td>Plenary: The future of official statistics</td></tr><tr><th scope=row>11:30</th><td>Parallel sessions: methods, health, data science</td></tr></tbody></table></div></div><div class="accordion-item"><button class="accordion-title" type="button">Tuesday 7 September <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><table class="data-table"><tbody><tr><th scope=row>09:00</th><td>Plenary: Statistics and AI</td></tr><tr><th scope=row>11:00</th><td>Workshops</td></tr><tr><th scope=row>19:00</th><td>Conference dinner</td></tr></tbody></table></div></div><div class="accordion-item"><button class="accordion-title" type="button">Wednesday 8 September <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><table class="data-table"><tbody><tr><th scope=row>09:00</th><td>Presidential address</td></tr><tr><th scope=row>11:00</th><td>Poster session</td></tr><tr><th scope=row>14:00</th><td>Parallel sessions</td></tr></tbody></table></div></div><div class="accordion-item"><button class="accordion-title" type="button">Thursday 9 September <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><table class="data-table"><tbody><tr><th scope=row>09:00</th><td>Plenary: Statistics in public health</td></tr><tr><th scope=row>12:30</th><td>Close</td></tr></tbody></table></div></div></div>
+        <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Programme by day, session and detail in an accordion. The embedded programme tool is Phase 2 in the SoW, so the accordion is the launch option. <span class="wf-req">REQ-228</span></div>
+      </section>
+
+      <section id="tickets" aria-labelledby="t-title">
+        <h2 class="section-title" id="t-title">Tickets</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">Ticket</th><th scope="col">Includes</th><th scope="col">Member</th><th scope="col">Non-member</th><th scope="col"></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Full conference</th><td>All sessions, lunches, refreshments, welcome reception</td><td>£595</td><td>£795</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595">Add</button></td></tr>
+            <tr><th scope="row">Day ticket</th><td>One day, lunch and refreshments</td><td>£225</td><td>£295</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: day ticket|Choose your day at checkout|225">Add</button></td></tr>
+            <tr><th scope="row">Student</th><td>All sessions and lunches</td><td>£295</td><td>£345</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: student|6 to 9 September 2027|295">Add</button></td></tr>
+            <tr><th scope="row">Optional: conference dinner</th><td>Tuesday evening</td><td>£85</td><td>£85</td><td><button class="btn btn-small" type="button" data-add-basket="Conference dinner|7 September 2027|85">Add</button></td></tr>
+          </tbody></table></div>
+        <p><span data-added hidden></span><a class="btn" href="~/pages/basket.html">Book now</a></p>
+        <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>What each ticket includes and the price of every extra are shown before checkout. <span class="wf-req">REQ-230, REQ-087</span></div>
+      </section>
+
+      <section id="attending" aria-labelledby="att-title">
+        <h2 class="section-title" id="att-title">Attending</h2>
+        <div class="grid grid-3">
+          <article class="card"><h3 class="card-title">Venue and travel</h3><p class="card-text">Getting to the EICC, accessibility and accommodation.</p></article>
+          <article class="card"><h3 class="card-title">Conference app</h3><p class="card-text">Download the app for your personal timetable. <a href="#">App Store</a> &middot; <a href="#">Google Play</a></p></article>
+          <article class="card"><h3 class="card-title">FAQs</h3><p class="card-text">Childcare, quiet room, dietary needs, refunds.</p></article>
+        </div>
+        <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Attendee information: the app, logistics and FAQs. <span class="wf-req">REQ-227</span></div>
+      </section>
+
+      <section id="sponsors" aria-labelledby="spn-title">
+        <h2 class="section-title" id="spn-title">Sponsors and exhibitors</h2>
+        <div class="grid grid-4"><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div><div class="wf-placeholder logo">Sponsor logo</div></div>
+        <p><a href="#">Committee and organisers</a></p>
+        <div class="wf-note" data-note="7"><span class="wf-note-label">CMS</span>Named non-developer owners upload sponsor logos, with size guidance and automatic optimisation. The Conference Board is listed on its own page. <span class="wf-req">REQ-231, REQ-232</span></div>
+      </section>
+
+      <section id="future" aria-labelledby="fut-title">
+        <h2 class="section-title" id="fut-title">Future and past conferences</h2>
+        <table class="data-table"><thead><tr><th scope="col">Year</th><th scope="col">Where</th><th scope="col">When</th></tr></thead>
+          <tbody><tr><td>2027</td><td>Edinburgh</td><td>6 to 9 September</td></tr><tr><td>2028</td><td>Venue to be announced</td><td>September</td></tr><tr><td>2029</td><td>Venue to be announced</td><td>September</td></tr><tr><td>2030</td><td>Venue to be announced</td><td>September</td></tr></tbody></table>
+        <p><a href="#">Past conferences archive</a></p>
+        <div class="wf-note" data-note="8"><span class="wf-note-label">Behaviour</span>The next four years, plus an archive of past conferences. <span class="wf-req">REQ-233</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

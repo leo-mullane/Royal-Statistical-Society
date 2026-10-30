@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPD record | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/myrss.html">MyRSS</a></li><li class="breadcrumb-item" aria-current="page">CPD record</li></ul></nav>
+
+      <div data-show-for="guest" class="locked">
+        <h1>MyRSS</h1>
+        <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
+        <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+      </div>
+      <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
+        <nav class="sidenav" aria-label="MyRSS">
+          <h2>MyRSS</h2>
+          <ul><li><a href="~/pages/myrss.html">Dashboard</a></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="~/pages/myrss-bookings.html">My events and training</a></li><li><a href="~/pages/myrss-cpd.html" aria-current="page">CPD record</a></li><li><a href="~/pages/myrss-groups.html">Sections and groups</a></li><li><a href="~/pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="~/pages/home.html" data-sign-out>Sign out</a></li></ul>
+        </nav>
+        <div>
+          <h1>CPD record</h1>
+
+          <div class="results-bar"><p><strong>18 of 30 hours</strong> recorded for 2026</p><button class="btn" type="button" data-modal-open="cpd-modal">Add an activity</button></div>
+          <table class="data-table"><thead><tr><th scope="col">Date</th><th scope="col">Activity</th><th scope="col">Type</th><th scope="col">Hours</th><th scope="col"></th></tr></thead><tbody>
+            <tr><td>14 Oct 2026</td><td>Discussion meeting: Statistics and the climate emergency</td><td>Event</td><td>2</td><td><a href="#">Edit</a> &middot; <a href="#">Delete</a></td></tr>
+            <tr><td>2 Sep 2026</td><td>Reviewed a paper for Series C</td><td>Professional activity</td><td>6</td><td><a href="#">Edit</a> &middot; <a href="#">Delete</a></td></tr>
+            <tr><td>12 May 2026</td><td>Bayesian statistics with Stan</td><td>RSS course</td><td>10</td><td><a href="#">Edit</a> &middot; <a href="#">Delete</a></td></tr>
+          </tbody></table>
+          <form class="filter-bar" style="margin-top:1.5rem"><div class="field"><label for="cpd-from">From</label><input type="date" id="cpd-from" value="2026-01-01"></div><div class="field"><label for="cpd-to">To</label><input type="date" id="cpd-to" value="2026-12-31"></div><button class="btn btn-secondary" type="button">Download record (PDF)</button></form>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Add, edit and delete CPD activities, and download a record for any period. RSS courses and events are added automatically when attended. <span class="wf-req">REQ-195</span></div>
+          <div class="wf-modal" id="cpd-modal" role="dialog" aria-modal="true" aria-labelledby="cpd-title">
+            <div class="wf-modal-panel">
+              <button class="wf-modal-close" type="button" aria-label="Close">&times;</button>
+              <h2 id="cpd-title">Add a CPD activity</h2>
+              <form data-validate novalidate>
+                <div class="field"><label for="cpd-act">Activity</label><input type="text" id="cpd-act" name="act" required></div>
+                <div class="field-row"><div class="field"><label for="cpd-date">Date</label><input type="date" id="cpd-date" name="date" required></div><div class="field"><label for="cpd-hrs">Hours</label><input type="number" id="cpd-hrs" name="hours" min="0.5" step="0.5" required></div></div>
+                <div class="field"><label for="cpd-type">Type</label><select id="cpd-type" name="type"><option>Course or event</option><option>Professional activity</option><option>Self-directed learning</option></select></div>
+                <button class="btn" type="submit">Add activity</button><p class="form-success" hidden>Added to your record.</p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

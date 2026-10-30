@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced search | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/search.html">Search</a></li><li class="breadcrumb-item" aria-current="page">Advanced search</li></ul></nav>
+
+      <!-- Advanced search (REQ-039) -->
+      <h1>Advanced search</h1>
+      <p class="lead">Opens on the search you came from, so you can refine it.</p>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Opens pre-filled from the results page ('Refine in advanced search'), or empty if opened from the menu. Fixed for Travers Smith: it never keeps a stale earlier search. <span class="wf-req">REQ-039</span></div>
+      <form class="form-step" data-advanced-form>
+        <div class="field"><label for="adv-all">All of these words</label><input type="text" id="adv-all" name="all"></div>
+        <div class="field"><label for="adv-phrase">This exact phrase</label><input type="text" id="adv-phrase" name="phrase"></div>
+        <div class="field"><label for="adv-none">None of these words</label><input type="text" id="adv-none" name="none"><p class="field-hint">Separate words with spaces</p></div>
+        <fieldset class="field"><legend>Content type</legend><label class="check"><input type="checkbox" name="type" value="Page"> Page</label><label class="check"><input type="checkbox" name="type" value="Event"> Event</label><label class="check"><input type="checkbox" name="type" value="Course"> Course</label><label class="check"><input type="checkbox" name="type" value="News"> News</label><label class="check"><input type="checkbox" name="type" value="Press release"> Press release</label><label class="check"><input type="checkbox" name="type" value="Policy document"> Policy document</label><label class="check"><input type="checkbox" name="type" value="Job"> Job</label><label class="check"><input type="checkbox" name="type" value="Group"> Group</label><label class="check"><input type="checkbox" name="type" value="Expert"> Expert</label></fieldset>
+        <div class="field"><label for="adv-topic">Topic</label><select id="adv-topic" name="topic"><option value="">Any topic</option><option value="Official statistics">Official statistics</option><option value="Data science and AI">Data science and AI</option><option value="Medical and health statistics">Medical and health statistics</option><option value="Methodology">Methodology</option><option value="Statistical education">Statistical education</option><option value="Social statistics">Social statistics</option><option value="Environmental statistics">Environmental statistics</option><option value="Business and industry">Business and industry</option><option value="Statistical computing">Statistical computing</option><option value="Public understanding of statistics">Public understanding of statistics</option></select></div>
+        <div class="field-row">
+          <div class="field"><label for="adv-from">From date</label><input type="date" id="adv-from" name="from"></div>
+          <div class="field"><label for="adv-to">To date</label><input type="date" id="adv-to" name="to"></div>
+        </div>
+        <p><button class="btn" type="submit">Search</button> <button class="btn btn-secondary" type="button" data-advanced-reset>Clear</button></p>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

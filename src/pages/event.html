@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discussion meeting: Statistical aspects of evaluating large language models | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item"><a href="~/pages/events.html?type=event">Events</a></li><li class="breadcrumb-item" aria-current="page">Discussion meeting</li></ul></nav>
+
+      <article>
+        <p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag tag-strong">Hybrid event</span><span class="tag">Data science and AI</span><span class="tag">Methodology</span></p>
+        <h1>Discussion meeting: Statistical aspects of evaluating large language models</h1>
+        <div class="split">
+          <div>
+            <p class="lead">A paper read to the Society, followed by an open discussion. Contributions can be made in the room or online.</p>
+            <!-- Event details in tabs (REQ-209) -->
+            <div class="tabs" role="tablist">
+              <button class="tab active" type="button" data-tab="ev-about">About</button>
+              <button class="tab" type="button" data-tab="ev-speakers">Speakers</button>
+              <button class="tab" type="button" data-tab="ev-organiser">Organiser</button>
+              <button class="tab" type="button" data-tab="ev-costs">Costs</button>
+            </div>
+            <div>
+              <div class="tab-panel active" id="ev-about">
+                <div class="prose">
+                  <p>Large language models are increasingly evaluated on benchmark datasets, often with little attention to sampling, uncertainty or the dependence between test items. The paper proposes a statistical framework for evaluation and shows how conclusions change when uncertainty is taken into account.</p>
+                  <p>The paper will be published in Series A with the discussion. Written contributions can be submitted for two weeks after the meeting.</p>
+                </div>
+                <div class="wf-placeholder embed">Embedded map: Errol Street, London</div>
+              </div>
+              <div class="tab-panel" id="ev-speakers"><div class="grid grid-2">
+                <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Dr Imogen Hale</h3><p class="card-text">Author, University of Eastwick</p></div>
+                <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Professor Daniel Mensah</h3><p class="card-text">Proposer of the vote of thanks</p></div>
+              </div></div>
+              <div class="tab-panel" id="ev-organiser"><p>Organised by the Royal Statistical Society. Questions: <a href="#">events@rss.org.uk</a></p></div>
+              <div class="tab-panel" id="ev-costs"><p>Free for everyone. Booking is required for both in-person and online places.</p></div>
+            </div>
+            <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Tabbed detail for speakers, organiser and costs, as asked for in the events specification. Tabs stack as sections on mobile. <span class="wf-req">REQ-209, REQ-103</span></div>
+            <div class="share-row"><span class="wf-meta">Share:</span><a href="#">LinkedIn</a><a href="#">Bluesky</a><a href="#">Email</a><button class="btn-link" type="button" data-copy-link>Copy link</button></div>
+            <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Share links use an automatically generated card: title, date and image. <span class="wf-req">REQ-105, REQ-057</span></div>
+          </div>
+          <!-- Booking panel with one button per format (REQ-201, REQ-202, REQ-206) -->
+          <aside class="panel surface" aria-label="Book a place">
+            <dl class="summary-list">
+              <dt>Date</dt><dd>Wed 4 November 2026</dd>
+              <dt>Time</dt><dd>17:00 to 19:00 GMT</dd>
+              <dt>Where</dt><dd>RSS, Errol Street, London, and online</dd>
+              <dt>Cost</dt><dd>Free</dd>
+            </dl>
+            <p><a class="btn btn-block" href="~/pages/book.html?format=in-person">Attend in person</a></p>
+            <p><a class="btn btn-block btn-secondary" href="~/pages/book.html?format=online">Join online</a></p>
+            <p class="wf-meta">Online joining details are emailed the day before.</p>
+            <p><a href="#">Add to calendar</a></p>
+            <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>One event page whatever the format, with a booking button per option. Each button links to its own booking endpoint in Dynamics. For free events the confirmation email leaves out payment wording. <span class="wf-req">REQ-201, REQ-202, REQ-206, REQ-207</span></div>
+          </aside>
+        </div>
+      </article>
+      <section aria-labelledby="related">
+        <h2 class="section-title" id="related">You might also like</h2>
+        <div class="grid grid-3">
+          <article class="card"><p class="meta-row"><span class="tag">Discussion meeting</span></p><h3 class="card-title"><a href="~/pages/event.html">Causal inference from observational data</a></h3><p class="card-text">27 January 2027</p></article>
+          <article class="card"><p class="meta-row"><span class="tag">Training course</span></p><h3 class="card-title"><a href="~/pages/course.html">Introduction to machine learning</a></h3><p class="card-text">1 to 3 December 2026</p></article>
+          <article class="card"><p class="meta-row"><span class="tag">Policy</span></p><h3 class="card-title"><a href="~/pages/campaign.html">Statistics and AI: what the public should expect</a></h3><p class="card-text">Report, September 2026</p></article>
+        </div>
+        <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Related events, courses and articles come from the shared tags. <span class="wf-req">REQ-220, REQ-027</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

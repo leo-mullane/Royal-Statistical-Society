@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sections and groups | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="get-involved">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/get-involved.html">Get involved</a></li><li class="breadcrumb-item" aria-current="page">Sections and groups</li></ul></nav>
+
+      <h1>Sections and groups</h1>
+      <p class="lead">Members can join as many sections and groups as they like, free of charge, from MyRSS.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" type="button" data-tab="g-sections" data-tab-key="sections">Sections</button>
+        <button class="tab" type="button" data-tab="g-local" data-tab-key="local">Local groups</button>
+        <button class="tab" type="button" data-tab="g-sigs" data-tab-key="sigs">Special interest groups</button>
+      </div>
+      <div>
+        <div class="tab-panel active" id="g-sections">
+            <section data-listing>
+              <div class="filter-bar">
+                <div class="field"><label for="g-sections-q">Search</label><input type="search" id="g-sections-q" data-filter="q" placeholder="Group name or place"></div>
+                <div class="field"><label for="g-sections-r">Region</label><select id="g-sections-r" data-filter="region"><option value="">All regions</option><option value="international">International</option><option value="midlands">Midlands</option><option value="north-west-england">North West England</option><option value="scotland">Scotland</option><option value="uk-wide">UK-wide</option><option value="wales">Wales</option></select></div>
+              </div>
+              <p class="result-count" data-count aria-live="polite"></p>
+              <div><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="health" data-title="Medical Section" data-text="Medical Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Medical Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="official" data-title="Official Statistics Section" data-text="Official Statistics Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Official Statistics Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="datasci" data-title="Data Science and AI Section" data-text="Data Science and AI Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Data Science and AI Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="social" data-title="Social Statistics Section" data-text="Social Statistics Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Social Statistics Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="environment" data-title="Environmental Statistics Section" data-text="Environmental Statistics Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Environmental Statistics Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="education" data-title="Education and Statistical Literacy Section" data-text="Education and Statistical Literacy Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Education and Statistical Literacy Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="education" data-title="Young Statisticians Section" data-text="Young Statisticians Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Young Statisticians Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="computing" data-title="Statistical Computing Section" data-text="Statistical Computing Section UK-wide">
+              <div><h3><a href="~/pages/group.html">Statistical Computing Section</a></h3><p class="meta-row"><span>Section</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article></div>
+              <p class="empty-state" data-empty hidden>No groups match.</p>
+            </section>
+          </div>
+        <div class="tab-panel" id="g-local">
+            <section data-listing>
+              <div class="filter-bar">
+                <div class="field"><label for="g-local-q">Search</label><input type="search" id="g-local-q" data-filter="q" placeholder="Group name or place"></div>
+                <div class="field"><label for="g-local-r">Region</label><select id="g-local-r" data-filter="region"><option value="">All regions</option><option value="international">International</option><option value="midlands">Midlands</option><option value="north-west-england">North West England</option><option value="scotland">Scotland</option><option value="uk-wide">UK-wide</option><option value="wales">Wales</option></select></div>
+              </div>
+              <p class="result-count" data-count aria-live="polite"></p>
+              <div><article class="list-item no-thumb" data-item data-region="north-west-england" data-topic="public" data-title="Merseyside Local Group" data-text="Merseyside Local Group North West England">
+              <div><h3><a href="~/pages/group.html">Merseyside Local Group</a></h3><p class="meta-row"><span>Local group</span><span>North West England</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="north-west-england" data-topic="public" data-title="Manchester Local Group" data-text="Manchester Local Group North West England">
+              <div><h3><a href="~/pages/group.html">Manchester Local Group</a></h3><p class="meta-row"><span>Local group</span><span>North West England</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="scotland" data-topic="public" data-title="Edinburgh Local Group" data-text="Edinburgh Local Group Scotland">
+              <div><h3><a href="~/pages/group.html">Edinburgh Local Group</a></h3><p class="meta-row"><span>Local group</span><span>Scotland</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="wales" data-topic="public" data-title="Cardiff Local Group" data-text="Cardiff Local Group Wales">
+              <div><h3><a href="~/pages/group.html">Cardiff Local Group</a></h3><p class="meta-row"><span>Local group</span><span>Wales</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="midlands" data-topic="public" data-title="East Midlands Local Group" data-text="East Midlands Local Group Midlands">
+              <div><h3><a href="~/pages/group.html">East Midlands Local Group</a></h3><p class="meta-row"><span>Local group</span><span>Midlands</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="international" data-topic="official" data-title="Gulf Local Group" data-text="Gulf Local Group International">
+              <div><h3><a href="~/pages/group.html">Gulf Local Group</a></h3><p class="meta-row"><span>Local group</span><span>International</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="international" data-topic="public" data-title="India Local Group" data-text="India Local Group International">
+              <div><h3><a href="~/pages/group.html">India Local Group</a></h3><p class="meta-row"><span>Local group</span><span>International</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="international" data-topic="public" data-title="Singapore Local Group" data-text="Singapore Local Group International">
+              <div><h3><a href="~/pages/group.html">Singapore Local Group</a></h3><p class="meta-row"><span>Local group</span><span>International</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article></div>
+              <p class="empty-state" data-empty hidden>No groups match.</p>
+            </section>
+          </div>
+        <div class="tab-panel" id="g-sigs">
+            <section data-listing>
+              <div class="filter-bar">
+                <div class="field"><label for="g-sigs-q">Search</label><input type="search" id="g-sigs-q" data-filter="q" placeholder="Group name or place"></div>
+                <div class="field"><label for="g-sigs-r">Region</label><select id="g-sigs-r" data-filter="region"><option value="">All regions</option><option value="international">International</option><option value="midlands">Midlands</option><option value="north-west-england">North West England</option><option value="scotland">Scotland</option><option value="uk-wide">UK-wide</option><option value="wales">Wales</option></select></div>
+              </div>
+              <p class="result-count" data-count aria-live="polite"></p>
+              <div><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="business" data-title="Quality Improvement SIG" data-text="Quality Improvement SIG UK-wide">
+              <div><h3><a href="~/pages/group.html">Quality Improvement SIG</a></h3><p class="meta-row"><span>Special interest group</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="public" data-title="Statistics in Sport SIG" data-text="Statistics in Sport SIG UK-wide">
+              <div><h3><a href="~/pages/group.html">Statistics in Sport SIG</a></h3><p class="meta-row"><span>Special interest group</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="public" data-title="History of Statistics SIG" data-text="History of Statistics SIG UK-wide">
+              <div><h3><a href="~/pages/group.html">History of Statistics SIG</a></h3><p class="meta-row"><span>Special interest group</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article><article class="list-item no-thumb" data-item data-region="uk-wide" data-topic="health" data-title="Primary Health Care SIG" data-text="Primary Health Care SIG UK-wide">
+              <div><h3><a href="~/pages/group.html">Primary Health Care SIG</a></h3><p class="meta-row"><span>Special interest group</span><span>UK-wide</span></p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
+            </article></div>
+              <p class="empty-state" data-empty hidden>No groups match.</p>
+            </section>
+          </div>
+      </div>
+      <div class="wf-placeholder embed">Map of local groups</div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Groups listed by type, with a region field so international and UK local groups can be found by place. A map view is shown as a placeholder. <span class="wf-req">REQ-102, REQ-031</span></div>
+      <div class="wf-note" data-note="2"><span class="wf-note-label">Proposed</span>A full 'Find a group' finder with map is ClerksWell's suggestion REQ-285 (a Could); this page shows the basic listing. <span class="wf-req">REQ-285</span></div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

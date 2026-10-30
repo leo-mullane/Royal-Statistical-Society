@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyRSS | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">MyRSS</li></ul></nav>
+
+      <div data-show-for="guest" class="locked">
+        <h1>MyRSS</h1>
+        <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
+        <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
+        <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+      </div>
+      <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
+        <nav class="sidenav" aria-label="MyRSS">
+          <h2>MyRSS</h2>
+          <ul><li><a href="~/pages/myrss.html" aria-current="page">Dashboard</a></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="~/pages/myrss-bookings.html">My events and training</a></li><li><a href="~/pages/myrss-cpd.html">CPD record</a></li><li><a href="~/pages/myrss-groups.html">Sections and groups</a></li><li><a href="~/pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="~/pages/home.html" data-sign-out>Sign out</a></li></ul>
+        </nav>
+        <div>
+          <h1>Dashboard</h1>
+
+          <!-- Member banner (REQ-179) -->
+          <div class="member-banner" data-show-for="member" hidden>
+            <div class="wf-placeholder avatar">Photo</div>
+            <div><p><strong>Dr Alex Morgan</strong> <span class="status-pill">Active</span></p><p class="meta-row"><span>Fellow, Chartered Statistician (CStat)</span><span>Full rate</span><span>Membership no. 01234567</span></p><p class="wf-meta">Renews 1 January 2027 by Direct Debit</p></div>
+            <div class="stack"><a href="~/pages/myrss-profile.html">Edit profile</a><a href="#applications">Apply for professional status</a><a href="#">Download e-certificate</a></div>
+          </div>
+          <div class="member-banner" data-show-for="lapsed" hidden>
+            <div class="wf-placeholder avatar">Photo</div>
+            <div><p><strong>Chris Patel</strong> <span class="status-pill warn">Lapsed</span></p><p class="meta-row"><span>Fellow</span><span>Membership no. 07654321</span></p><p class="wf-meta">Lapsed on 30 September 2026</p></div>
+            <div class="stack"><a href="~/pages/myrss-profile.html">Edit profile</a></div>
+          </div>
+          <div class="member-banner" data-show-for="registered" hidden>
+            <div class="wf-placeholder avatar">Photo</div>
+            <div><p><strong>Sam Green</strong> <span class="status-pill">Registered account</span></p><p class="wf-meta">You can book events and courses. Membership adds journals, member prices and professional status.</p></div>
+            <div><a class="btn" href="~/pages/join.html">Become a member</a></div>
+          </div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Banner with name, membership type, category and number, quick links and the e-certificate. Content changes by membership status. <span class="wf-req">REQ-179, REQ-177, REQ-178</span></div>
+
+          <!-- Outstanding balance and renewal (REQ-181, REQ-188) -->
+          <section id="renew" class="panel" data-show-for="lapsed" hidden>
+            <h2>Renew your membership</h2>
+            <p>Outstanding: <strong>£165.00</strong> for 2026 to 2027 <span class="status-pill warn">Unpaid</span></p>
+            <p><a class="btn" href="~/pages/basket.html">Pay now by card</a> <a class="btn btn-secondary" href="#">Set up Direct Debit</a></p>
+            <p class="wf-meta">An invoice and receipt are emailed once paid. Journal access returns immediately.</p>
+          </section>
+          <section class="panel" data-show-for="member" hidden><p>No outstanding balance <span class="status-pill">Paid</span></p></section>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>A dynamic balance area with a Pay now route and clear payment status. Renewal by card or Direct Debit, with the renewals email sequence running in the background. <span class="wf-req">REQ-181, REQ-188, REQ-151</span></div>
+
+          <div class="dash-grid" style="margin-top:1.5rem">
+            <article class="card"><h2 class="card-title">My bookings</h2><p class="card-text">Introduction to R, 10 to 11 November 2026, online <span class="status-pill">Paid</span></p><a class="card-link" href="~/pages/myrss-bookings.html">All bookings</a></article>
+            <article class="card" data-show-for="member lapsed"><h2 class="card-title">My publications</h2><p class="card-text" data-show-for="member">Series A, B and C online <span class="status-pill">Active</span></p><p class="card-text" data-show-for="lapsed" hidden>Access paused until you renew</p><a class="card-link" href="~/pages/publications.html">Read journals</a></article>
+            <article class="card" data-show-for="member lapsed"><h2 class="card-title">CPD this year</h2><p class="card-text">18 of 30 hours recorded</p><a class="card-link" href="~/pages/myrss-cpd.html">Your CPD record</a></article>
+            <article class="card" data-show-for="member lapsed"><h2 class="card-title">My sections and groups</h2><p class="card-text">Medical Section, Merseyside Local Group</p><a class="card-link" href="~/pages/myrss-groups.html">Manage</a></article>
+            <article class="card"><h2 class="card-title">Newsletters</h2><p class="card-text">2 newsletters</p><a class="card-link" href="~/pages/myrss-preferences.html">Preferences</a></article>
+            <article class="card" data-show-for="member" hidden id="applications"><h2 class="card-title">Applications</h2><p class="card-text">No applications in progress.</p><a class="card-link" href="#">Apply for GradStat, CStat or Data Analyst</a></article>
+          </div>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Existing MyRSS self-service functions, regrouped as a dashboard: profile, newsletter preferences, bookings, directory inclusion and payments. All read and write Dynamics in near real time. <span class="wf-req">REQ-173, REQ-176, REQ-180, REQ-199</span></div>
+
+          <section style="margin-top:2rem" data-show-for="member" hidden aria-labelledby="rec">
+            <h2 class="section-title" id="rec">For you</h2>
+            <div class="grid grid-3">
+              <article class="card"><div class="wf-placeholder ratio-16-9">Video 16:9</div><p class="meta-row"><span class="tag">Members only</span></p><h3 class="card-title"><a href="#">Recording: Statistics and the climate emergency</a></h3></article>
+              <article class="card"><p class="meta-row"><span class="tag">Event</span></p><h3 class="card-title"><a href="~/pages/event.html">Medical Section: Estimands in clinical trials</a></h3><p class="card-text">12 November 2026, online</p></article>
+              <article class="card"><p class="meta-row"><span class="tag">Course</span></p><h3 class="card-title"><a href="~/pages/course.html">Survival analysis</a></h3><p class="card-text">14 to 15 January 2027</p></article>
+            </div>
+            <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Restricted content (recordings, training resources) and recommendations based on membership type and interests. <span class="wf-req">REQ-183, REQ-109, REQ-111</span></div>
+          </section>
+
+          <section id="information-centre" style="margin-top:2rem" data-show-for="member" hidden aria-labelledby="ic">
+            <h2 class="section-title" id="ic">Information centre</h2>
+            <form class="filter-bar" role="search"><div class="field"><label for="ic-q">Search documents</label><input type="search" id="ic-q"></div><div class="field"><label for="ic-d">Date</label><select id="ic-d"><option>Any time</option><option>Past year</option></select></div></form>
+            <ul class="stack" style="margin-top:1rem"><li><a href="#">CPD guidance for CStat holders (PDF)</a> <span class="wf-meta">March 2026</span></li><li><a href="#">Code of conduct (PDF)</a> <span class="wf-meta">January 2026</span></li></ul>
+            <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>Searchable repository of member documents. <span class="wf-req">REQ-185</span></div>
+          </section>
+
+          <section class="panel" style="margin-top:2rem" data-show-for="member" hidden>
+            <h2 class="h4">Member community</h2><p>Profiles, discussion forum and messaging between members.</p>
+            <div class="wf-note query" data-note="6"><span class="wf-note-label">Open question</span>Q: Community features are a large piece of work in their own right. Agree scope or phasing in Define before this is designed. <span class="wf-req">REQ-184</span></div>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

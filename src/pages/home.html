@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      
+
+      <!-- Home page hero with site search (REQ-101, REQ-238, REQ-037) -->
+      <section class="hub-hero">
+        <div>
+          <h1>Statistics and data for the public good</h1>
+          <p class="lead">The Royal Statistical Society is the professional body for statisticians and data scientists, and a charity that promotes the use of statistics for the benefit of society.</p>
+          <form class="big-search" action="~/pages/search.html" role="search">
+            <label for="home-q" class="visually-hidden">Search the RSS website</label>
+            <input type="search" id="home-q" name="q" placeholder="Search events, courses, policy and more">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <p data-show-for="guest registered"><a class="btn" href="~/pages/join.html">Join the RSS</a> <a class="btn btn-secondary" href="~/pages/events.html">Find an event or course</a></p>
+          <div class="panel surface" data-show-for="member" hidden>
+            <p><strong>Welcome back, Dr Alex Morgan.</strong> Your membership renews on 1 January 2027. You have 1 booking coming up.</p>
+            <a href="~/pages/myrss.html">Go to MyRSS</a>
+          </div>
+          <div class="panel surface" data-show-for="lapsed" hidden>
+            <p><strong>Your membership lapsed on 30 September 2026.</strong> Renew to keep your Fellowship, CPD record and journal access.</p>
+            <a class="btn" href="~/pages/myrss.html#renew">Renew now</a>
+          </div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The welcome panel changes with the viewer. Use <strong>View as</strong> in the grey bar to see the signed-out, member and lapsed versions. <span class="wf-req">REQ-101, REQ-109, REQ-178</span></div>
+        </div>
+        <div class="wf-placeholder ratio-4-3">Image or short muted video 4:3</div>
+      </section>
+      <div class="wf-note" data-note="2"><span class="wf-note-label">CMS</span>The section you are in is marked in the main menu, and menu labels, order and promo slots are edited in the CMS. <span class="wf-req">REQ-032, REQ-028</span></div>
+      <div class="wf-note" data-note="3"><span class="wf-note-label">CMS</span>Editors can A/B test key blocks and calls to action on this page, and add tracking to any block, button or banner without a developer. <span class="wf-req">REQ-023, REQ-115</span></div>
+      <div class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Q: Multilingual content is a Should. Which languages, and which parts of the site? A language switch would sit in the utility bar. <span class="wf-req">REQ-125, REQ-127</span></div>
+      <div class="wf-note" data-note="5"><span class="wf-note-label">Proposed</span>The hero can carry a short looping video (RSS wishlist). It must have a pause control, captions where there is speech, and a still-image fallback on slow connections. <span class="wf-req">REQ-013</span></div>
+
+      <!-- Task-led entry points (REQ-238, REQ-027) -->
+      <section aria-labelledby="tasks-title">
+        <h2 class="section-title" id="tasks-title">What would you like to do?</h2>
+        <div class="task-grid">
+          <a class="task" href="~/pages/join.html">Join the RSS<span>Grades, fees and how to apply</span></a>
+          <a class="task" href="~/pages/events.html">Find an event or course<span>Discussion meetings, section events and training</span></a>
+          <a class="task" href="~/pages/chartered-statistician.html">Become a Chartered Statistician<span>Professional status and CPD</span></a>
+          <a class="task" href="~/pages/find-an-expert.html">Find an expert<span>Search the Professional Register</span></a>
+          <a class="task" href="~/pages/groups.html">Find a group near you<span>Sections, local groups and SIGs</span></a>
+          <a class="task" href="~/pages/publications.html">Read our journals<span>Series A, B and C, and Significance</span></a>
+          <a class="task" href="~/pages/policy.html">Read our policy work<span>Responses, evidence and reports</span></a>
+          <a class="task" href="~/pages/jobs.html">Find a job<span>Statistics and data science vacancies</span></a>
+        </div>
+        <div class="wf-note" data-note="6"><span class="wf-note-label">CMS</span>Editors choose the eight tasks and their order. Tiles are a reusable component, so a hub page can use the same block. <span class="wf-req">REQ-238, REQ-018, REQ-019</span></div>
+      </section>
+
+      <!-- Audience shortcuts (REQ-027, REQ-253) -->
+      <section class="audience-strip" aria-label="Shortcuts by audience">
+        <strong>I am a&hellip;</strong>
+        <a href="~/pages/resources.html#students">Student or early-career statistician</a>
+        <a href="~/pages/find-an-expert.html">Employer</a>
+        <a href="~/pages/for-journalists.html">Journalist</a>
+        <a href="~/pages/resources.html#educators">Educator</a>
+        <a href="~/pages/policy.html">Policymaker</a>
+      </section>
+      <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Audience shortcuts link to the audience resource hubs. The same shortcuts appear in the footer. <span class="wf-req">REQ-027, REQ-253</span></div>
+
+      <!-- Personalised block (REQ-109, REQ-111, REQ-177) -->
+      <section data-show-for="member" hidden aria-labelledby="foryou-title">
+        <h2 class="section-title" id="foryou-title">Recommended for you</h2>
+        <p class="wf-meta">Based on your interests: Medical and health statistics, Methodology</p>
+        <div class="grid grid-3">
+          <article class="card">
+          <p class="meta-row"><span class="tag">Section meeting</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">Medical Section: Estimands in clinical trials, five years on</a></h3>
+          <p class="card-text">12 November 2026<br>Online</p>
+        </article>
+          <article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">In person</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Survival analysis</a></h3>
+          <p class="card-text">14 to 15 January 2027<br>RSS, Errol Street, London</p>
+        </article>
+          <article class="card"><p class="meta-row"><span class="tag">Policy document</span></p><h3 class="card-title"><a href="~/pages/policy.html">Briefing: understanding excess deaths</a></h3><p class="card-text">What excess death figures measure and how to report them.</p></article>
+        </div>
+        <div class="wf-note" data-note="8"><span class="wf-note-label">Behaviour</span>Recommendations use the interests in the member's MyRSS profile, drawn from the same topic list that content is tagged with, plus member grade and country. <span class="wf-req">REQ-109, REQ-111, REQ-177</span></div>
+      </section>
+      <section data-show-for="guest registered" aria-labelledby="whyjoin-title">
+        <div class="content-highlight">
+          <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+          <div>
+            <h2 id="whyjoin-title">Join 10,000 statisticians and data scientists</h2>
+            <p>Professional recognition, four journals, discounted training and a network of sections and local groups across the UK and beyond.</p>
+            <a class="btn" href="~/pages/membership.html">Why join</a> <a href="~/pages/grades-fees.html">See grades and fees</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest events and training (REQ-239, REQ-240) -->
+      <section aria-labelledby="events-title">
+        <h2 class="section-title" id="events-title">Events and training</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab active" type="button" data-tab="home-events">Events</button>
+          <button class="tab" type="button" data-tab="home-courses">Training courses</button>
+        </div>
+        <div>
+          <div class="tab-panel active" id="home-events">
+            <div class="grid grid-2"><article class="card">
+          <div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">Discussion meeting: Statistical aspects of evaluating large language models</a></h3>
+          <p class="card-text">4 November 2026<br>RSS, Errol Street, London, and online</p>
+        </article><article class="card">
+          <div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Section meeting</span><span class="tag">Hybrid</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">Official Statistics Section: Census 2031 and the future of population statistics</a></h3>
+          <p class="card-text">26 November 2026<br>RSS, Errol Street, London, and online</p>
+        </article></div>
+            <div class="grid grid-4" style="margin-top:1.5rem"><article class="card">
+          <p class="meta-row"><span class="tag">Section meeting</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">Medical Section: Estimands in clinical trials, five years on</a></h3>
+          <p class="card-text">12 November 2026<br>Online</p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Local group meeting</span><span class="tag">In person</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">Merseyside Local Group: The statistics of sport</a></h3>
+          <p class="card-text">19 November 2026<br>University of Liverpool</p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Section meeting</span><span class="tag">In person</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">Young Statisticians Section: Careers evening</a></h3>
+          <p class="card-text">3 December 2026<br>Manchester Metropolitan University</p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Public lecture</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/event.html">RSS lecture for schools: How do we know what we know?</a></h3>
+          <p class="card-text">9 December 2026<br>Online</p>
+        </article></div>
+            <p><a href="~/pages/events.html?type=event">All events &rarr;</a></p>
+          </div>
+          <div class="tab-panel" id="home-courses">
+            <div class="grid grid-3"><article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Introduction to R</a></h3>
+          <p class="card-text">10 to 11 November 2026<br>Online (Zoom)</p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">In person</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Bayesian statistics with Stan</a></h3>
+          <p class="card-text">17 to 18 November 2026<br>RSS, Errol Street, London</p><p class="wf-meta"><strong>Few places left</strong></p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Data visualisation for decision makers</a></h3>
+          <p class="card-text">24 November 2026<br>Online (Zoom)</p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Introduction to machine learning</a></h3>
+          <p class="card-text">1 to 3 December 2026<br>Online (Zoom)</p><p class="wf-meta"><strong>Fully booked: join the waiting list</strong></p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">In person</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Survival analysis</a></h3>
+          <p class="card-text">14 to 15 January 2027<br>RSS, Errol Street, London</p>
+        </article><article class="card">
+          <p class="meta-row"><span class="tag">Public course</span><span class="tag">Online</span></p>
+          <h3 class="card-title"><a href="~/pages/course.html">Practical survey design</a></h3>
+          <p class="card-text">2 February 2027<br>Online (Zoom)</p>
+        </article></div>
+            <p><a href="~/pages/events.html?type=course">All training courses &rarr;</a></p>
+          </div>
+        </div>
+        <div class="wf-note" data-note="9"><span class="wf-note-label">Behaviour</span>Pulled automatically from the events and training data (Dynamics), soonest first. Editors can pin featured items. Events: 2 featured plus 4 standard. Training: 6 public courses. <span class="wf-req">REQ-239, REQ-240, REQ-213</span></div>
+      </section>
+
+      <!-- News carousel (REQ-237) -->
+      <section aria-labelledby="news-title">
+        <h2 class="section-title" id="news-title">Latest news</h2>
+        <div class="carousel" aria-roledescription="carousel">
+          <div class="carousel-track"><div class="carousel-item">
+            <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+            <div><p class="meta-row"><span>28 October 2026</span><a href="~/pages/news.html">Official statistics</a></p>
+            <h3><a href="~/pages/article.html">RSS responds to the Statistics Commission report</a></h3><p>The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.</p></div>
+          </div><div class="carousel-item">
+            <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+            <div><p class="meta-row"><span>22 October 2026</span><a href="~/pages/news.html">Methodology</a></p>
+            <h3><a href="~/pages/article.html">Nominations open for the 2027 Guy Medals</a></h3><p>Nominate a colleague for the Society&#x27;s highest honours. Nominations close on 31 January 2027.</p></div>
+          </div><div class="carousel-item">
+            <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+            <div><p class="meta-row"><span>20 October 2026</span><a href="~/pages/news.html">Environmental statistics</a></p>
+            <h3><a href="~/pages/article.html">From Significance: the statistics of extreme heat</a></h3><p>How attribution studies estimate the role of climate change in a single heatwave.</p></div>
+          </div><div class="carousel-item">
+            <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+            <div><p class="meta-row"><span>15 October 2026</span><a href="~/pages/news.html">Public understanding of statistics</a></p>
+            <h3><a href="~/pages/article.html">Call for volunteers: Statistical Ambassadors 2027</a></h3><p>Help journalists and the public understand the numbers. Applications close on 30 November.</p></div>
+          </div></div>
+          <div class="carousel-controls">
+            <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Previous story">&lsaquo;</button>
+            <button class="carousel-arrow" type="button" data-dir="next" aria-label="Next story">&rsaquo;</button>
+          </div>
+          <div class="carousel-indicators"></div>
+        </div>
+        <p><a href="~/pages/news.html">All news &rarr;</a></p>
+        <div class="wf-note" data-note="10"><span class="wf-note-label">Behaviour</span>Four stories, featured first, each with its date and a linked category. Does not auto-advance, so nobody has to chase it. <span class="wf-req">REQ-237, REQ-235</span></div>
+      </section>
+
+      <!-- From the RSS family of sites (REQ-020, REQ-033) -->
+      <section aria-labelledby="family-title">
+        <h2 class="section-title" id="family-title">From the RSS family</h2>
+        <div class="grid grid-3">
+          <article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Significance</span></p><h3 class="card-title"><a href="#">The statistics of extreme heat</a></h3><p class="card-text">How attribution studies estimate the role of climate change in a single heatwave.</p></article>
+          <article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Real World Data Science</span></p><h3 class="card-title"><a href="#">Validating clinical prediction models</a></h3><p class="card-text">A practical checklist for anyone building or buying a clinical risk model.</p></article>
+          <article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Series A</span></p><h3 class="card-title"><a href="~/pages/publications.html">Latest issue: Statistics in Society</a></h3><p class="card-text">Read the latest papers. Members sign in once for full access.</p></article>
+        </div>
+        <div class="wf-note" data-note="11"><span class="wf-note-label">Behaviour</span>Latest articles pulled from the Significance and Real World Data Science feeds and restyled to sit natively on rss.org.uk. Links go to the source site. <span class="wf-req">REQ-020, REQ-033</span></div>
+        <div class="wf-note query" data-note="12"><span class="wf-note-label">Open question</span>Q: What do Significance (WordPress) and Real World Data Science publish as feeds or APIs, and who owns Real World Data Science's content? <span class="wf-req">REQ-020</span></div>
+      </section>
+
+      <!-- Featured tiles: get involved, experts, jobs (REQ-238) -->
+      <section aria-labelledby="involved-title">
+        <h2 class="section-title" id="involved-title">Get involved</h2>
+        <div class="grid grid-3">
+          <article class="card"><h3 class="card-title">Volunteering opportunities</h3>
+            <ul class="stack">
+              <li><a href="~/pages/article.html">Statistical Ambassadors 2027</a><br><span class="wf-meta">Closes 30 November</span></li>
+              <li><a href="~/pages/article.html">Medical Section committee places</a><br><span class="wf-meta">Two places for 2027</span></li>
+              <li><a href="~/pages/get-involved.html#s4s">Statisticians for Society: pro bono projects</a><br><span class="wf-meta">Ongoing</span></li>
+            </ul>
+            <a class="card-link" href="~/pages/get-involved.html#volunteering">All volunteering &rarr;</a>
+          </article>
+          <article class="card"><h3 class="card-title">Find an expert</h3><p class="card-text">Need a qualified statistician? Search the Professional Register and Consultants Directory.</p>
+            <form action="~/pages/find-an-expert.html" role="search"><label for="home-expert">Name, skill or area</label><div class="inline-field"><input type="search" id="home-expert" name="q"><button class="btn btn-small" type="submit">Search</button></div></form>
+          </article>
+          <article class="card"><h3 class="card-title">Latest jobs</h3>
+            <ul class="stack"><li><a href="~/pages/job.html">Senior Statistician</a><br><span class="wf-meta">Northbridge NHS Foundation Trust, Leeds (hybrid)</span></li><li><a href="~/pages/job.html">Lead Data Scientist</a><br><span class="wf-meta">Halden Insurance, London</span></li><li><a href="~/pages/job.html">Lecturer in Statistics</a><br><span class="wf-meta">University of Eastwick, Norwich</span></li></ul>
+            <a class="card-link" href="~/pages/jobs.html">All jobs &rarr;</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="statistics" aria-label="The RSS in numbers">
+        <div class="stat-item"><div class="stat-value">1834</div><div class="stat-title">Founded</div><div class="stat-description">Royal charter society</div></div>
+        <div class="stat-item"><div class="stat-value">10,000+</div><div class="stat-title">Members</div><div class="stat-description">In more than 50 countries</div></div>
+        <div class="stat-item"><div class="stat-value">42</div><div class="stat-title">Sections and local groups</div><div class="stat-description">UK and international</div></div>
+        <div class="stat-item"><div class="stat-value">4</div><div class="stat-title">Journals</div><div class="stat-description">Series A, B, C and Significance</div></div>
+      </section>
+      <div class="wf-note" data-note="13"><span class="wf-note-label">CMS</span>Figures are placeholders to check with RSS. Every block on this page is optional and reorderable in the CMS. <span class="wf-req">REQ-101, REQ-018</span></div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

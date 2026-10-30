@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events and training | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Events and training</li></ul></nav>
+
+      <section class="hub-hero">
+        <div>
+          <h1>Events and training</h1>
+          <p class="lead">Discussion meetings, section and local group events, public courses and the annual conference, all in one place.</p>
+          <form class="big-search" action="~/pages/events.html" role="search">
+            <label for="hub-ev-q" class="visually-hidden">Find an event or course</label>
+            <input type="search" id="hub-ev-q" name="q" placeholder="Find an event or course">
+            <button class="btn" type="submit">Find</button>
+          </form>
+          <p class="chips"><a class="chip" href="~/pages/events.html?type=event">Events</a> <a class="chip" href="~/pages/events.html?type=course">Training courses</a> <a class="chip" href="~/pages/events.html?fmt=online">Online</a> <a class="chip" href="~/pages/events.html?when=month">This month</a></p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Hub page for events and training. The chips open the finder already filtered, so a training newsletter can link straight to courses only. <span class="wf-req">REQ-034, REQ-211</span></div>
+
+      <section aria-labelledby="ev-feat">
+        <h2 class="section-title" id="ev-feat">Coming up</h2>
+        <div class="grid grid-3"><article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p><h3 class="card-title"><a href="~/pages/event.html">Discussion meeting: Statistical aspects of evaluating large language models</a></h3><p class="card-text">4 November 2026</p></article><article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Public course</span><span class="tag">Online</span></p><h3 class="card-title"><a href="~/pages/course.html">Introduction to R</a></h3><p class="card-text">10 to 11 November 2026</p></article><article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Section meeting</span><span class="tag">Hybrid</span></p><h3 class="card-title"><a href="~/pages/event.html">Official Statistics Section: Census 2031 and the future of population statistics</a></h3><p class="card-text">26 November 2026</p></article></div>
+        <p><a href="~/pages/events.html">See all events and courses &rarr;</a></p>
+      </section>
+
+      <section class="content-highlight">
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+        <div><p class="meta-row"><span class="tag tag-strong">Conference</span></p><h2>RSS Conference 2027, Edinburgh</h2><p>6 to 9 September 2027. Early-bird booking is open.</p><a class="btn" href="~/pages/conference.html">Conference programme and booking</a></div>
+      </section>
+
+      <section id="recordings" aria-labelledby="rec-title">
+        <h2 class="section-title" id="rec-title">Recordings</h2>
+        <div class="grid grid-3">
+          <article class="card"><div class="wf-placeholder ratio-16-9">Video 16:9</div><h3 class="card-title"><a href="~/pages/event.html">Statistics and the climate emergency</a></h3><p class="card-text">Discussion meeting, 14 October 2026</p></article>
+          <article class="card"><div class="wf-placeholder ratio-16-9">Video 16:9</div><h3 class="card-title"><a href="#">Presidential address 2026</a></h3><p class="card-text">RSS Conference, Brighton</p></article>
+          <article class="card"><div class="wf-placeholder ratio-16-9">Video 16:9</div><h3 class="card-title"><a href="#">Careers in official statistics</a></h3><p class="card-text">Young Statisticians Section</p></article>
+        </div>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Pulled from the RSS YouTube channel and played on the site, with captions. Some recordings are members only. <span class="wf-req">REQ-107, REQ-183</span></div>
+      </section>
+
+      <section class="grid grid-2" id="in-house">
+        <article class="card"><h2 class="card-title">In-house training</h2><p class="card-text">Any of our courses can be run for your team, online or at your offices.</p><a class="card-link" href="~/pages/about.html#contact">Ask about in-house training</a></article>
+        <article class="card"><h2 class="card-title">Running a section or group event?</h2><p class="card-text">Submit it for the calendar. Free and charged events are both welcome.</p><a class="card-link" href="~/pages/submit-event.html">Submit an event</a></article>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

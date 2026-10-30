@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="resources">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Resources</li></ul></nav>
+
+      <section class="hub-hero">
+        <div>
+          <h1>Resources</h1>
+          <p class="lead">Find a qualified statistician, a job, or the resources we provide for students, educators, journalists and the public.</p>
+          <form class="big-search" action="~/pages/find-an-expert.html" role="search"><label for="res-q" class="visually-hidden">Find an expert</label><input type="search" id="res-q" name="q" placeholder="Find an expert by name, skill or place"><button class="btn" type="submit">Find an expert</button></form>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Resources hub with audience hubs for journalists, educators and the public, and Find an expert. <span class="wf-req">REQ-034, REQ-253</span></div>
+      <section class="grid grid-3" aria-label="Audience resources">
+        <article class="card" id="students"><h2 class="card-title">Students and early career</h2><p class="card-text">e-Student membership, the Young Statisticians Section, careers advice and accredited degrees.</p><a class="card-link" href="#">Resources for students</a></article>
+        <article class="card" id="educators"><h2 class="card-title">Educators</h2><p class="card-text">Teaching resources, the schools lecture and accreditation for universities.</p><a class="card-link" href="#">Resources for educators</a></article>
+        <article class="card"><h2 class="card-title">Journalists</h2><p class="card-text">Press office, experts for comment and guides to reporting numbers.</p><a class="card-link" href="~/pages/for-journalists.html">Resources for journalists</a></article>
+        <article class="card" id="public"><h2 class="card-title">The public</h2><p class="card-text">Explainers on the statistics in the news, and how to spot a misleading claim.</p><a class="card-link" href="#">Understanding statistics</a></article>
+        <article class="card"><h2 class="card-title">Employers</h2><p class="card-text">Verify a professional qualification, hire a consultant or advertise a job.</p><a class="card-link" href="~/pages/find-an-expert.html">Find an expert</a></article>
+        <article class="card"><h2 class="card-title">Jobs and careers</h2><p class="card-text">Vacancies in statistics and data science, and career profiles.</p><a class="card-link" href="~/pages/jobs.html">Browse jobs</a></article>
+      </section>
+      <section class="panel surface">
+        <h2>Information centre</h2>
+        <p data-show-for="member">Member documents: guidance, templates and past committee papers. <a href="~/pages/myrss.html#information-centre">Open the information centre</a></p>
+        <p data-show-for="guest registered lapsed">A searchable library of documents for members. <a href="~/pages/sign-in.html">Sign in</a> to use it.</p>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Searchable, filterable repository of downloadable documents for members. <span class="wf-req">REQ-185, REQ-178</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

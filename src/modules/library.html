@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module library | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Module library</li></ul></nav>
+
+      <h1>Module library</h1>
+      <p class="lead">Every reusable component, shown once. Pages are composed from these; editors place and configure them in the CMS.</p>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">CMS</span>Components are reusable and editable, placed by drag and drop, each instance with its own content and links. <span class="wf-req">REQ-013, REQ-018, REQ-019</span></div>
+      <div class="wf-note" data-note="2"><span class="wf-note-label">CMS</span>Page templates are built from these modules, one per content type (news, events, courses, groups, committees, task forces, awards, campaigns, jobs, policy, press releases and more). RSS can clone and edit templates, including header and footer regions. <span class="wf-req">REQ-011, REQ-026, REQ-100</span></div>
+      <h2 class="section-title">Card</h2><div class="module-demo"><div class="grid grid-3"><article class="card"><div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Type</span><span class="tag">Format</span></p><h3 class="card-title"><a href="#">Card title of a realistic length</a></h3><p class="card-text">Date or summary line</p></article></div></div>
+      <h2 class="section-title">Task tile</h2><div class="module-demo"><div class="task-grid"><a class="task" href="#">Find an event or course<span>Short description</span></a></div></div>
+      <h2 class="section-title">Listing item</h2><div class="module-demo"><article class="list-item"><div class="date-block"><span class="d">4</span><span class="m">Nov 2026</span></div><div><p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p><h3><a href="#">Listing item title</a></h3><p class="meta-row"><span>Date and time</span><span>Place</span><span>Price</span></p></div><div class="list-actions"><a class="btn btn-small" href="#">Book</a></div></article></div>
+      <h2 class="section-title">Filters and active filter chips</h2><div class="module-demo"><div class="filter-bar"><div class="field"><label for="lib-q">Keyword</label><input type="search" id="lib-q"></div><div class="field"><label for="lib-t">Topic</label><select id="lib-t"><option>All topics</option></select></div></div><div class="active-filters" style="margin-top:1rem"><span class="chip">Online &times;</span><span class="chip">Methodology &times;</span></div></div>
+      <h2 class="section-title">Tabs</h2><div class="module-demo"><div class="tabs" role="tablist"><button class="tab active" type="button" data-tab="lib-t1">First</button><button class="tab" type="button" data-tab="lib-t2">Second</button></div><div><div class="tab-panel active" id="lib-t1"><p>First panel</p></div><div class="tab-panel" id="lib-t2"><p>Second panel</p></div></div></div>
+      <h2 class="section-title">Accordion</h2><div class="module-demo"><div class="accordion"><div class="accordion-item"><button class="accordion-title" type="button">Question <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>Answer</p></div></div></div></div>
+      <h2 class="section-title">Content highlight</h2><div class="module-demo"><div class="content-highlight"><div class="wf-placeholder ratio-16-9">Image 16:9</div><div><h3>Heading</h3><p>Text and a call to action.</p><a class="btn" href="#">Call to action</a></div></div></div>
+      <h2 class="section-title">Statistics</h2><div class="module-demo"><div class="statistics"><div class="stat-item"><div class="stat-value">10,000+</div><div class="stat-title">Members</div></div><div class="stat-item"><div class="stat-value">42</div><div class="stat-title">Groups</div></div></div></div>
+      <h2 class="section-title">Quote</h2><div class="module-demo"><blockquote class="wf-quote"><p>"Quote text."</p><cite>Attribution</cite></blockquote></div>
+      <h2 class="section-title">Form steps and error summary</h2><div class="module-demo"><ol class="steps"><li class="done">Done</li><li class="current">Current</li><li>Next</li></ol><div class="error-summary"><h2>There is a problem</h2><ul><li><a href="#">Enter your email address</a></li></ul></div></div>
+      <h2 class="section-title">Member banner and locked state</h2><div class="module-demo"><div class="member-banner"><div class="wf-placeholder avatar">Photo</div><div><p><strong>Name</strong> <span class="status-pill">Active</span></p><p class="meta-row"><span>Grade</span><span>Number</span></p></div><div><a href="#">Quick link</a></div></div><div class="locked" style="margin-top:1rem"><h3>For members only</h3><p>What this offers, and how to get access.</p></div></div>
+      <h2 class="section-title">Embed and video placeholders</h2><div class="module-demo"><div class="grid grid-2"><div class="wf-placeholder ratio-16-9">Video 16:9, captions and pause control</div><div class="wf-placeholder embed">Interactive chart with table alternative</div></div></div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

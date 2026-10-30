@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My events and training | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/myrss.html">MyRSS</a></li><li class="breadcrumb-item" aria-current="page">My events and training</li></ul></nav>
+
+      <div data-show-for="guest" class="locked">
+        <h1>MyRSS</h1>
+        <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
+        <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+      </div>
+      <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
+        <nav class="sidenav" aria-label="MyRSS">
+          <h2>MyRSS</h2>
+          <ul><li><a href="~/pages/myrss.html">Dashboard</a></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="~/pages/myrss-bookings.html" aria-current="page">My events and training</a></li><li><a href="~/pages/myrss-cpd.html">CPD record</a></li><li><a href="~/pages/myrss-groups.html">Sections and groups</a></li><li><a href="~/pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="~/pages/home.html" data-sign-out>Sign out</a></li></ul>
+        </nav>
+        <div>
+          <h1>My events and training</h1>
+
+          <div class="tabs" role="tablist">
+            <button class="tab active" type="button" data-tab="b-up">Upcoming</button>
+            <button class="tab" type="button" data-tab="b-past">Past</button>
+          </div>
+          <div>
+            <div class="tab-panel active" id="b-up">
+              <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col"></th></tr></thead><tbody>
+                <tr><td><a href="~/pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a></td></tr>
+                <tr><td><a href="~/pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Cancel</a></td></tr>
+                <tr><td><a href="~/pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="~/pages/basket.html">Pay invoice</a></td></tr>
+              </tbody></table>
+            </div>
+            <div class="tab-panel" id="b-past">
+              <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">CPD</th><th scope="col"></th></tr></thead><tbody>
+                <tr><td>Statistics and the climate emergency</td><td>14 Oct 2026</td><td>2 hours</td><td><a href="#">Watch recording</a></td></tr>
+                <tr><td>Practical survey design (course no longer offered)</td><td>3 Jun 2025</td><td>6 hours</td><td><a href="#">Certificate</a></td></tr>
+              </tbody></table>
+            </div>
+          </div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>My Events and My Training in one place: booked, past and related items, with clear payment status and a prominent route to pay an outstanding invoice. Training history comes from Dynamics, so courses that are no longer published still appear. <span class="wf-req">REQ-180, REQ-208, REQ-219</span></div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

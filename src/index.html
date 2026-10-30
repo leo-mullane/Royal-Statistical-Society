@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS website prototype: contents</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <div class="proto-bar">
+    <div class="container proto-bar-inner">
+      <a class="proto-bar-home" href="~/index.html">RSS prototype <span>first draft &middot; contents</span></a>
+      <label class="proto-persona">View as
+        <select data-persona-select aria-label="View the site as">
+          <option value="guest">Signed out</option>
+          <option value="registered">Registered, not a member</option>
+          <option value="member">Member (CStat)</option>
+          <option value="lapsed">Lapsed member</option>
+        </select>
+      </label>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Annotations off</span>
+      </button>
+    </div>
+  </div>
+  <main id="main">
+    <div class="container">
+      <h1>Royal Statistical Society: website prototype</h1>
+      <p class="lead">A clickable greyscale prototype of the whole new rss.org.uk, for agreeing structure, navigation and journeys before design. It covers the Must and Should requirements; Could requirements, including ClerksWell's suggestions, are flagged where relevant but not built.</p>
+      <div class="wf-hub-meta"><span>v0.1, first draft</span><span>30 October 2026</span><span>Status: working draft, not yet reviewed</span><span>Requirements: draft catalogue, pending revision</span></div>
+      <p><a class="btn" href="~/pages/home.html">Open the home page</a></p>
+
+      <div class="contents-grid">
+        <section>
+          <h2 class="section-title">How to review</h2>
+          <ul class="wf-hub-list">
+            <li><p><strong>Annotations are off.</strong> Switch them on in the dark bar at the top of every page. Yellow notes explain behaviour and CMS capability; red notes are questions for RSS. Each note names the requirement it answers, e.g. <span class="wf-req">REQ-201</span>.</p></li>
+            <li><p><strong>View as</strong> (dark bar) switches between signed out, a registered non-member, a member and a lapsed member, so you can see what changes for each.</p></li>
+            <li><p>Navigation, search, filters, the calendar, tabs, accordions, forms (with validation), the basket and the cookie banner all work. Individual article and profile links go nowhere by design.</p></li>
+            <li><p>Search follows the Travers Smith model. Try "CStat", "bayseian" (a typo) or "census" (found inside a PDF).</p></li>
+            <li><p>All people, employers, fees and figures are placeholders.</p></li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="section-title">Navigation</h2>
+          <ul class="wf-hub-list">
+            <li><p><strong>Eight task-based sections</strong> replace the nine organisational ones: Membership, Professional development, Events and training, Get involved, Policy and research, News and publications, Resources, About.</p></li>
+            <li><p>The four use-based hubs from RSS's IA document (Professional development, Events and training, Get involved with volunteering, Resources) are top-level sections, not pages under Membership.</p></li>
+            <li><p>A utility bar links the RSS family of sites (Significance, Real World Data Science, RSS Publications), MyRSS, the basket and Join.</p></li>
+            <li><p>Every mega-menu panel links to its section's landing page, and two panels have search built in (events and experts).</p></li>
+          </ul>
+          <p><a href="~/modules/library.html">Module library</a>. The requirements trace is in <code>requirements/requirements.md</code> in the repository.</p>
+        </section>
+      </div>
+
+      <h2 class="section-title">Pages, by section</h2>
+      <section><h2 class="section-title">Global</h2><ul class="wf-hub-list"><li><a href="~/pages/home.html">Home</a> <span class="wf-req">REQ-101, REQ-238, REQ-237, REQ-239, REQ-240</span><p>Task-led home page, personalised for members, with events, training, news carousel and the RSS family</p></li><li><a href="~/pages/search.html?q=chartered+statistician">Search results</a> <span class="wf-req">REQ-037 to REQ-046</span><p>The Travers Smith search model: facets with counts, synonyms, typo tolerance, document text, AI summary</p></li><li><a href="~/pages/search-advanced.html">Advanced search</a> <span class="wf-req">REQ-039</span><p>Opens pre-filled from the search you came from</p></li><li><a href="~/pages/basket.html">Basket</a> <span class="wf-req">REQ-094, REQ-087</span><p>Several purchases in one payment, with promo codes</p></li><li><a href="~/pages/sign-in.html">Sign in and create an account</a> <span class="wf-req">REQ-074 to REQ-080</span><p>MFA, registration, password reset, staff sign-in</p></li></ul></section><section><h2 class="section-title">Membership</h2><ul class="wf-hub-list"><li><a href="~/pages/membership.html">Membership (section landing)</a> <span class="wf-req">REQ-187, REQ-104</span><p>Benefits, grades, FAQs</p></li><li><a href="~/pages/grades-fees.html">Grades and fees</a> <span class="wf-req">REQ-029, REQ-189</span><p>Content page with left-hand menu; fees and concessions</p></li><li><a href="~/pages/join.html">Join (multi-step form)</a> <span class="wf-req">REQ-186, REQ-082, REQ-084, REQ-086</span><p>Grade, details, journals, payment by card, Direct Debit or invoice</p></li></ul></section><section><h2 class="section-title">Professional development</h2><ul class="wf-hub-list"><li><a href="~/pages/professional-development.html">Professional development hub</a> <span class="wf-req">REQ-034</span><p>Use-based hub: status, CPD, accreditation, courses</p></li><li><a href="~/pages/chartered-statistician.html">Chartered Statistician (content page)</a> <span class="wf-req">REQ-029, REQ-013</span><p>Standard content page template</p></li><li><a href="~/pages/accreditation.html">Accreditation</a> <span class="wf-req">REQ-190, REQ-191</span><p>Expression of interest form</p></li></ul></section><section><h2 class="section-title">Events and training</h2><ul class="wf-hub-list"><li><a href="~/pages/events-training.html">Events and training hub</a> <span class="wf-req">REQ-034, REQ-211, REQ-107</span><p>Hub with pre-filtered views, conference, recordings</p></li><li><a href="~/pages/events.html">Find an event or course</a> <span class="wf-req">REQ-210, REQ-211, REQ-212, REQ-031</span><p>One finder for events and training; list and calendar views</p></li><li><a href="~/pages/event.html">Event page</a> <span class="wf-req">REQ-201, REQ-202, REQ-209</span><p>One page per event, tabs, a booking button per format</p></li><li><a href="~/pages/course.html">Course page</a> <span class="wf-req">REQ-213, REQ-214, REQ-218</span><p>Every date and price on one page, waiting list</p></li><li><a href="~/pages/book.html">Book a course</a> <span class="wf-req">REQ-215, REQ-216, REQ-217</span><p>Booking for yourself or others</p></li><li><a href="~/pages/conference.html">RSS Conference 2027</a> <span class="wf-req">REQ-224 to REQ-233</span><p>Conference landing page</p></li><li><a href="~/pages/submit-event.html">Submit a group event</a> <span class="wf-req">REQ-203</span><p>For group officers</p></li></ul></section><section><h2 class="section-title">Get involved</h2><ul class="wf-hub-list"><li><a href="~/pages/get-involved.html">Get involved hub</a> <span class="wf-req">REQ-034</span><p>Groups, volunteering, honours, ambassadors</p></li><li><a href="~/pages/groups.html">Sections and groups</a> <span class="wf-req">REQ-102</span><p>Tabs by type, filter by region</p></li><li><a href="~/pages/group.html">Section or group page</a> <span class="wf-req">REQ-102, REQ-163</span><p>Pulls through tagged news and events</p></li><li><a href="~/pages/donate.html">Donate</a> <span class="wf-req">REQ-090</span><p>Gift Aid</p></li></ul></section><section><h2 class="section-title">Policy and research</h2><ul class="wf-hub-list"><li><a href="~/pages/policy.html">Policy and research, with the policy library</a> <span class="wf-req">REQ-252</span><p>One filterable library of documents</p></li><li><a href="~/pages/campaign.html">Campaign or explainer</a> <span class="wf-req">REQ-104, REQ-108</span><p>Campaign template</p></li></ul></section><section><h2 class="section-title">News and publications</h2><ul class="wf-hub-list"><li><a href="~/pages/news.html">News</a> <span class="wf-req">REQ-235</span><p>Featured story, filters by type and topic</p></li><li><a href="~/pages/article.html">News article</a> <span class="wf-req">REQ-236, REQ-105</span><p>Share buttons, related content</p></li><li><a href="~/pages/publications.html">Journals and publications</a> <span class="wf-req">REQ-198, REQ-020, REQ-033</span><p>OUP access, Significance, Real World Data Science</p></li></ul></section><section><h2 class="section-title">Resources</h2><ul class="wf-hub-list"><li><a href="~/pages/resources.html">Resources hub</a> <span class="wf-req">REQ-253</span><p>Audience resource hubs</p></li><li><a href="~/pages/for-journalists.html">For journalists</a> <span class="wf-req">REQ-253</span><p>Audience hub example</p></li><li><a href="~/pages/find-an-expert.html">Find an expert</a> <span class="wf-req">REQ-192, REQ-193, REQ-194</span><p>Professional Register, Consultants and Fellows directories</p></li><li><a href="~/pages/jobs.html">Jobs</a> <span class="wf-req">REQ-249, REQ-088, REQ-251</span><p>Listing, featured posts, advertise</p></li><li><a href="~/pages/job.html">Job page</a> <span class="wf-req">REQ-250</span><p>Description and Apply now</p></li></ul></section><section><h2 class="section-title">About</h2><ul class="wf-hub-list"><li><a href="~/pages/about.html">About the RSS</a> <span class="wf-req">REQ-029, REQ-069, REQ-093</span><p>Content page, contact form, security reporting</p></li></ul></section><section><h2 class="section-title">MyRSS</h2><ul class="wf-hub-list"><li><a href="~/pages/myrss.html">Dashboard</a> <span class="wf-req">REQ-173, REQ-179, REQ-181, REQ-188</span><p>Member banner, balance and renewal, bookings, publications</p></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a> <span class="wf-req">REQ-173, REQ-196</span><p>Sections that save separately; interests</p></li><li><a href="~/pages/myrss-bookings.html">My events and training</a> <span class="wf-req">REQ-180, REQ-208, REQ-219</span><p>Upcoming, past, payment status</p></li><li><a href="~/pages/myrss-cpd.html">CPD record</a> <span class="wf-req">REQ-195</span><p>Add, edit, download</p></li><li><a href="~/pages/myrss-groups.html">Sections and groups</a> <span class="wf-req">REQ-182</span><p>Subscriptions and mailing lists</p></li><li><a href="~/pages/myrss-preferences.html">Newsletters and preferences</a> <span class="wf-req">REQ-159, REQ-160</span><p>Opt in and out</p></li></ul></section>
+
+      <section>
+        <h2 class="section-title">Not in this draft</h2>
+        <ul class="wf-hub-list">
+          <li><p>Could requirements, including ClerksWell's REQ-276 to REQ-291, and the Won't requirements. Where a Could would change a page, a "Proposed" note says so.</p></li>
+          <li><p>Back-office and CMS functions (workflow, permissions, media library, newsletter editor, reporting). These are shown as CMS notes on the pages they affect.</p></li>
+          <li><p>The accreditation application portal and the embedded conference programme (Phase 2 in the SoW).</p></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-title">Change log</h2>
+        <ol class="changelog"><li>v0.1, first draft: first complete draft from the draft requirements catalogue and the immersion findings.</li></ol>
+      </section>
+    </div>
+  </main>
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="news">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">News</li></ul></nav>
+
+      <h1>News</h1>
+      <!-- News landing with featured story and filters (REQ-235) -->
+      <section class="content-highlight" aria-label="Featured story">
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+        <div><p class="meta-row"><span class="tag tag-strong">Featured</span><span class="tag">Press release</span></p><h2><a href="~/pages/article.html">RSS responds to the Statistics Commission report</a></h2><p>The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.</p><p class="wf-meta">28 October 2026</p></div>
+      </section>
+      <section data-listing data-page-size="6">
+        <form class="filter-bar" role="search">
+          <div class="field"><label for="n-q">Search news</label><input type="search" id="n-q" data-filter="q"></div>
+          <div class="field"><label for="n-type">Type</label><select id="n-type" data-filter="type"><option value="">All types</option><option value="news">News</option><option value="press">Press releases</option><option value="callout">Member callouts</option></select></div>
+          <div class="field"><label for="n-topic">Topic</label><select id="n-topic" data-filter="topic"><option value="">All topics</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
+          <div class="field"><label for="n-sort">Sort</label><select id="n-sort" data-list-sort><option value="latest">Most recent</option><option value="oldest">Oldest</option><option value="title">Title A to Z</option></select></div>
+        </form>
+        <div class="active-filters" data-chips style="margin-top:1rem"></div>
+        <p class="result-count" data-count aria-live="polite"></p>
+        <div><article class="list-item" data-item data-type="press" data-topic="official" data-date="2026-10-28" data-title="RSS responds to the Statistics Commission report" data-text="RSS responds to the Statistics Commission report The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">Press release</span><span class="tag">Official statistics</span></p>
+                <h3><a href="~/pages/article.html">RSS responds to the Statistics Commission report</a></h3><p>The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.</p><p class="meta-row"><span>28 October 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="news" data-topic="methods" data-date="2026-10-22" data-title="Nominations open for the 2027 Guy Medals" data-text="Nominations open for the 2027 Guy Medals Nominate a colleague for the Society&#x27;s highest honours. Nominations close on 31 January 2027.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">News</span><span class="tag">Methodology</span></p>
+                <h3><a href="~/pages/article.html">Nominations open for the 2027 Guy Medals</a></h3><p>Nominate a colleague for the Society&#x27;s highest honours. Nominations close on 31 January 2027.</p><p class="meta-row"><span>22 October 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="news" data-topic="environment" data-date="2026-10-20" data-title="From Significance: the statistics of extreme heat" data-text="From Significance: the statistics of extreme heat How attribution studies estimate the role of climate change in a single heatwave.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">News</span><span class="tag">From Significance</span><span class="tag">Environmental statistics</span></p>
+                <h3><a href="~/pages/article.html">From Significance: the statistics of extreme heat</a></h3><p>How attribution studies estimate the role of climate change in a single heatwave.</p><p class="meta-row"><span>20 October 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="callout" data-topic="public" data-date="2026-10-15" data-title="Call for volunteers: Statistical Ambassadors 2027" data-text="Call for volunteers: Statistical Ambassadors 2027 Help journalists and the public understand the numbers. Applications close on 30 November.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">Member callout</span><span class="tag">Members</span><span class="tag">Public understanding of statistics</span></p>
+                <h3><a href="~/pages/article.html">Call for volunteers: Statistical Ambassadors 2027</a></h3><p>Help journalists and the public understand the numbers. Applications close on 30 November.</p><p class="meta-row"><span>15 October 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="news" data-topic="datasci" data-date="2026-10-09" data-title="Data Analyst professional status: what has changed" data-text="Data Analyst professional status: what has changed Simpler evidence requirements and a new route for apprentices, from 1 November.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">News</span><span class="tag">Data science and AI</span></p>
+                <h3><a href="~/pages/article.html">Data Analyst professional status: what has changed</a></h3><p>Simpler evidence requirements and a new route for apprentices, from 1 November.</p><p class="meta-row"><span>9 October 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="press" data-topic="official social" data-date="2026-10-02" data-title="Statement on the Labour Force Survey" data-text="Statement on the Labour Force Survey The Society&#x27;s response to the latest update on the quality of labour market statistics.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">Press release</span><span class="tag">Official statistics</span><span class="tag">Social statistics</span></p>
+                <h3><a href="~/pages/article.html">Statement on the Labour Force Survey</a></h3><p>The Society&#x27;s response to the latest update on the quality of labour market statistics.</p><p class="meta-row"><span>2 October 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="news" data-topic="health datasci" data-date="2026-09-25" data-title="From Real World Data Science: validating clinical prediction models" data-text="From Real World Data Science: validating clinical prediction models A practical checklist for anyone building or buying a clinical risk model.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">News</span><span class="tag">From Real World Data Science</span><span class="tag">Medical and health statistics</span><span class="tag">Data science and AI</span></p>
+                <h3><a href="~/pages/article.html">From Real World Data Science: validating clinical prediction models</a></h3><p>A practical checklist for anyone building or buying a clinical risk model.</p><p class="meta-row"><span>25 September 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="news" data-topic="methods" data-date="2026-09-18" data-title="First keynote speakers announced for RSS Conference 2027" data-text="First keynote speakers announced for RSS Conference 2027 Three plenary speakers confirmed for Edinburgh, with the call for talks opening in January.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">News</span><span class="tag">Methodology</span></p>
+                <h3><a href="~/pages/article.html">First keynote speakers announced for RSS Conference 2027</a></h3><p>Three plenary speakers confirmed for Edinburgh, with the call for talks opening in January.</p><p class="meta-row"><span>18 September 2026</span></p></div>
+              <div></div>
+            </article><article class="list-item" data-item data-type="callout" data-topic="health" data-date="2026-09-10" data-title="Medical Section seeks new committee members" data-text="Medical Section seeks new committee members Two committee places are open for 2027. Members of any grade can stand.">
+              <div class="wf-placeholder ratio-4-3">Image</div>
+              <div><p class="meta-row"><span class="tag">Member callout</span><span class="tag">Members</span><span class="tag">Medical and health statistics</span></p>
+                <h3><a href="~/pages/article.html">Medical Section seeks new committee members</a></h3><p>Two committee places are open for 2027. Members of any grade can stand.</p><p class="meta-row"><span>10 September 2026</span></p></div>
+              <div></div>
+            </article></div>
+        <p class="empty-state" data-empty hidden>No stories match these filters.</p>
+        <p style="text-align:center"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>One news page with filters for type and topic, covering featured stories, group news, press releases and member callouts. Stories from Significance and Real World Data Science are pulled in and labelled with their source. <span class="wf-req">REQ-235, REQ-020, REQ-106</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy and research | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="policy">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Policy and research</li></ul></nav>
+
+      <section class="hub-hero">
+        <div>
+          <h1>Policy and research</h1>
+          <p class="lead">We use evidence and our members' expertise to improve how statistics are produced and used in public life.</p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      <section class="grid grid-3" id="areas" aria-label="Policy areas">
+        <article class="card"><h2 class="card-title">Official statistics</h2><p class="card-text">The quality and independence of national statistics.</p></article>
+        <article class="card"><h2 class="card-title">Statistics and AI</h2><p class="card-text"><a href="~/pages/campaign.html">Our campaign</a> on AI in the production of statistics.</p></article>
+        <article class="card"><h2 class="card-title">Data skills and education</h2><p class="card-text">Statistics in schools, universities and the workforce.</p></article>
+      </section>
+
+      <!-- Policy library (REQ-252) -->
+      <section id="library" data-listing data-page-size="6" aria-labelledby="lib-title">
+        <h2 class="section-title" id="lib-title">Policy library</h2>
+        <form class="filter-bar" role="search">
+          <div class="field"><label for="pl-q">Search the library</label><input type="search" id="pl-q" data-filter="q"></div>
+          <div class="field"><label for="pl-topic">Topic</label><select id="pl-topic" data-filter="topic"><option value="">All topics</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
+          <div class="field"><label for="pl-year">Year</label><select id="pl-year" data-filter="year"><option value="">Any year</option><option>2026</option><option>2025</option></select></div>
+          <div class="field"><label for="pl-sort">Sort</label><select id="pl-sort" data-list-sort><option value="latest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A to Z</option></select></div>
+        </form>
+        <fieldset class="chips" style="margin:1rem 0"><legend class="visually-hidden">Document type</legend><label class="check"><input type="checkbox" data-filter="ptype" value="consultation"> Consultation response</label><label class="check"><input type="checkbox" data-filter="ptype" value="report"> Report</label><label class="check"><input type="checkbox" data-filter="ptype" value="evidence"> Written evidence</label><label class="check"><input type="checkbox" data-filter="ptype" value="briefing"> Briefing</label><label class="check"><input type="checkbox" data-filter="ptype" value="letter"> Letter</label></fieldset>
+        <div class="active-filters" data-chips></div>
+        <p class="result-count" data-count aria-live="polite"></p>
+        <div><article class="list-item no-thumb" data-item data-ptype="consultation" data-topic="official" data-date="2026-10-01" data-year="2026" data-title="Response to the consultation on the Code of Practice for Statistics" data-text="Response to the consultation on the Code of Practice for Statistics Our response supports clearer standards for official statistics produced outside government departments.">
+              <div>
+                <p class="meta-row"><span class="tag">Consultation response</span><span class="tag">Official statistics</span></p>
+                <h3>Response to the consultation on the Code of Practice for Statistics</h3>
+                <p>Our response supports clearer standards for official statistics produced outside government departments.</p>
+                <p class="meta-row"><span>1 October 2026</span><span>PDF, 1.2 MB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="report" data-topic="datasci public" data-date="2026-09-12" data-year="2026" data-title="Statistics and AI: what the public should expect" data-text="Statistics and AI: what the public should expect Six principles for using AI in the production and communication of statistics.">
+              <div>
+                <p class="meta-row"><span class="tag">Report</span><span class="tag">Data science and AI</span><span class="tag">Public understanding of statistics</span></p>
+                <h3>Statistics and AI: what the public should expect</h3>
+                <p>Six principles for using AI in the production and communication of statistics.</p>
+                <p class="meta-row"><span>12 September 2026</span><span>PDF, 3.4 MB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="evidence" data-topic="official" data-date="2026-07-03" data-year="2026" data-title="Written evidence on ONS data quality" data-text="Written evidence on ONS data quality Evidence submitted to the Public Administration and Constitutional Affairs Committee.">
+              <div>
+                <p class="meta-row"><span class="tag">Written evidence</span><span class="tag">Official statistics</span></p>
+                <h3>Written evidence on ONS data quality</h3>
+                <p>Evidence submitted to the Public Administration and Constitutional Affairs Committee.</p>
+                <p class="meta-row"><span>3 July 2026</span><span>PDF, 640 KB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="briefing" data-topic="health public" data-date="2026-05-20" data-year="2026" data-title="Briefing: understanding excess deaths" data-text="Briefing: understanding excess deaths What excess death figures measure, how the baseline is chosen and how to report them.">
+              <div>
+                <p class="meta-row"><span class="tag">Briefing</span><span class="tag">Medical and health statistics</span><span class="tag">Public understanding of statistics</span></p>
+                <h3>Briefing: understanding excess deaths</h3>
+                <p>What excess death figures measure, how the baseline is chosen and how to report them.</p>
+                <p class="meta-row"><span>20 May 2026</span><span>PDF, 410 KB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="letter" data-topic="official social" data-date="2026-03-14" data-year="2026" data-title="Letter on the future of the census" data-text="Letter on the future of the census Our letter setting out why a census in 2031 remains the best option for population statistics.">
+              <div>
+                <p class="meta-row"><span class="tag">Letter</span><span class="tag">Official statistics</span><span class="tag">Social statistics</span></p>
+                <h3>Letter on the future of the census</h3>
+                <p>Our letter setting out why a census in 2031 remains the best option for population statistics.</p>
+                <p class="meta-row"><span>14 March 2026</span><span>PDF, 220 KB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="consultation" data-topic="education" data-date="2025-12-02" data-year="2025" data-title="Response to the consultation on post-16 maths" data-text="Response to the consultation on post-16 maths Our response calls for data and statistics to be part of every post-16 pathway.">
+              <div>
+                <p class="meta-row"><span class="tag">Consultation response</span><span class="tag">Statistical education</span></p>
+                <h3>Response to the consultation on post-16 maths</h3>
+                <p>Our response calls for data and statistics to be part of every post-16 pathway.</p>
+                <p class="meta-row"><span>2 December 2025</span><span>PDF, 900 KB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="report" data-topic="datasci business" data-date="2025-10-10" data-year="2025" data-title="Data science skills in the UK workforce" data-text="Data science skills in the UK workforce Survey findings on skills gaps, training and professional standards for data scientists.">
+              <div>
+                <p class="meta-row"><span class="tag">Report</span><span class="tag">Data science and AI</span><span class="tag">Business and industry</span></p>
+                <h3>Data science skills in the UK workforce</h3>
+                <p>Survey findings on skills gaps, training and professional standards for data scientists.</p>
+                <p class="meta-row"><span>10 October 2025</span><span>PDF, 5.8 MB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article><article class="list-item no-thumb" data-item data-ptype="briefing" data-topic="public" data-date="2025-06-18" data-year="2025" data-title="Briefing: statistical literacy for parliamentarians" data-text="Briefing: statistical literacy for parliamentarians A short guide to the questions to ask of any statistic.">
+              <div>
+                <p class="meta-row"><span class="tag">Briefing</span><span class="tag">Public understanding of statistics</span></p>
+                <h3>Briefing: statistical literacy for parliamentarians</h3>
+                <p>A short guide to the questions to ask of any statistic.</p>
+                <p class="meta-row"><span>18 June 2025</span><span>PDF, 350 KB</span></p>
+              </div>
+              <div class="list-actions"><a class="btn btn-small" href="#">Download PDF</a></div>
+            </article></div>
+        <p class="empty-state" data-empty hidden>No documents match. Try another topic or year.</p>
+        <p style="text-align:center"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>One library replaces the six category pages. Each item shows title, description, date, type, file type and size, with a download button. Text inside the PDFs is searchable from site search. <span class="wf-req">REQ-252, REQ-044, REQ-140</span></div>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Proposed</span>Publishing each output as a short HTML summary page with the PDF attached is ClerksWell's suggestion REQ-286 (a Could). <span class="wf-req">REQ-286</span></div>
+      </section>
+
+      <section id="taskforces" class="grid grid-2">
+        <article class="card"><h2 class="card-title">Task forces</h2><p class="card-text">Time-limited groups on a single issue, such as the Covid-19 Task Force and the AI Task Force.</p><a class="card-link" href="#">Current task forces</a></article>
+        <article class="card" id="contact"><h2 class="card-title">Contact the policy team</h2><p class="card-text">For evidence requests, briefings and consultations.</p><a class="card-link" href="#">policy@rss.org.uk</a></article>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a group event | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item" aria-current="page">Submit a group event</li></ul></nav>
+
+      <h1>Submit a group event</h1>
+      <p class="lead">For sections, special interest groups and local groups. Events appear on the calendar once approved.</p>
+      <p data-show-for="guest" class="locked">You need to <a href="~/pages/sign-in.html">sign in</a> as a group officer to submit an event. Use <strong>View as</strong> to see the form.</p>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Only group officers can submit. Approved events appear in the events finder and on the group's own page. <span class="wf-req">REQ-203, REQ-102</span></div>
+      <form class="form-step" data-validate novalidate data-show-for="registered member lapsed" hidden>
+        <div class="field"><label for="se-group">Group</label><select id="se-group" name="group" required><option value="">Choose your group</option><option>Medical Section</option><option>Official Statistics Section</option><option>Data Science and AI Section</option><option>Social Statistics Section</option><option>Environmental Statistics Section</option><option>Education and Statistical Literacy Section</option><option>Young Statisticians Section</option><option>Statistical Computing Section</option><option>Merseyside Local Group</option><option>Manchester Local Group</option><option>Edinburgh Local Group</option><option>Cardiff Local Group</option><option>East Midlands Local Group</option><option>Gulf Local Group</option><option>India Local Group</option><option>Singapore Local Group</option><option>Quality Improvement SIG</option><option>Statistics in Sport SIG</option><option>History of Statistics SIG</option><option>Primary Health Care SIG</option></select></div>
+        <div class="field"><label for="se-title">Event title</label><input type="text" id="se-title" name="title" required></div>
+        <div class="field-row">
+          <div class="field"><label for="se-date">Date</label><input type="date" id="se-date" name="date" required></div>
+          <div class="field"><label for="se-time">Start and end time</label><input type="text" id="se-time" name="time" required placeholder="18:30 to 20:00"></div>
+        </div>
+        <fieldset class="field"><legend>Format</legend>
+          <label class="check"><input type="radio" name="fmt" value="in-person" required data-error="Choose a format"> In person</label>
+          <label class="check"><input type="radio" name="fmt" value="online"> Online</label>
+          <label class="check"><input type="radio" name="fmt" value="hybrid"> Hybrid</label>
+        </fieldset>
+        <fieldset class="field"><legend>Is there a charge?</legend>
+          <label class="check"><input type="radio" name="charge" value="free" required data-error="Tell us whether the event is free"> Free</label>
+          <label class="check"><input type="radio" name="charge" value="paid" data-reveal="charge-detail"> Charged</label>
+        </fieldset>
+        <div class="reveal" id="charge-detail" hidden>
+          <div class="field"><label for="se-price">Prices (member and non-member)</label><input type="text" id="se-price" name="price"></div>
+          <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: How are charged group events paid for, and where is extra registration information stored? <span class="wf-req">REQ-203, REQ-205</span></div>
+        </div>
+        <fieldset class="field"><legend>Topics</legend><label class="check"><input type="checkbox" name="topics" value="official"> Official statistics</label><label class="check"><input type="checkbox" name="topics" value="datasci"> Data science and AI</label><label class="check"><input type="checkbox" name="topics" value="health"> Medical and health statistics</label><label class="check"><input type="checkbox" name="topics" value="methods"> Methodology</label><label class="check"><input type="checkbox" name="topics" value="education"> Statistical education</label><label class="check"><input type="checkbox" name="topics" value="social"> Social statistics</label><label class="check"><input type="checkbox" name="topics" value="environment"> Environmental statistics</label><label class="check"><input type="checkbox" name="topics" value="business"> Business and industry</label><label class="check"><input type="checkbox" name="topics" value="computing"> Statistical computing</label><label class="check"><input type="checkbox" name="topics" value="public"> Public understanding of statistics</label></fieldset>
+        <div class="field"><label for="se-desc">Description</label><textarea id="se-desc" name="desc" rows="5" required></textarea></div>
+        <div class="field"><label for="se-file">Flyer or programme (optional)</label><input type="file" id="se-file" name="file" accept=".pdf,.docx,.jpg,.png"><p class="field-hint">PDF, DOCX, JPG or PNG, up to 25 MB.</p></div>
+        <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Uploads accept only approved file types and sizes; names are normalised and double extensions rejected. <span class="wf-req">REQ-254, REQ-255, REQ-257</span></div>
+        <button class="btn" type="submit">Submit for approval</button>
+        <p class="form-success" hidden>Thank you. The events team will review your event within three working days.</p>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

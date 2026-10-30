@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sections and groups | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/myrss.html">MyRSS</a></li><li class="breadcrumb-item" aria-current="page">Sections and groups</li></ul></nav>
+
+      <div data-show-for="guest" class="locked">
+        <h1>MyRSS</h1>
+        <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
+        <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+      </div>
+      <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
+        <nav class="sidenav" aria-label="MyRSS">
+          <h2>MyRSS</h2>
+          <ul><li><a href="~/pages/myrss.html">Dashboard</a></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="~/pages/myrss-bookings.html">My events and training</a></li><li><a href="~/pages/myrss-cpd.html">CPD record</a></li><li><a href="~/pages/myrss-groups.html" aria-current="page">Sections and groups</a></li><li><a href="~/pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="~/pages/home.html" data-sign-out>Sign out</a></li></ul>
+        </nav>
+        <div>
+          <h1>Sections and groups</h1>
+
+          <div data-show-for="registered" class="locked">Sections and groups are free for members. <a href="~/pages/join.html">Become a member</a>.</div>
+          <div data-show-for="member lapsed">
+            <div class="tabs" role="tablist">
+              <button class="tab active" type="button" data-tab="mg-s">Sections</button>
+              <button class="tab" type="button" data-tab="mg-sig">Special interest groups</button>
+              <button class="tab" type="button" data-tab="mg-l">Local groups</button>
+            </div>
+            <div>
+              <div class="tab-panel active" id="mg-s"><table class="data-table"><thead><tr><th scope="col">Group</th><th scope="col">Membership</th><th scope="col">Email</th></tr></thead><tbody><tr><td>Medical Section</td><td><label class="check"><input type="checkbox" checked> Member</label></td><td><label class="check"><input type="checkbox" checked> Mailing list</label></td></tr><tr><td>Official Statistics Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Data Science and AI Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Social Statistics Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Environmental Statistics Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Education and Statistical Literacy Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Young Statisticians Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Statistical Computing Section</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr></tbody></table></div>
+              <div class="tab-panel" id="mg-sig"><table class="data-table"><thead><tr><th scope="col">Group</th><th scope="col">Membership</th><th scope="col">Email</th></tr></thead><tbody><tr><td>Quality Improvement SIG</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Statistics in Sport SIG</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>History of Statistics SIG</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Primary Health Care SIG</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr></tbody></table></div>
+              <div class="tab-panel" id="mg-l"><table class="data-table"><thead><tr><th scope="col">Group</th><th scope="col">Membership</th><th scope="col">Email</th></tr></thead><tbody><tr><td>Merseyside Local Group</td><td><label class="check"><input type="checkbox" checked> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Manchester Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Edinburgh Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Cardiff Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>East Midlands Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Gulf Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>India Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr><tr><td>Singapore Local Group</td><td><label class="check"><input type="checkbox"> Member</label></td><td><label class="check"><input type="checkbox"> Mailing list</label></td></tr></tbody></table></div>
+            </div>
+            <p><button class="btn" type="button">Save changes</button></p>
+          </div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Members see their subscriptions and choose group mailing lists, in tabs for sections, SIGs and local groups. <span class="wf-req">REQ-182, REQ-160</span></div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

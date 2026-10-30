@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional development | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="professional-development">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Professional development</li></ul></nav>
+
+      <section class="hub-hero">
+        <div>
+          <h1>Professional development</h1>
+          <p class="lead">Professional status, CPD and accreditation for statisticians and data scientists, whether or not you are a member yet.</p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>A use-based hub: a secondary home page for professional development, assembled from components. It sits at the top level rather than under Membership, because people look for CPD and status before they join. <span class="wf-req">REQ-034, REQ-027</span></div>
+
+      <!-- Professional status (REQ-187, REQ-192) -->
+      <section aria-labelledby="status">
+        <h2 class="section-title" id="status">Professional status</h2>
+        <div class="grid grid-4">
+          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Chartered Statistician (CStat)</a></h3><p class="card-text">Qualifications plus five years' experience.</p></article>
+          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></h3><p class="card-text">For graduates with a degree that meets our standard.</p></article>
+          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Data Analyst</a></h3><p class="card-text">For people working with data, including apprentices.</p></article>
+          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Data Science Professional</a></h3><p class="card-text">AdvDSP and DSP, awarded with the Alliance for Data Science Professionals.</p></article>
+        </div>
+      </section>
+
+      <section class="grid grid-3" aria-label="CPD, accreditation and the register">
+        <article class="card"><h2 class="card-title">CPD</h2><p class="card-text">Plan and record your continuing professional development in MyRSS, and download your record for any period.</p><a class="card-link" href="~/pages/myrss-cpd.html">Your CPD record</a></article>
+        <article class="card"><h2 class="card-title">Accreditation</h2><p class="card-text">How universities and training providers get their programmes accredited.</p><a class="card-link" href="~/pages/accreditation.html">About accreditation</a></article>
+        <article class="card"><h2 class="card-title">Professional Register</h2><p class="card-text">Check whether someone holds CStat, GradStat or Data Analyst status.</p><a class="card-link" href="~/pages/find-an-expert.html">Search the register</a></article>
+      </section>
+
+      <!-- Training cross-promotion (REQ-220) -->
+      <section aria-labelledby="pd-courses">
+        <h2 class="section-title" id="pd-courses">Courses that count towards CPD</h2>
+        <ul class="stack"><li><a href="~/pages/course.html">Introduction to R</a> <span class="wf-meta">10 to 11 November 2026, Online, Foundation</span></li><li><a href="~/pages/course.html">Bayesian statistics with Stan</a> <span class="wf-meta">17 to 18 November 2026, In person, Intermediate</span></li><li><a href="~/pages/course.html">Data visualisation for decision makers</a> <span class="wf-meta">24 November 2026, Online, Foundation</span></li><li><a href="~/pages/course.html">Introduction to machine learning</a> <span class="wf-meta">1 to 3 December 2026, Online, Intermediate</span></li><li><a href="~/pages/course.html">Survival analysis</a> <span class="wf-meta">14 to 15 January 2027, In person, Intermediate</span></li><li><a href="~/pages/course.html">Practical survey design</a> <span class="wf-meta">2 February 2027, Online, Foundation</span></li></ul>
+        <p><a href="~/pages/events.html?type=course">All training courses &rarr;</a></p>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Pulled from the shared tags, so the hub stays current without editing. <span class="wf-req">REQ-220, REQ-017</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

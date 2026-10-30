@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Sign in</li></ul></nav>
+
+      <div class="split">
+        <div>
+          <h1>Sign in to MyRSS</h1>
+          <div class="tabs" role="tablist">
+            <button class="tab active" type="button" data-tab="si-signin">Sign in</button>
+            <button class="tab" type="button" data-tab="si-register">Create an account</button>
+          </div>
+          <div>
+            <div class="tab-panel active" id="si-signin">
+              <form class="form-step" data-validate novalidate>
+                <div class="field"><label for="si-email">Email address</label><input type="email" id="si-email" name="email" required autocomplete="username"></div>
+                <div class="field"><label for="si-pass">Password</label><input type="password" id="si-pass" name="password" required autocomplete="current-password"><p class="field-hint"><a href="#" data-modal-open="reset-modal">Forgotten your password?</a></p></div>
+                <button class="btn" type="submit">Sign in</button>
+                <p class="form-success" hidden>Enter the 6-digit code from your authenticator app. <span class="wf-meta">(prototype: use the demo links instead)</span></p>
+              </form>
+              <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Members and registered users sign in with email and password, with app-based MFA. The identity provider is still to be decided. <span class="wf-req">REQ-075, REQ-081</span></div>
+              <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: Which identity provider (Entra External ID or another), is MFA required or optional for members, and are existing passwords migrated or reset? <span class="wf-req">REQ-075, REQ-148</span></div>
+            </div>
+            <div class="tab-panel" id="si-register">
+              <form class="form-step" data-validate novalidate>
+                <p>Create a free account to book events and courses. You can upgrade to membership at any time.</p>
+                <div class="field-row"><div class="field"><label for="r-first">First name</label><input type="text" id="r-first" name="first" required></div><div class="field"><label for="r-last">Last name</label><input type="text" id="r-last" name="last" required></div></div>
+                <div class="field"><label for="r-email">Email address</label><input type="email" id="r-email" name="email" required></div>
+                <div class="field"><label for="r-pass">Password</label><input type="password" id="r-pass" name="password" required></div>
+                <button class="btn" type="submit">Create account</button>
+                <p class="form-success" hidden>Check your email to confirm your account.</p>
+              </form>
+              <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>A non-member can create a basic account and later upgrade to full membership without re-entering details. <span class="wf-req">REQ-076</span></div>
+            </div>
+          </div>
+        </div>
+        <aside class="panel surface">
+          <h2 class="h4">Prototype: sign in as</h2>
+          <ul class="stack">
+            <li><a href="~/pages/myrss.html" data-sign-in-as="member">A member (CStat)</a></li>
+            <li><a href="~/pages/myrss.html" data-sign-in-as="registered">A registered non-member</a></li>
+            <li><a href="~/pages/myrss.html" data-sign-in-as="lapsed">A lapsed member</a></li>
+          </ul>
+          <hr>
+          <p><a href="#">RSS staff and volunteers: sign in with Microsoft</a></p>
+          <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Staff and key volunteers sign in to the CMS and portal with their RSS Microsoft 365 account (Entra ID), with MFA. <span class="wf-req">REQ-074, REQ-078</span></div>
+        </aside>
+      </div>
+      <div class="wf-modal" id="reset-modal" role="dialog" aria-modal="true" aria-labelledby="reset-title">
+        <div class="wf-modal-panel">
+          <button class="wf-modal-close" type="button" aria-label="Close">&times;</button>
+          <h2 id="reset-title">Reset your password</h2>
+          <form data-validate novalidate>
+            <div class="field"><label for="reset-email">Email address</label><input type="email" id="reset-email" name="email" required></div>
+            <button class="btn" type="submit">Send reset link</button>
+            <p class="form-success" hidden>If an account exists for that address, we have sent a link. It expires in 30 minutes.</p>
+          </form>
+          <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>Self-service reset with a time-limited link. <span class="wf-req">REQ-080, REQ-150</span></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

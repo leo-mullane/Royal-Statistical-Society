@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletters and preferences | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/myrss.html">MyRSS</a></li><li class="breadcrumb-item" aria-current="page">Preferences</li></ul></nav>
+
+      <div data-show-for="guest" class="locked">
+        <h1>MyRSS</h1>
+        <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
+        <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
+        <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+      </div>
+      <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
+        <nav class="sidenav" aria-label="MyRSS">
+          <h2>MyRSS</h2>
+          <ul><li><a href="~/pages/myrss.html">Dashboard</a></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="~/pages/myrss-bookings.html">My events and training</a></li><li><a href="~/pages/myrss-cpd.html">CPD record</a></li><li><a href="~/pages/myrss-groups.html">Sections and groups</a></li><li><a href="~/pages/myrss-preferences.html" aria-current="page">Newsletters and preferences</a></li><li><a href="~/pages/home.html" data-sign-out>Sign out</a></li></ul>
+        </nav>
+        <div>
+          <h1>Newsletters and preferences</h1>
+
+          <form data-validate novalidate>
+            <fieldset class="field"><legend>Newsletters</legend>
+              <label class="check"><input type="checkbox" name="nl" checked> RSS monthly news</label>
+              <label class="check"><input type="checkbox" name="nl" checked> Training and events</label>
+              <label class="check"><input type="checkbox" name="nl"> Policy updates</label>
+              <label class="check"><input type="checkbox" name="nl"> Careers and jobs</label>
+            </fieldset>
+            <fieldset class="field"><legend>Other communications</legend>
+              <label class="check"><input type="checkbox" name="other"> Offers from partners</label>
+              <label class="check"><input type="checkbox" name="other" checked> Requests to take part in research</label>
+            </fieldset>
+            <button class="btn" type="submit">Save preferences</button> <button class="btn-link" type="button">Unsubscribe from everything</button>
+            <p class="form-success" hidden>Saved. Changes can take up to an hour to reach our mailing lists.</p>
+          </form>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Opt-in and opt-out for every newsletter, recorded in Dynamics. Every newsletter carries an unsubscribe link back here. <span class="wf-req">REQ-159, REQ-160, REQ-110</span></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">CMS</span>Newsletters are built in a drag-and-drop editor with templates that pull in upcoming events, training and tagged news, with reporting on every send. <span class="wf-req">REQ-161, REQ-162, REQ-164, REQ-166</span></div>
+          <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Which platform sends the staff and group newsletters (Customer Insights or a dedicated tool)? <span class="wf-req">REQ-110, REQ-158</span></div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>

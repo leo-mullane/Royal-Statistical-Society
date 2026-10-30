@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find an expert | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="resources">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/resources.html">Resources</a></li><li class="breadcrumb-item" aria-current="page">Find an expert</li></ul></nav>
+
+      <h1>Find an expert</h1>
+      <p class="lead">Check someone's professional status, or find a qualified statistician to work with.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" type="button" data-tab="d-register" data-tab-key="register">Professional Register</button>
+        <button class="tab" type="button" data-tab="d-consultants" data-tab-key="consultants">Consultants Directory</button>
+        <button class="tab" type="button" data-tab="d-fellows" data-tab-key="fellows">Fellows Directory (members)</button>
+      </div>
+      <div>
+        <div class="tab-panel active" id="d-register">
+          <section data-listing>
+              <form class="filter-bar" role="search">
+                <div class="field"><label for="register-q">Name, skill or place</label><input type="search" id="register-q" data-filter="q" name="q"></div>
+                <div class="field"><label for="register-s">Professional status</label><select id="register-s" data-filter="status"><option value="">Any status</option><option value="cstat">Chartered Statistician (CStat)</option><option value="gradstat">Graduate Statistician (GradStat)</option><option value="data-analyst">Data Analyst</option></select></div>
+                <div class="field"><label for="register-t">Area of work</label><select id="register-t" data-filter="topic"><option value="">Any area</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
+              </form>
+              <p class="result-count" data-count aria-live="polite"></p>
+              <div><article class="list-item" data-item data-status="cstat" data-topic="health" data-title="Dr Adaeze Okafor" data-text="Dr Adaeze Okafor London Clinical trials Survival analysis CStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Dr Adaeze Okafor</a></h3><p class="meta-row"><span class="tag">CStat</span><span>London</span></p><p>Clinical trials, Survival analysis</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="cstat" data-topic="official social" data-title="James Whitfield" data-text="James Whitfield Edinburgh Survey design Official statistics CStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">James Whitfield</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Edinburgh</span></p><p>Survey design, Official statistics</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="data-analyst" data-topic="datasci" data-title="Priya Raman" data-text="Priya Raman Birmingham Data visualisation R Data Analyst">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Priya Raman</a></h3><p class="meta-row"><span class="tag">Data Analyst</span><span>Birmingham</span></p><p>Data visualisation, R</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="gradstat" data-topic="environment" data-title="Tom Hughes" data-text="Tom Hughes Cardiff Environmental modelling GradStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Tom Hughes</a></h3><p class="meta-row"><span class="tag">GradStat</span><span>Cardiff</span></p><p>Environmental modelling</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="cstat" data-topic="datasci" data-title="Dr Maria Lindqvist" data-text="Dr Maria Lindqvist Manchester Machine learning Model validation CStat, AdvDSP">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Dr Maria Lindqvist</a></h3><p class="meta-row"><span class="tag">CStat, AdvDSP</span><span>Manchester</span></p><p>Machine learning, Model validation</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="cstat" data-topic="business" data-title="Samuel Adeyemi" data-text="Samuel Adeyemi Leeds Quality improvement Six Sigma CStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Samuel Adeyemi</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Leeds</span></p><p>Quality improvement, Six Sigma</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="gradstat" data-topic="social" data-title="Lucy MacRae" data-text="Lucy MacRae Glasgow Social research GradStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Lucy MacRae</a></h3><p class="meta-row"><span class="tag">GradStat</span><span>Glasgow</span></p><p>Social research</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article></div>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+            </section>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Public register of CStat, GradStat and Data Analyst holders, searchable, showing AdvDSP and DSP. Ready for the AdvDSP to CDSP rename. <span class="wf-req">REQ-192</span></div>
+        </div>
+        <div class="tab-panel" id="d-consultants">
+          <section data-listing>
+              <form class="filter-bar" role="search">
+                <div class="field"><label for="consultants-q">Name, skill or place</label><input type="search" id="consultants-q" data-filter="q" name="q"></div>
+                
+                <div class="field"><label for="consultants-t">Area of work</label><select id="consultants-t" data-filter="topic"><option value="">Any area</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
+              </form>
+              <p class="result-count" data-count aria-live="polite"></p>
+              <div><article class="list-item" data-item data-status="cstat" data-topic="health" data-title="Dr Adaeze Okafor" data-text="Dr Adaeze Okafor London Clinical trials Survival analysis CStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Dr Adaeze Okafor</a></h3><p class="meta-row"><span class="tag">CStat</span><span>London</span></p><p>Clinical trials, Survival analysis</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
+            </article><article class="list-item" data-item data-status="cstat" data-topic="official social" data-title="James Whitfield" data-text="James Whitfield Edinburgh Survey design Official statistics CStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">James Whitfield</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Edinburgh</span></p><p>Survey design, Official statistics</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
+            </article><article class="list-item" data-item data-status="cstat" data-topic="datasci" data-title="Dr Maria Lindqvist" data-text="Dr Maria Lindqvist Manchester Machine learning Model validation CStat, AdvDSP">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Dr Maria Lindqvist</a></h3><p class="meta-row"><span class="tag">CStat, AdvDSP</span><span>Manchester</span></p><p>Machine learning, Model validation</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
+            </article><article class="list-item" data-item data-status="cstat" data-topic="business" data-title="Samuel Adeyemi" data-text="Samuel Adeyemi Leeds Quality improvement Six Sigma CStat">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Samuel Adeyemi</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Leeds</span></p><p>Quality improvement, Six Sigma</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
+            </article></div>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+            </section>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Members offering statistical consultancy, searchable by area of work, name and place. Members manage their own listing in MyRSS; staff approve it. <span class="wf-req">REQ-194, REQ-196</span></div>
+        </div>
+        <div class="tab-panel" id="d-fellows">
+          <div data-show-for="guest registered lapsed" class="locked"><h2>For members only</h2><p>The Fellows Directory lists members who have chosen to be included. <a href="~/pages/sign-in.html">Sign in</a> or <a href="~/pages/join.html">join</a> to search it.</p></div>
+          <div data-show-for="member" hidden><section data-listing>
+              <form class="filter-bar" role="search">
+                <div class="field"><label for="fellows-q">Name, skill or place</label><input type="search" id="fellows-q" data-filter="q" name="q"></div>
+                
+                <div class="field"><label for="fellows-t">Area of work</label><select id="fellows-t" data-filter="topic"><option value="">Any area</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
+              </form>
+              <p class="result-count" data-count aria-live="polite"></p>
+              <div><article class="list-item" data-item data-status="fellow" data-topic="methods" data-title="Professor Helen Clarke" data-text="Professor Helen Clarke Oxford Bayesian methods Fellow">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Professor Helen Clarke</a></h3><p class="meta-row"><span class="tag">Fellow</span><span>Oxford</span></p><p>Bayesian methods</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article><article class="list-item" data-item data-status="fellow" data-topic="health" data-title="Dr Richard Osei" data-text="Dr Richard Osei Nottingham Epidemiology Fellow">
+              <div class="wf-placeholder avatar">Photo</div>
+              <div><h3><a href="#">Dr Richard Osei</a></h3><p class="meta-row"><span class="tag">Fellow</span><span>Nottingham</span></p><p>Epidemiology</p></div>
+              <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
+            </article></div>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+            </section></div>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Visible only to signed-in members. Non-members see what it is and how to get access, instead of being sent back to the home page. Switch View as to Member to see it. <span class="wf-req">REQ-193, REQ-178</span></div>
+        </div>
+      </div>
+      <div class="wf-note" data-note="4"><span class="wf-note-label">Proposed</span>A single 'Find an expert' search across all directories is ClerksWell's suggestion REQ-284 (a Could). Here the directories share one page and one search pattern. <span class="wf-req">REQ-284</span></div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+</body>
+</html>
