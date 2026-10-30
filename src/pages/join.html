@@ -37,6 +37,7 @@
                 <option value="eda" data-price="-40">Eligible developing country</option>
               </select>
               <p class="field-hint">We may ask for evidence later.</p></div>
+            <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: Please confirm the joining and renewal fee for each grade, which concessions apply to which grades, and at what rate. In this prototype every concession takes £40 off, so e-Student with a concession comes to £0. Can a concession be combined with e-Student, and is there a minimum fee? <span class="wf-req">REQ-187, REQ-189, REQ-087</span></div>
             <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
           </section>
 
@@ -51,10 +52,10 @@
               <div class="inline-field"><input type="text" id="j-postcode" name="postcode" required autocomplete="postal-code"><button class="btn btn-secondary btn-small" type="button" data-dismiss="address-pick-hint">Find address</button></div>
               <p class="field-hint" id="address-pick-hint">Or <a href="#">enter your address manually</a></p>
             </div>
-            <div class="wf-note" data-note="2"><span class="wf-note-label">Integration</span>Address look-up as you type the postcode (Loqate), with a manual option for addresses outside the UK. <span class="wf-req">REQ-092</span></div>
+            <div class="wf-note" data-note="3"><span class="wf-note-label">Integration</span>Address look-up as you type the postcode (Loqate), with a manual option for addresses outside the UK. <span class="wf-req">REQ-092</span></div>
             <div class="field"><label for="j-employer">Employer or university (optional)</label><input type="text" id="j-employer" name="employer"></div>
             <div class="field"><label for="j-pass">Create a password</label><input type="password" id="j-pass" name="password" required autocomplete="new-password"><p class="field-hint">At least 12 characters. You will use this to sign in to MyRSS.</p></div>
-            <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>This creates the MyRSS account at the same time. Someone who already has a registered account signs in first and their details are filled in. <span class="wf-req">REQ-076, REQ-075</span></div>
+            <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>This creates the MyRSS account at the same time. Someone who already has a registered account signs in first and their details are filled in. <span class="wf-req">REQ-076, REQ-075</span></div>
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
           </section>
 
@@ -90,15 +91,16 @@
             <div class="reveal" id="invoice-options" hidden>
               <div class="field"><label for="po">Purchase order number (optional)</label><input type="text" id="po" name="po"></div>
             </div>
-            <div class="wf-note" data-note="4"><span class="wf-note-label">Integration</span>Card payments redirect to the PCI DSS gateway (Elavon) and back. Direct Debit mandates and instalments are set up through Access Paysuite. Both write back to Dynamics. <span class="wf-req">REQ-084, REQ-086, REQ-091</span></div>
-            <div class="wf-note query" data-note="5"><span class="wf-note-label">Open question</span>Q: Is joining by organisation invoice offered today? It is included here as an option to confirm. <span class="wf-req">REQ-186</span></div>
+            <div class="wf-note" data-note="5"><span class="wf-note-label">Integration</span>Card payments redirect to the PCI DSS gateway (Elavon) and back. Direct Debit mandates and instalments are set up through Access Paysuite. Both write back to Dynamics. <span class="wf-req">REQ-084, REQ-086, REQ-091</span></div>
+            <div class="wf-note query" data-note="6"><span class="wf-note-label">Open question</span>Q: Is joining by organisation invoice offered today? It is included here as an option to confirm. <span class="wf-req">REQ-186</span></div>
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
           </section>
 
           <section class="form-step" hidden data-review>
             <h2>Check your answers</h2>
-            <dl class="summary-list" data-summary></dl>
-            <p><button class="btn-link" type="button" data-goto="0">Change membership</button> &middot; <button class="btn-link" type="button" data-goto="1">Change details</button></p>
+            <div data-summary></div>
+            <p class="panel surface">Total to pay today: <strong data-total>£0</strong></p>
+            <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Everything entered so far, grouped by step, each with a Change link that returns to that step. <span class="wf-req">REQ-186, REQ-050</span></div>
             <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm that you agree to the Society's charter and code of conduct"> I agree to abide by the Society's charter, bylaws and code of conduct</label></div>
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Confirm and pay</button></div>
           </section>
@@ -107,7 +109,7 @@
             <h2>Welcome to the Royal Statistical Society</h2>
             <p>Your membership number is <strong>01234567</strong>. We have emailed your receipt and a welcome pack.</p>
             <p><a class="btn" href="~/pages/myrss.html">Go to MyRSS</a></p>
-            <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Payment confirmation page and email with an HMRC-compliant receipt. The onboarding email sequence starts, varying by member type. If someone leaves mid-application, an abandoned-application email follows. <span class="wf-req">REQ-089, REQ-149, REQ-152, REQ-087</span></div>
+            <div class="wf-note" data-note="8"><span class="wf-note-label">Behaviour</span>Payment confirmation page and email with an HMRC-compliant receipt. The onboarding email sequence starts, varying by member type. If someone leaves mid-application, an abandoned-application email follows. <span class="wf-req">REQ-089, REQ-149, REQ-152, REQ-087</span></div>
           </section>
         </form>
 
@@ -116,8 +118,8 @@
           <p>Total to pay today: <strong data-total>£0</strong></p>
           <p class="wf-meta">Prices update as you choose. Annual fee for 2027.</p>
           <p><button class="btn-link" type="button">Save and finish later</button></p>
-          <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Save and resume emails a link to the saved application. <span class="wf-req">REQ-082</span></div>
-          <div class="wf-note" data-note="8"><span class="wf-note-label">CMS</span>RSS staff edit headings, hints and help text in the form builder without a developer, and can save forms as templates. <span class="wf-req">REQ-083, REQ-098</span></div>
+          <div class="wf-note" data-note="9"><span class="wf-note-label">Behaviour</span>Save and resume emails a link to the saved application. <span class="wf-req">REQ-082</span></div>
+          <div class="wf-note" data-note="10"><span class="wf-note-label">CMS</span>RSS staff edit headings, hints and help text in the form builder without a developer, and can save forms as templates. <span class="wf-req">REQ-083, REQ-098</span></div>
         </aside>
       </div>
 

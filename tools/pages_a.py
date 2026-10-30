@@ -406,6 +406,7 @@ def join():
                 <option value="eda" data-price="-40">Eligible developing country</option>
               </select>
               <p class="field-hint">We may ask for evidence later.</p></div>
+            {n("Please confirm the joining and renewal fee for each grade, which concessions apply to which grades, and at what rate. In this prototype every concession takes £40 off, so e-Student with a concession comes to £0. Can a concession be combined with e-Student, and is there a minimum fee?", "REQ-187, REQ-189, REQ-087", "Open question")}
             <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
           </section>
 
@@ -466,8 +467,9 @@ def join():
 
           <section class="form-step" hidden data-review>
             <h2>Check your answers</h2>
-            <dl class="summary-list" data-summary></dl>
-            <p><button class="btn-link" type="button" data-goto="0">Change membership</button> &middot; <button class="btn-link" type="button" data-goto="1">Change details</button></p>
+            <div data-summary></div>
+            <p class="panel surface">Total to pay today: <strong data-total>£0</strong></p>
+            {n("Everything entered so far, grouped by step, each with a Change link that returns to that step.", "REQ-186, REQ-050")}
             <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm that you agree to the Society's charter and code of conduct"> I agree to abide by the Society's charter, bylaws and code of conduct</label></div>
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Confirm and pay</button></div>
           </section>

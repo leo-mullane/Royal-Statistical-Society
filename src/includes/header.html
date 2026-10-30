@@ -3,7 +3,7 @@
   <!-- Prototype bar: not part of the site. Contents link, viewer switch and notes toggle -->
   <div class="proto-bar">
     <div class="container proto-bar-inner">
-      <a class="proto-bar-home" href="~/index.html">RSS prototype <span>first draft &middot; contents</span></a>
+      <a class="proto-bar-home" href="~/index.html">RSS prototype <span>contents</span></a>
       <label class="proto-persona">View as
         <select data-persona-select aria-label="View the site as">
           <option value="guest">Signed out</option>
@@ -19,7 +19,8 @@
     </div>
   </div>
 
-  <header class="site-header sticky">
+  <div class="header-shell" data-header-shell>
+  <header class="site-header">
     <!-- Utility bar: family of sites, social, basket, sign in, join (REQ-033, REQ-075, REQ-094, REQ-243) -->
     <div class="utility-bar">
       <div class="container utility-inner">
@@ -53,7 +54,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -83,7 +84,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -113,7 +114,7 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
@@ -131,7 +132,7 @@
                     <li><a href="~/pages/conference.html">RSS Conference 2027</a></li>
                   </ul>
                   <ul>
-                    <li><a href="~/pages/events.html?topic=discussion">Discussion meetings</a></li>
+                    <li><a href="~/pages/events.html?sub=discussion-meeting">Discussion meetings</a></li>
                     <li><a href="~/pages/events-training.html#recordings">Recordings</a></li>
                     <li><a href="~/pages/events-training.html#in-house">In-house training</a></li>
                     <li><a href="~/pages/submit-event.html">Submit a group event</a></li>
@@ -146,7 +147,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,7 +177,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -204,7 +205,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -232,7 +233,7 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
@@ -263,7 +264,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span aria-hidden="true">&#9662;</span></a>
+              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -292,6 +293,7 @@
       </div>
     </div>
   </header>
+  </div>
   <div class="flyout-backdrop" aria-hidden="true"></div>
 
   <!-- Search overlay with type-ahead, quick links and curated suggested searches (REQ-037, REQ-041, REQ-043, REQ-045) -->

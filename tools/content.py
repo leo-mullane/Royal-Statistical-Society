@@ -99,14 +99,22 @@ EVENTS = [
          price='From £295', topics=['methods', 'datasci', 'official', 'health'], aud=['professionals', 'students'], org='RSS', featured=True,
          summary='The UK\'s largest annual statistics and data science conference: more than 500 talks, workshops and posters.'),
     # Past items, so "Upcoming" and "Past" both have something to show
+    dict(id='dm-small-area', kind='event', sub='Discussion meeting', title='Discussion meeting: Small area estimation with administrative data',
+         date='2026-12-15', end='2026-12-15', time='17:00 to 19:00 GMT', fmt='hybrid', place='RSS, Errol Street, London, and online',
+         price='Free', topics=['official', 'methods'], aud=['professionals', 'policymakers'], org='RSS',
+         summary='Combining survey and administrative sources to produce reliable estimates for small populations.'),
+    dict(id='dm-fairness', kind='event', sub='Discussion meeting', title='Discussion meeting: Measuring fairness in algorithmic decisions',
+         date='2027-02-24', end='2027-02-24', time='17:00 to 19:00 GMT', fmt='hybrid', place='RSS, Errol Street, London, and online',
+         price='Free', topics=['datasci', 'methods'], aud=['professionals', 'policymakers'], org='RSS',
+         summary='A paper comparing statistical definitions of fairness, with case studies from lending and recruitment.'),
+    dict(id='dm-trials', kind='event', sub='Discussion meeting', title='Discussion meeting: Adaptive platform trials',
+         date='2027-03-17', end='2027-03-17', time='17:00 to 19:00 GMT', fmt='hybrid', place='RSS, Errol Street, London, and online',
+         price='Free', topics=['health', 'methods'], aud=['professionals'], org='RSS',
+         summary='Design, analysis and regulatory questions for trials that test several treatments under one protocol.'),
     dict(id='dm-climate', kind='event', sub='Discussion meeting', title='Discussion meeting: Statistics and the climate emergency',
          date='2026-10-14', end='2026-10-14', time='17:00 to 19:00 BST', fmt='hybrid', place='RSS, Errol Street, London, and online',
          price='Free', topics=['environment', 'methods'], aud=['professionals'], org='RSS', recording=True,
          summary='Recording now available. The paper and discussion will appear in Series A.'),
-    dict(id='intro-r-sep', kind='course', sub='Public course', title='Introduction to R (September)', level='Foundation',
-         date='2026-09-29', end='2026-09-30', time='Two days', fmt='online', place='Online (Zoom)',
-         price='£345 members, £460 non-members', topics=['computing'], aud=['professionals', 'students'], org='RSS Training',
-         summary='Past course date. See the November date above.'),
 ]
 
 NEWS = [

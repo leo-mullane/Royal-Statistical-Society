@@ -35,6 +35,18 @@ def drange(a, b):
     return f'{d(a)} to {d(b)}'
 
 
+def slug(s):
+    return '-'.join(''.join(c if c.isalnum() else ' ' for c in s.lower()).split())
+
+
+def trunc(text, limit):
+    """Shorten at a word boundary and add an ellipsis."""
+    if len(text) <= limit:
+        return text
+    cut = text[:limit + 1].rsplit(' ', 1)[0].rstrip(' ,:;-')
+    return cut + '\u2026'
+
+
 def weekday(iso):
     return datetime.date.fromisoformat(iso).strftime('%a')
 

@@ -143,7 +143,7 @@ def events_hub():
             <input type="search" id="hub-ev-q" name="q" placeholder="Find an event or course">
             <button class="btn" type="submit">Find</button>
           </form>
-          <p class="chips"><a class="chip" href="~/pages/events.html?type=event">Events</a> <a class="chip" href="~/pages/events.html?type=course">Training courses</a> <a class="chip" href="~/pages/events.html?fmt=online">Online</a> <a class="chip" href="~/pages/events.html?when=month">This month</a></p>
+          <p class="chips"><a class="chip" href="~/pages/events.html?type=event">Events</a> <a class="chip" href="~/pages/events.html?type=course">Training courses</a> <a class="chip" href="~/pages/events.html?sub=discussion-meeting">Discussion meetings</a> <a class="chip" href="~/pages/events.html?fmt=online">Online</a> <a class="chip" href="~/pages/events.html?when=month">This month</a></p>
         </div>
         <div class="wf-placeholder ratio-16-9">Image 16:9</div>
       </section>
@@ -188,10 +188,10 @@ def finder():
         places = f'<p><strong>{e(x["places"])}</strong></p>' if x.get('places') else ''
         rec = '<p><span class="tag">Recording available</span></p>' if x.get('recording') else ''
         level = f'<span class="tag">{e(x["level"])}</span>' if x.get('level') else ''
-        short = x['title'].split(':')[-1].strip()[:38]
+        short = trunc(x['title'].split(':')[-1].strip(), 34)
         snapshot = f"{x['title']}. {drange(x['date'], x['end'])}. {x['time']}. {fmt_label(x['fmt'])}. {x['price']}"
         items += f'''
-            <article class="list-item" data-item data-kind="{x['kind']}" data-type="{x['kind']}" data-topic="{' '.join(x['topics'])}" data-fmt="{x['fmt']}" data-audience="{' '.join(x['aud'])}"
+            <article class="list-item" data-item data-kind="{x['kind']}" data-type="{x['kind']}" data-topic="{' '.join(x['topics'])}" data-fmt="{x['fmt']}" data-sub="{slug(x.get('sub', ''))}" data-audience="{' '.join(x['aud'])}"
               data-date="{x['date']}" data-end="{x['end']}" data-title="{e(x['title'])}" data-text="{e(text)}" data-short="{e(short)}" data-snapshot="{e(snapshot)}">
               <div class="date-block" aria-hidden="true"><span class="d">{int(dd)}</span><span class="m">{MONTHS[int(m)-1][:3]} {y}</span></div>
               <div>
@@ -204,6 +204,8 @@ def finder():
               <div class="list-actions"><a class="btn btn-small" href="~/pages/{event_url(x)}">{'Book' if x['end'] >= TODAY else 'View'}</a></div>
             </article>'''
     topic_checks = ''.join(f'<label class="check"><input type="checkbox" data-filter="topic" value="{k}"> {e(v)}</label>' for k, v in TOPICS.items())
+    subs = sorted({x['sub'] for x in EVENTS})
+    sub_checks = ''.join(f'<label class="check"><input type="checkbox" data-filter="sub" value="{slug(s)}"> {e(s)}</label>' for s in subs)
     aud_checks = ''.join(f'<label class="check"><input type="checkbox" data-filter="audience" value="{k}"> {e(v)}</label>' for k, v in AUDIENCES.items() if k in ('professionals', 'students', 'educators', 'policymakers', 'public'))
     body = f'''
       <h1>Find an event or course</h1>
@@ -215,6 +217,7 @@ def finder():
           <input type="search" id="ev-q" data-filter="q" placeholder="Search by keyword, speaker or organiser">
           <button class="btn" type="submit">Search</button>
         </form>
+        {n("Event type separates discussion meetings, section and local group meetings, public lectures and courses, so the menu can link straight to <a href=\'?sub=discussion-meeting\'>discussion meetings</a>. It comes from the event record, not the CRM category.", "REQ-211, REQ-031")}
         {n("One finder for events and training. Filters are topic, format, audience, type and date, using the shared taxonomy. CRM categories ('Section Group Meeting', 'Other Event (non-RSS)') are kept behind the scenes as an 'organiser' field.", "REQ-211, REQ-031, REQ-213, REQ-017")}
         <div class="finder">
           <aside class="facets" aria-label="Filter events and courses">
@@ -222,6 +225,7 @@ def finder():
               <label class="check"><input type="checkbox" data-filter="type" value="event"> Events</label>
               <label class="check"><input type="checkbox" data-filter="type" value="course"> Training courses</label>
             </fieldset>
+            <fieldset class="facet"><legend>Event type</legend>{sub_checks}</fieldset>
             <div class="facet field"><label for="ev-when" class="facet-title">When</label>
               <select id="ev-when" data-filter="when"><option value="upcoming">Upcoming</option><option value="month">Next 30 days</option><option value="quarter">Next three months</option><option value="past">Past events</option><option value="">Any time</option></select></div>
             <fieldset class="facet"><legend>Format</legend>
@@ -412,7 +416,7 @@ def book():
           </section>
           <section class="form-step" hidden data-review>
             <h2>Check and pay</h2>
-            <dl class="summary-list" data-summary></dl>
+            <div data-summary></div>
             <div class="field"><label for="b-code">Discount code (optional)</label><div class="inline-field"><input type="text" id="b-code" name="code"><button class="btn btn-secondary btn-small" type="button">Apply</button></div></div>
             {n("Discount codes are entered here and validated with the payment provider. Member and early-bird prices are applied automatically.", "REQ-217, REQ-087")}
             <div class="field"><label class="check"><input type="checkbox" name="terms" required data-error="Accept the booking terms"> I accept the <a href="#">booking terms and cancellation policy</a></label></div>

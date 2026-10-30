@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *  # noqa
 import pages_a, pages_b, pages_c, pages_d  # noqa
 
-VERSION = 'v0.1, first draft'
+VERSION = 'v0.2'
 
 # Contents hub: grouped by the proposed top-level navigation, so the hub doubles as the sitemap
 SITEMAP = [
@@ -96,7 +96,7 @@ def hub():
 <body>
   <div class="proto-bar">
     <div class="container proto-bar-inner">
-      <a class="proto-bar-home" href="~/index.html">RSS prototype <span>first draft &middot; contents</span></a>
+      <a class="proto-bar-home" href="~/index.html">RSS prototype <span>contents</span></a>
       <label class="proto-persona">View as
         <select data-persona-select aria-label="View the site as">
           <option value="guest">Signed out</option>
@@ -115,7 +115,6 @@ def hub():
     <div class="container">
       <h1>Royal Statistical Society: website prototype</h1>
       <p class="lead">A clickable greyscale prototype of the whole new rss.org.uk, for agreeing structure, navigation and journeys before design. It covers the Must and Should requirements; Could requirements, including ClerksWell's suggestions, are flagged where relevant but not built.</p>
-      <div class="wf-hub-meta"><span>{VERSION}</span><span>30 October 2026</span><span>Status: working draft, not yet reviewed</span><span>Requirements: draft catalogue, pending revision</span></div>
       <p><a class="btn" href="~/pages/home.html">Open the home page</a></p>
 
       <div class="contents-grid">
@@ -155,7 +154,7 @@ def hub():
 
       <section>
         <h2 class="section-title">Change log</h2>
-        <ol class="changelog"><li>{VERSION}: first complete draft from the draft requirements catalogue and the immersion findings.</li></ol>
+        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li></ol>
       </section>
     </div>
   </main>
