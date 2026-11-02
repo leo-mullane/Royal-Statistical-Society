@@ -27,9 +27,11 @@ tools/                         Python page generator (content.py, common.py, pag
 src/                           Source: pages, includes (header, footer), css, js
   includes/header.html         Navigation, mega menus, search overlay (edit once, applies everywhere)
   includes/footer.html         Footer, newsletter sign-up, cookie banner
-  js/rss.js                    Search, filters, calendar, forms, basket, persona, annotations
+  js/search-engine.js          Search engine: one index, ranking, synonyms, correction, facets, suggestions
+  js/search-ui.js              Type-ahead, results page, advanced search builder, configuration page
+  js/rss.js                    Listing filters, calendar, forms, basket, persona, annotations
   js/wireframe.js              Shared ClerksWell wireframe behaviour (menus, tabs, accordions, modals)
-  js/data.js                   Sample search index (generated from tools/content.py)
+  js/data.js                   Search index and search configuration (generated from tools/content.py and tools/search_config.py)
   css/                         base, components, rss (structure); theme (design layer, empty)
 build-includes.js              Builds src/ into docs/, resolving includes and ~/ paths
 validate.js                    Checks tag balance, handlers and every internal link
@@ -44,8 +46,8 @@ Requires Python 3 (with `openpyxl` for the requirements trace) and Node.js. From
 python3 tools/gen.py && node build-includes.js && node validate.js
 ```
 
-- Page content lives in `tools/pages_*.py`; sample events, news, policy documents, jobs, groups and experts in `tools/content.py`. Running `gen.py` **overwrites** `src/pages/`, `src/index.html`, `src/modules/library.html` and `src/js/data.js`, so make page changes in `tools/`, not in `src/pages/`.
-- The header, footer, CSS and `rss.js` are edited directly in `src/`.
+- Page content lives in `tools/pages_*.py`; sample events, news, policy documents, jobs, groups and experts in `tools/content.py`; search settings in `tools/search_config.py`. Running `gen.py` **overwrites** `src/pages/`, `src/index.html`, `src/modules/library.html` and `src/js/data.js`, so make page changes in `tools/`, not in `src/pages/`.
+- The header, footer, CSS and the JavaScript files (other than `data.js`) are edited directly in `src/`.
 - The requirements trace reads the catalogue from the path in `RSS_REQS` (default: the ClerksWell review copy). Set it to the revised catalogue when that is ready.
 - `validate.js` must report 0 errors before pushing.
 
@@ -58,4 +60,25 @@ python3 tools/gen.py && node build-includes.js && node validate.js
 
 ## Search
 
-Search has an overlay with type-ahead grouped by content type, curated quick links and suggested searches; one results page for every content type with faceted filters and counts (hiding a filter with one option or none), synonyms, typo tolerance, matches inside documents, highlighted terms, sorting, results per page, zero-results help, and "Refine in advanced search" that carries the current query. An AI-assisted summary (REQ-041) sits above the results.
+All the people, employers and documents in the search data are fictional.
+
+**Core, built and working**
+
+- One index across pages, events and courses, news, policy documents, sections and groups, experts and jobs. Every search box calls the same `search()`: the header overlay, the home page, the results page, the section searches in the Events and training and Resources menus, and the keyword boxes on the listing pages (`matchIds()`).
+- Ranking by page type as a multiplier (experts and groups 6.0, pages 3.0, events, courses and jobs 1.2, news 1.0, documents 0.8), field weights (title 10, tags 4, summary 2, body 1), +60 for an exact title and +12 for a title that starts with the search. Every word must match (AND); any synonym will do (OR).
+- Normalisation (case, accents, apostrophes, punctuation, stop words). Words of three letters or fewer match whole words; longer words match word starts.
+- Type-ahead from two characters: topics, sections and groups, then experts, then pages, events and documents. Synonym matches say what they matched. ARIA combobox; Up, Down, Enter, Escape.
+- Synonym groups, with a notice when one was used. Spelling correction only when nothing matches, with "search for … exactly" (`raw=1`).
+- Tabs with counts that stay accurate; filters with live counts (each counted with every other filter except its own), hidden when they would return nothing or offer one option, show all and filter within, chips and Clear all; filters at the side or across the top.
+- All state in the URL (query, tab, scope, filters, sort, page, page size, layout, letter) with Back and Forward, and a copy-link control.
+- Section searches (`scope=events`, `scope=experts`, `scope=policy`) shown as a chip that widens to the whole site.
+- Browse everything with nothing typed; sort by relevance, newest, oldest, year, type and A to Z (undated items last); experts by surname A to Z.
+- Advanced search builder with a live count, a plain-English readout and a preview, opening from the current results.
+- Text inside documents, with the page that matched.
+- `pages/search-configuration.html` renders the live configuration from `tools/search_config.py`.
+- The AI-assisted summary (REQ-041) sits above the results and is never shown for experts.
+
+**Later phase, not built**
+
+- Promoted results (REQ-278, a Could): one working example, for "renew".
+- Editor-maintained synonyms (REQ-047, a Could); search across the RSS family of sites (REQ-291, a Could); search analytics dashboards (REQ-118); saved searches and alerts; Word and PowerPoint text; location-aware search; reference-number matching.

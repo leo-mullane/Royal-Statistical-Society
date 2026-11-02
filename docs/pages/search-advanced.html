@@ -68,7 +68,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -98,7 +98,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -108,12 +108,12 @@
                 <div class="mega-cols">
                   <ul>
                     <li><a href="../pages/chartered-statistician.html">Chartered Statistician (CStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Analyst</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Science Professional</a></li>
+                    <li><a href="../pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></li>
+                    <li><a href="../pages/data-analyst.html">Data Analyst</a></li>
+                    <li><a href="../pages/data-science-professional.html">Data Science Professional</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/myrss-cpd.html">CPD</a></li>
+                    <li><a href="../pages/professional-development.html#cpd">CPD</a></li>
                     <li><a href="../pages/accreditation.html">Accreditation</a></li>
                     <li><a href="../pages/find-an-expert.html">Professional Register</a></li>
                     <li><a href="../pages/events.html?type=course">Training courses</a></li>
@@ -128,13 +128,14 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
-                  <form class="mega-search" action="~/pages/events.html" role="search">
-                    <label for="mega-events-q">Find an event or course</label>
-                    <div class="inline-field"><input type="search" id="mega-events-q" name="q" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
+                  <form class="mega-search" action="../pages/search.html" role="search">
+                    <label for="mega-events-q">Search events and training</label>
+                    <input type="hidden" name="scope" value="events">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-events-q" name="q" data-typeahead data-scope="events" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/events-training.html">Events and training overview &rarr;</a>
                 </div>
@@ -161,7 +162,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,9 +177,9 @@
                     <li><a href="../pages/get-involved.html#volunteering">Volunteering</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/get-involved.html#honours">Honours and awards</a></li>
-                    <li><a href="../pages/get-involved.html#ambassadors">Statistical Ambassadors</a></li>
-                    <li><a href="../pages/get-involved.html#s4s">Statisticians for Society</a></li>
+                    <li><a href="../pages/honours.html">Honours and awards</a></li>
+                    <li><a href="../pages/statistical-ambassadors.html">Statistical Ambassadors</a></li>
+                    <li><a href="../pages/statisticians-for-society.html">Statisticians for Society</a></li>
                     <li><a href="../pages/donate.html">Donate</a></li>
                   </ul>
                 </div>
@@ -191,7 +192,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -219,7 +220,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -247,13 +248,14 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
-                  <form class="mega-search" action="~/pages/find-an-expert.html" role="search">
+                  <form class="mega-search" action="../pages/search.html" role="search">
                     <label for="mega-expert-q">Find an expert</label>
-                    <div class="inline-field"><input type="search" id="mega-expert-q" name="q" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
+                    <input type="hidden" name="scope" value="experts">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-expert-q" name="q" data-typeahead data-scope="experts" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/resources.html">Resources overview &rarr;</a>
                 </div>
@@ -278,7 +280,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -314,15 +316,14 @@
   <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the RSS website" hidden>
     <div class="container">
       <div class="search-overlay-head">
-        <form class="search-overlay-form" action="~/pages/search.html" role="search" data-overlay-form>
+        <form class="search-overlay-form ta-wrap" action="../pages/search.html" role="search" data-overlay-form>
           <label for="overlay-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="overlay-q" name="q" placeholder="Search events, courses, news, policy, people and pages" autocomplete="off" aria-controls="typeahead" aria-describedby="overlay-hint">
+          <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages" aria-describedby="overlay-hint">
           <button class="btn" type="submit">Search</button>
         </form>
         <button type="button" class="search-close" data-search-close aria-label="Close search">Close</button>
       </div>
       <p id="overlay-hint" class="wf-meta">Suggestions appear as you type. Press Enter to see all results.</p>
-      <div class="typeahead" id="typeahead" aria-live="polite"></div>
       <div class="search-helpers" data-search-helpers>
         <div>
           <h2 class="helper-title">Quick links</h2>
@@ -344,8 +345,9 @@
           </ul>
         </div>
       </div>
-      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Type-ahead starts at two characters and groups suggestions by type (pages, events and courses, news, policy, experts), up to three per group, with typo tolerance and synonyms (try "CStat", "stats" or "bayseian"). Enter or "See all results" opens the full results page. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
-      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Suggestions start at two characters, in a set order: topics, sections and groups first, then experts, then pages, events and documents. They match the start of a word, understand synonyms (try "ml" or "gradstat") and always end with "Search everything". Arrow keys, Enter and Escape work. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
+      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic, and never the names of people. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S3"><span class="wf-note-label">Behaviour</span>The search boxes in the Events and training and Resources menus are section searches: the same search, with a scope applied that shows as a chip and can be removed to search the whole site. <span class="wf-req">REQ-037, REQ-038</span></div>
     </div>
   </div>
 
@@ -354,22 +356,29 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="../pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="../pages/search.html">Search</a></li><li class="breadcrumb-item" aria-current="page">Advanced search</li></ul></nav>
 
-      <!-- Advanced search (REQ-039) -->
-      <h1>Advanced search</h1>
-      <p class="lead">Opens on the search you came from, so you can refine it.</p>
-      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Opens pre-filled from the results page ('Refine in advanced search'), or empty if opened from the menu. It never keeps a stale earlier search. <span class="wf-req">REQ-039</span></div>
-      <form class="form-step" data-advanced-form>
-        <div class="field"><label for="adv-all">All of these words</label><input type="text" id="adv-all" name="all"></div>
-        <div class="field"><label for="adv-phrase">This exact phrase</label><input type="text" id="adv-phrase" name="phrase"></div>
-        <div class="field"><label for="adv-none">None of these words</label><input type="text" id="adv-none" name="none"><p class="field-hint">Separate words with spaces</p></div>
-        <fieldset class="field"><legend>Content type</legend><label class="check"><input type="checkbox" name="type" value="Page"> Page</label><label class="check"><input type="checkbox" name="type" value="Event"> Event</label><label class="check"><input type="checkbox" name="type" value="Course"> Course</label><label class="check"><input type="checkbox" name="type" value="News"> News</label><label class="check"><input type="checkbox" name="type" value="Press release"> Press release</label><label class="check"><input type="checkbox" name="type" value="Policy document"> Policy document</label><label class="check"><input type="checkbox" name="type" value="Job"> Job</label><label class="check"><input type="checkbox" name="type" value="Group"> Group</label><label class="check"><input type="checkbox" name="type" value="Expert"> Expert</label></fieldset>
-        <div class="field"><label for="adv-topic">Topic</label><select id="adv-topic" name="topic"><option value="">Any topic</option><option value="Official statistics">Official statistics</option><option value="Data science and AI">Data science and AI</option><option value="Medical and health statistics">Medical and health statistics</option><option value="Methodology">Methodology</option><option value="Statistical education">Statistical education</option><option value="Social statistics">Social statistics</option><option value="Environmental statistics">Environmental statistics</option><option value="Business and industry">Business and industry</option><option value="Statistical computing">Statistical computing</option><option value="Public understanding of statistics">Public understanding of statistics</option></select></div>
-        <div class="field-row">
-          <div class="field"><label for="adv-from">From date</label><input type="date" id="adv-from" name="from"></div>
-          <div class="field"><label for="adv-to">To date</label><input type="date" id="adv-to" name="to"></div>
+      <!-- Advanced search builder (REQ-039) -->
+      <section id="builder-app">
+        <h1>Advanced search</h1>
+        <p class="lead">Combine conditions without any special syntax. The count updates as you build.</p>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Opens on the search you came from ('Refine in advanced search' on the results page), or empty if opened from anywhere else. It never keeps an earlier search. Conditions on different fields must all match; two conditions on the same field allow either value. <span class="wf-req">REQ-039</span></div>
+        <div class="qb">
+          <div class="field"><label for="qb-type">Search</label><select id="qb-type"></select></div>
+          <div id="qb-rows"></div>
+          <p><button type="button" class="btn btn-secondary btn-small" id="qb-add">Add a condition</button> <button type="button" class="btn-link" id="qb-reset">Start again</button></p>
+          <div class="qb-out surface panel">
+            <p class="qb-readout" id="qb-readout" aria-live="polite"></p>
+            <p class="qb-count"><strong id="qb-count">0</strong> <span id="qb-count-label">matches</span></p>
+            <ul class="qb-preview" id="qb-preview"></ul>
+            <p><a class="btn" id="qb-run" href="../pages/search.html">Run this search</a></p>
+          </div>
+          <h2 class="h4">Examples</h2>
+          <p class="chips">
+            <button type="button" class="chip" data-example="computing-courses">Upcoming courses in statistical computing</button>
+            <button type="button" class="chip" data-example="health-consultants">CStat consultants in medical statistics</button>
+            <button type="button" class="chip" data-example="official-policy">2026 policy on official statistics, leaving out the census</button>
+          </p>
         </div>
-        <p><button class="btn" type="submit">Search</button> <button class="btn btn-secondary" type="button" data-advanced-reset>Clear</button></p>
-      </form>
+      </section>
 
     </div>
   </main>
@@ -476,7 +485,9 @@
   </div>
 
   <script src="../js/data.js"></script>
+  <script src="../js/search-engine.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/rss.js"></script>
+  <script src="../js/search-ui.js"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -98,7 +98,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -108,12 +108,12 @@
                 <div class="mega-cols">
                   <ul>
                     <li><a href="../pages/chartered-statistician.html">Chartered Statistician (CStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Analyst</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Science Professional</a></li>
+                    <li><a href="../pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></li>
+                    <li><a href="../pages/data-analyst.html">Data Analyst</a></li>
+                    <li><a href="../pages/data-science-professional.html">Data Science Professional</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/myrss-cpd.html">CPD</a></li>
+                    <li><a href="../pages/professional-development.html#cpd">CPD</a></li>
                     <li><a href="../pages/accreditation.html">Accreditation</a></li>
                     <li><a href="../pages/find-an-expert.html">Professional Register</a></li>
                     <li><a href="../pages/events.html?type=course">Training courses</a></li>
@@ -128,13 +128,14 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
-                  <form class="mega-search" action="~/pages/events.html" role="search">
-                    <label for="mega-events-q">Find an event or course</label>
-                    <div class="inline-field"><input type="search" id="mega-events-q" name="q" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
+                  <form class="mega-search" action="../pages/search.html" role="search">
+                    <label for="mega-events-q">Search events and training</label>
+                    <input type="hidden" name="scope" value="events">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-events-q" name="q" data-typeahead data-scope="events" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/events-training.html">Events and training overview &rarr;</a>
                 </div>
@@ -161,7 +162,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,9 +177,9 @@
                     <li><a href="../pages/get-involved.html#volunteering">Volunteering</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/get-involved.html#honours">Honours and awards</a></li>
-                    <li><a href="../pages/get-involved.html#ambassadors">Statistical Ambassadors</a></li>
-                    <li><a href="../pages/get-involved.html#s4s">Statisticians for Society</a></li>
+                    <li><a href="../pages/honours.html">Honours and awards</a></li>
+                    <li><a href="../pages/statistical-ambassadors.html">Statistical Ambassadors</a></li>
+                    <li><a href="../pages/statisticians-for-society.html">Statisticians for Society</a></li>
                     <li><a href="../pages/donate.html">Donate</a></li>
                   </ul>
                 </div>
@@ -191,7 +192,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -219,7 +220,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -247,13 +248,14 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
-                  <form class="mega-search" action="~/pages/find-an-expert.html" role="search">
+                  <form class="mega-search" action="../pages/search.html" role="search">
                     <label for="mega-expert-q">Find an expert</label>
-                    <div class="inline-field"><input type="search" id="mega-expert-q" name="q" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
+                    <input type="hidden" name="scope" value="experts">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-expert-q" name="q" data-typeahead data-scope="experts" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/resources.html">Resources overview &rarr;</a>
                 </div>
@@ -278,7 +280,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -314,15 +316,14 @@
   <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the RSS website" hidden>
     <div class="container">
       <div class="search-overlay-head">
-        <form class="search-overlay-form" action="~/pages/search.html" role="search" data-overlay-form>
+        <form class="search-overlay-form ta-wrap" action="../pages/search.html" role="search" data-overlay-form>
           <label for="overlay-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="overlay-q" name="q" placeholder="Search events, courses, news, policy, people and pages" autocomplete="off" aria-controls="typeahead" aria-describedby="overlay-hint">
+          <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages" aria-describedby="overlay-hint">
           <button class="btn" type="submit">Search</button>
         </form>
         <button type="button" class="search-close" data-search-close aria-label="Close search">Close</button>
       </div>
       <p id="overlay-hint" class="wf-meta">Suggestions appear as you type. Press Enter to see all results.</p>
-      <div class="typeahead" id="typeahead" aria-live="polite"></div>
       <div class="search-helpers" data-search-helpers>
         <div>
           <h2 class="helper-title">Quick links</h2>
@@ -344,8 +345,9 @@
           </ul>
         </div>
       </div>
-      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Type-ahead starts at two characters and groups suggestions by type (pages, events and courses, news, policy, experts), up to three per group, with typo tolerance and synonyms (try "CStat", "stats" or "bayseian"). Enter or "See all results" opens the full results page. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
-      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Suggestions start at two characters, in a set order: topics, sections and groups first, then experts, then pages, events and documents. They match the start of a word, understand synonyms (try "ml" or "gradstat") and always end with "Search everything". Arrow keys, Enter and Escape work. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
+      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic, and never the names of people. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S3"><span class="wf-note-label">Behaviour</span>The search boxes in the Events and training and Resources menus are section searches: the same search, with a scope applied that shows as a chip and can be removed to search the whole site. <span class="wf-req">REQ-037, REQ-038</span></div>
     </div>
   </div>
 
@@ -369,53 +371,44 @@
         </form>
         <div class="active-filters" data-chips style="margin-top:1rem"></div>
         <p class="result-count" data-count aria-live="polite"></p>
-        <div><article class="list-item" data-item data-type="press" data-topic="official" data-date="2026-10-28" data-title="RSS responds to the Statistics Commission report" data-text="RSS responds to the Statistics Commission report The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.">
+        <div><article class="list-item two-col" data-item data-sid="news-stats-commission" data-type="press" data-topic="official" data-date="2026-10-28" data-title="RSS responds to the Statistics Commission report" data-text="RSS responds to the Statistics Commission report The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">Press release</span><span class="tag">Official statistics</span></p>
                 <h3><a href="../pages/article.html">RSS responds to the Statistics Commission report</a></h3><p>The Society welcomes the report&#x27;s focus on user needs and sets out three priorities for implementation.</p><p class="meta-row"><span>28 October 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="news" data-topic="methods" data-date="2026-10-22" data-title="Nominations open for the 2027 Guy Medals" data-text="Nominations open for the 2027 Guy Medals Nominate a colleague for the Society&#x27;s highest honours. Nominations close on 31 January 2027.">
+            </article><article class="list-item two-col" data-item data-sid="news-guy-medals" data-type="news" data-topic="methods" data-date="2026-10-22" data-title="Nominations open for the 2027 Guy Medals" data-text="Nominations open for the 2027 Guy Medals Nominate a colleague for the Society&#x27;s highest honours. Nominations close on 31 January 2027.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">News</span><span class="tag">Methodology</span></p>
                 <h3><a href="../pages/article.html">Nominations open for the 2027 Guy Medals</a></h3><p>Nominate a colleague for the Society&#x27;s highest honours. Nominations close on 31 January 2027.</p><p class="meta-row"><span>22 October 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="news" data-topic="environment" data-date="2026-10-20" data-title="From Significance: the statistics of extreme heat" data-text="From Significance: the statistics of extreme heat How attribution studies estimate the role of climate change in a single heatwave.">
+            </article><article class="list-item two-col" data-item data-sid="news-extreme-heat" data-type="news" data-topic="environment" data-date="2026-10-20" data-title="From Significance: the statistics of extreme heat" data-text="From Significance: the statistics of extreme heat How attribution studies estimate the role of climate change in a single heatwave.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">News</span><span class="tag">From Significance</span><span class="tag">Environmental statistics</span></p>
                 <h3><a href="../pages/article.html">From Significance: the statistics of extreme heat</a></h3><p>How attribution studies estimate the role of climate change in a single heatwave.</p><p class="meta-row"><span>20 October 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="callout" data-topic="public" data-date="2026-10-15" data-title="Call for volunteers: Statistical Ambassadors 2027" data-text="Call for volunteers: Statistical Ambassadors 2027 Help journalists and the public understand the numbers. Applications close on 30 November.">
+            </article><article class="list-item two-col" data-item data-sid="news-ambassadors-call" data-type="callout" data-topic="public" data-date="2026-10-15" data-title="Call for volunteers: Statistical Ambassadors 2027" data-text="Call for volunteers: Statistical Ambassadors 2027 Help journalists and the public understand the numbers. Applications close on 30 November.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">Member callout</span><span class="tag">Members</span><span class="tag">Public understanding of statistics</span></p>
                 <h3><a href="../pages/article.html">Call for volunteers: Statistical Ambassadors 2027</a></h3><p>Help journalists and the public understand the numbers. Applications close on 30 November.</p><p class="meta-row"><span>15 October 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="news" data-topic="datasci" data-date="2026-10-09" data-title="Data Analyst professional status: what has changed" data-text="Data Analyst professional status: what has changed Simpler evidence requirements and a new route for apprentices, from 1 November.">
+            </article><article class="list-item two-col" data-item data-sid="news-data-analyst" data-type="news" data-topic="datasci" data-date="2026-10-09" data-title="Data Analyst professional status: what has changed" data-text="Data Analyst professional status: what has changed Simpler evidence requirements and a new route for apprentices, from 1 November.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">News</span><span class="tag">Data science and AI</span></p>
                 <h3><a href="../pages/article.html">Data Analyst professional status: what has changed</a></h3><p>Simpler evidence requirements and a new route for apprentices, from 1 November.</p><p class="meta-row"><span>9 October 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="press" data-topic="official social" data-date="2026-10-02" data-title="Statement on the Labour Force Survey" data-text="Statement on the Labour Force Survey The Society&#x27;s response to the latest update on the quality of labour market statistics.">
+            </article><article class="list-item two-col" data-item data-sid="news-lfs-statement" data-type="press" data-topic="official social" data-date="2026-10-02" data-title="Statement on the Labour Force Survey" data-text="Statement on the Labour Force Survey The Society&#x27;s response to the latest update on the quality of labour market statistics.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">Press release</span><span class="tag">Official statistics</span><span class="tag">Social statistics</span></p>
                 <h3><a href="../pages/article.html">Statement on the Labour Force Survey</a></h3><p>The Society&#x27;s response to the latest update on the quality of labour market statistics.</p><p class="meta-row"><span>2 October 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="news" data-topic="health datasci" data-date="2026-09-25" data-title="From Real World Data Science: validating clinical prediction models" data-text="From Real World Data Science: validating clinical prediction models A practical checklist for anyone building or buying a clinical risk model.">
+            </article><article class="list-item two-col" data-item data-sid="news-rwds-validation" data-type="news" data-topic="health datasci" data-date="2026-09-25" data-title="From Real World Data Science: validating clinical prediction models" data-text="From Real World Data Science: validating clinical prediction models A practical checklist for anyone building or buying a clinical risk model.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">News</span><span class="tag">From Real World Data Science</span><span class="tag">Medical and health statistics</span><span class="tag">Data science and AI</span></p>
                 <h3><a href="../pages/article.html">From Real World Data Science: validating clinical prediction models</a></h3><p>A practical checklist for anyone building or buying a clinical risk model.</p><p class="meta-row"><span>25 September 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="news" data-topic="methods" data-date="2026-09-18" data-title="First keynote speakers announced for RSS Conference 2027" data-text="First keynote speakers announced for RSS Conference 2027 Three plenary speakers confirmed for Edinburgh, with the call for talks opening in January.">
+            </article><article class="list-item two-col" data-item data-sid="news-keynotes" data-type="news" data-topic="methods" data-date="2026-09-18" data-title="First keynote speakers announced for RSS Conference 2027" data-text="First keynote speakers announced for RSS Conference 2027 Three plenary speakers confirmed for Edinburgh, with the call for talks opening in January.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">News</span><span class="tag">Methodology</span></p>
                 <h3><a href="../pages/article.html">First keynote speakers announced for RSS Conference 2027</a></h3><p>Three plenary speakers confirmed for Edinburgh, with the call for talks opening in January.</p><p class="meta-row"><span>18 September 2026</span></p></div>
-              <div></div>
-            </article><article class="list-item" data-item data-type="callout" data-topic="health" data-date="2026-09-10" data-title="Medical Section seeks new committee members" data-text="Medical Section seeks new committee members Two committee places are open for 2027. Members of any grade can stand.">
+            </article><article class="list-item two-col" data-item data-sid="news-medical-committee" data-type="callout" data-topic="health" data-date="2026-09-10" data-title="Medical Section seeks new committee members" data-text="Medical Section seeks new committee members Two committee places are open for 2027. Members of any grade can stand.">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">Member callout</span><span class="tag">Members</span><span class="tag">Medical and health statistics</span></p>
                 <h3><a href="../pages/article.html">Medical Section seeks new committee members</a></h3><p>Two committee places are open for 2027. Members of any grade can stand.</p><p class="meta-row"><span>10 September 2026</span></p></div>
-              <div></div>
             </article></div>
-        <p class="empty-state" data-empty hidden>No stories match these filters.</p>
+        <p class="empty-state" data-empty hidden>No stories match these filters.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
         <p style="text-align:center"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
         <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>One news page with filters for type and topic, covering featured stories, group news, press releases and member callouts. Stories from Significance and Real World Data Science are pulled in and labelled with their source. <span class="wf-req">REQ-235, REQ-020, REQ-106</span></div>
       </section>
@@ -525,7 +518,9 @@
   </div>
 
   <script src="../js/data.js"></script>
+  <script src="../js/search-engine.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/rss.js"></script>
+  <script src="../js/search-ui.js"></script>
 </body>
 </html>

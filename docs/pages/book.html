@@ -68,7 +68,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -98,7 +98,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -108,12 +108,12 @@
                 <div class="mega-cols">
                   <ul>
                     <li><a href="../pages/chartered-statistician.html">Chartered Statistician (CStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Analyst</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Science Professional</a></li>
+                    <li><a href="../pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></li>
+                    <li><a href="../pages/data-analyst.html">Data Analyst</a></li>
+                    <li><a href="../pages/data-science-professional.html">Data Science Professional</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/myrss-cpd.html">CPD</a></li>
+                    <li><a href="../pages/professional-development.html#cpd">CPD</a></li>
                     <li><a href="../pages/accreditation.html">Accreditation</a></li>
                     <li><a href="../pages/find-an-expert.html">Professional Register</a></li>
                     <li><a href="../pages/events.html?type=course">Training courses</a></li>
@@ -128,13 +128,14 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
-                  <form class="mega-search" action="~/pages/events.html" role="search">
-                    <label for="mega-events-q">Find an event or course</label>
-                    <div class="inline-field"><input type="search" id="mega-events-q" name="q" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
+                  <form class="mega-search" action="../pages/search.html" role="search">
+                    <label for="mega-events-q">Search events and training</label>
+                    <input type="hidden" name="scope" value="events">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-events-q" name="q" data-typeahead data-scope="events" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/events-training.html">Events and training overview &rarr;</a>
                 </div>
@@ -161,7 +162,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,9 +177,9 @@
                     <li><a href="../pages/get-involved.html#volunteering">Volunteering</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/get-involved.html#honours">Honours and awards</a></li>
-                    <li><a href="../pages/get-involved.html#ambassadors">Statistical Ambassadors</a></li>
-                    <li><a href="../pages/get-involved.html#s4s">Statisticians for Society</a></li>
+                    <li><a href="../pages/honours.html">Honours and awards</a></li>
+                    <li><a href="../pages/statistical-ambassadors.html">Statistical Ambassadors</a></li>
+                    <li><a href="../pages/statisticians-for-society.html">Statisticians for Society</a></li>
                     <li><a href="../pages/donate.html">Donate</a></li>
                   </ul>
                 </div>
@@ -191,7 +192,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -219,7 +220,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -247,13 +248,14 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
-                  <form class="mega-search" action="~/pages/find-an-expert.html" role="search">
+                  <form class="mega-search" action="../pages/search.html" role="search">
                     <label for="mega-expert-q">Find an expert</label>
-                    <div class="inline-field"><input type="search" id="mega-expert-q" name="q" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
+                    <input type="hidden" name="scope" value="experts">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-expert-q" name="q" data-typeahead data-scope="experts" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/resources.html">Resources overview &rarr;</a>
                 </div>
@@ -278,7 +280,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -314,15 +316,14 @@
   <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the RSS website" hidden>
     <div class="container">
       <div class="search-overlay-head">
-        <form class="search-overlay-form" action="~/pages/search.html" role="search" data-overlay-form>
+        <form class="search-overlay-form ta-wrap" action="../pages/search.html" role="search" data-overlay-form>
           <label for="overlay-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="overlay-q" name="q" placeholder="Search events, courses, news, policy, people and pages" autocomplete="off" aria-controls="typeahead" aria-describedby="overlay-hint">
+          <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages" aria-describedby="overlay-hint">
           <button class="btn" type="submit">Search</button>
         </form>
         <button type="button" class="search-close" data-search-close aria-label="Close search">Close</button>
       </div>
       <p id="overlay-hint" class="wf-meta">Suggestions appear as you type. Press Enter to see all results.</p>
-      <div class="typeahead" id="typeahead" aria-live="polite"></div>
       <div class="search-helpers" data-search-helpers>
         <div>
           <h2 class="helper-title">Quick links</h2>
@@ -344,8 +345,9 @@
           </ul>
         </div>
       </div>
-      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Type-ahead starts at two characters and groups suggestions by type (pages, events and courses, news, policy, experts), up to three per group, with typo tolerance and synonyms (try "CStat", "stats" or "bayseian"). Enter or "See all results" opens the full results page. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
-      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Suggestions start at two characters, in a set order: topics, sections and groups first, then experts, then pages, events and documents. They match the start of a word, understand synonyms (try "ml" or "gradstat") and always end with "Search everything". Arrow keys, Enter and Escape work. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
+      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic, and never the names of people. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S3"><span class="wf-note-label">Behaviour</span>The search boxes in the Events and training and Resources menus are section searches: the same search, with a scope applied that shows as a chip and can be removed to search the whole site. <span class="wf-req">REQ-037, REQ-038</span></div>
     </div>
   </div>
 
@@ -355,11 +357,11 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="../pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="../pages/events-training.html">Events and training</a></li><li class="breadcrumb-item"><a href="../pages/course.html">Introduction to R</a></li><li class="breadcrumb-item" aria-current="page">Book</li></ul></nav>
 
       <h1>Book: Introduction to R</h1>
-      <p class="lead">10 to 11 November 2026, online</p>
+      <p class="lead" data-book-date>10 to 11 November 2026, online</p>
       <ol class="steps" aria-label="Booking progress"><li>Who is attending</li><li>Delegate details</li><li>Your organisation</li><li>Check and pay</li></ol>
-      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS. <span class="wf-req">REQ-215, REQ-216, REQ-204</span></div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS. <span class="wf-req">REQ-215, REQ-216</span></div>
       <div class="split">
-        <form data-steps data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R, 10 to 11 November 2026, online" novalidate>
+        <form data-steps data-book-form data-course="Introduction to R" data-default-date="10 to 11 November 2026" data-default-format="online" data-member="345" data-nonmember="460" data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R" novalidate>
           <section class="form-step">
             <h2>Who is attending?</h2>
             <fieldset class="field"><legend>I am booking for</legend>
@@ -367,7 +369,7 @@
               <label class="radio-card"><input type="radio" name="who" value="others" data-reveal="others-note"> <strong>Someone else, or a group</strong>You pay; each delegate gets the joining details</label>
             </fieldset>
             <div class="reveal" id="others-note" hidden><p>You will add each delegate on the next step. We will create a basic account for each delegate and tell them why.</p>
-              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5 or more</option></select></div></div>
+              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><p class="field-hint">Booking six or more? <a href="../pages/about.html#contact">Ask us about a group rate or in-house course</a>.</p></div></div>
             <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
           </section>
           <section class="form-step" hidden>
@@ -385,12 +387,8 @@
           <section class="form-step" hidden>
             <h2>Your organisation</h2>
             <div class="field"><label for="b-org">Organisation (optional)</label><input type="text" id="b-org" name="org"></div>
-            <fieldset class="field"><legend>Payment</legend>
-              <label class="check"><input type="radio" name="pay" value="card" required data-error="Choose how to pay"> Card</label>
-              <label class="check"><input type="radio" name="pay" value="invoice" data-reveal="po-field"> Invoice or purchase order</label>
-            </fieldset>
-            <div class="reveal" id="po-field" hidden><div class="field"><label for="b-po">Purchase order number</label><input type="text" id="b-po" name="po"></div></div>
-            <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Is booking by invoice or purchase order offered today? ClerksWell has suggested it (REQ-290, a Could). <span class="wf-req">REQ-290</span></div>
+            <p>Payment is by card on the next step.</p>
+            <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Paying by invoice or purchase order is ClerksWell's suggestion REQ-290 (a Could), so it is not built. Is it offered today? <span class="wf-req">REQ-290</span></div>
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
           </section>
           <section class="form-step" hidden data-review>
@@ -399,16 +397,17 @@
             <div class="field"><label for="b-code">Discount code (optional)</label><div class="inline-field"><input type="text" id="b-code" name="code"><button class="btn btn-secondary btn-small" type="button">Apply</button></div></div>
             <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Discount codes are entered here and validated with the payment provider. Member and early-bird prices are applied automatically. <span class="wf-req">REQ-217, REQ-087</span></div>
             <div class="field"><label class="check"><input type="checkbox" name="terms" required data-error="Accept the booking terms"> I accept the <a href="#">booking terms and cancellation policy</a></label></div>
-            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: £345</button></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: <span data-book-total>£345</span></button></div>
           </section>
           <section class="form-success" data-complete hidden>
             <h2>Booking confirmed</h2>
-            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My Training.</p>
+            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My events and training.</p>
             <p><a class="btn" href="../pages/myrss-bookings.html">View in MyRSS</a></p>
             <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>If the booker leaves before paying, an abandoned-booking reminder is sent. <span class="wf-req">REQ-221, REQ-089</span></div>
           </section>
         </form>
-        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br>10 to 11 November 2026, online</p><p>Member price: £345</p></aside>
+        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br><span data-book-date>10 to 11 November 2026, online</span></p><p data-book-rate>Member price: £345 per delegate</p><p><span data-book-count>1 delegate</span>: <strong data-book-total>£345</strong></p>
+          <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>The date, the viewer's price (member or non-member) and the number of delegates all come through from the course page and set the amount paid. <span class="wf-req">REQ-087, REQ-215</span></div></aside>
       </div>
 
     </div>
@@ -516,7 +515,9 @@
   </div>
 
   <script src="../js/data.js"></script>
+  <script src="../js/search-engine.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/rss.js"></script>
+  <script src="../js/search-ui.js"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -98,7 +98,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -108,12 +108,12 @@
                 <div class="mega-cols">
                   <ul>
                     <li><a href="../pages/chartered-statistician.html">Chartered Statistician (CStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Analyst</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Science Professional</a></li>
+                    <li><a href="../pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></li>
+                    <li><a href="../pages/data-analyst.html">Data Analyst</a></li>
+                    <li><a href="../pages/data-science-professional.html">Data Science Professional</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/myrss-cpd.html">CPD</a></li>
+                    <li><a href="../pages/professional-development.html#cpd">CPD</a></li>
                     <li><a href="../pages/accreditation.html">Accreditation</a></li>
                     <li><a href="../pages/find-an-expert.html">Professional Register</a></li>
                     <li><a href="../pages/events.html?type=course">Training courses</a></li>
@@ -128,13 +128,14 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
-                  <form class="mega-search" action="~/pages/events.html" role="search">
-                    <label for="mega-events-q">Find an event or course</label>
-                    <div class="inline-field"><input type="search" id="mega-events-q" name="q" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
+                  <form class="mega-search" action="../pages/search.html" role="search">
+                    <label for="mega-events-q">Search events and training</label>
+                    <input type="hidden" name="scope" value="events">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-events-q" name="q" data-typeahead data-scope="events" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/events-training.html">Events and training overview &rarr;</a>
                 </div>
@@ -161,7 +162,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,9 +177,9 @@
                     <li><a href="../pages/get-involved.html#volunteering">Volunteering</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/get-involved.html#honours">Honours and awards</a></li>
-                    <li><a href="../pages/get-involved.html#ambassadors">Statistical Ambassadors</a></li>
-                    <li><a href="../pages/get-involved.html#s4s">Statisticians for Society</a></li>
+                    <li><a href="../pages/honours.html">Honours and awards</a></li>
+                    <li><a href="../pages/statistical-ambassadors.html">Statistical Ambassadors</a></li>
+                    <li><a href="../pages/statisticians-for-society.html">Statisticians for Society</a></li>
                     <li><a href="../pages/donate.html">Donate</a></li>
                   </ul>
                 </div>
@@ -191,7 +192,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -219,7 +220,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -247,13 +248,14 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
-                  <form class="mega-search" action="~/pages/find-an-expert.html" role="search">
+                  <form class="mega-search" action="../pages/search.html" role="search">
                     <label for="mega-expert-q">Find an expert</label>
-                    <div class="inline-field"><input type="search" id="mega-expert-q" name="q" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
+                    <input type="hidden" name="scope" value="experts">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-expert-q" name="q" data-typeahead data-scope="experts" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/resources.html">Resources overview &rarr;</a>
                 </div>
@@ -278,7 +280,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -314,15 +316,14 @@
   <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the RSS website" hidden>
     <div class="container">
       <div class="search-overlay-head">
-        <form class="search-overlay-form" action="~/pages/search.html" role="search" data-overlay-form>
+        <form class="search-overlay-form ta-wrap" action="../pages/search.html" role="search" data-overlay-form>
           <label for="overlay-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="overlay-q" name="q" placeholder="Search events, courses, news, policy, people and pages" autocomplete="off" aria-controls="typeahead" aria-describedby="overlay-hint">
+          <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages" aria-describedby="overlay-hint">
           <button class="btn" type="submit">Search</button>
         </form>
         <button type="button" class="search-close" data-search-close aria-label="Close search">Close</button>
       </div>
       <p id="overlay-hint" class="wf-meta">Suggestions appear as you type. Press Enter to see all results.</p>
-      <div class="typeahead" id="typeahead" aria-live="polite"></div>
       <div class="search-helpers" data-search-helpers>
         <div>
           <h2 class="helper-title">Quick links</h2>
@@ -344,8 +345,9 @@
           </ul>
         </div>
       </div>
-      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Type-ahead starts at two characters and groups suggestions by type (pages, events and courses, news, policy, experts), up to three per group, with typo tolerance and synonyms (try "CStat", "stats" or "bayseian"). Enter or "See all results" opens the full results page. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
-      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Suggestions start at two characters, in a set order: topics, sections and groups first, then experts, then pages, events and documents. They match the start of a word, understand synonyms (try "ml" or "gradstat") and always end with "Search everything". Arrow keys, Enter and Escape work. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
+      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic, and never the names of people. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S3"><span class="wf-note-label">Behaviour</span>The search boxes in the Events and training and Resources menus are section searches: the same search, with a scope applied that shows as a chip and can be removed to search the whole site. <span class="wf-req">REQ-037, REQ-038</span></div>
     </div>
   </div>
 
@@ -354,62 +356,64 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="../pages/home.html">Home</a></li><li class="breadcrumb-item" aria-current="page">Search</li></ul></nav>
 
-      <!-- Site search results (REQ-037 to REQ-046) -->
-      <section data-search-results>
-        <h1>Search</h1>
-        <form class="big-search" role="search" data-results-form>
-          <label for="results-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="results-q" name="q" placeholder="Search the RSS website">
+      <!-- Site search results (REQ-037 to REQ-046). All state is in the URL. -->
+      <section id="search-app" class="search-app">
+        <h1 id="sr-title">Search</h1>
+        <p class="lead" id="sr-intro" hidden></p>
+        <form class="big-search ta-wrap" id="sr-form" role="search">
+          <label for="sr-q" class="visually-hidden">Search the RSS website</label>
+          <input type="search" id="sr-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages">
+          <input type="hidden" id="sr-scope" name="scope" value="">
           <button class="btn" type="submit">Search</button>
         </form>
-        <p><a href="../pages/search-advanced.html" data-advanced-link>Refine in advanced search</a></p>
-        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>One results page for every content type: pages, events, courses, news, policy documents (including text inside PDFs and Office files), jobs, groups and experts. Try <a href='?q=CStat'>CStat</a>, <a href='?q=bayseian'>bayseian</a> (typo), <a href='?q=census'>census</a> (matches inside documents) or <a href='?q=qwertyuiop'>a search with no results</a>. <span class="wf-req">REQ-037, REQ-038, REQ-044</span></div>
-        <div class="finder">
-          <aside class="facets" aria-label="Filter results">
-            <div class="facets-head"><h2 class="facet-title">Filter by</h2></div>
-            <div data-facet-host></div>
-            <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Counts update as you filter. A filter group with only one option is hidden. <span class="wf-req">REQ-039, REQ-031</span></div>
-          </aside>
-          <div>
-            <div class="ai-answer" data-ai-answer hidden>
-              <h2>Summary</h2>
-              <p data-ai-text></p>
-              <ol class="chips" data-ai-sources></ol>
-              <p class="wf-meta">AI-generated from pages on this site. Check the sources.</p>
-            </div>
-            <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>AI-assisted answer drawn only from rss.org.uk content, with numbered sources. Shown for questions and high-confidence queries; never for people. Model and provider (Copilot or other) to agree with the tech lead. <span class="wf-req">REQ-041, REQ-153</span></div>
-            <div class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Q: Should the AI summary appear by default, or behind an 'Ask a question' control? <span class="wf-req">REQ-041</span></div>
-            <div data-search-notices></div>
-            <div class="active-filters" data-active-filters></div>
-            <div class="results-bar">
-              <p class="result-count" data-result-count aria-live="polite"></p>
-              <button class="btn btn-secondary btn-small facets-toggle" type="button" data-facets-toggle aria-expanded="false">Filters</button>
-              <div class="field"><label for="sort">Sort by</label>
-                <select id="sort" data-sort>
-                  <option value="relevance">Relevance</option>
-                  <option value="newest">Date, newest first</option>
-                  <option value="oldest">Date, oldest first</option>
-                  <option value="type">Content type</option>
-                  <option value="title">Title A to Z</option>
-                </select></div>
-              <div class="field"><label for="per">Show</label>
-                <select id="per" data-per><option value="10">10</option><option value="20">20</option><option value="50">50</option></select></div>
-            </div>
-            <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>Sort by relevance, date, type or title. Results per page can be changed by the user; editors set the default. <span class="wf-req">REQ-040, REQ-106</span></div>
-            <div data-result-list></div>
-            <div class="empty-state" data-zero hidden>
-              <h2>No results found</h2>
-              <ul class="prose" style="text-align:left;margin:0 auto 1rem;max-width:30rem">
-                <li>Check the spelling, or try fewer or more general words</li>
-                <li>Remove some filters</li>
-                <li>Browse <a href="../pages/events.html">events and courses</a>, <a href="../pages/policy.html">policy</a> or <a href="../pages/news.html">news</a></li>
-              </ul>
-              <p>Still stuck? <a href="../pages/about.html#contact">Contact us</a> and we'll help.</p>
-            </div>
-            <ul class="pagination" data-pagination></ul>
-            <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Search terms are highlighted in titles and summaries. Spelling is corrected automatically and synonyms are included (for example CStat and Chartered Statistician), with a notice and a way back to the exact search. <span class="wf-req">REQ-042, REQ-043, REQ-045, REQ-046</span></div>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>One index and one results page for every content type: pages, events and courses, news, policy documents (including the text inside them), sections and groups, experts and jobs. Every search box on the site uses it. Results are ranked by page type first, so an expert, a section or a key page comes before a passing mention in a news story, and documents come last. Try <a href='?q=Adaeze+Okafor'>Adaeze Okafor</a>, <a href='?q=medical+section'>medical section</a>, <a href='?q=chartered+statistician'>chartered statistician</a> (finds CStat holders through a synonym), <a href='?q=bayseian'>bayseian</a> (a typo), <a href='?q=response+rates'>response rates</a> (inside a PDF) or <a href='?q=qwertyuiop'>a search with no results</a>. With nothing typed, the page shows everything by type. <span class="wf-req">REQ-037, REQ-038, REQ-044</span></div>
+        <div id="sr-banners" aria-live="polite"></div>
+        <div class="cat-tabs" id="sr-tabs" role="group" aria-label="Show results of one type"></div>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Tabs by type, with counts that stay accurate while one tab is showing. Each tab offers only the filters that make sense for it. <span class="wf-req">REQ-038, REQ-039</span></div>
+        <div class="letters" id="sr-letters" hidden></div>
+        <div class="active-filters" id="sr-chips" hidden></div>
+        <div class="results-bar">
+          <p class="result-count" id="sr-count" tabindex="-1" aria-live="polite"></p>
+          <div class="field"><label for="sr-sort">Sort by</label>
+            <select id="sr-sort">
+              <option value="relevance">Relevance</option>
+              <option value="newest">Date, newest first</option>
+              <option value="oldest">Date, oldest first</option>
+              <option value="year">Year</option>
+              <option value="type">Content type</option>
+              <option value="az">Title A to Z</option>
+            </select></div>
+          <div class="field"><label for="sr-per">Show</label>
+            <select id="sr-per"><option value="10">10</option><option value="20">20</option><option value="50">50</option></select></div>
+          <div class="layout-switch" id="sr-layout" role="group" aria-label="Filter layout">
+            <button type="button" id="sr-layout-side" data-layout="sidebar" aria-pressed="true">Filters at the side</button>
+            <button type="button" id="sr-layout-top" data-layout="topbar" aria-pressed="false">Filters across the top</button>
           </div>
         </div>
+        <p class="results-tools"><button type="button" class="btn-link" id="sr-copy">Copy link to this search</button> <a id="sr-advanced" href="../pages/search-advanced.html">Refine in advanced search</a> <span class="wf-meta" id="sr-copied" aria-live="polite"></span></p>
+        <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Sort by relevance, date, year, type or title; undated items go last under the date sorts. Results per page can be changed. The search, tab, filters, sort and page are all in the address bar, so Back and Forward work and a copied link opens exactly this view. The two filter layouts are shown so RSS can choose one. <span class="wf-req">REQ-040, REQ-106</span></div>
+        <div class="facet-bar" id="sr-facetbar" hidden></div>
+        <div class="sr-body layout-sidebar" id="sr-body">
+          <aside class="sr-facets" id="sr-facets" aria-label="Filter results"></aside>
+          <div class="sr-main">
+            <div class="ai-answer" id="sr-ai" hidden>
+              <h2>Summary</h2>
+              <p id="sr-ai-text"></p>
+              <ol class="chips" id="sr-ai-sources"></ol>
+              <p class="wf-meta">AI-generated from pages on this site. Check the sources.</p>
+            </div>
+            <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>AI-assisted answer drawn only from rss.org.uk content, with numbered sources. Shown for questions and high-confidence searches; never for experts. Model and provider (Copilot or other) to agree with the tech lead. It sits on top of the keyword search, which still decides the results. <span class="wf-req">REQ-041, REQ-153</span></div>
+            <div class="wf-note query" data-note="5"><span class="wf-note-label">Open question</span>Q: Should the AI summary appear by default, or behind an 'Ask a question' control? <span class="wf-req">REQ-041</span></div>
+            <div id="sr-results"></div>
+            <nav id="sr-pages" aria-label="Results pages"></nav>
+          </div>
+        </div>
+        <div id="sr-browse" hidden></div>
+        <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Filters show live counts, worked out with every other filter applied except their own. Values that would return nothing are hidden, as is a filter left with one option. Long filters show five values, with Show all and a box to filter within them. Every filter applied shows as a chip you can remove. <span class="wf-req">REQ-039</span></div>
+        <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Matched words are highlighted, synonyms included. A spelling correction is tried only when a search finds nothing, with a notice and a link back to the exact search. Synonyms (for example CStat and Chartered Statistician) are used automatically and the page says so. A search with no results offers a correction, a broader search, routes into the site and a contact. <span class="wf-req">REQ-042, REQ-043, REQ-045, REQ-046</span></div>
+        <div class="wf-note" data-note="8"><span class="wf-note-label">Proposed</span>The synonym list here is fixed in configuration. A dictionary that editors maintain in the CMS is REQ-047, a Could. <span class="wf-req">REQ-047</span></div>
+        <div class="wf-note" data-note="9"><span class="wf-note-label">CMS</span>Search queries, zero-result searches and click-through feed the editorial dashboards, and inform the curated suggested searches. <span class="wf-req">REQ-118</span></div>
+        <p class="wf-meta"><a href="../pages/search-configuration.html">How search is configured</a></p>
       </section>
 
     </div>
@@ -517,7 +521,9 @@
   </div>
 
   <script src="../js/data.js"></script>
+  <script src="../js/search-engine.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/rss.js"></script>
+  <script src="../js/search-ui.js"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -98,7 +98,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -108,12 +108,12 @@
                 <div class="mega-cols">
                   <ul>
                     <li><a href="../pages/chartered-statistician.html">Chartered Statistician (CStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Analyst</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Science Professional</a></li>
+                    <li><a href="../pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></li>
+                    <li><a href="../pages/data-analyst.html">Data Analyst</a></li>
+                    <li><a href="../pages/data-science-professional.html">Data Science Professional</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/myrss-cpd.html">CPD</a></li>
+                    <li><a href="../pages/professional-development.html#cpd">CPD</a></li>
                     <li><a href="../pages/accreditation.html">Accreditation</a></li>
                     <li><a href="../pages/find-an-expert.html">Professional Register</a></li>
                     <li><a href="../pages/events.html?type=course">Training courses</a></li>
@@ -128,13 +128,14 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
-                  <form class="mega-search" action="~/pages/events.html" role="search">
-                    <label for="mega-events-q">Find an event or course</label>
-                    <div class="inline-field"><input type="search" id="mega-events-q" name="q" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
+                  <form class="mega-search" action="../pages/search.html" role="search">
+                    <label for="mega-events-q">Search events and training</label>
+                    <input type="hidden" name="scope" value="events">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-events-q" name="q" data-typeahead data-scope="events" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/events-training.html">Events and training overview &rarr;</a>
                 </div>
@@ -161,7 +162,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,9 +177,9 @@
                     <li><a href="../pages/get-involved.html#volunteering">Volunteering</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/get-involved.html#honours">Honours and awards</a></li>
-                    <li><a href="../pages/get-involved.html#ambassadors">Statistical Ambassadors</a></li>
-                    <li><a href="../pages/get-involved.html#s4s">Statisticians for Society</a></li>
+                    <li><a href="../pages/honours.html">Honours and awards</a></li>
+                    <li><a href="../pages/statistical-ambassadors.html">Statistical Ambassadors</a></li>
+                    <li><a href="../pages/statisticians-for-society.html">Statisticians for Society</a></li>
                     <li><a href="../pages/donate.html">Donate</a></li>
                   </ul>
                 </div>
@@ -191,7 +192,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -219,7 +220,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -247,13 +248,14 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
-                  <form class="mega-search" action="~/pages/find-an-expert.html" role="search">
+                  <form class="mega-search" action="../pages/search.html" role="search">
                     <label for="mega-expert-q">Find an expert</label>
-                    <div class="inline-field"><input type="search" id="mega-expert-q" name="q" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
+                    <input type="hidden" name="scope" value="experts">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-expert-q" name="q" data-typeahead data-scope="experts" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/resources.html">Resources overview &rarr;</a>
                 </div>
@@ -278,7 +280,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -314,15 +316,14 @@
   <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the RSS website" hidden>
     <div class="container">
       <div class="search-overlay-head">
-        <form class="search-overlay-form" action="~/pages/search.html" role="search" data-overlay-form>
+        <form class="search-overlay-form ta-wrap" action="../pages/search.html" role="search" data-overlay-form>
           <label for="overlay-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="overlay-q" name="q" placeholder="Search events, courses, news, policy, people and pages" autocomplete="off" aria-controls="typeahead" aria-describedby="overlay-hint">
+          <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages" aria-describedby="overlay-hint">
           <button class="btn" type="submit">Search</button>
         </form>
         <button type="button" class="search-close" data-search-close aria-label="Close search">Close</button>
       </div>
       <p id="overlay-hint" class="wf-meta">Suggestions appear as you type. Press Enter to see all results.</p>
-      <div class="typeahead" id="typeahead" aria-live="polite"></div>
       <div class="search-helpers" data-search-helpers>
         <div>
           <h2 class="helper-title">Quick links</h2>
@@ -344,8 +345,9 @@
           </ul>
         </div>
       </div>
-      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Type-ahead starts at two characters and groups suggestions by type (pages, events and courses, news, policy, experts), up to three per group, with typo tolerance and synonyms (try "CStat", "stats" or "bayseian"). Enter or "See all results" opens the full results page. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
-      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Suggestions start at two characters, in a set order: topics, sections and groups first, then experts, then pages, events and documents. They match the start of a word, understand synonyms (try "ml" or "gradstat") and always end with "Search everything". Arrow keys, Enter and Escape work. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
+      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic, and never the names of people. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S3"><span class="wf-note-label">Behaviour</span>The search boxes in the Events and training and Resources menus are section searches: the same search, with a scope applied that shows as a chip and can be removed to search the whole site. <span class="wf-req">REQ-037, REQ-038</span></div>
     </div>
   </div>
 
@@ -357,12 +359,12 @@
       <h1>Find an expert</h1>
       <p class="lead">Check someone's professional status, or find a qualified statistician to work with.</p>
       <div class="tabs" role="tablist">
-        <button class="tab active" type="button" data-tab="d-register" data-tab-key="register">Professional Register</button>
-        <button class="tab" type="button" data-tab="d-consultants" data-tab-key="consultants">Consultants Directory</button>
-        <button class="tab" type="button" data-tab="d-fellows" data-tab-key="fellows">Fellows Directory (members)</button>
+        <button role="tab" aria-selected="true" id="tab-d-register" aria-controls="d-register" class="tab active" type="button" data-tab="d-register" data-tab-key="register">Professional Register</button>
+        <button role="tab" aria-selected="false" id="tab-d-consultants" aria-controls="d-consultants" class="tab" type="button" data-tab="d-consultants" data-tab-key="consultants">Consultants Directory</button>
+        <button role="tab" aria-selected="false" id="tab-d-fellows" aria-controls="d-fellows" class="tab" type="button" data-tab="d-fellows" data-tab-key="fellows">Fellows Directory (members)</button>
       </div>
       <div>
-        <div class="tab-panel active" id="d-register">
+        <div class="tab-panel active" id="d-register" role="tabpanel" aria-labelledby="tab-d-register">
           <section data-listing>
               <form class="filter-bar" role="search">
                 <div class="field"><label for="register-q">Name, skill or place</label><input type="search" id="register-q" data-filter="q" name="q"></div>
@@ -370,40 +372,40 @@
                 <div class="field"><label for="register-t">Area of work</label><select id="register-t" data-filter="topic"><option value="">Any area</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
               </form>
               <p class="result-count" data-count aria-live="polite"></p>
-              <div><article class="list-item" data-item data-status="cstat" data-topic="health" data-title="Dr Adaeze Okafor" data-text="Dr Adaeze Okafor London Clinical trials Survival analysis CStat">
+              <div><article class="list-item" data-item data-sid="expert-a-okafor" data-status="cstat" data-topic="health" data-title="Dr Adaeze Okafor" data-text="Dr Adaeze Okafor London Clinical trials Survival analysis CStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Dr Adaeze Okafor</a></h3><p class="meta-row"><span class="tag">CStat</span><span>London</span></p><p>Clinical trials, Survival analysis</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="cstat" data-topic="official social" data-title="James Whitfield" data-text="James Whitfield Edinburgh Survey design Official statistics CStat">
+            </article><article class="list-item" data-item data-sid="expert-j-whitfield" data-status="cstat" data-topic="official social" data-title="James Whitfield" data-text="James Whitfield Edinburgh Survey design Official statistics CStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">James Whitfield</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Edinburgh</span></p><p>Survey design, Official statistics</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="data-analyst" data-topic="datasci" data-title="Priya Raman" data-text="Priya Raman Birmingham Data visualisation R Data Analyst">
+            </article><article class="list-item" data-item data-sid="expert-p-raman" data-status="data-analyst" data-topic="datasci" data-title="Priya Raman" data-text="Priya Raman Birmingham Data visualisation R Data Analyst">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Priya Raman</a></h3><p class="meta-row"><span class="tag">Data Analyst</span><span>Birmingham</span></p><p>Data visualisation, R</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="gradstat" data-topic="environment" data-title="Tom Hughes" data-text="Tom Hughes Cardiff Environmental modelling GradStat">
+            </article><article class="list-item" data-item data-sid="expert-t-hughes" data-status="gradstat" data-topic="environment" data-title="Tom Hughes" data-text="Tom Hughes Cardiff Environmental modelling GradStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Tom Hughes</a></h3><p class="meta-row"><span class="tag">GradStat</span><span>Cardiff</span></p><p>Environmental modelling</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="cstat" data-topic="datasci" data-title="Dr Maria Lindqvist" data-text="Dr Maria Lindqvist Manchester Machine learning Model validation CStat, AdvDSP">
+            </article><article class="list-item" data-item data-sid="expert-m-lindqvist" data-status="cstat" data-topic="datasci" data-title="Dr Maria Lindqvist" data-text="Dr Maria Lindqvist Manchester Machine learning Model validation CStat, AdvDSP">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Dr Maria Lindqvist</a></h3><p class="meta-row"><span class="tag">CStat, AdvDSP</span><span>Manchester</span></p><p>Machine learning, Model validation</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="cstat" data-topic="business" data-title="Samuel Adeyemi" data-text="Samuel Adeyemi Leeds Quality improvement Six Sigma CStat">
+            </article><article class="list-item" data-item data-sid="expert-s-adeyemi" data-status="cstat" data-topic="business" data-title="Samuel Adeyemi" data-text="Samuel Adeyemi Leeds Quality improvement Six Sigma CStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Samuel Adeyemi</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Leeds</span></p><p>Quality improvement, Six Sigma</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="gradstat" data-topic="social" data-title="Lucy MacRae" data-text="Lucy MacRae Glasgow Social research GradStat">
+            </article><article class="list-item" data-item data-sid="expert-l-macrae" data-status="gradstat" data-topic="social" data-title="Lucy MacRae" data-text="Lucy MacRae Glasgow Social research GradStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Lucy MacRae</a></h3><p class="meta-row"><span class="tag">GradStat</span><span>Glasgow</span></p><p>Social research</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
             </article></div>
-              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search, or another directory.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
             </section>
           <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Public register of CStat, GradStat and Data Analyst holders, searchable, showing AdvDSP and DSP. Ready for the AdvDSP to CDSP rename. <span class="wf-req">REQ-192</span></div>
         </div>
-        <div class="tab-panel" id="d-consultants">
+        <div class="tab-panel" id="d-consultants" role="tabpanel" aria-labelledby="tab-d-consultants">
           <section data-listing>
               <form class="filter-bar" role="search">
                 <div class="field"><label for="consultants-q">Name, skill or place</label><input type="search" id="consultants-q" data-filter="q" name="q"></div>
@@ -411,28 +413,28 @@
                 <div class="field"><label for="consultants-t">Area of work</label><select id="consultants-t" data-filter="topic"><option value="">Any area</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
               </form>
               <p class="result-count" data-count aria-live="polite"></p>
-              <div><article class="list-item" data-item data-status="cstat" data-topic="health" data-title="Dr Adaeze Okafor" data-text="Dr Adaeze Okafor London Clinical trials Survival analysis CStat">
+              <div><article class="list-item" data-item data-sid="expert-a-okafor" data-status="cstat" data-topic="health" data-title="Dr Adaeze Okafor" data-text="Dr Adaeze Okafor London Clinical trials Survival analysis CStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Dr Adaeze Okafor</a></h3><p class="meta-row"><span class="tag">CStat</span><span>London</span></p><p>Clinical trials, Survival analysis</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
-            </article><article class="list-item" data-item data-status="cstat" data-topic="official social" data-title="James Whitfield" data-text="James Whitfield Edinburgh Survey design Official statistics CStat">
+            </article><article class="list-item" data-item data-sid="expert-j-whitfield" data-status="cstat" data-topic="official social" data-title="James Whitfield" data-text="James Whitfield Edinburgh Survey design Official statistics CStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">James Whitfield</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Edinburgh</span></p><p>Survey design, Official statistics</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
-            </article><article class="list-item" data-item data-status="cstat" data-topic="datasci" data-title="Dr Maria Lindqvist" data-text="Dr Maria Lindqvist Manchester Machine learning Model validation CStat, AdvDSP">
+            </article><article class="list-item" data-item data-sid="expert-m-lindqvist" data-status="cstat" data-topic="datasci" data-title="Dr Maria Lindqvist" data-text="Dr Maria Lindqvist Manchester Machine learning Model validation CStat, AdvDSP">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Dr Maria Lindqvist</a></h3><p class="meta-row"><span class="tag">CStat, AdvDSP</span><span>Manchester</span></p><p>Machine learning, Model validation</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
-            </article><article class="list-item" data-item data-status="cstat" data-topic="business" data-title="Samuel Adeyemi" data-text="Samuel Adeyemi Leeds Quality improvement Six Sigma CStat">
+            </article><article class="list-item" data-item data-sid="expert-s-adeyemi" data-status="cstat" data-topic="business" data-title="Samuel Adeyemi" data-text="Samuel Adeyemi Leeds Quality improvement Six Sigma CStat">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Samuel Adeyemi</a></h3><p class="meta-row"><span class="tag">CStat</span><span>Leeds</span></p><p>Quality improvement, Six Sigma</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">Contact</a></div>
             </article></div>
-              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search, or another directory.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
             </section>
           <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Members offering statistical consultancy, searchable by area of work, name and place. Members manage their own listing in MyRSS; staff approve it. <span class="wf-req">REQ-194, REQ-196</span></div>
         </div>
-        <div class="tab-panel" id="d-fellows">
+        <div class="tab-panel" id="d-fellows" role="tabpanel" aria-labelledby="tab-d-fellows">
           <div data-show-for="guest registered lapsed" class="locked"><h2>For members only</h2><p>The Fellows Directory lists members who have chosen to be included. <a href="../pages/sign-in.html">Sign in</a> or <a href="../pages/join.html">join</a> to search it.</p></div>
           <div data-show-for="member" hidden><section data-listing>
               <form class="filter-bar" role="search">
@@ -441,21 +443,22 @@
                 <div class="field"><label for="fellows-t">Area of work</label><select id="fellows-t" data-filter="topic"><option value="">Any area</option><option value="official">Official statistics</option><option value="datasci">Data science and AI</option><option value="health">Medical and health statistics</option><option value="methods">Methodology</option><option value="education">Statistical education</option><option value="social">Social statistics</option><option value="environment">Environmental statistics</option><option value="business">Business and industry</option><option value="computing">Statistical computing</option><option value="public">Public understanding of statistics</option></select></div>
               </form>
               <p class="result-count" data-count aria-live="polite"></p>
-              <div><article class="list-item" data-item data-status="fellow" data-topic="methods" data-title="Professor Helen Clarke" data-text="Professor Helen Clarke Oxford Bayesian methods Fellow">
+              <div><article class="list-item" data-item data-sid="expert-h-clarke" data-status="fellow" data-topic="methods" data-title="Professor Helen Clarke" data-text="Professor Helen Clarke Oxford Bayesian methods Fellow">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Professor Helen Clarke</a></h3><p class="meta-row"><span class="tag">Fellow</span><span>Oxford</span></p><p>Bayesian methods</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
-            </article><article class="list-item" data-item data-status="fellow" data-topic="health" data-title="Dr Richard Osei" data-text="Dr Richard Osei Nottingham Epidemiology Fellow">
+            </article><article class="list-item" data-item data-sid="expert-r-osei" data-status="fellow" data-topic="health" data-title="Dr Richard Osei" data-text="Dr Richard Osei Nottingham Epidemiology Fellow">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">Dr Richard Osei</a></h3><p class="meta-row"><span class="tag">Fellow</span><span>Nottingham</span></p><p>Epidemiology</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">View</a></div>
             </article></div>
-              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search, or another directory.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
             </section></div>
-          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Visible only to signed-in members. Non-members see what it is and how to get access, instead of being sent back to the home page. Switch View as to Member to see it. <span class="wf-req">REQ-193, REQ-178</span></div>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>The Fellows Directory is visible only to signed-in members. Switch View as to Member to see it. <span class="wf-req">REQ-193, REQ-178</span></div>
+          <div class="wf-note" data-note="4"><span class="wf-note-label">Proposed</span>Showing non-members what they are missing, instead of sending them back to the home page, is ClerksWell's suggestion REQ-280 (a Could). This locked state is the simplest version of it. <span class="wf-req">REQ-280</span></div>
         </div>
       </div>
-      <div class="wf-note" data-note="4"><span class="wf-note-label">Proposed</span>A single 'Find an expert' search across all directories is ClerksWell's suggestion REQ-284 (a Could). Here the directories share one page and one search pattern. <span class="wf-req">REQ-284</span></div>
+      <div class="wf-note" data-note="5"><span class="wf-note-label">Proposed</span>Each directory keeps its own search; nothing here searches all three at once. A single 'Find an expert' search across every directory is ClerksWell's suggestion REQ-284 (a Could), so it is not built. The tabs only put the existing directories on one page. <span class="wf-req">REQ-284</span></div>
 
     </div>
   </main>
@@ -562,7 +565,9 @@
   </div>
 
   <script src="../js/data.js"></script>
+  <script src="../js/search-engine.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/rss.js"></script>
+  <script src="../js/search-ui.js"></script>
 </body>
 </html>

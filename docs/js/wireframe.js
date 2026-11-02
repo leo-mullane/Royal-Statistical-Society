@@ -65,7 +65,7 @@
 
       if (trigger) {
         trigger.addEventListener('click', function (ev) {
-          if (trigger.getAttribute('href') === '#') {
+          if (trigger.tagName === 'BUTTON' || trigger.getAttribute('href') === '#') {
             ev.preventDefault();
             /* A tap fires focus (which opens) then click: don't close straight away */
             if (Date.now() - openedAt < 400) return;
@@ -113,8 +113,17 @@
   function initTabs() {
     document.querySelectorAll('.tabs').forEach(function (group) {
       var tabs = group.querySelectorAll('.tab');
+      group.setAttribute('role', 'tablist');
       tabs.forEach(function (tab) {
         tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', tab.classList.contains('active') ? 'true' : 'false');
+        var panelId = tab.getAttribute('data-tab');
+        if (panelId) {
+          tab.setAttribute('aria-controls', panelId);
+          if (!tab.id) tab.id = 'tab-' + panelId;
+          var panel = document.getElementById(panelId);
+          if (panel) { panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', tab.id); }
+        }
         tab.addEventListener('click', function () {
           tabs.forEach(function (t) {
             t.classList.remove('active');

@@ -68,7 +68,7 @@
           <ul class="nav-list">
 
             <li class="nav-item" data-section="membership">
-              <a class="nav-link" href="#">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Membership <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Membership</p>
@@ -98,7 +98,7 @@
             </li>
 
             <li class="nav-item" data-section="professional-development">
-              <a class="nav-link" href="#">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Professional development <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Professional development</p>
@@ -108,12 +108,12 @@
                 <div class="mega-cols">
                   <ul>
                     <li><a href="../pages/chartered-statistician.html">Chartered Statistician (CStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Analyst</a></li>
-                    <li><a href="../pages/chartered-statistician.html">Data Science Professional</a></li>
+                    <li><a href="../pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></li>
+                    <li><a href="../pages/data-analyst.html">Data Analyst</a></li>
+                    <li><a href="../pages/data-science-professional.html">Data Science Professional</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/myrss-cpd.html">CPD</a></li>
+                    <li><a href="../pages/professional-development.html#cpd">CPD</a></li>
                     <li><a href="../pages/accreditation.html">Accreditation</a></li>
                     <li><a href="../pages/find-an-expert.html">Professional Register</a></li>
                     <li><a href="../pages/events.html?type=course">Training courses</a></li>
@@ -128,13 +128,14 @@
             </li>
 
             <li class="nav-item" data-section="events-training">
-              <a class="nav-link" href="#">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Events and training <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Events and training</p>
-                  <form class="mega-search" action="~/pages/events.html" role="search">
-                    <label for="mega-events-q">Find an event or course</label>
-                    <div class="inline-field"><input type="search" id="mega-events-q" name="q" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
+                  <form class="mega-search" action="../pages/search.html" role="search">
+                    <label for="mega-events-q">Search events and training</label>
+                    <input type="hidden" name="scope" value="events">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-events-q" name="q" data-typeahead data-scope="events" placeholder="e.g. Bayesian, R, discussion meeting"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/events-training.html">Events and training overview &rarr;</a>
                 </div>
@@ -161,7 +162,7 @@
             </li>
 
             <li class="nav-item" data-section="get-involved">
-              <a class="nav-link" href="#">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Get involved <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Get involved</p>
@@ -176,9 +177,9 @@
                     <li><a href="../pages/get-involved.html#volunteering">Volunteering</a></li>
                   </ul>
                   <ul>
-                    <li><a href="../pages/get-involved.html#honours">Honours and awards</a></li>
-                    <li><a href="../pages/get-involved.html#ambassadors">Statistical Ambassadors</a></li>
-                    <li><a href="../pages/get-involved.html#s4s">Statisticians for Society</a></li>
+                    <li><a href="../pages/honours.html">Honours and awards</a></li>
+                    <li><a href="../pages/statistical-ambassadors.html">Statistical Ambassadors</a></li>
+                    <li><a href="../pages/statisticians-for-society.html">Statisticians for Society</a></li>
                     <li><a href="../pages/donate.html">Donate</a></li>
                   </ul>
                 </div>
@@ -191,7 +192,7 @@
             </li>
 
             <li class="nav-item" data-section="policy">
-              <a class="nav-link" href="#">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Policy and research <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Policy and research</p>
@@ -219,7 +220,7 @@
             </li>
 
             <li class="nav-item" data-section="news">
-              <a class="nav-link" href="#">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">News and publications <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">News and publications</p>
@@ -247,13 +248,14 @@
             </li>
 
             <li class="nav-item" data-section="resources">
-              <a class="nav-link" href="#">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">Resources <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">Resources</p>
-                  <form class="mega-search" action="~/pages/find-an-expert.html" role="search">
+                  <form class="mega-search" action="../pages/search.html" role="search">
                     <label for="mega-expert-q">Find an expert</label>
-                    <div class="inline-field"><input type="search" id="mega-expert-q" name="q" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
+                    <input type="hidden" name="scope" value="experts">
+                    <div class="inline-field ta-wrap"><input type="search" id="mega-expert-q" name="q" data-typeahead data-scope="experts" placeholder="Name, skill or area"><button class="btn btn-small" type="submit">Go</button></div>
                   </form>
                   <a class="mega-overview" href="../pages/resources.html">Resources overview &rarr;</a>
                 </div>
@@ -278,7 +280,7 @@
             </li>
 
             <li class="nav-item" data-section="about">
-              <a class="nav-link" href="#">About <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+              <button class="nav-link" type="button" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">&#9662;</span></button>
               <div class="nav-flyout wide mega">
                 <div class="mega-intro">
                   <p class="mega-title">About the RSS</p>
@@ -314,15 +316,14 @@
   <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the RSS website" hidden>
     <div class="container">
       <div class="search-overlay-head">
-        <form class="search-overlay-form" action="~/pages/search.html" role="search" data-overlay-form>
+        <form class="search-overlay-form ta-wrap" action="../pages/search.html" role="search" data-overlay-form>
           <label for="overlay-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="overlay-q" name="q" placeholder="Search events, courses, news, policy, people and pages" autocomplete="off" aria-controls="typeahead" aria-describedby="overlay-hint">
+          <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages" aria-describedby="overlay-hint">
           <button class="btn" type="submit">Search</button>
         </form>
         <button type="button" class="search-close" data-search-close aria-label="Close search">Close</button>
       </div>
       <p id="overlay-hint" class="wf-meta">Suggestions appear as you type. Press Enter to see all results.</p>
-      <div class="typeahead" id="typeahead" aria-live="polite"></div>
       <div class="search-helpers" data-search-helpers>
         <div>
           <h2 class="helper-title">Quick links</h2>
@@ -344,8 +345,9 @@
           </ul>
         </div>
       </div>
-      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Type-ahead starts at two characters and groups suggestions by type (pages, events and courses, news, policy, experts), up to three per group, with typo tolerance and synonyms (try "CStat", "stats" or "bayseian"). Enter or "See all results" opens the full results page. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
-      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S1"><span class="wf-note-label">Behaviour</span>Suggestions start at two characters, in a set order: topics, sections and groups first, then experts, then pages, events and documents. They match the start of a word, understand synonyms (try "ml" or "gradstat") and always end with "Search everything". Arrow keys, Enter and Escape work. <span class="wf-req">REQ-037, REQ-043, REQ-045</span></div>
+      <div class="wf-note" data-note="S2"><span class="wf-note-label">CMS</span>Suggested searches are curated by editors, informed by search analytics (click-through, not raw query counts), with a review and override screen. Never automatic, and never the names of people. <span class="wf-req">REQ-118</span></div>
+      <div class="wf-note" data-note="S3"><span class="wf-note-label">Behaviour</span>The search boxes in the Events and training and Resources menus are section searches: the same search, with a scope applied that shows as a chip and can be removed to search the whole site. <span class="wf-req">REQ-037, REQ-038</span></div>
     </div>
   </div>
 
@@ -358,7 +360,7 @@
         <h1>MyRSS</h1>
         <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
         <p><a class="btn" href="../pages/sign-in.html">Sign in</a> <a href="../pages/sign-in.html">Create an account</a></p>
-        <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+        <div class="wf-note" data-note="7"><span class="wf-note-label">Proposed</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected (the simplest form of ClerksWell's Could, REQ-280). Use View as in the dark bar to see the signed-in versions. <span class="wf-req">REQ-178, REQ-280</span></div>
       </div>
       <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
         <nav class="sidenav" aria-label="MyRSS">
@@ -369,7 +371,8 @@
           <h1>Profile and directory listings</h1>
 
           <p class="lead">Keep your details up to date. Each section saves on its own.</p>
-          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The current single page of 102 fields with five Submit buttons is split into short sections, each with its own save. This layout is ClerksWell's suggestion REQ-282; the functions are the existing ones. <span class="wf-req">REQ-173, REQ-282</span></div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>All the existing profile functions are here. <span class="wf-req">REQ-173</span></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Proposed</span>Splitting today's single page of 102 fields into short sections, each with its own save, is ClerksWell's suggestion REQ-282 (a Could). It is shown in its simplest form. <span class="wf-req">REQ-282</span></div>
           <div class="accordion">
             <div class="accordion-item open"><button class="accordion-title" type="button">Personal details <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate>
@@ -382,8 +385,9 @@
               <div class="accordion-content"><form data-validate novalidate><div class="field"><label for="p-emp">Employer</label><input type="text" id="p-emp" name="employer" value="Northbridge NHS Foundation Trust"></div><div class="field"><label for="p-role">Job title</label><input type="text" id="p-role" name="role" value="Head of Statistics"></div><button class="btn btn-small" type="submit">Save employment</button><p class="form-success" hidden>Saved.</p></form></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Interests <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate><fieldset class="field"><legend>Topics you are interested in</legend><label class="check"><input type="checkbox" name="interests" value="official"> Official statistics</label><label class="check"><input type="checkbox" name="interests" value="datasci"> Data science and AI</label><label class="check"><input type="checkbox" name="interests" value="health" checked> Medical and health statistics</label><label class="check"><input type="checkbox" name="interests" value="methods" checked> Methodology</label><label class="check"><input type="checkbox" name="interests" value="education"> Statistical education</label><label class="check"><input type="checkbox" name="interests" value="social"> Social statistics</label><label class="check"><input type="checkbox" name="interests" value="environment"> Environmental statistics</label><label class="check"><input type="checkbox" name="interests" value="business"> Business and industry</label><label class="check"><input type="checkbox" name="interests" value="computing"> Statistical computing</label><label class="check"><input type="checkbox" name="interests" value="public"> Public understanding of statistics</label></fieldset><button class="btn btn-small" type="submit">Save interests</button><p class="form-success" hidden>Saved. Your recommendations will update.</p></form>
-              <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Interests use the same topic list as site content, so they can drive personalisation and newsletters. <span class="wf-req">REQ-109, REQ-282</span></div>
-              <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Can the 29 areas of specialisation in Dynamics be replaced by the shared topic list, and what happens to existing data? <span class="wf-req">REQ-109</span></div></div></div>
+              <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Interests drive personalisation. <span class="wf-req">REQ-109</span></div>
+              <div class="wf-note" data-note="4"><span class="wf-note-label">Proposed</span>Using the site's topic list for interests, instead of today's 29 specialisations, is part of REQ-282 (a Could). <span class="wf-req">REQ-282</span></div>
+              <div class="wf-note query" data-note="5"><span class="wf-note-label">Open question</span>Q: Can the 29 areas of specialisation in Dynamics be replaced by the shared topic list, and what happens to existing data? <span class="wf-req">REQ-109</span></div></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Directory listings <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate>
                 <label class="check"><input type="checkbox" name="dir" value="fellows" checked> Include me in the Fellows Directory (members only)</label>
@@ -391,7 +395,7 @@
                 <label class="check"><input type="checkbox" name="dir" value="consultants" data-reveal="consultant-detail"> List me in the Consultants Directory</label>
                 <div class="reveal" id="consultant-detail" hidden><div class="field"><label for="p-cons">Areas of consultancy</label><textarea id="p-cons" name="cons" rows="3"></textarea></div><p class="wf-meta">Listings are checked by staff before they appear.</p></div>
                 <button class="btn btn-small" type="submit">Save listings</button><p class="form-success" hidden>Saved.</p></form>
-              <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Members manage their own directory listings. <span class="wf-req">REQ-196, REQ-194</span></div></div></div>
+              <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Members manage their own directory listings. <span class="wf-req">REQ-196, REQ-194</span></div></div></div>
           </div>
 
         </div>
@@ -502,7 +506,9 @@
   </div>
 
   <script src="../js/data.js"></script>
+  <script src="../js/search-engine.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/rss.js"></script>
+  <script src="../js/search-ui.js"></script>
 </body>
 </html>
