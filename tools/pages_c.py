@@ -26,12 +26,12 @@ def get_involved():
         <h2 class="section-title" id="gi-vol">Volunteering opportunities</h2>
         <div class="list-item no-thumb"><div><h3><a href="~/pages/article.html">Statistical Ambassadors 2027</a></h3><p>Help journalists and the public understand the numbers. Training provided.</p><p class="meta-row"><span>Closes 30 November 2026</span><span>About 2 days a year</span></p></div><div class="list-actions"><a class="btn btn-small" href="~/pages/article.html">Find out more</a></div></div>
         <div class="list-item no-thumb"><div><h3><a href="~/pages/article.html">Medical Section committee</a></h3><p>Two places on the committee for 2027.</p><p class="meta-row"><span>Closes 15 December 2026</span><span>Four meetings a year</span></p></div><div class="list-actions"><a class="btn btn-small" href="~/pages/article.html">Find out more</a></div></div>
-        <div class="list-item no-thumb" id="s4s"><div><h3><a href="#">Statisticians for Society</a></h3><p>Pro bono statistical help for charities and community groups.</p><p class="meta-row"><span>Ongoing</span><span>Project by project</span></p></div><div class="list-actions"><a class="btn btn-small" href="#">Volunteer</a></div></div>
+        <div class="list-item no-thumb" id="s4s"><div><h3><a href="~/pages/statisticians-for-society.html">Statisticians for Society</a></h3><p>Pro bono statistical help for charities and community groups.</p><p class="meta-row"><span>Ongoing</span><span>Project by project</span></p></div><div class="list-actions"><a class="btn btn-small" href="~/pages/statisticians-for-society.html">Volunteer</a></div></div>
         {n("Volunteering opportunities are their own content type, with a closing date that removes them from listings automatically.", "REQ-011, REQ-016")}
       </section>
       <section class="grid grid-2">
-        <article class="card" id="honours"><h2 class="card-title">Honours and awards</h2><p class="card-text">The Guy Medals, the Florence Nightingale Award and more. Nominations for 2027 are open.</p><a class="card-link" href="#">Honours and awards</a></article>
-        <article class="card" id="ambassadors"><h2 class="card-title">Statistical Ambassadors</h2><p class="card-text">Members who explain statistics in the media and in schools.</p><a class="card-link" href="#">About the programme</a></article>
+        <article class="card" id="honours"><h2 class="card-title">Honours and awards</h2><p class="card-text">The Guy Medals and the Society's other honours and prizes. Nominations for 2027 are open.</p><a class="card-link" href="~/pages/honours.html">Honours and awards</a></article>
+        <article class="card" id="ambassadors"><h2 class="card-title">Statistical Ambassadors</h2><p class="card-text">Members who explain statistics in the media and in schools.</p><a class="card-link" href="~/pages/statistical-ambassadors.html">About the programme</a></article>
       </section>
       <section class="content-highlight">
         <div><h2>Support our work</h2><p>Donations fund statistical education and our work on the public understanding of statistics.</p><a class="btn" href="~/pages/donate.html">Donate</a></div>
@@ -47,25 +47,26 @@ def groups():
     def items(kind):
         out = ''
         for g in [x for x in GROUPS if x['kind'] == kind]:
-            out += f'''<article class="list-item no-thumb" data-item data-region="{e(g['region'].lower().replace(' ', '-'))}" data-topic="{' '.join(g['topics'])}" data-title="{e(g['title'])}" data-text="{e(g['title'] + ' ' + g['region'])}">
+            out += f'''<article class="list-item no-thumb" data-item data-sid="group-{g['id']}" data-region="{e(g['region'].lower().replace(' ', '-'))}" data-topic="{' '.join(g['topics'])}" data-title="{e(g['title'])}" data-text="{e(g['title'] + ' ' + g['region'])}">
               <div><h3><a href="~/pages/group.html">{e(g['title'])}</a></h3><p class="meta-row"><span>{e(GROUP_KINDS[g['kind']])}</span><span>{e(g['region'])}</span></p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="~/pages/group.html">View group</a></div>
             </article>'''
         return out
 
-    regions = sorted({g['region'] for g in GROUPS})
-    region_opts = ''.join(f'<option value="{e(r.lower().replace(" ", "-"))}">{e(r)}</option>' for r in regions)
-
     def panel(kind, pid, active=False):
+        # Only offer regions that this tab actually has; no Region filter if there is only one
+        regions = sorted({g['region'] for g in GROUPS if g['kind'] == kind})
+        region_opts = ''.join(f'<option value="{e(r.lower().replace(" ", "-"))}">{e(r)}</option>' for r in regions)
+        region_field = f'<div class="field"><label for="{pid}-r">Region</label><select id="{pid}-r" data-filter="region"><option value="">All regions</option>{region_opts}</select></div>' if len(regions) > 1 else ''
         return f'''<div class="tab-panel{' active' if active else ''}" id="{pid}">
             <section data-listing>
               <div class="filter-bar">
                 <div class="field"><label for="{pid}-q">Search</label><input type="search" id="{pid}-q" data-filter="q" placeholder="Group name or place"></div>
-                <div class="field"><label for="{pid}-r">Region</label><select id="{pid}-r" data-filter="region"><option value="">All regions</option>{region_opts}</select></div>
+                {region_field}
               </div>
               <p class="result-count" data-count aria-live="polite"></p>
               <div>{items(kind)}</div>
-              <p class="empty-state" data-empty hidden>No groups match.</p>
+              <p class="empty-state" data-empty hidden>No groups match. Try another name or region<span data-site-search-wrap hidden>, or <a data-site-search href="search.html">search the whole site</a></span>.</p>
             </section>
           </div>'''
 
@@ -83,7 +84,7 @@ def groups():
         {panel('sig', 'g-sigs')}
       </div>
       <div class="wf-placeholder embed">Map of local groups</div>
-      {n("Groups listed by type, with a region field so international and UK local groups can be found by place. A map view is shown as a placeholder.", "REQ-102, REQ-031")}
+      {n("Groups listed by type. Local groups can be filtered by region, including international groups; sections are UK-wide, so their tab has no region filter. A map view is shown as a placeholder.", "REQ-102, REQ-031")}
       {n("A full 'Find a group' finder with map is ClerksWell's suggestion REQ-285 (a Could); this page shows the basic listing.", "REQ-285", "Proposed")}
 '''
     page('groups.html', 'Sections and groups', body, 'get-involved', [('Get involved', '~/pages/get-involved.html'), ('Sections and groups', None)])
@@ -173,7 +174,7 @@ def policy():
     n = Notes()
     items = ''
     for p in sorted(POLICY, key=lambda x: x['date'], reverse=True):
-        items += f'''<article class="list-item no-thumb" data-item data-ptype="{p['ptype']}" data-topic="{' '.join(p['topics'])}" data-date="{p['date']}" data-year="{p['date'][:4]}" data-title="{e(p['title'])}" data-text="{e(p['title'] + ' ' + p['summary'])}">
+        items += f'''<article class="list-item no-thumb" data-item data-sid="doc-{p['id']}" data-ptype="{p['ptype']}" data-topic="{' '.join(p['topics'])}" data-date="{p['date']}" data-year="{p['date'][:4]}" data-title="{e(p['title'])}" data-text="{e(p['title'] + ' ' + p['summary'])}">
               <div>
                 <p class="meta-row"><span class="tag">{e(PTYPES[p['ptype']])}</span>{tags(p['topics'])}</p>
                 <h3>{e(p['title'])}</h3>
@@ -211,7 +212,7 @@ def policy():
         <div class="active-filters" data-chips></div>
         <p class="result-count" data-count aria-live="polite"></p>
         <div>{items}</div>
-        <p class="empty-state" data-empty hidden>No documents match. Try another topic or year.</p>
+        <p class="empty-state" data-empty hidden>No documents match. Try another topic or year.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
         <p style="text-align:center"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
         {n("One library replaces the six category pages. Each item shows title, description, date, type, file type and size, with a download button. Text inside the PDFs is searchable from site search.", "REQ-252, REQ-044, REQ-140")}
         {n("Publishing each output as a short HTML summary page with the PDF attached is ClerksWell's suggestion REQ-286 (a Could).", "REQ-286", "Proposed")}
@@ -279,11 +280,10 @@ def news():
     for x in NEWS:
         src = f'<span class="tag">From {e(x["source"])}</span>' if x.get('source') else ''
         lock = '<span class="tag">Members</span>' if x['kind'] == 'callout' else ''
-        items += f'''<article class="list-item" data-item data-type="{x['kind']}" data-topic="{' '.join(x['topics'])}" data-date="{x['date']}" data-title="{e(x['title'])}" data-text="{e(x['title'] + ' ' + x['summary'])}">
+        items += f'''<article class="list-item two-col" data-item data-sid="news-{x['id']}" data-type="{x['kind']}" data-topic="{' '.join(x['topics'])}" data-date="{x['date']}" data-title="{e(x['title'])}" data-text="{e(x['title'] + ' ' + x['summary'])}">
               <div class="wf-placeholder ratio-4-3">Image</div>
               <div><p class="meta-row"><span class="tag">{kinds[x['kind']]}</span>{src}{lock}{tags(x['topics'])}</p>
                 <h3><a href="~/pages/article.html">{e(x['title'])}</a></h3><p>{e(x['summary'])}</p><p class="meta-row"><span>{d(x['date'])}</span></p></div>
-              <div></div>
             </article>'''
     topic_opts = ''.join(f'<option value="{k}">{e(v)}</option>' for k, v in TOPICS.items())
     body = f'''
@@ -303,7 +303,7 @@ def news():
         <div class="active-filters" data-chips style="margin-top:1rem"></div>
         <p class="result-count" data-count aria-live="polite"></p>
         <div>{items}</div>
-        <p class="empty-state" data-empty hidden>No stories match these filters.</p>
+        <p class="empty-state" data-empty hidden>No stories match these filters.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
         <p style="text-align:center"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
         {n("One news page with filters for type and topic, covering featured stories, group news, press releases and member callouts. Stories from Significance and Real World Data Science are pulled in and labelled with their source.", "REQ-235, REQ-020, REQ-106")}
       </section>

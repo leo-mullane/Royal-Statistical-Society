@@ -10,7 +10,9 @@ import json
 import os
 
 from content import (TOPICS, AUDIENCES, EVENTS, NEWS, POLICY, PTYPES, JOBS, GROUPS,
-                     GROUP_KINDS, EXPERTS, PAGES, SYNONYMS, TODAY)
+                     GROUP_KINDS, EXPERTS, PAGES, TODAY)
+from search_config import CONFIG
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src')
@@ -77,6 +79,25 @@ def crumbs(items):
     return f'<nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list">{lis}</ul></nav>'
 
 
+def aria_tabs(html_text):
+    """Give every tab set its ARIA in the markup (wireframe.js keeps it in step)."""
+    import re
+    def tab(m):
+        attrs = m.group(1)
+        active = 'active' in m.group(0).split('>')[0].split('class="')[1].split('"')[0]
+        pid = re.search(r'data-tab="([^"]+)"', attrs)
+        extra = f' role="tab" aria-selected="{"true" if active else "false"}"'
+        if pid:
+            extra += f' id="tab-{pid.group(1)}" aria-controls="{pid.group(1)}"'
+        return m.group(0).replace('<button', '<button' + extra, 1)
+    html_text = re.sub(r'<button class="tab[^"]*"([^>]*)>', tab, html_text)
+    def panel(m):
+        pid = m.group(2)
+        return f'<div class="{m.group(1)}" id="{pid}" role="tabpanel" aria-labelledby="tab-{pid}">'
+    html_text = re.sub(r'<div class="(tab-panel[^"]*)" id="([^"]+)">', panel, html_text)
+    return html_text.replace('<div class="tabs">', '<div class="tabs" role="tablist">')
+
+
 def page(file, title, body, section='', bc=None, wide=False):
     """Write one page. bc: breadcrumb list of (label, href or None)."""
     bc_html = crumbs(bc) if bc is not None else ''
@@ -103,14 +124,16 @@ def page(file, title, body, section='', bc=None, wide=False):
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>
 '''
     path = os.path.join(SRC, 'pages', file)
     with open(path, 'w', encoding='utf-8') as fh:
-        fh.write(out)
+        fh.write(aria_tabs(out))
     PAGES_BUILT.append(file)
 
 
@@ -139,44 +162,76 @@ def event_url(ev):
 # Search index (data.js)
 # -----------------------------------------------------------------------------
 def write_data():
+    """One index over every content type (REQ-037). Each entry carries the
+    fields the engine scores (title, tags, summary, body), the facet values it
+    filters on, and the line of meta that says what the result is."""
     idx = []
+    aud = lambda keys: [AUDIENCES[a] for a in keys]
+
     for p in PAGES:
-        idx.append(dict(type='Page', title=p['title'], url=p['url'], path='rss.org.uk › ' + p['path'],
-                        summary=p['summary'], kw=p['kw'], topicLabels=topic_labels(p['topics']),
-                        audLabels=[AUDIENCES[a] for a in p['aud']], access='public'))
+        idx.append(dict(id='page-' + slug(p['title']), cat='pages', tier='Page', type='Page', title=p['title'], url=p['url'],
+                        summary=p['summary'], meta=['Page', p['path']],
+                        tags=' '.join([p['kw'], p['path']] + topic_labels(p['topics'])), body='',
+                        facets=dict(ctype=['Page'], topic=topic_labels(p['topics']), audience=aud(p['aud']), access=['Public'])))
     for ev in EVENTS:
-        when = drange(ev['date'], ev['end'])
-        idx.append(dict(type='Course' if ev['kind'] == 'course' else 'Event', title=ev['title'], url=event_url(ev),
-                        path='rss.org.uk › Events and training', summary=ev['summary'] + ' ' + fmt_label(ev['fmt']) + '. ' + ev['place'] + '.',
-                        kw=ev.get('sub', '') + ' ' + ev.get('level', '') + ' ' + ev['org'], date=ev['date'], when=when,
-                        topicLabels=topic_labels(ev['topics']), audLabels=[AUDIENCES[a] for a in ev['aud']], access='public'))
+        kind = 'Course' if ev['kind'] == 'course' else 'Event'
+        sub = ev.get('sub', kind)
+        when = 'Upcoming' if ev['end'] >= TODAY else 'Past'
+        idx.append(dict(id='event-' + ev['id'], cat='events', tier=kind, type=kind, title=ev['title'], url=event_url(ev),
+                        summary=ev['summary'], date=ev['date'],
+                        meta=[sub, drange(ev['date'], ev['end']), fmt_label(ev['fmt']), ev['place']],
+                        tags=' '.join([sub, ev.get('level', ''), ev['org'], fmt_label(ev['fmt'])] + topic_labels(ev['topics'])),
+                        body=' '.join([ev['place'], ev['time'], ev['price']]),
+                        facets=dict(ctype=[kind], etype=[sub], format=[fmt_label(ev['fmt'])], when=[when], topic=topic_labels(ev['topics']),
+                                    audience=aud(ev['aud']), year=[ev['date'][:4]], access=['Public'])))
     for n in NEWS:
-        t = {'news': 'News', 'press': 'Press release', 'callout': 'Member callout'}[n['kind']]
-        idx.append(dict(type=t, title=n['title'], url='article.html', path='rss.org.uk › News and publications',
-                        summary=n['summary'], kw=n.get('source', ''), date=n['date'], when=d(n['date']),
-                        topicLabels=topic_labels(n['topics']), audLabels=[], access='members' if n['kind'] == 'callout' else 'public'))
+        t = n.get('rawtype') or {'news': 'News', 'press': 'Press release', 'callout': 'Member callout'}[n['kind']]
+        access = 'Members only' if n['kind'] == 'callout' else 'Public'
+        idx.append(dict(id='news-' + n['id'], cat='news', tier='News', type=t, title=n['title'], url='article.html',
+                        summary=n['summary'], date=n['date'], meta=[t, d(n['date'])] + ([n['source']] if n.get('source') else []),
+                        tags=' '.join([n.get('source', '')] + topic_labels(n['topics'])), body='',
+                        facets=dict(ctype=[t], topic=topic_labels(n['topics']), year=[n['date'][:4]], access=[access])))
     for p in POLICY:
-        idx.append(dict(type='Policy document', title=p['title'], url='policy.html', path='rss.org.uk › Policy and research › Policy library',
-                        summary=p['summary'], kw=PTYPES[p['ptype']], date=p['date'], when=d(p['date']),
-                        topicLabels=topic_labels(p['topics']), audLabels=[AUDIENCES['policymakers']], access='public',
-                        doc=dict(file=p['id'] + '.pdf', page=p['doc']['page'], text=p['doc']['text'])))
+        pages = [[1, p['summary']]]
+        if p['doc']['page'] != 1:
+            pages.append([p['doc']['page'], p['doc']['text']])
+        else:
+            pages[0][1] += ' ' + p['doc']['text']
+        idx.append(dict(id='doc-' + p['id'], cat='policy', tier='Document', type='Policy document', title=p['title'], url='policy.html',
+                        summary=p['summary'], date=p['date'], meta=[PTYPES[p['ptype']], 'PDF, ' + p['size'], d(p['date'])],
+                        tags=' '.join([PTYPES[p['ptype']]] + topic_labels(p['topics'])),
+                        body=' '.join(x[1] for x in pages), pages=pages, file=p['id'] + '.pdf',
+                        facets=dict(ctype=['Policy document'], ptype=[PTYPES[p['ptype']]], topic=topic_labels(p['topics']),
+                                    audience=[AUDIENCES['policymakers']], year=[p['date'][:4]], access=['Public'])))
     for j in JOBS:
-        idx.append(dict(type='Job', title=f"{j['title']}, {j['employer']}", url='job.html', path='rss.org.uk › Resources › Jobs',
-                        summary=f"{j['place']}. {j['salary']}. {j['contract']}. Closes {d(j['closes'])}.", kw='job vacancy careers',
-                        date=j['closes'], when='Closes ' + d(j['closes']), topicLabels=topic_labels(j['topics']),
-                        audLabels=[AUDIENCES['professionals']], access='public'))
+        idx.append(dict(id='job-' + j['id'], cat='jobs', tier='Job', type='Job', title=j['title'], url='job.html',
+                        summary=f"{j['employer']}. {j['place']}. {j['salary']}.", date=j['closes'],
+                        meta=['Job', j['employer'], j['place'], 'Closes ' + d(j['closes'])],
+                        tags=' '.join([j['employer'], j['contract']] + topic_labels(j['topics'])), body=j['place'],
+                        facets=dict(ctype=['Job'], topic=topic_labels(j['topics']), audience=[AUDIENCES['professionals']], access=['Public'])))
     for g in GROUPS:
-        idx.append(dict(type='Group', title=g['title'], url='group.html', path='rss.org.uk › Get involved › Sections and groups',
-                        summary=f"{GROUP_KINDS[g['kind']]}, {g['region']}. News, events and how to join.", kw='group section local',
-                        topicLabels=topic_labels(g['topics']), audLabels=[AUDIENCES['professionals']], access='public'))
+        kind = GROUP_KINDS[g['kind']]
+        idx.append(dict(id='group-' + g['id'], cat='groups', tier='Group', type=kind, title=g['title'], url='group.html',
+                        summary=f"{kind}, {g['region']}. News, events and how to join.", meta=[kind, g['region']],
+                        tags=' '.join([kind, g['region']] + topic_labels(g['topics'])), body='',
+                        facets=dict(ctype=[kind], gkind=[kind], region=[g['region']], topic=topic_labels(g['topics']),
+                                    audience=[AUDIENCES['professionals']], access=['Public'])))
+    dirs = {'register': 'Professional Register', 'consultants': 'Consultants Directory', 'fellows': 'Fellows Directory'}
     for x in EXPERTS:
-        idx.append(dict(type='Expert', title=f"{x['name']}, {x['status']}", url='find-an-expert.html', path='rss.org.uk › Resources › Find an expert',
-                        summary=f"{x['place']}. " + ', '.join(x['areas']) + '.', kw='expert register consultant ' + ' '.join(x['dirs']),
-                        topicLabels=topic_labels(x['topics']), audLabels=[AUDIENCES['employers']],
-                        access='members' if x['dirs'] == ['fellows'] else 'public'))
-    js = ('/* data.js: sample search index for the prototype. Generated from tools/content.py; pure data, no logic. */\n'
-          'window.RSS_INDEX = ' + json.dumps(idx, indent=1, ensure_ascii=False) + ';\n'
-          'window.RSS_SYNONYMS = ' + json.dumps(SYNONYMS, indent=1) + ';\n')
+        plain = ' '.join(w for w in x['name'].split() if w not in ('Dr', 'Professor'))
+        members = x['dirs'] == ['fellows']
+        idx.append(dict(id='expert-' + x['id'], cat='experts', tier='Expert', type='Expert', title=x['name'],
+                        url='find-an-expert.html?q=' + quote(plain) + ('&tab=fellows' if members else ''),
+                        summary=', '.join(x['areas']) + '.', meta=[x['status'], x['areas'][0], x['place']],
+                        tags=' '.join([x['status'], x['place']] + x['areas'] + [dirs[k] for k in x['dirs']] + topic_labels(x['topics'])), body='',
+                        facets=dict(ctype=['Expert'], status=x['status'].split(', '), directory=[dirs[k] for k in x['dirs']],
+                                    topic=topic_labels(x['topics']), audience=[AUDIENCES['employers']],
+                                    access=['Members only' if members else 'Public'])))
+    js = ('/* data.js: search index and search configuration. Generated from tools/content.py and\n'
+          '   tools/search_config.py; pure data, no logic. All people, employers and documents are fictional. */\n'
+          'window.RSS_CONFIG = ' + json.dumps(CONFIG, indent=1, ensure_ascii=False) + ';\n'
+          'window.RSS_TOPICS = ' + json.dumps(list(TOPICS.values()), ensure_ascii=False) + ';\n'
+          'window.RSS_INDEX = ' + json.dumps(idx, indent=1, ensure_ascii=False) + ';\n')
     with open(os.path.join(SRC, 'js', 'data.js'), 'w', encoding='utf-8') as fh:
         fh.write(js)
     return len(idx)

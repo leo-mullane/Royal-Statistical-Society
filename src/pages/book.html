@@ -17,11 +17,11 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item"><a href="~/pages/course.html">Introduction to R</a></li><li class="breadcrumb-item" aria-current="page">Book</li></ul></nav>
 
       <h1>Book: Introduction to R</h1>
-      <p class="lead">10 to 11 November 2026, online</p>
+      <p class="lead" data-book-date>10 to 11 November 2026, online</p>
       <ol class="steps" aria-label="Booking progress"><li>Who is attending</li><li>Delegate details</li><li>Your organisation</li><li>Check and pay</li></ol>
-      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS. <span class="wf-req">REQ-215, REQ-216, REQ-204</span></div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS. <span class="wf-req">REQ-215, REQ-216</span></div>
       <div class="split">
-        <form data-steps data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R, 10 to 11 November 2026, online" novalidate>
+        <form data-steps data-book-form data-course="Introduction to R" data-default-date="10 to 11 November 2026" data-default-format="online" data-member="345" data-nonmember="460" data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R" novalidate>
           <section class="form-step">
             <h2>Who is attending?</h2>
             <fieldset class="field"><legend>I am booking for</legend>
@@ -29,7 +29,7 @@
               <label class="radio-card"><input type="radio" name="who" value="others" data-reveal="others-note"> <strong>Someone else, or a group</strong>You pay; each delegate gets the joining details</label>
             </fieldset>
             <div class="reveal" id="others-note" hidden><p>You will add each delegate on the next step. We will create a basic account for each delegate and tell them why.</p>
-              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5 or more</option></select></div></div>
+              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><p class="field-hint">Booking six or more? <a href="~/pages/about.html#contact">Ask us about a group rate or in-house course</a>.</p></div></div>
             <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
           </section>
           <section class="form-step" hidden>
@@ -47,12 +47,8 @@
           <section class="form-step" hidden>
             <h2>Your organisation</h2>
             <div class="field"><label for="b-org">Organisation (optional)</label><input type="text" id="b-org" name="org"></div>
-            <fieldset class="field"><legend>Payment</legend>
-              <label class="check"><input type="radio" name="pay" value="card" required data-error="Choose how to pay"> Card</label>
-              <label class="check"><input type="radio" name="pay" value="invoice" data-reveal="po-field"> Invoice or purchase order</label>
-            </fieldset>
-            <div class="reveal" id="po-field" hidden><div class="field"><label for="b-po">Purchase order number</label><input type="text" id="b-po" name="po"></div></div>
-            <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Is booking by invoice or purchase order offered today? ClerksWell has suggested it (REQ-290, a Could). <span class="wf-req">REQ-290</span></div>
+            <p>Payment is by card on the next step.</p>
+            <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Paying by invoice or purchase order is ClerksWell's suggestion REQ-290 (a Could), so it is not built. Is it offered today? <span class="wf-req">REQ-290</span></div>
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
           </section>
           <section class="form-step" hidden data-review>
@@ -61,16 +57,17 @@
             <div class="field"><label for="b-code">Discount code (optional)</label><div class="inline-field"><input type="text" id="b-code" name="code"><button class="btn btn-secondary btn-small" type="button">Apply</button></div></div>
             <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Discount codes are entered here and validated with the payment provider. Member and early-bird prices are applied automatically. <span class="wf-req">REQ-217, REQ-087</span></div>
             <div class="field"><label class="check"><input type="checkbox" name="terms" required data-error="Accept the booking terms"> I accept the <a href="#">booking terms and cancellation policy</a></label></div>
-            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: £345</button></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: <span data-book-total>£345</span></button></div>
           </section>
           <section class="form-success" data-complete hidden>
             <h2>Booking confirmed</h2>
-            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My Training.</p>
+            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My events and training.</p>
             <p><a class="btn" href="~/pages/myrss-bookings.html">View in MyRSS</a></p>
             <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>If the booker leaves before paying, an abandoned-booking reminder is sent. <span class="wf-req">REQ-221, REQ-089</span></div>
           </section>
         </form>
-        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br>10 to 11 November 2026, online</p><p>Member price: £345</p></aside>
+        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br><span data-book-date>10 to 11 November 2026, online</span></p><p data-book-rate>Member price: £345 per delegate</p><p><span data-book-count>1 delegate</span>: <strong data-book-total>£345</strong></p>
+          <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>The date, the viewer's price (member or non-member) and the number of delegates all come through from the course page and set the amount paid. <span class="wf-req">REQ-087, REQ-215</span></div></aside>
       </div>
 
     </div>
@@ -78,7 +75,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

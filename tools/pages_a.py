@@ -31,21 +31,21 @@ def home():
         <div>
           <h1>Statistics and data for the public good</h1>
           <p class="lead">The Royal Statistical Society is the professional body for statisticians and data scientists, and a charity that promotes the use of statistics for the benefit of society.</p>
-          <form class="big-search" action="~/pages/search.html" role="search">
+          <form class="big-search ta-wrap" action="~/pages/search.html" role="search">
             <label for="home-q" class="visually-hidden">Search the RSS website</label>
-            <input type="search" id="home-q" name="q" placeholder="Search events, courses, policy and more">
+            <input type="search" id="home-q" name="q" data-typeahead placeholder="Search events, courses, policy and more">
             <button class="btn" type="submit">Search</button>
           </form>
           <p data-show-for="guest registered"><a class="btn" href="~/pages/join.html">Join the RSS</a> <a class="btn btn-secondary" href="~/pages/events.html">Find an event or course</a></p>
           <div class="panel surface" data-show-for="member" hidden>
-            <p><strong>Welcome back, Dr Alex Morgan.</strong> Your membership renews on 1 January 2027. You have 1 booking coming up.</p>
+            <p><strong>Welcome back, Dr Alex Morgan.</strong> Your membership renews on 1 January 2027. You have 3 bookings coming up, and one invoice to pay.</p>
             <a href="~/pages/myrss.html">Go to MyRSS</a>
           </div>
           <div class="panel surface" data-show-for="lapsed" hidden>
             <p><strong>Your membership lapsed on 30 September 2026.</strong> Renew to keep your Fellowship, CPD record and journal access.</p>
             <a class="btn" href="~/pages/myrss.html#renew">Renew now</a>
           </div>
-          {n("The welcome panel changes with the viewer. Use <strong>View as</strong> in the grey bar to see the signed-out, member and lapsed versions.", "REQ-101, REQ-109, REQ-178")}
+          {n("The welcome panel changes with the viewer. Use <strong>View as</strong> in the dark bar to see the signed-out, member and lapsed versions.", "REQ-101, REQ-109, REQ-178")}
         </div>
         <div class="wf-placeholder ratio-4-3">Image or short muted video 4:3</div>
       </section>
@@ -187,62 +187,64 @@ def home():
 def search_page():
     n = Notes()
     body = f'''
-      <!-- Site search results (REQ-037 to REQ-046) -->
-      <section data-search-results>
-        <h1>Search</h1>
-        <form class="big-search" role="search" data-results-form>
-          <label for="results-q" class="visually-hidden">Search the RSS website</label>
-          <input type="search" id="results-q" name="q" placeholder="Search the RSS website">
+      <!-- Site search results (REQ-037 to REQ-046). All state is in the URL. -->
+      <section id="search-app" class="search-app">
+        <h1 id="sr-title">Search</h1>
+        <p class="lead" id="sr-intro" hidden></p>
+        <form class="big-search ta-wrap" id="sr-form" role="search">
+          <label for="sr-q" class="visually-hidden">Search the RSS website</label>
+          <input type="search" id="sr-q" name="q" data-typeahead placeholder="Search events, courses, news, policy, experts and pages">
+          <input type="hidden" id="sr-scope" name="scope" value="">
           <button class="btn" type="submit">Search</button>
         </form>
-        <p><a href="~/pages/search-advanced.html" data-advanced-link>Refine in advanced search</a></p>
-        {n("One results page for every content type: pages, events, courses, news, policy documents (including text inside PDFs and Office files), jobs, groups and experts. Try <a href=\'?q=CStat\'>CStat</a>, <a href=\'?q=bayseian\'>bayseian</a> (typo), <a href=\'?q=census\'>census</a> (matches inside documents) or <a href=\'?q=qwertyuiop\'>a search with no results</a>.", "REQ-037, REQ-038, REQ-044")}
-        <div class="finder">
-          <aside class="facets" aria-label="Filter results">
-            <div class="facets-head"><h2 class="facet-title">Filter by</h2></div>
-            <div data-facet-host></div>
-            {n("Counts update as you filter. A filter group with only one option is hidden.", "REQ-039, REQ-031")}
-          </aside>
-          <div>
-            <div class="ai-answer" data-ai-answer hidden>
-              <h2>Summary</h2>
-              <p data-ai-text></p>
-              <ol class="chips" data-ai-sources></ol>
-              <p class="wf-meta">AI-generated from pages on this site. Check the sources.</p>
-            </div>
-            {n("AI-assisted answer drawn only from rss.org.uk content, with numbered sources. Shown for questions and high-confidence queries; never for people. Model and provider (Copilot or other) to agree with the tech lead.", "REQ-041, REQ-153")}
-            {n("Should the AI summary appear by default, or behind an \'Ask a question\' control?", "REQ-041", "Open question")}
-            <div data-search-notices></div>
-            <div class="active-filters" data-active-filters></div>
-            <div class="results-bar">
-              <p class="result-count" data-result-count aria-live="polite"></p>
-              <button class="btn btn-secondary btn-small facets-toggle" type="button" data-facets-toggle aria-expanded="false">Filters</button>
-              <div class="field"><label for="sort">Sort by</label>
-                <select id="sort" data-sort>
-                  <option value="relevance">Relevance</option>
-                  <option value="newest">Date, newest first</option>
-                  <option value="oldest">Date, oldest first</option>
-                  <option value="type">Content type</option>
-                  <option value="title">Title A to Z</option>
-                </select></div>
-              <div class="field"><label for="per">Show</label>
-                <select id="per" data-per><option value="10">10</option><option value="20">20</option><option value="50">50</option></select></div>
-            </div>
-            {n("Sort by relevance, date, type or title. Results per page can be changed by the user; editors set the default.", "REQ-040, REQ-106")}
-            <div data-result-list></div>
-            <div class="empty-state" data-zero hidden>
-              <h2>No results found</h2>
-              <ul class="prose" style="text-align:left;margin:0 auto 1rem;max-width:30rem">
-                <li>Check the spelling, or try fewer or more general words</li>
-                <li>Remove some filters</li>
-                <li>Browse <a href="~/pages/events.html">events and courses</a>, <a href="~/pages/policy.html">policy</a> or <a href="~/pages/news.html">news</a></li>
-              </ul>
-              <p>Still stuck? <a href="~/pages/about.html#contact">Contact us</a> and we'll help.</p>
-            </div>
-            <ul class="pagination" data-pagination></ul>
-            {n("Search terms are highlighted in titles and summaries. Spelling is corrected automatically and synonyms are included (for example CStat and Chartered Statistician), with a notice and a way back to the exact search.", "REQ-042, REQ-043, REQ-045, REQ-046")}
+        {n("One index and one results page for every content type: pages, events and courses, news, policy documents (including the text inside them), sections and groups, experts and jobs. Every search box on the site uses it. Results are ranked by page type first, so an expert, a section or a key page comes before a passing mention in a news story, and documents come last. Try <a href=\'?q=Adaeze+Okafor\'>Adaeze Okafor</a>, <a href=\'?q=medical+section\'>medical section</a>, <a href=\'?q=chartered+statistician\'>chartered statistician</a> (finds CStat holders through a synonym), <a href=\'?q=bayseian\'>bayseian</a> (a typo), <a href=\'?q=response+rates\'>response rates</a> (inside a PDF) or <a href=\'?q=qwertyuiop\'>a search with no results</a>. With nothing typed, the page shows everything by type.", "REQ-037, REQ-038, REQ-044")}
+        <div id="sr-banners" aria-live="polite"></div>
+        <div class="cat-tabs" id="sr-tabs" role="group" aria-label="Show results of one type"></div>
+        {n("Tabs by type, with counts that stay accurate while one tab is showing. Each tab offers only the filters that make sense for it.", "REQ-038, REQ-039")}
+        <div class="letters" id="sr-letters" hidden></div>
+        <div class="active-filters" id="sr-chips" hidden></div>
+        <div class="results-bar">
+          <p class="result-count" id="sr-count" tabindex="-1" aria-live="polite"></p>
+          <div class="field"><label for="sr-sort">Sort by</label>
+            <select id="sr-sort">
+              <option value="relevance">Relevance</option>
+              <option value="newest">Date, newest first</option>
+              <option value="oldest">Date, oldest first</option>
+              <option value="year">Year</option>
+              <option value="type">Content type</option>
+              <option value="az">Title A to Z</option>
+            </select></div>
+          <div class="field"><label for="sr-per">Show</label>
+            <select id="sr-per"><option value="10">10</option><option value="20">20</option><option value="50">50</option></select></div>
+          <div class="layout-switch" id="sr-layout" role="group" aria-label="Filter layout">
+            <button type="button" id="sr-layout-side" data-layout="sidebar" aria-pressed="true">Filters at the side</button>
+            <button type="button" id="sr-layout-top" data-layout="topbar" aria-pressed="false">Filters across the top</button>
           </div>
         </div>
+        <p class="results-tools"><button type="button" class="btn-link" id="sr-copy">Copy link to this search</button> <a id="sr-advanced" href="~/pages/search-advanced.html">Refine in advanced search</a> <span class="wf-meta" id="sr-copied" aria-live="polite"></span></p>
+        {n("Sort by relevance, date, year, type or title; undated items go last under the date sorts. Results per page can be changed. The search, tab, filters, sort and page are all in the address bar, so Back and Forward work and a copied link opens exactly this view. The two filter layouts are shown so RSS can choose one.", "REQ-040, REQ-106")}
+        <div class="facet-bar" id="sr-facetbar" hidden></div>
+        <div class="sr-body layout-sidebar" id="sr-body">
+          <aside class="sr-facets" id="sr-facets" aria-label="Filter results"></aside>
+          <div class="sr-main">
+            <div class="ai-answer" id="sr-ai" hidden>
+              <h2>Summary</h2>
+              <p id="sr-ai-text"></p>
+              <ol class="chips" id="sr-ai-sources"></ol>
+              <p class="wf-meta">AI-generated from pages on this site. Check the sources.</p>
+            </div>
+            {n("AI-assisted answer drawn only from rss.org.uk content, with numbered sources. Shown for questions and high-confidence searches; never for experts. Model and provider (Copilot or other) to agree with the tech lead. It sits on top of the keyword search, which still decides the results.", "REQ-041, REQ-153")}
+            {n("Should the AI summary appear by default, or behind an \'Ask a question\' control?", "REQ-041", "Open question")}
+            <div id="sr-results"></div>
+            <nav id="sr-pages" aria-label="Results pages"></nav>
+          </div>
+        </div>
+        <div id="sr-browse" hidden></div>
+        {n("Filters show live counts, worked out with every other filter applied except their own. Values that would return nothing are hidden, as is a filter left with one option. Long filters show five values, with Show all and a box to filter within them. Every filter applied shows as a chip you can remove.", "REQ-039")}
+        {n("Matched words are highlighted, synonyms included. A spelling correction is tried only when a search finds nothing, with a notice and a link back to the exact search. Synonyms (for example CStat and Chartered Statistician) are used automatically and the page says so. A search with no results offers a correction, a broader search, routes into the site and a contact.", "REQ-042, REQ-043, REQ-045, REQ-046")}
+        {n("The synonym list here is fixed in configuration. A dictionary that editors maintain in the CMS is REQ-047, a Could.", "REQ-047", "Proposed")}
+        {n("Search queries, zero-result searches and click-through feed the editorial dashboards, and inform the curated suggested searches.", "REQ-118", "CMS")}
+        <p class="wf-meta"><a href="~/pages/search-configuration.html">How search is configured</a></p>
       </section>
 '''
     page('search.html', 'Search', body, '', [('Search', None)])
@@ -250,28 +252,44 @@ def search_page():
 
 def advanced():
     n = Notes()
-    topic_opts = ''.join(f'<option value="{e(v)}">{e(v)}</option>' for v in TOPICS.values())
-    types = ['Page', 'Event', 'Course', 'News', 'Press release', 'Policy document', 'Job', 'Group', 'Expert']
-    tchecks = ''.join(f'<label class="check"><input type="checkbox" name="type" value="{t}"> {t}</label>' for t in types)
     body = f'''
-      <!-- Advanced search (REQ-039) -->
-      <h1>Advanced search</h1>
-      <p class="lead">Opens on the search you came from, so you can refine it.</p>
-      {n("Opens pre-filled from the results page ('Refine in advanced search'), or empty if opened from the menu. It never keeps a stale earlier search.", "REQ-039")}
-      <form class="form-step" data-advanced-form>
-        <div class="field"><label for="adv-all">All of these words</label><input type="text" id="adv-all" name="all"></div>
-        <div class="field"><label for="adv-phrase">This exact phrase</label><input type="text" id="adv-phrase" name="phrase"></div>
-        <div class="field"><label for="adv-none">None of these words</label><input type="text" id="adv-none" name="none"><p class="field-hint">Separate words with spaces</p></div>
-        <fieldset class="field"><legend>Content type</legend>{tchecks}</fieldset>
-        <div class="field"><label for="adv-topic">Topic</label><select id="adv-topic" name="topic"><option value="">Any topic</option>{topic_opts}</select></div>
-        <div class="field-row">
-          <div class="field"><label for="adv-from">From date</label><input type="date" id="adv-from" name="from"></div>
-          <div class="field"><label for="adv-to">To date</label><input type="date" id="adv-to" name="to"></div>
+      <!-- Advanced search builder (REQ-039) -->
+      <section id="builder-app">
+        <h1>Advanced search</h1>
+        <p class="lead">Combine conditions without any special syntax. The count updates as you build.</p>
+        {n("Opens on the search you came from (\'Refine in advanced search\' on the results page), or empty if opened from anywhere else. It never keeps an earlier search. Conditions on different fields must all match; two conditions on the same field allow either value.", "REQ-039")}
+        <div class="qb">
+          <div class="field"><label for="qb-type">Search</label><select id="qb-type"></select></div>
+          <div id="qb-rows"></div>
+          <p><button type="button" class="btn btn-secondary btn-small" id="qb-add">Add a condition</button> <button type="button" class="btn-link" id="qb-reset">Start again</button></p>
+          <div class="qb-out surface panel">
+            <p class="qb-readout" id="qb-readout" aria-live="polite"></p>
+            <p class="qb-count"><strong id="qb-count">0</strong> <span id="qb-count-label">matches</span></p>
+            <ul class="qb-preview" id="qb-preview"></ul>
+            <p><a class="btn" id="qb-run" href="~/pages/search.html">Run this search</a></p>
+          </div>
+          <h2 class="h4">Examples</h2>
+          <p class="chips">
+            <button type="button" class="chip" data-example="computing-courses">Upcoming courses in statistical computing</button>
+            <button type="button" class="chip" data-example="health-consultants">CStat consultants in medical statistics</button>
+            <button type="button" class="chip" data-example="official-policy">2026 policy on official statistics, leaving out the census</button>
+          </p>
         </div>
-        <p><button class="btn" type="submit">Search</button> <button class="btn btn-secondary" type="button" data-advanced-reset>Clear</button></p>
-      </form>
+      </section>
 '''
     page('search-advanced.html', 'Advanced search', body, '', [('Search', '~/pages/search.html'), ('Advanced search', None)])
+
+
+def search_config():
+    n = Notes()
+    body = f'''
+      <h1>How search is configured</h1>
+      <p class="lead">Everything on this page is read from one configuration object that the search engine uses. Changing how search ranks, which synonyms it knows or which filters it offers means editing that data, not the code.</p>
+      {n("In the build, these settings would be held in the CMS or the search service\'s configuration, so they can be changed without a release. Which of them editors can change themselves (for example synonyms and promoted results, both Coulds) is to be agreed.", "REQ-037, REQ-047, REQ-278", "CMS")}
+      <p class="wf-meta">All the people, employers and documents in the prototype are fictional.</p>
+      <div id="config-app"></div>
+'''
+    page('search-configuration.html', 'How search is configured', body, '', [('Search', '~/pages/search.html'), ('How search is configured', None)])
 
 
 GRADES = [
@@ -500,6 +518,7 @@ def build():
     home()
     search_page()
     advanced()
+    search_config()
     membership()
     grades_fees()
     join()

@@ -21,21 +21,21 @@
         <div>
           <h1>Statistics and data for the public good</h1>
           <p class="lead">The Royal Statistical Society is the professional body for statisticians and data scientists, and a charity that promotes the use of statistics for the benefit of society.</p>
-          <form class="big-search" action="~/pages/search.html" role="search">
+          <form class="big-search ta-wrap" action="~/pages/search.html" role="search">
             <label for="home-q" class="visually-hidden">Search the RSS website</label>
-            <input type="search" id="home-q" name="q" placeholder="Search events, courses, policy and more">
+            <input type="search" id="home-q" name="q" data-typeahead placeholder="Search events, courses, policy and more">
             <button class="btn" type="submit">Search</button>
           </form>
           <p data-show-for="guest registered"><a class="btn" href="~/pages/join.html">Join the RSS</a> <a class="btn btn-secondary" href="~/pages/events.html">Find an event or course</a></p>
           <div class="panel surface" data-show-for="member" hidden>
-            <p><strong>Welcome back, Dr Alex Morgan.</strong> Your membership renews on 1 January 2027. You have 1 booking coming up.</p>
+            <p><strong>Welcome back, Dr Alex Morgan.</strong> Your membership renews on 1 January 2027. You have 3 bookings coming up, and one invoice to pay.</p>
             <a href="~/pages/myrss.html">Go to MyRSS</a>
           </div>
           <div class="panel surface" data-show-for="lapsed" hidden>
             <p><strong>Your membership lapsed on 30 September 2026.</strong> Renew to keep your Fellowship, CPD record and journal access.</p>
             <a class="btn" href="~/pages/myrss.html#renew">Renew now</a>
           </div>
-          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The welcome panel changes with the viewer. Use <strong>View as</strong> in the grey bar to see the signed-out, member and lapsed versions. <span class="wf-req">REQ-101, REQ-109, REQ-178</span></div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The welcome panel changes with the viewer. Use <strong>View as</strong> in the dark bar to see the signed-out, member and lapsed versions. <span class="wf-req">REQ-101, REQ-109, REQ-178</span></div>
         </div>
         <div class="wf-placeholder ratio-4-3">Image or short muted video 4:3</div>
       </section>
@@ -105,11 +105,11 @@
       <section aria-labelledby="events-title">
         <h2 class="section-title" id="events-title">Events and training</h2>
         <div class="tabs" role="tablist">
-          <button class="tab active" type="button" data-tab="home-events">Events</button>
-          <button class="tab" type="button" data-tab="home-courses">Training courses</button>
+          <button role="tab" aria-selected="true" id="tab-home-events" aria-controls="home-events" class="tab active" type="button" data-tab="home-events">Events</button>
+          <button role="tab" aria-selected="false" id="tab-home-courses" aria-controls="home-courses" class="tab" type="button" data-tab="home-courses">Training courses</button>
         </div>
         <div>
-          <div class="tab-panel active" id="home-events">
+          <div class="tab-panel active" id="home-events" role="tabpanel" aria-labelledby="tab-home-events">
             <div class="grid grid-2"><article class="card">
           <div class="wf-placeholder ratio-16-9">Image 16:9</div><p class="meta-row"><span class="tag">Discussion meeting</span><span class="tag">Hybrid</span></p>
           <h3 class="card-title"><a href="~/pages/event.html">Discussion meeting: Statistical aspects of evaluating large language models</a></h3>
@@ -138,7 +138,7 @@
         </article></div>
             <p><a href="~/pages/events.html?type=event">All events &rarr;</a></p>
           </div>
-          <div class="tab-panel" id="home-courses">
+          <div class="tab-panel" id="home-courses" role="tabpanel" aria-labelledby="tab-home-courses">
             <div class="grid grid-3"><article class="card">
           <p class="meta-row"><span class="tag">Public course</span><span class="tag">Online</span></p>
           <h3 class="card-title"><a href="~/pages/course.html">Introduction to R</a></h3>
@@ -248,7 +248,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

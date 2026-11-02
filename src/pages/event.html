@@ -24,25 +24,25 @@
             <p class="lead">A paper read to the Society, followed by an open discussion. Contributions can be made in the room or online.</p>
             <!-- Event details in tabs (REQ-209) -->
             <div class="tabs" role="tablist">
-              <button class="tab active" type="button" data-tab="ev-about">About</button>
-              <button class="tab" type="button" data-tab="ev-speakers">Speakers</button>
-              <button class="tab" type="button" data-tab="ev-organiser">Organiser</button>
-              <button class="tab" type="button" data-tab="ev-costs">Costs</button>
+              <button role="tab" aria-selected="true" id="tab-ev-about" aria-controls="ev-about" class="tab active" type="button" data-tab="ev-about">About</button>
+              <button role="tab" aria-selected="false" id="tab-ev-speakers" aria-controls="ev-speakers" class="tab" type="button" data-tab="ev-speakers">Speakers</button>
+              <button role="tab" aria-selected="false" id="tab-ev-organiser" aria-controls="ev-organiser" class="tab" type="button" data-tab="ev-organiser">Organiser</button>
+              <button role="tab" aria-selected="false" id="tab-ev-costs" aria-controls="ev-costs" class="tab" type="button" data-tab="ev-costs">Costs</button>
             </div>
             <div>
-              <div class="tab-panel active" id="ev-about">
+              <div class="tab-panel active" id="ev-about" role="tabpanel" aria-labelledby="tab-ev-about">
                 <div class="prose">
                   <p>Large language models are increasingly evaluated on benchmark datasets, often with little attention to sampling, uncertainty or the dependence between test items. The paper proposes a statistical framework for evaluation and shows how conclusions change when uncertainty is taken into account.</p>
                   <p>The paper will be published in Series A with the discussion. Written contributions can be submitted for two weeks after the meeting.</p>
                 </div>
                 <div class="wf-placeholder embed">Embedded map: Errol Street, London</div>
               </div>
-              <div class="tab-panel" id="ev-speakers"><div class="grid grid-2">
+              <div class="tab-panel" id="ev-speakers" role="tabpanel" aria-labelledby="tab-ev-speakers"><div class="grid grid-2">
                 <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Dr Imogen Hale</h3><p class="card-text">Author, University of Eastwick</p></div>
                 <div class="card"><div class="wf-placeholder avatar">Photo</div><h3 class="card-title">Professor Daniel Mensah</h3><p class="card-text">Proposer of the vote of thanks</p></div>
               </div></div>
-              <div class="tab-panel" id="ev-organiser"><p>Organised by the Royal Statistical Society. Questions: <a href="#">events@rss.org.uk</a></p></div>
-              <div class="tab-panel" id="ev-costs"><p>Free for everyone. Booking is required for both in-person and online places.</p></div>
+              <div class="tab-panel" id="ev-organiser" role="tabpanel" aria-labelledby="tab-ev-organiser"><p>Organised by the Royal Statistical Society. Questions: <a href="#">events@rss.org.uk</a></p></div>
+              <div class="tab-panel" id="ev-costs" role="tabpanel" aria-labelledby="tab-ev-costs"><p>Free for everyone. Booking is required for both in-person and online places.</p></div>
             </div>
             <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Tabbed detail for speakers, organiser and costs, as asked for in the events specification. Tabs stack as sections on mobile. <span class="wf-req">REQ-209, REQ-103</span></div>
             <div class="share-row"><span class="wf-meta">Share:</span><a href="#">LinkedIn</a><a href="#">Bluesky</a><a href="#">Email</a><button class="btn-link" type="button" data-copy-link>Copy link</button></div>
@@ -79,7 +79,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

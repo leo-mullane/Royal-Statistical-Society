@@ -28,16 +28,22 @@
       <!-- Professional status (REQ-187, REQ-192) -->
       <section aria-labelledby="status">
         <h2 class="section-title" id="status">Professional status</h2>
-        <div class="grid grid-4">
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Chartered Statistician (CStat)</a></h3><p class="card-text">Qualifications plus five years' experience.</p></article>
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></h3><p class="card-text">For graduates with a degree that meets our standard.</p></article>
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Data Analyst</a></h3><p class="card-text">For people working with data, including apprentices.</p></article>
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Data Science Professional</a></h3><p class="card-text">AdvDSP and DSP, awarded with the Alliance for Data Science Professionals.</p></article>
-        </div>
+        <div class="grid grid-4"><article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Chartered Statistician (CStat)</a></h3><p class="card-text">Statisticians with an approved degree and at least five years of professional experience.</p></article><article class="card"><h3 class="card-title"><a href="~/pages/graduate-statistician.html">Graduate Statistician (GradStat)</a></h3><p class="card-text">Graduates of an accredited degree, or a degree with enough statistical content.</p></article><article class="card"><h3 class="card-title"><a href="~/pages/data-analyst.html">Data Analyst</a></h3><p class="card-text">Analysts with relevant experience, or who have completed a Level 4 data analyst apprenticeship.</p></article><article class="card"><h3 class="card-title"><a href="~/pages/data-science-professional.html">Data Science Professional</a></h3><p class="card-text">Data scientists who meet the Alliance standard, at practitioner (DSP) or advanced (AdvDSP) level.</p></article></div>
       </section>
 
-      <section class="grid grid-3" aria-label="CPD, accreditation and the register">
-        <article class="card"><h2 class="card-title">CPD</h2><p class="card-text">Plan and record your continuing professional development in MyRSS, and download your record for any period.</p><a class="card-link" href="~/pages/myrss-cpd.html">Your CPD record</a></article>
+      <!-- CPD explained publicly; the record itself is in MyRSS (REQ-195) -->
+      <section id="cpd" aria-labelledby="cpd-title" class="content-highlight">
+        <div>
+          <h2 id="cpd-title">Continuing professional development (CPD)</h2>
+          <p>Holders of professional status record at least 30 hours of CPD a year. Courses, conferences, reviewing, mentoring and self-directed study all count. RSS courses and events are added to your record automatically.</p>
+          <p data-show-for="member lapsed" hidden><a class="btn" href="~/pages/myrss-cpd.html">Open your CPD record</a></p>
+          <p data-show-for="guest registered">Members keep their CPD record in MyRSS. <a href="~/pages/sign-in.html">Sign in</a> or <a href="~/pages/join.html">join</a>.</p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>CPD is explained to everyone; only the record itself is behind sign-in. <span class="wf-req">REQ-195, REQ-178</span></div>
+
+      <section class="grid grid-2" aria-label="Accreditation and the register">
         <article class="card"><h2 class="card-title">Accreditation</h2><p class="card-text">How universities and training providers get their programmes accredited.</p><a class="card-link" href="~/pages/accreditation.html">About accreditation</a></article>
         <article class="card"><h2 class="card-title">Professional Register</h2><p class="card-text">Check whether someone holds CStat, GradStat or Data Analyst status.</p><a class="card-link" href="~/pages/find-an-expert.html">Search the register</a></article>
       </section>
@@ -47,7 +53,7 @@
         <h2 class="section-title" id="pd-courses">Courses that count towards CPD</h2>
         <ul class="stack"><li><a href="~/pages/course.html">Introduction to R</a> <span class="wf-meta">10 to 11 November 2026, Online, Foundation</span></li><li><a href="~/pages/course.html">Bayesian statistics with Stan</a> <span class="wf-meta">17 to 18 November 2026, In person, Intermediate</span></li><li><a href="~/pages/course.html">Data visualisation for decision makers</a> <span class="wf-meta">24 November 2026, Online, Foundation</span></li><li><a href="~/pages/course.html">Introduction to machine learning</a> <span class="wf-meta">1 to 3 December 2026, Online, Intermediate</span></li><li><a href="~/pages/course.html">Survival analysis</a> <span class="wf-meta">14 to 15 January 2027, In person, Intermediate</span></li><li><a href="~/pages/course.html">Practical survey design</a> <span class="wf-meta">2 February 2027, Online, Foundation</span></li></ul>
         <p><a href="~/pages/events.html?type=course">All training courses &rarr;</a></p>
-        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Pulled from the shared tags, so the hub stays current without editing. <span class="wf-req">REQ-220, REQ-017</span></div>
+        <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Pulled from the shared tags, so the hub stays current without editing. <span class="wf-req">REQ-220, REQ-017</span></div>
       </section>
 
     </div>
@@ -55,7 +61,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

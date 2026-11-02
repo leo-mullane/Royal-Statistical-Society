@@ -17,24 +17,24 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-008 | F | Strategic / Platform | Support effective income generation and a modern online ecommerce experience. | basket.html |
 | REQ-009 | F | CMS core | Admin-level access to CMS UAT and Production environments for the RSS web team. | not shown |
 | REQ-010 | F | CMS core | Role-based permissions with granular workflow and versioning (draft, review, approve, schedule, rollback). | not shown |
-| REQ-011 | F | CMS core | Structured content types (e.g. articles, events, local groups, sections, taskforces, awards, campaigns, member profiles, press releases). | get-involved.html, library.html |
+| REQ-011 | F | CMS core | Structured content types (e.g. articles, events, local groups, sections, taskforces, awards, campaigns, member profiles, press releases). | get-involved.html, honours.html, library.html |
 | REQ-012 | F | CMS core | Bulk operations: move, delete and change permissions across multiple items. | not shown |
-| REQ-013 | F | CMS core | Reusable, editable (HTML/CSS) components/widgets: carousel, hero banners, callouts, accordions, tabs, cards, timelines, quote blocks etc. | campaign.html, chartered-statistician.html, home.html, library.html, membership.html |
-| REQ-014 | F | CMS core | WYSIWYG editor with semantic HTML controls and accessibility hints (heading levels, alt text, captions). | chartered-statistician.html |
+| REQ-013 | F | CMS core | Reusable, editable (HTML/CSS) components/widgets: carousel, hero banners, callouts, accordions, tabs, cards, timelines, quote blocks etc. | campaign.html, chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html, home.html, library.html, membership.html, statistical-ambassadors.html |
+| REQ-014 | F | CMS core | WYSIWYG editor with semantic HTML controls and accessibility hints (heading levels, alt text, captions). | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html |
 | REQ-015 | F | CMS core | Media library with editing (crop, resize, thumbnails), metadata, and copyright/licence source tracking. | not shown |
-| REQ-016 | F | CMS core | Content scheduling and archiving, with automatic redirects generated on URL/slug changes. | get-involved.html |
+| REQ-016 | F | CMS core | Content scheduling and archiving, with automatic redirects generated on URL/slug changes. | get-involved.html, statistical-ambassadors.html |
 | REQ-017 | F | CMS core | Taxonomy management (categories, tags, topics, audiences) with bulk retagging. | article.html, events.html, professional-development.html |
 | REQ-026 | F | Information architecture | Support a full range of generic and RSS-specific content types (news, blog, case studies, local groups, sections, SIGs, committees, task forces, honours, awards, prizes, campaigns, member profiles, journals, jobs, events, training, conference, policy statements, press releases, accreditation, resources). | library.html |
 | REQ-027 | F | Navigation | Clear global navigation with audience pathways, breadcrumbs, footer and contextual wayfinding (related content, popular topics). | article.html, event.html, header.html, home.html, professional-development.html |
 | REQ-028 | F | Header / Navigation | Mega menu with keyboard accessibility and logical tab order; top-level items in RSS brand colours with ability to feature a hyperlinked image. | header.html, home.html |
-| REQ-029 | F | Navigation | Sub/left-side menus for in-section navigation. | chartered-statistician.html, grades-fees.html |
+| REQ-029 | F | Navigation | Sub/left-side menus for in-section navigation. | chartered-statistician.html, data-analyst.html, data-science-professional.html, grades-fees.html, graduate-statistician.html, honours.html |
 | REQ-030 | N | Navigation | Navigation works seamlessly and responsively on desktop, tablet and mobile. | not shown |
-| REQ-031 | F | Navigation | User-friendly filtering on listing pages (topic/category, tags, date, audience, content type). | events.html, groups.html, search.html |
+| REQ-031 | F | Navigation | User-friendly filtering on listing pages (topic/category, tags, date, audience, content type). | events.html, groups.html |
 | REQ-032 | F | Navigation | Menu styling (fonts, colours, hover states) matches RSS brand guidelines; the active item is visually indicated. | home.html |
 | REQ-033 | F | Navigation | Clear navigation/signposting to the RSS family of sites: Significance, Real World Data Science and OUP (journals). | header.html, home.html, publications.html |
 | REQ-036 | N | Navigation | Users can reach all primary sections within 3 clicks. | not shown |
-| REQ-037 | F | Search | All-in-one sitewide search across pages, events, courses, press releases, documents and media (audio, video, images) and metadata. Current search to be completely redeveloped. | header.html, home.html, search.html |
-| REQ-038 | F | Search | Display results of different content types together on a single results page. | search.html |
+| REQ-037 | F | Search | All-in-one sitewide search across pages, events, courses, press releases, documents and media (audio, video, images) and metadata. Current search to be completely redeveloped. | header.html, home.html, search-configuration.html, search.html |
+| REQ-038 | F | Search | Display results of different content types together on a single results page. | header.html, search.html |
 | REQ-039 | F | Search | Comprehensive content filters (document type, category, tag, date, author). | search-advanced.html, search.html |
 | REQ-040 | F | Search | Sortable results (date, author, category, tag). | search.html |
 | REQ-041 | F | Search / AI | AI-assisted search that understands user intent and returns relevant, well-structured responses. | footer.html, header.html, search.html |
@@ -64,18 +64,18 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-078 | F | Identity & access | Granular role-based permissions in the CMS for staff and key volunteers. | sign-in.html |
 | REQ-079 | F | Identity & access | Custom roles (e.g. for trustees/volunteers) definable and updatable by RSS web staff. | not shown |
 | REQ-080 | F | Identity & access | Self-service password resets requiring a time-limited confirmation link. | sign-in.html |
-| REQ-082 | F | Forms | Accessible form builder: required/optional indicators, roll-over tips, inline instructions, multi-step/multi-page forms, tabs, branching, save-and-resume, restricted-type file uploads, and email notifications to submitter and staff. | about.html, join.html |
+| REQ-082 | F | Forms | Accessible form builder: required/optional indicators, roll-over tips, inline instructions, multi-step/multi-page forms, tabs, branching, save-and-resume, restricted-type file uploads, and email notifications to submitter and staff. | about.html, join.html, statisticians-for-society.html |
 | REQ-083 | F | Forms | RSS staff can edit form content (headings, instructions, roll-over tips) without raising a support ticket with the digital agency. | join.html |
 | REQ-084 | F | Payments | Direct Debit support via Access Paysuite for mandates, instalments and renewals, with secure webhook processing and CRM write-back. | donate.html, join.html, pay.html |
-| REQ-085 | F | Forms / Security | Spam/bot protection (e.g. reCAPTCHA) and server-side validation on forms. | about.html, accreditation.html |
+| REQ-085 | F | Forms / Security | Spam/bot protection (e.g. reCAPTCHA) and server-side validation on forms. | about.html, accreditation.html, statisticians-for-society.html |
 | REQ-086 | F | Payments | Payment integration via a PCI DSS-compliant gateway (currently Elavon) with secure tokenisation, support for AVS/CVV/3D Secure, redirecting to the processor's secure pages; payments reconciled with CRM (and CMS where appropriate). | donate.html, join.html, pay.html |
-| REQ-087 | F | Payments / Ecommerce | Pricing logic (member grade, early-bird/late, concession, bundles), voucher/promo codes, VAT handling and downloadable HMRC-compliant receipts. | basket.html, book.html, conference.html, grades-fees.html, join.html, payment-complete.html |
+| REQ-087 | F | Payments / Ecommerce | Pricing logic (member grade, early-bird/late, concession, bundles), voucher/promo codes, VAT handling and downloadable HMRC-compliant receipts. | basket.html, book.html, conference.html, course.html, grades-fees.html, join.html, payment-complete.html |
 | REQ-088 | F | Jobs | Jobs board with pricing tiers (standard/featured), search, filter, categories/tags, custom fields, featured image, expiry date with auto-unpublish and analytics. | jobs.html, post-job.html |
-| REQ-089 | F | Payments / Ecommerce | Payment confirmation pages and email notifications, including dropped-basket and abandoned-application notifications. | book.html, join.html, pay.html, payment-complete.html |
+| REQ-089 | F | Payments / Ecommerce | Payment confirmation pages and email notifications, including dropped-basket and abandoned-application notifications. | basket.html, book.html, join.html, pay.html, payment-complete.html |
 | REQ-090 | F | Ecommerce | Donations and fundraising with Gift Aid declarations. | donate.html |
 | REQ-091 | F | Payments / Integration | Payment transactions synced with Dynamics CRM; form fields map to equivalent CRM fields. | join.html, pay.html, payment-complete.html |
 | REQ-092 | F | Forms | Address look-up / validation integration (Loqate). | join.html |
-| REQ-093 | F | Advertising | Advertising slots/banners with reporting on impressions and click-through rates. | about.html |
+| REQ-093 | F | Advertising | Advertising slots/banners with reporting on impressions and click-through rates. | about.html, jobs.html |
 | REQ-100 | F | Templates | Template builder allowing RSS to create and edit templates, clone or create child templates, and define/edit header and footer regions. | library.html |
 | REQ-101 | F | Homepage | Highly customisable home page template capable of displaying personalised content blocks. | home.html |
 | REQ-102 | F | Sections & Groups | Custom templates for sections, local groups and SIGs that dynamically pull through tagged news and events and link to social profiles (and could link to their newsletters). | get-involved.html, group.html, groups.html, submit-event.html |
@@ -83,12 +83,12 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-104 | F | Templates | Templates/functionality for campaigns, resource hubs, explainers and FAQs. | campaign.html, membership.html |
 | REQ-105 | F | Templates / Social | Share-to-social with auto-generated cards/images/text summaries. | article.html, event.html |
 | REQ-106 | F | Templates | Pagination with user-definable values (e.g. show 10 articles). | news.html, search.html |
-| REQ-109 | F | Personalisation | Personalised front-end content based on MyRSS preferences, member grade/class, length of membership and country. | chartered-statistician.html, home.html, myrss-profile.html, myrss.html |
+| REQ-109 | F | Personalisation | Personalised front-end content based on MyRSS preferences, member grade/class, length of membership and country. | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html, home.html, myrss-profile.html, myrss.html |
 | REQ-110 | F | Personalisation / Newsletters | Integrate with email marketing tools (Dynamics Customer Insights or equivalent) for personalised newsletters and preference-based content blocks. | myrss-preferences.html |
 | REQ-113 | F | Analytics | Integrate GDPR-compliant analytics (currently GA4) with IP anonymisation and cookie-aware tracking; no tracking before consent (except strictly necessary). | footer.html |
 | REQ-114 | F | Analytics | Event tracking for key actions (buy, join/renew, register, donate, download, submit). | donate.html, payment-complete.html |
 | REQ-115 | F | Analytics | RSS able to apply tracking code to templates (header/footer), pages, buttons, banners and widgets. | home.html |
-| REQ-116 | F | Analytics / Ecommerce | Ecommerce reporting including dropped baskets, banner adverts and job-board posts. | about.html, basket.html, jobs.html, payment-complete.html, post-job.html |
+| REQ-116 | F | Analytics / Ecommerce | Ecommerce reporting including dropped baskets, banner adverts and job-board posts. | about.html, basket.html, jobs.html, payment-complete.html |
 | REQ-117 | F | Analytics | Comprehensive reporting/dashboards measuring visits, downloads, drop-off points and conversions. | not shown |
 | REQ-120 | F | Governance & workflow | Role-based access for governance (e.g. Admin, Editor, Publisher). | not shown |
 | REQ-121 | F | Governance & workflow | Full change history (who changed what, when) with rollback and preview. | not shown |
@@ -102,7 +102,7 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-140 | F | Data migration | Document library strategy: standardised naming conventions, consistent formats and metadata. | policy.html |
 | REQ-141 | F | Data migration | Data cleanse, e.g. duplicate detection and members who haven't logged in for X years. | not shown |
 | REQ-142 | F | Data migration / SEO | Implement or advise on a URL redirect strategy to preserve SEO. | not shown |
-| REQ-143 | F | Data migration / Governance | Support named content ownership, review dates/lifecycle management, archiving and retention policies, and version control/audit trails. | chartered-statistician.html |
+| REQ-143 | F | Data migration / Governance | Support named content ownership, review dates/lifecycle management, archiving and retention policies, and version control/audit trails. | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html |
 | REQ-144 | F | Data migration / AI | Use AI to optimise content names, tagging and metadata for SEO and AI discoverability. | not shown |
 | REQ-147 | N | Data migration | >= 98% content migrated correctly; 100% of legacy URLs handled via redirects; broken links < 1% post-launch. | not shown |
 | REQ-148 | F | User migration | Migrate all user accounts into the new CMS (exported from old CMS or resynced from CRM) in the correct security roles, ready for MVP go-live. | sign-in.html |
@@ -128,8 +128,8 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-174 | N | MyRSS portal | Clear, intuitive MyRSS user interface. | not shown |
 | REQ-175 | N | MyRSS portal | Fast page loads and filtering in MyRSS. | not shown |
 | REQ-176 | F | MyRSS portal / CRM | Two-way sync between MyRSS and Dynamics CRM in near-real-time. | myrss.html |
-| REQ-177 | F | MyRSS portal / Personalisation | Page/content-block visibility based on member type (e.g. Data Science Professionals see data-science resources). | chartered-statistician.html, home.html, myrss.html |
-| REQ-178 | F | MyRSS portal / Personalisation | Page/content-block visibility based on membership status (e.g. a lapsed member loses access until they have paid). | find-an-expert.html, home.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-preferences.html, myrss-profile.html, myrss.html, resources.html |
+| REQ-177 | F | MyRSS portal / Personalisation | Page/content-block visibility based on member type (e.g. Data Science Professionals see data-science resources). | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html, home.html, myrss.html |
+| REQ-178 | F | MyRSS portal / Personalisation | Page/content-block visibility based on membership status (e.g. a lapsed member loses access until they have paid). | find-an-expert.html, home.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-preferences.html, myrss-profile.html, myrss.html, professional-development.html, resources.html |
 | REQ-179 | F | MyRSS portal | Member banner displaying name, type, category and number, with quick links to edit profile and apply for memberships, plus e-certificate download. | myrss.html |
 | REQ-180 | F | MyRSS portal / Events / Training | My Events and My Training areas displaying booked, past and related items. | myrss-bookings.html, myrss.html |
 | REQ-181 | F | MyRSS portal / Payments | Outstanding-balance dynamic area with a 'Pay now' pathway and clear payment-status indicators. | myrss.html |
@@ -208,7 +208,7 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-070 | N | Security & compliance / Hosting | DDoS protection, Web Application Firewall / edge rules and IP reputation filtering. | not shown |
 | REQ-071 | F | Security & compliance | Data Subject Access Request (DSAR) support. | not shown |
 | REQ-081 | F | Identity & access | Log in/out support for third-party identity providers. | sign-in.html |
-| REQ-094 | F | Ecommerce | Persistent shopping basket to facilitate multiple purchases. | basket.html, course.html, header.html |
+| REQ-094 | F | Ecommerce | Persistent shopping basket to facilitate multiple purchases. | basket.html, conference.html, course.html, header.html |
 | REQ-095 | F | Jobs | Submission, review and billing process for the job board. | jobs.html, post-job.html |
 | REQ-096 | N | Forms / Security | Virus scanning on all file uploads. | not shown |
 | REQ-097 | F | Forms | Progressive disclosure on forms (e.g. 'show more'). | join.html |
@@ -217,8 +217,8 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-107 | F | Templates / Media | Template to display content from the RSS YouTube channel. | events-training.html |
 | REQ-108 | F | Templates / Media | Embed interactive data visuals (e.g. Power BI, Flourish) with accessible fallbacks. | campaign.html |
 | REQ-111 | F | Personalisation | Personalised recommendations based on pages viewed, traffic source and search history. | home.html, myrss.html |
-| REQ-118 | F | Analytics | Editorial dashboards (content performance, search queries, top pages). | header.html |
-| REQ-122 | F | Governance & workflow | Content lifecycle policies: review reminders and retention/auto-archive. | chartered-statistician.html |
+| REQ-118 | F | Analytics | Editorial dashboards (content performance, search queries, top pages). | header.html, search.html |
+| REQ-122 | F | Governance & workflow | Content lifecycle policies: review reminders and retention/auto-archive. | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html |
 | REQ-123 | F | Governance & workflow | Bulk labelling (tags, categories, sensitivity). | not shown |
 | REQ-125 | F | Internationalisation | Multilingual content support (defaulting to GB). | home.html |
 | REQ-126 | N | Internationalisation | Inclusive imagery and language. | not shown |
@@ -239,7 +239,7 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-185 | F | MyRSS portal / Resources | Information centre: searchable repository of downloadable documents, filterable by date/search term. | myrss.html, resources.html |
 | REQ-191 | F | Accreditation | Expression-of-interest form for accreditation (University Accreditation / AfDSP). | accreditation.html |
 | REQ-194 | F | Professional services | Consultants Directory: searchable, filterable listing of qualified members offering statistical consultancy, with back-office management. | find-an-expert.html, myrss-profile.html |
-| REQ-195 | F | CPD / Professional services | CPD management: add CPD activities and view/edit/delete a dynamic CPD record, with downloadable activity records for a selected period. | myrss-cpd.html |
+| REQ-195 | F | CPD / Professional services | CPD management: add CPD activities and view/edit/delete a dynamic CPD record, with downloadable activity records for a selected period. | myrss-cpd.html, professional-development.html |
 | REQ-207 | F | Events / Email automation | Suppress or customise payment-confirmation emails for free events and supplement CRM emails with clearer CMS-triggered or reminder emails. | event.html, payment-complete.html |
 | REQ-208 | F | Events / MyRSS portal | Improve My RSSEvents: clear payment-status indicators, prominent 'Pay outstanding invoice' pathways, and profile management for members and non-members. | myrss-bookings.html |
 | REQ-210 | F | Events calendar | Fast events calendar offering both list and calendar views, showing upcoming and previous events, with different colours per event type. | events.html |
@@ -274,10 +274,16 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 
 ## Could requirements referenced as "Proposed"
 
+- REQ-047: Synonym dictionary for search. (search-configuration.html, search.html)
 - REQ-276: Membership pathway finder: a short set of questions (career stage, qualifications, experience, data science focus) that recommends a membership grade and add-ons, shows the price including concessions, and starts the join form pre-filled. (grades-fees.html)
 - REQ-277: Allow applicants to start a GradStat, CStat or Data Analyst application within the joining journey, rather than joining then upgrading in MyRSS. (membership.html)
+- REQ-278: Staff-editable promoted results ('best bets') for priority searches such as join, renew, fees and CStat. (search-configuration.html)
+- REQ-280: Member-only features show a locked state explaining what they offer, with a join or renew route, instead of redirecting. (find-an-expert.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-preferences.html, myrss-profile.html, myrss.html)
+- REQ-281: MyRSS dashboard tailored by account type (member, lapsed member, registered non-member), leading with status, renewal, bookings and suggestions. (myrss.html)
 - REQ-282: One shared interests taxonomy used by the profile, newsletter preferences, personalisation and recommendations; profile split into short sections each with its own save. (myrss-profile.html)
 - REQ-284: Unified 'Find an expert' search across the Professional Register, Consultants Directory, Statistical Ambassadors and Statisticians for Society, with credential verification for employers. (find-an-expert.html)
 - REQ-285: Filterable 'Find a group' list and map of sections, local groups (including international groups) and SIGs. (groups.html)
 - REQ-286: Policy outputs published as HTML summary pages (key points, date, topic) with the full document attached, to improve search and AI discoverability. (policy.html)
+- REQ-287: Online nomination and entry forms for honours, medals and awards, replacing downloadable Word forms. (honours.html)
+- REQ-289: Availability status on events and courses: free, few places left, fully booked with waiting list. (events.html)
 - REQ-290: Pay by invoice or purchase order for organisations booking training or events for staff. (book.html)

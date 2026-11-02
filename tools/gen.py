@@ -9,16 +9,19 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *  # noqa
-import pages_a, pages_b, pages_c, pages_d, pages_e  # noqa
+import pages_a, pages_b, pages_c, pages_d, pages_e, pages_f  # noqa
 
-VERSION = 'v0.3'
+VERSION = 'v0.5'
 
 # Contents hub: grouped by the proposed top-level navigation, so the hub doubles as the sitemap
 SITEMAP = [
     ('Global', [
         ('home.html', 'Home', 'Task-led home page, personalised for members, with events, training, news carousel and the RSS family', 'REQ-101, REQ-238, REQ-237, REQ-239, REQ-240'),
-        ('search.html?q=chartered+statistician', 'Search results', 'Facets with counts, synonyms, typo tolerance, document text, AI summary', 'REQ-037 to REQ-046'),
-        ('search-advanced.html', 'Advanced search', 'Opens pre-filled from the search you came from', 'REQ-039'),
+        ('search.html', 'Search: browse everything', 'With nothing typed, everything on the site by type, with counts', 'REQ-037, REQ-038'),
+        ('search.html?q=chartered+statistician', 'Search results', 'Ranked by page type, tabs with counts, filters with live counts, synonyms, spelling correction, text inside documents, AI summary', 'REQ-037 to REQ-046'),
+        ('search.html?scope=experts&q=clinical', 'Section search (Find an expert)', 'The same search with a scope applied, which can be widened to the whole site', 'REQ-037, REQ-038'),
+        ('search-advanced.html', 'Advanced search', 'Build a search from conditions, with a live count and a plain-English readout', 'REQ-039'),
+        ('search-configuration.html', 'How search is configured', 'Ranking, synonyms, filters and promoted results, read from the live configuration', 'REQ-037, REQ-047, REQ-278'),
         ('basket.html', 'Basket', 'Several purchases in one payment, with promo codes', 'REQ-094, REQ-087'),
         ('pay.html?for=join&amount=230.00&desc=RSS+membership+2027&method=card', 'Secure payment (payment provider)', 'Card with 3-D Secure, or Direct Debit mandate; a card ending 0002 is declined', 'REQ-084, REQ-086'),
         ('payment-complete.html?for=join&amount=230.00&desc=RSS+membership+2027&method=card&ref=RSS-104233', 'Payment complete', 'Confirmation and receipt, varying by what was bought', 'REQ-087, REQ-089'),
@@ -31,7 +34,10 @@ SITEMAP = [
     ]),
     ('Professional development', [
         ('professional-development.html', 'Professional development hub', 'Use-based hub: status, CPD, accreditation, courses', 'REQ-034'),
-        ('chartered-statistician.html', 'Chartered Statistician (content page)', 'Standard content page template', 'REQ-029, REQ-013'),
+        ('chartered-statistician.html', 'Chartered Statistician (content page)', 'Standard content page template, one per qualification', 'REQ-029, REQ-013'),
+        ('graduate-statistician.html', 'Graduate Statistician', 'Same template', 'REQ-029'),
+        ('data-analyst.html', 'Data Analyst', 'Same template', 'REQ-029'),
+        ('data-science-professional.html', 'Data Science Professional', 'Same template', 'REQ-029'),
         ('accreditation.html', 'Accreditation', 'Expression of interest form', 'REQ-190, REQ-191'),
     ]),
     ('Events and training', [
@@ -47,6 +53,9 @@ SITEMAP = [
         ('get-involved.html', 'Get involved hub', 'Groups, volunteering, honours, ambassadors', 'REQ-034'),
         ('groups.html', 'Sections and groups', 'Tabs by type, filter by region', 'REQ-102'),
         ('group.html', 'Section or group page', 'Pulls through tagged news and events', 'REQ-102, REQ-163'),
+        ('honours.html', 'Honours and awards', 'Content page with nominations', 'REQ-029'),
+        ('statistical-ambassadors.html', 'Statistical Ambassadors', 'Programme page', 'REQ-013'),
+        ('statisticians-for-society.html', 'Statisticians for Society', 'Programme page with a request form', 'REQ-082'),
         ('donate.html', 'Donate', 'Gift Aid', 'REQ-090'),
     ]),
     ('Policy and research', [
@@ -117,7 +126,7 @@ def hub():
   <main id="main">
     <div class="container">
       <h1>Royal Statistical Society: website prototype</h1>
-      <p class="lead">A clickable greyscale prototype of the whole new rss.org.uk, for agreeing structure, navigation and journeys before design. It covers the Must and Should requirements; Could requirements, including ClerksWell's suggestions, are flagged where relevant but not built.</p>
+      <p class="lead">A clickable greyscale prototype of the whole new rss.org.uk, for agreeing structure, navigation and journeys before design. It covers the Must and Should requirements. Could requirements, including ClerksWell's suggestions, are not built as features: where a page shows the simplest form of one (for example a locked state instead of a redirect), its note is marked Proposed with the requirement number.</p>
       <p><a class="btn" href="~/pages/home.html">Open the home page</a></p>
 
       <div class="contents-grid">
@@ -127,8 +136,8 @@ def hub():
             <li><p><strong>Annotations are off.</strong> Switch them on in the dark bar at the top of every page. Yellow notes explain behaviour and CMS capability; red notes are questions for RSS. Each note names the requirement it answers, e.g. <span class="wf-req">REQ-201</span>.</p></li>
             <li><p><strong>View as</strong> (dark bar) switches between signed out, a registered non-member, a member and a lapsed member, so you can see what changes for each.</p></li>
             <li><p>Navigation, search, filters, the calendar, tabs, accordions, forms (with validation), the basket and the cookie banner all work. Individual article and profile links go nowhere by design.</p></li>
-            <li><p>Search is fully working. Try "CStat", "bayseian" (a typo) or "census" (found inside a PDF).</p></li>
-            <li><p>All people, employers, fees and figures are placeholders.</p></li>
+            <li><p>Search is fully working; see "How search works" below. Try "Adaeze Okafor", "chartered statistician", "bayseian" (a typo) or "response rates" (found inside a PDF).</p></li>
+            <li><p>All people, employers, fees and figures are placeholders. Prices follow the viewer (member or non-member) and the date and number of delegates chosen, but the figures themselves are illustrative.</p></li>
           </ul>
         </section>
         <section>
@@ -143,13 +152,43 @@ def hub():
         </section>
       </div>
 
+      <section>
+        <h2 class="section-title">How search works</h2>
+        <div class="contents-grid">
+          <div>
+            <h3 class="h4">Built and working</h3>
+            <ul class="wf-hub-list">
+              <li><p>One index across pages, events and courses, news, policy documents, sections and groups, experts and jobs. Every search box uses it, including the keyword boxes on the listing pages.</p></li>
+              <li><p>Ranking by page type (experts and groups, then pages, then events, jobs and news, then documents), with title, tag, summary and body weighted in that order. Every word has to match.</p></li>
+              <li><p>Suggestions as you type: topics, sections and groups first, then experts, then pages. Synonyms understood.</p></li>
+              <li><p>Synonyms (CStat and Chartered Statistician), spelling correction when nothing matches, highlighting, and text found inside PDFs, with the page it was on.</p></li>
+              <li><p>Tabs by type with counts; filters with live counts, chips and Clear all; filters at the side or across the top.</p></li>
+              <li><p>Everything in the address bar, so Back, Forward and copied links work. Section searches (events, experts) that widen to the whole site in one click.</p></li>
+              <li><p>Browse everything before typing; sort by relevance, date, year, type or title; experts by surname A to Z; a helpful no-results page; advanced search with a live count.</p></li>
+              <li><p><a href="~/pages/search-configuration.html">How search is configured</a> shows that ranking, synonyms and filters are data, not code.</p></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h4">Later phase, not built</h3>
+            <ul class="wf-hub-list">
+              <li><p>Promoted results for named searches (REQ-278, a Could). One example is built: search for "renew".</p></li>
+              <li><p>An editor-maintained synonym dictionary (REQ-047, a Could).</p></li>
+              <li><p>Search across Significance and Real World Data Science (REQ-291, a Could).</p></li>
+              <li><p>Search analytics dashboards: top and zero-result searches (REQ-118, shown as a CMS note).</p></li>
+              <li><p>Saved searches and alerts, Word and PowerPoint text, location-aware search for local groups, and matching reference numbers.</p></li>
+            </ul>
+            <p>The AI summary (REQ-041) sits on top of the keyword search. All people, employers and documents in the search data are fictional.</p>
+          </div>
+        </div>
+      </section>
+
       <h2 class="section-title">Pages, by section</h2>
       {groups}
 
       <section>
         <h2 class="section-title">Not in this draft</h2>
         <ul class="wf-hub-list">
-          <li><p>Could requirements, including ClerksWell's REQ-276 to REQ-291, and the Won't requirements. Where a Could would change a page, a "Proposed" note says so.</p></li>
+          <li><p>Could requirements, including ClerksWell's REQ-276 to REQ-291, and the Won't requirements. Where a Could would change a page, or a page shows its simplest form, a "Proposed" note says so.</p></li>
           <li><p>Back-office and CMS functions (workflow, permissions, media library, newsletter editor, reporting). These are shown as CMS notes on the pages they affect.</p></li>
           <li><p>The accreditation application portal and the embedded conference programme (Phase 2 in the SoW).</p></li>
         </ul>
@@ -157,13 +196,15 @@ def hub():
 
       <section>
         <h2 class="section-title">Change log</h2>
-        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li><li>v0.3: compact header switches without disappearing; payment added to joining, course booking, basket checkout, donations, renewal, invoices and job adverts, via a hosted payment page and a confirmation page.</li></ol>
+        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li><li>v0.3: compact header switches without disappearing; payment added to joining, course booking, basket checkout, donations, renewal, invoices and job adverts, via a hosted payment page and a confirmation page.</li><li>v0.4: menu and Events/Resources search boxes fixed; menu labels are buttons; separate qualification pages and Get involved pages; course date, price and delegates carry through booking and the basket; full date with waiting list; conference tickets priced by viewer; empty basket state; tab ARIA; Coulds labelled Proposed; requirement citations checked; consistency fixes.</li><li>v0.5: search rebuilt to ClerksWell's search standard: ranking by page type, grouped suggestions, tabs with counts, filter layouts, copy link, section searches that widen, browse before typing, surname A to Z, advanced search builder with a live count, and a page showing how search is configured.</li></ol>
       </section>
     </div>
   </main>
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>
 '''
@@ -249,6 +290,7 @@ if __name__ == '__main__':
     pages_c.build()
     pages_d.build()
     pages_e.build()
+    pages_f.build()
     hub()
     library()
     c = requirements()

@@ -26,11 +26,11 @@
       <div class="pay-layout">
         <div>
           <div class="tabs" role="tablist">
-            <button class="tab active" type="button" data-tab="pay-card" data-tab-key="card">Card</button>
-            <button class="tab" type="button" data-tab="pay-dd" data-tab-key="dd">Direct Debit</button>
+            <button role="tab" aria-selected="true" id="tab-pay-card" aria-controls="pay-card" class="tab active" type="button" data-tab="pay-card" data-tab-key="card">Card</button>
+            <button role="tab" aria-selected="false" id="tab-pay-dd" aria-controls="pay-dd" class="tab" type="button" data-tab="pay-dd" data-tab-key="dd">Direct Debit</button>
           </div>
           <div>
-            <div class="tab-panel active" id="pay-card">
+            <div class="tab-panel active" id="pay-card" role="tabpanel" aria-labelledby="tab-pay-card">
               <div class="error-summary" data-declined hidden role="alert">
                 <h2>Your payment was declined</h2>
                 <p>Your bank did not authorise this payment, and you have not been charged. Check your card details or try another card.</p>
@@ -47,7 +47,7 @@
               </form>
               <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Try any card number to see 3-D Secure and a successful payment, or one ending 0002 to see a decline. A declined or abandoned payment triggers the payment-unsuccessful or abandoned-application email. <span class="wf-req">REQ-089, REQ-152</span></div>
             </div>
-            <div class="tab-panel" id="pay-dd">
+            <div class="tab-panel" id="pay-dd" role="tabpanel" aria-labelledby="tab-pay-dd">
               <form data-dd-form novalidate>
                 <div class="field"><label for="dd-name">Account holder name</label><input type="text" id="dd-name" name="ddname" required></div>
                 <div class="card-row">
@@ -81,7 +81,9 @@
     </div>
   </div>
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

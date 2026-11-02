@@ -62,7 +62,7 @@ def experts():
     def items(dirname):
         out = ''
         for x in [p for p in EXPERTS if dirname in p['dirs']]:
-            out += f'''<article class="list-item" data-item data-status="{e(x['status'].split(',')[0].lower().replace(' ', '-'))}" data-topic="{' '.join(x['topics'])}" data-title="{e(x['name'])}" data-text="{e(x['name'] + ' ' + x['place'] + ' ' + ' '.join(x['areas']) + ' ' + x['status'])}">
+            out += f'''<article class="list-item" data-item data-sid="expert-{x['id']}" data-status="{e(x['status'].split(',')[0].lower().replace(' ', '-'))}" data-topic="{' '.join(x['topics'])}" data-title="{e(x['name'])}" data-text="{e(x['name'] + ' ' + x['place'] + ' ' + ' '.join(x['areas']) + ' ' + x['status'])}">
               <div class="wf-placeholder avatar">Photo</div>
               <div><h3><a href="#">{e(x['name'])}</a></h3><p class="meta-row"><span class="tag">{e(x['status'])}</span><span>{e(x['place'])}</span></p><p>{e(', '.join(x['areas']))}</p></div>
               <div class="list-actions"><a class="btn btn-small btn-secondary" href="#">{'Contact' if dirname == 'consultants' else 'View'}</a></div>
@@ -80,7 +80,7 @@ def experts():
               </form>
               <p class="result-count" data-count aria-live="polite"></p>
               <div>{items(dirname)}</div>
-              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search.</p>
+              <p class="empty-state" data-empty hidden>Nobody matches. Try a broader search, or another directory.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
             </section>'''
 
     status_sel = '''<div class="field"><label for="register-s">Professional status</label><select id="register-s" data-filter="status"><option value="">Any status</option><option value="cstat">Chartered Statistician (CStat)</option><option value="gradstat">Graduate Statistician (GradStat)</option><option value="data-analyst">Data Analyst</option></select></div>'''
@@ -104,10 +104,11 @@ def experts():
         <div class="tab-panel" id="d-fellows">
           <div data-show-for="guest registered lapsed" class="locked"><h2>For members only</h2><p>The Fellows Directory lists members who have chosen to be included. <a href="~/pages/sign-in.html">Sign in</a> or <a href="~/pages/join.html">join</a> to search it.</p></div>
           <div data-show-for="member" hidden>{listing('fellows')}</div>
-          {n("Visible only to signed-in members. Non-members see what it is and how to get access, instead of being sent back to the home page. Switch View as to Member to see it.", "REQ-193, REQ-178")}
+          {n("The Fellows Directory is visible only to signed-in members. Switch View as to Member to see it.", "REQ-193, REQ-178")}
+          {n("Showing non-members what they are missing, instead of sending them back to the home page, is ClerksWell's suggestion REQ-280 (a Could). This locked state is the simplest version of it.", "REQ-280", "Proposed")}
         </div>
       </div>
-      {n("A single 'Find an expert' search across all directories is ClerksWell's suggestion REQ-284 (a Could). Here the directories share one page and one search pattern.", "REQ-284", "Proposed")}
+      {n("Each directory keeps its own search; nothing here searches all three at once. A single 'Find an expert' search across every directory is ClerksWell's suggestion REQ-284 (a Could), so it is not built. The tabs only put the existing directories on one page.", "REQ-284", "Proposed")}
 '''
     page('find-an-expert.html', 'Find an expert', body, 'resources', [('Resources', '~/pages/resources.html'), ('Find an expert', None)])
 
@@ -117,7 +118,7 @@ def jobs():
     items = ''
     for j in sorted(JOBS, key=lambda x: (not x.get('featured'), x['closes'])):
         feat = '<span class="tag tag-strong">Featured</span>' if j.get('featured') else ''
-        items += f'''<article class="list-item" data-item data-topic="{' '.join(j['topics'])}" data-contract="{e(j['contract'].split(',')[0].lower().replace(' ', '-'))}" data-date="{j['closes']}" data-title="{e(j['title'])}" data-text="{e(j['title'] + ' ' + j['employer'] + ' ' + j['place'])}">
+        items += f'''<article class="list-item" data-item data-sid="job-{j['id']}" data-topic="{' '.join(j['topics'])}" data-contract="{e(j['contract'].split(',')[0].lower().replace(' ', '-'))}" data-date="{j['closes']}" data-title="{e(j['title'])}" data-text="{e(j['title'] + ' ' + j['employer'] + ' ' + j['place'])}">
               <div class="wf-placeholder logo">Employer logo</div>
               <div><p class="meta-row">{feat}{tags(j['topics'])}</p><h3><a href="~/pages/job.html">{e(j['title'])}</a></h3>
                 <p class="meta-row"><span><strong>{e(j['employer'])}</strong></span><span>{e(j['place'])}</span><span>{e(j['salary'])}</span><span>{e(j['contract'])}</span></p>
@@ -136,16 +137,17 @@ def jobs():
           </form>
           <p class="result-count" data-count aria-live="polite"></p>
           <div>{items}</div>
-          <p class="empty-state" data-empty hidden>No jobs match. <a href="#">Set up a job alert</a>.</p>
+          <p class="empty-state" data-empty hidden>No jobs match. <a href="#">Set up a job alert</a>.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
           {n("Recent posts with salary, location and employer. Featured (paid) posts come first. Each job unpublishes itself on its closing date.", "REQ-249, REQ-088")}
         </section>
         <aside class="stack" id="advertise">
           <div class="panel surface"><h2 class="h4">Advertise a job</h2>
             <dl class="summary-list"><dt>Standard</dt><dd>£[price], 30 days</dd><dt>Featured</dt><dd>£[price], top of the list and in the newsletter</dd></dl>
             <a class="btn btn-block" href="~/pages/post-job.html">Post a job</a></div>
-          {n("Employers submit and pay online; staff review before publishing. Prices are placeholders.", "REQ-095, REQ-088, REQ-116")}
+          {n("Employers choose standard or featured, submit and pay online; staff review before publishing. Prices are placeholders.", "REQ-095, REQ-088")}
+          {n("Job-board income is included in ecommerce reporting.", "REQ-116")}
           <div class="panel"><h2 class="h4">Careers advice</h2><ul class="stack"><li><a href="#">Careers in statistics</a></li><li><a href="#">Career profiles</a></li></ul></div>
-          {n("'Advertise with us' and careers content sit within the Jobs section.", "REQ-251")}
+          {n("Advertising a job and careers advice sit within the Jobs section, as REQ-251 asks. General advertising (banners and newsletter slots) is under About.", "REQ-251, REQ-093")}
         </aside>
       </div>
 '''
@@ -192,6 +194,7 @@ def about():
             <li><a href="#reports">Annual reports</a></li>
             <li><a href="#advertise">Advertise with us</a></li>
             <li><a href="#contact">Contact us</a></li>
+            <li><a href="#security">Report a security issue</a></li>
           </ul>
         </nav>
         <div class="prose">
@@ -206,7 +209,8 @@ def about():
           <ul><li><a href="#">Annual report and accounts 2025 (PDF, 2.1 MB)</a></li><li><a href="#">Annual report and accounts 2024 (PDF, 1.9 MB)</a></li></ul>
           <h2 id="advertise">Advertise with us</h2>
           <p>Banner and sponsored placements on the website and in newsletters.</p>
-          {n("Advertising slots with impression and click-through reporting.", "REQ-093, REQ-116")}
+          {n("Advertising slots on the website and in newsletters, with impressions and click-throughs reported.", "REQ-093")}
+          {n("Banner advert income is included in ecommerce reporting.", "REQ-116")}
           <h2 id="contact">Contact us</h2>
           <form class="panel" data-validate novalidate>
             <div class="field"><label for="c-topic">What is it about?</label><select id="c-topic" name="topic" required><option value="">Choose a topic</option><option>Membership</option><option>Events and training</option><option>Professional status</option><option>Media enquiry</option><option>Something else</option></select></div>
@@ -298,7 +302,7 @@ def myrss_shell(current, inner, n, title):
         <h1>MyRSS</h1>
         <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
         <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
-        {n("Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions.", "REQ-178")}
+        {n("Signed-out visitors see what MyRSS is and how to get in, rather than being redirected (the simplest form of ClerksWell's Could, REQ-280). Use View as in the dark bar to see the signed-in versions.", "REQ-178, REQ-280", "Proposed")}
       </div>
       <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
         <nav class="sidenav" aria-label="MyRSS">
@@ -333,6 +337,7 @@ def myrss():
             <div><a class="btn" href="~/pages/join.html">Become a member</a></div>
           </div>
           {n("Banner with name, membership type, category and number, quick links and the e-certificate. Content changes by membership status.", "REQ-179, REQ-177, REQ-178")}
+          {n("Only the banner, balance and a few cards change by account type here. Tailoring the whole dashboard by account type is ClerksWell's suggestion REQ-281 (a Could).", "REQ-281", "Proposed")}
 
           <!-- Outstanding balance and renewal (REQ-181, REQ-188) -->
           <section id="renew" class="panel" data-show-for="lapsed" hidden>
@@ -345,12 +350,12 @@ def myrss():
           {n("A dynamic balance area with a Pay now route and clear payment status. Renewal by card or Direct Debit, with the renewals email sequence running in the background.", "REQ-181, REQ-188, REQ-151")}
 
           <div class="dash-grid" style="margin-top:1.5rem">
-            <article class="card"><h2 class="card-title">My bookings</h2><p class="card-text">Introduction to R, 10 to 11 November 2026, online <span class="status-pill">Paid</span></p><a class="card-link" href="~/pages/myrss-bookings.html">All bookings</a></article>
+            <article class="card"><h2 class="card-title">My bookings</h2><ul class="stack card-text"><li>Discussion meeting: evaluating large language models, 4 Nov 2026 <span class="status-pill">Free</span></li><li>Introduction to R, 10 to 11 Nov 2026 <span class="status-pill">Paid</span></li><li>RSS Conference 2027, 6 to 9 Sep 2027 <span class="status-pill warn">Invoice unpaid</span></li></ul><a class="card-link" href="~/pages/myrss-bookings.html">All bookings</a></article>
             <article class="card" data-show-for="member lapsed"><h2 class="card-title">My publications</h2><p class="card-text" data-show-for="member">Series A, B and C online <span class="status-pill">Active</span></p><p class="card-text" data-show-for="lapsed" hidden>Access paused until you renew</p><a class="card-link" href="~/pages/publications.html">Read journals</a></article>
             <article class="card" data-show-for="member lapsed"><h2 class="card-title">CPD this year</h2><p class="card-text">18 of 30 hours recorded</p><a class="card-link" href="~/pages/myrss-cpd.html">Your CPD record</a></article>
             <article class="card" data-show-for="member lapsed"><h2 class="card-title">My sections and groups</h2><p class="card-text">Medical Section, Merseyside Local Group</p><a class="card-link" href="~/pages/myrss-groups.html">Manage</a></article>
             <article class="card"><h2 class="card-title">Newsletters</h2><p class="card-text">2 newsletters</p><a class="card-link" href="~/pages/myrss-preferences.html">Preferences</a></article>
-            <article class="card" data-show-for="member" hidden id="applications"><h2 class="card-title">Applications</h2><p class="card-text">No applications in progress.</p><a class="card-link" href="#">Apply for GradStat, CStat or Data Analyst</a></article>
+            <article class="card" data-show-for="member" hidden id="applications"><h2 class="card-title">Applications</h2><p class="card-text">You hold CStat. No applications in progress.</p><a class="card-link" href="~/pages/data-science-professional.html">Add Data Science Professional status</a></article>
           </div>
           {n("Existing MyRSS self-service functions, regrouped as a dashboard: profile, newsletter preferences, bookings, directory inclusion and payments. All read and write Dynamics in near real time.", "REQ-173, REQ-176, REQ-180, REQ-199")}
 
@@ -384,7 +389,8 @@ def myrss_profile():
     topic_checks = ''.join(f'<label class="check"><input type="checkbox" name="interests" value="{k}"{" checked" if k in ("health", "methods") else ""}> {e(v)}</label>' for k, v in TOPICS.items())
     inner = f'''
           <p class="lead">Keep your details up to date. Each section saves on its own.</p>
-          {n("The current single page of 102 fields with five Submit buttons is split into short sections, each with its own save. This layout is ClerksWell's suggestion REQ-282; the functions are the existing ones.", "REQ-173, REQ-282")}
+          {n("All the existing profile functions are here.", "REQ-173")}
+          {n("Splitting today's single page of 102 fields into short sections, each with its own save, is ClerksWell's suggestion REQ-282 (a Could). It is shown in its simplest form.", "REQ-282", "Proposed")}
           <div class="accordion">
             <div class="accordion-item open"><button class="accordion-title" type="button">Personal details <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate>
@@ -397,7 +403,8 @@ def myrss_profile():
               <div class="accordion-content"><form data-validate novalidate><div class="field"><label for="p-emp">Employer</label><input type="text" id="p-emp" name="employer" value="Northbridge NHS Foundation Trust"></div><div class="field"><label for="p-role">Job title</label><input type="text" id="p-role" name="role" value="Head of Statistics"></div><button class="btn btn-small" type="submit">Save employment</button><p class="form-success" hidden>Saved.</p></form></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Interests <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate><fieldset class="field"><legend>Topics you are interested in</legend>{topic_checks}</fieldset><button class="btn btn-small" type="submit">Save interests</button><p class="form-success" hidden>Saved. Your recommendations will update.</p></form>
-              {n("Interests use the same topic list as site content, so they can drive personalisation and newsletters.", "REQ-109, REQ-282")}
+              {n("Interests drive personalisation.", "REQ-109")}
+              {n("Using the site's topic list for interests, instead of today's 29 specialisations, is part of REQ-282 (a Could).", "REQ-282", "Proposed")}
               {n("Can the 29 areas of specialisation in Dynamics be replaced by the shared topic list, and what happens to existing data?", "REQ-109", "Open question")}</div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Directory listings <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate>

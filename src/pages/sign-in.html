@@ -20,11 +20,11 @@
         <div>
           <h1>Sign in to MyRSS</h1>
           <div class="tabs" role="tablist">
-            <button class="tab active" type="button" data-tab="si-signin">Sign in</button>
-            <button class="tab" type="button" data-tab="si-register">Create an account</button>
+            <button role="tab" aria-selected="true" id="tab-si-signin" aria-controls="si-signin" class="tab active" type="button" data-tab="si-signin">Sign in</button>
+            <button role="tab" aria-selected="false" id="tab-si-register" aria-controls="si-register" class="tab" type="button" data-tab="si-register">Create an account</button>
           </div>
           <div>
-            <div class="tab-panel active" id="si-signin">
+            <div class="tab-panel active" id="si-signin" role="tabpanel" aria-labelledby="tab-si-signin">
               <form class="form-step" data-validate novalidate>
                 <div class="field"><label for="si-email">Email address</label><input type="email" id="si-email" name="email" required autocomplete="username"></div>
                 <div class="field"><label for="si-pass">Password</label><input type="password" id="si-pass" name="password" required autocomplete="current-password"><p class="field-hint"><a href="#" data-modal-open="reset-modal">Forgotten your password?</a></p></div>
@@ -34,7 +34,7 @@
               <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Members and registered users sign in with email and password, with app-based MFA. The identity provider is still to be decided. <span class="wf-req">REQ-075, REQ-081</span></div>
               <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: Which identity provider (Entra External ID or another), is MFA required or optional for members, and are existing passwords migrated or reset? <span class="wf-req">REQ-075, REQ-148</span></div>
             </div>
-            <div class="tab-panel" id="si-register">
+            <div class="tab-panel" id="si-register" role="tabpanel" aria-labelledby="tab-si-register">
               <form class="form-step" data-validate novalidate>
                 <p>Create a free account to book events and courses. You can upgrade to membership at any time.</p>
                 <div class="field-row"><div class="field"><label for="r-first">First name</label><input type="text" id="r-first" name="first" required></div><div class="field"><label for="r-last">Last name</label><input type="text" id="r-last" name="last" required></div></div>
@@ -77,7 +77,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

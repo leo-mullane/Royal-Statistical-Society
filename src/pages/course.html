@@ -35,13 +35,17 @@
           <!-- All dates and prices on one page (REQ-214) -->
           <aside class="panel surface" aria-label="Choose a date">
             <h2 class="h4">Choose a date</h2>
-            <form><fieldset class="field"><legend class="visually-hidden">Course dates</legend><div class="stack"><label class="radio-card"><input type="radio" name="date" value="2026-11-10" data-date-choice="10 to 11 November 2026" checked> <strong>10 to 11 November 2026</strong>Online &middot; Places available</label><label class="radio-card"><input type="radio" name="date" value="2027-02-16" data-date-choice="16 to 17 February 2027"> <strong>16 to 17 February 2027</strong>Online &middot; Places available</label><label class="radio-card"><input type="radio" name="date" value="2027-04-20" data-date-choice="20 to 21 April 2027"> <strong>20 to 21 April 2027</strong>In person, London &middot; Few places left</label></div></fieldset></form>
-            <dl class="summary-list"><dt>Members</dt><dd>£345</dd><dt>Non-members</dt><dd>£460</dd></dl>
-            <p data-show-for="member" hidden class="wf-meta">You will pay the member rate.</p>
-            <p><a class="btn btn-block" href="~/pages/book.html">Book <span data-chosen-date>10 to 11 November 2026</span></a></p>
-            <p><button class="btn btn-block btn-secondary" type="button" data-add-basket="Introduction to R|10 to 11 November 2026, online|345">Add to basket</button><span class="wf-meta" data-added hidden>Added. <a href="~/pages/basket.html">View basket</a></span></p>
-            <p><a href="#">Join the waiting list for a full date</a></p>
-            <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Every date and price on one page, so nobody has to move between pages to compare. A full date offers a waiting list, synced with Dynamics. <span class="wf-req">REQ-214, REQ-218, REQ-094</span></div>
+            <form><fieldset class="field"><legend class="visually-hidden">Course dates</legend><div class="stack"><label class="radio-card"><input type="radio" name="date" value="2026-11-10" data-date-choice="10 to 11 November 2026" data-format="online" data-member="345" data-nonmember="460" checked> <strong>10 to 11 November 2026</strong>Online &middot; £345 members, £460 non-members &middot; Places available</label><label class="radio-card"><input type="radio" name="date" value="2027-02-16" data-date-choice="16 to 17 February 2027" data-format="online" data-member="345" data-nonmember="460" data-full> <strong>16 to 17 February 2027</strong>Online &middot; £345 members, £460 non-members &middot; Fully booked: waiting list</label><label class="radio-card"><input type="radio" name="date" value="2027-04-20" data-date-choice="20 to 21 April 2027" data-format="in person, London" data-member="395" data-nonmember="520"> <strong>20 to 21 April 2027</strong>In person, London &middot; £395 members, £520 non-members &middot; Places available</label></div></fieldset></form>
+            <p class="wf-meta" data-price-for-viewer data-member="345" data-nonmember="460"></p>
+            <div data-book-actions>
+              <p><a class="btn btn-block" href="~/pages/book.html" data-book-link>Book <span data-chosen-date>10 to 11 November 2026</span></a></p>
+              <p><button class="btn btn-block btn-secondary" type="button" data-add-basket="Introduction to R||345" data-price-nonmember="460" data-uses-date>Add to basket</button><span class="wf-meta" data-added hidden>Added. <a href="~/pages/basket.html">View basket</a></span></p>
+            </div>
+            <div data-waitlist hidden>
+              <p>This date is full. Join the waiting list and we'll email you if a place comes up.</p>
+              <p><button class="btn btn-block btn-secondary" type="button" data-modal-open="waitlist-modal">Join the waiting list</button></p>
+            </div>
+            <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Every date and price on one page, so nobody has to move between pages to compare. The date chosen and the viewer's price carry through to booking and the basket. A full date (February here) swaps booking for the waiting list, synced with Dynamics. <span class="wf-req">REQ-214, REQ-218, REQ-094, REQ-087</span></div>
           </aside>
         </div>
       </article>
@@ -50,13 +54,26 @@
         <div class="grid grid-3"><article class="card"><p class="meta-row"><span class="tag">Intermediate</span><span class="tag">In person</span></p><h3 class="card-title"><a href="~/pages/course.html">Bayesian statistics with Stan</a></h3><p class="card-text">17 to 18 November 2026</p></article><article class="card"><p class="meta-row"><span class="tag">Foundation</span><span class="tag">Online</span></p><h3 class="card-title"><a href="~/pages/course.html">Data visualisation for decision makers</a></h3><p class="card-text">24 November 2026</p></article><article class="card"><p class="meta-row"><span class="tag">Intermediate</span><span class="tag">Online</span></p><h3 class="card-title"><a href="~/pages/course.html">Introduction to machine learning</a></h3><p class="card-text">1 to 3 December 2026</p></article></div>
         <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Cross-sell from shared tags across CMS and CRM. <span class="wf-req">REQ-220</span></div>
       </section>
+      <div class="wf-modal" id="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="wl-title">
+        <div class="wf-modal-panel">
+          <button class="wf-modal-close" type="button" aria-label="Close">&times;</button>
+          <h2 id="wl-title">Join the waiting list</h2>
+          <form data-validate novalidate>
+            <div class="field"><label for="wl-email">Email address</label><input type="email" id="wl-email" name="email" required></div>
+            <button class="btn" type="submit">Join the waiting list</button>
+            <p class="form-success" hidden>You're on the list for 16 to 17 February 2027. We'll email you if a place comes up.</p>
+          </form>
+        </div>
+      </div>
 
     </div>
   </main>
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

@@ -26,6 +26,7 @@
             <li><a href="#reports">Annual reports</a></li>
             <li><a href="#advertise">Advertise with us</a></li>
             <li><a href="#contact">Contact us</a></li>
+            <li><a href="#security">Report a security issue</a></li>
           </ul>
         </nav>
         <div class="prose">
@@ -40,7 +41,8 @@
           <ul><li><a href="#">Annual report and accounts 2025 (PDF, 2.1 MB)</a></li><li><a href="#">Annual report and accounts 2024 (PDF, 1.9 MB)</a></li></ul>
           <h2 id="advertise">Advertise with us</h2>
           <p>Banner and sponsored placements on the website and in newsletters.</p>
-          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Advertising slots with impression and click-through reporting. <span class="wf-req">REQ-093, REQ-116</span></div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Advertising slots on the website and in newsletters, with impressions and click-throughs reported. <span class="wf-req">REQ-093</span></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Banner advert income is included in ecommerce reporting. <span class="wf-req">REQ-116</span></div>
           <h2 id="contact">Contact us</h2>
           <form class="panel" data-validate novalidate>
             <div class="field"><label for="c-topic">What is it about?</label><select id="c-topic" name="topic" required><option value="">Choose a topic</option><option>Membership</option><option>Events and training</option><option>Professional status</option><option>Media enquiry</option><option>Something else</option></select></div>
@@ -50,10 +52,10 @@
             <button class="btn" type="submit">Send</button>
             <p class="form-success" hidden>Thank you. We have emailed you a copy and will reply within three working days.</p>
           </form>
-          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Each topic goes to the right team. A confirmation email is sent automatically. <span class="wf-req">REQ-150, REQ-082, REQ-085</span></div>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Each topic goes to the right team. A confirmation email is sent automatically. <span class="wf-req">REQ-150, REQ-082, REQ-085</span></div>
           <h2 id="security">Report a security issue</h2>
           <p>If you think you have found a vulnerability in our website, <a href="#">report it using this form</a>. Please do not disclose it publicly until we have responded.</p>
-          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Vulnerability reporting form, linked from the footer. <span class="wf-req">REQ-069</span></div>
+          <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Vulnerability reporting form, linked from the footer. <span class="wf-req">REQ-069</span></div>
         </div>
       </div>
 
@@ -62,7 +64,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

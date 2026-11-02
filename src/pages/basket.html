@@ -20,13 +20,14 @@
       <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>A persistent basket so several courses, events and conference add-ons can be bought in one payment. It is kept for signed-in users across visits. Add a course from the <a href='course.html'>course page</a> to try it. <span class="wf-req">REQ-094, REQ-008</span></div>
       <div class="split">
         <div data-basket-list></div>
-        <aside class="panel surface">
-          <dl class="summary-list"><dt>Subtotal</dt><dd data-basket-sub>£0.00</dd><dt>Discount</dt><dd data-basket-discount>£0.00</dd><dt>VAT</dt><dd>£0.00</dd><dt>Total</dt><dd><strong data-basket-total>£0</strong></dd></dl>
+        <aside class="panel surface" data-basket-summary hidden>
+          <dl class="summary-list"><dt>Subtotal</dt><dd data-basket-sub>£0.00</dd><dt>Discount</dt><dd data-basket-discount>£0.00</dd><dt>VAT</dt><dd data-basket-vat>£0.00</dd><dt>Total</dt><dd><strong data-basket-total>£0.00</strong></dd></dl>
           <form data-promo-form>
             <div class="field"><label for="promo">Voucher or promo code</label><div class="inline-field"><input type="text" id="promo" name="code"><button class="btn btn-secondary btn-small" type="submit">Apply</button></div><p class="field-hint" data-promo-msg aria-live="polite">Try MEMBER10</p></div>
           </form>
           <p><button class="btn btn-block" type="button" data-checkout>Checkout and pay</button></p>
-          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Pricing logic covers member grade, early-bird and late rates, concessions, bundles, codes and VAT. A downloadable receipt follows payment. <span class="wf-req">REQ-087, REQ-116</span></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Pricing logic covers member grade, early-bird and late rates, concessions, bundles, codes and VAT. A downloadable receipt follows payment. <span class="wf-req">REQ-087</span></div>
+          <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Baskets left without paying prompt a reminder email and appear in ecommerce reporting. <span class="wf-req">REQ-089, REQ-116</span></div>
         </aside>
       </div>
 
@@ -35,7 +36,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

@@ -62,13 +62,13 @@
         <div class="table-wrap"><table class="data-table">
           <thead><tr><th scope="col">Ticket</th><th scope="col">Includes</th><th scope="col">Member</th><th scope="col">Non-member</th><th scope="col"></th></tr></thead>
           <tbody>
-            <tr><th scope="row">Full conference</th><td>All sessions, lunches, refreshments, welcome reception</td><td>£595</td><td>£795</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595">Add</button></td></tr>
-            <tr><th scope="row">Day ticket</th><td>One day, lunch and refreshments</td><td>£225</td><td>£295</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: day ticket|Choose your day at checkout|225">Add</button></td></tr>
-            <tr><th scope="row">Student</th><td>All sessions and lunches</td><td>£295</td><td>£345</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: student|6 to 9 September 2027|295">Add</button></td></tr>
-            <tr><th scope="row">Optional: conference dinner</th><td>Tuesday evening</td><td>£85</td><td>£85</td><td><button class="btn btn-small" type="button" data-add-basket="Conference dinner|7 September 2027|85">Add</button></td></tr>
+            <tr><th scope="row">Full conference</th><td>All sessions, lunches, refreshments, welcome reception</td><td>£595</td><td>£795</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595" data-price-nonmember="795" aria-label="Add full to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
+            <tr><th scope="row">Day ticket</th><td>One day, lunch and refreshments</td><td>£225</td><td>£295</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: day ticket|Choose your day at checkout|225" data-price-nonmember="295" aria-label="Add day ticket to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
+            <tr><th scope="row">Student</th><td>All sessions and lunches</td><td>£295</td><td>£345</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: student|6 to 9 September 2027|295" data-price-nonmember="345" aria-label="Add student to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
+            <tr><th scope="row">Optional: conference dinner</th><td>Tuesday evening</td><td>£85</td><td>£85</td><td><button class="btn btn-small" type="button" data-add-basket="Conference dinner|7 September 2027|85" data-price-nonmember="85" aria-label="Add Conference dinner to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
           </tbody></table></div>
-        <p><span data-added hidden></span><a class="btn" href="~/pages/basket.html">Book now</a></p>
-        <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>What each ticket includes and the price of every extra are shown before checkout. <span class="wf-req">REQ-230, REQ-087</span></div>
+        <p><button class="btn" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595" data-price-nonmember="795" data-go-basket>Book now: full conference</button> <a href="~/pages/basket.html">View basket</a></p>
+        <div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>What each ticket includes and the price of every extra are shown before checkout. Tickets go into the basket at the viewer's price: member or non-member. <span class="wf-req">REQ-230, REQ-087, REQ-094</span></div>
       </section>
 
       <section id="attending" aria-labelledby="att-title">
@@ -101,7 +101,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

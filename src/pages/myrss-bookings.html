@@ -20,7 +20,7 @@
         <h1>MyRSS</h1>
         <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
         <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
-        <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected. Use View as in the grey bar to see the signed-in versions. <span class="wf-req">REQ-178</span></div>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Proposed</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected (the simplest form of ClerksWell's Could, REQ-280). Use View as in the dark bar to see the signed-in versions. <span class="wf-req">REQ-178, REQ-280</span></div>
       </div>
       <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
         <nav class="sidenav" aria-label="MyRSS">
@@ -31,18 +31,18 @@
           <h1>My events and training</h1>
 
           <div class="tabs" role="tablist">
-            <button class="tab active" type="button" data-tab="b-up">Upcoming</button>
-            <button class="tab" type="button" data-tab="b-past">Past</button>
+            <button role="tab" aria-selected="true" id="tab-b-up" aria-controls="b-up" class="tab active" type="button" data-tab="b-up">Upcoming</button>
+            <button role="tab" aria-selected="false" id="tab-b-past" aria-controls="b-past" class="tab" type="button" data-tab="b-past">Past</button>
           </div>
           <div>
-            <div class="tab-panel active" id="b-up">
+            <div class="tab-panel active" id="b-up" role="tabpanel" aria-labelledby="tab-b-up">
               <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col"></th></tr></thead><tbody>
                 <tr><td><a href="~/pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a></td></tr>
                 <tr><td><a href="~/pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Cancel</a></td></tr>
                 <tr><td><a href="~/pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="~/pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay invoice</a></td></tr>
               </tbody></table>
             </div>
-            <div class="tab-panel" id="b-past">
+            <div class="tab-panel" id="b-past" role="tabpanel" aria-labelledby="tab-b-past">
               <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">CPD</th><th scope="col"></th></tr></thead><tbody>
                 <tr><td>Statistics and the climate emergency</td><td>14 Oct 2026</td><td>2 hours</td><td><a href="#">Watch recording</a></td></tr>
                 <tr><td>Practical survey design (course no longer offered)</td><td>3 Jun 2025</td><td>6 hours</td><td><a href="#">Certificate</a></td></tr>
@@ -59,7 +59,9 @@
 
   <!-- @@include footer.html -->
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>

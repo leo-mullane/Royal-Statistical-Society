@@ -94,13 +94,15 @@ def pay_page():
     </div>
   </div>
   <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
   <script src="~/js/wireframe.js"></script>
   <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
 </body>
 </html>
 '''
     with open(os.path.join(SRC, 'pages', 'pay.html'), 'w', encoding='utf-8') as fh:
-        fh.write(out)
+        fh.write(aria_tabs(out))
     PAGES_BUILT.append('pay.html')
 
 
@@ -132,7 +134,7 @@ def complete_page():
           </div>
           <div data-pay-for-block="course" hidden class="stack">
             <h2>Your place is booked</h2>
-            <p>Joining instructions are on their way to the delegate. The course now appears in My Training.</p>
+            <p>Joining instructions are on their way to the delegate. The course now appears in My events and training.</p>
             <p><a class="btn" href="~/pages/myrss-bookings.html">View my bookings</a> <a href="#">Add to calendar</a></p>
           </div>
           <div data-pay-for-block="basket" hidden class="stack">
@@ -167,7 +169,7 @@ def complete_page():
             <dt>Date</dt><dd>30 October 2026</dd>
           </dl>
           <p><a href="#">Download receipt (PDF)</a></p>
-          {n("Downloadable receipt that meets HMRC requirements, with VAT shown where it applies. The transaction is written to Dynamics and the purchase is tracked in analytics.", "REQ-087, REQ-091, REQ-114, REQ-116")}
+          {n("Downloadable receipt that meets HMRC requirements, with VAT shown where it applies. The transaction is written to Dynamics and the purchase is tracked in analytics and ecommerce reporting.", "REQ-087, REQ-091, REQ-114, REQ-116")}
         </aside>
       </section>
 '''
@@ -201,7 +203,7 @@ def post_job():
             <p>Total: <strong data-total>£0</strong> (plus VAT)</p>
             <button class="btn" type="submit">Continue to payment</button>
           </form>
-          {n("Employers submit and pay online; staff review before the advert is published. It unpublishes itself on the closing date. Prices are placeholders.", "REQ-088, REQ-095, REQ-116")}
+          {n("Employers submit and pay online; staff review before the advert is published. It unpublishes itself on the closing date. Prices are placeholders.", "REQ-088, REQ-095")}
         </div>
         <aside class="panel surface"><h2 class="h4">Need an invoice?</h2><p>Recruitment agencies and employers with an account can pay by invoice. <a href="~/pages/about.html#contact">Contact us</a>.</p></aside>
       </div>

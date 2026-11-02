@@ -2,8 +2,46 @@
 from common import *
 
 
+QUALS = [
+    dict(file='chartered-statistician.html', title='Chartered Statistician (CStat)', short='Chartered Statistician', grade='cstat',
+         lead="CStat is the Society's highest professional award. It shows employers and clients that you have the qualifications, experience and commitment to professional development of a senior statistician.",
+         who='Statisticians with an approved degree and at least five years of professional experience', fee='£[fee] application fee, then the CStat annual fee',
+         time='Usually 8 to 12 weeks from a complete application', need='Degree certificate, CV, two referees, CPD record',
+         faqs=[("My degree is not in statistics. Can I still apply?", "Yes, if your degree has enough statistical content. We assess each case."),
+               ("What counts as professional experience?", "Work in which you apply statistical methods and take responsibility for the results."),
+               ("How much CPD do I need to keep CStat?", "At least 30 hours a year, recorded in MyRSS.")]),
+    dict(file='graduate-statistician.html', title='Graduate Statistician (GradStat)', short='Graduate Statistician', grade='gradstat',
+         lead='GradStat recognises a degree that meets our academic standard. It is the usual first step towards becoming a Chartered Statistician.',
+         who='Graduates of an accredited degree, or a degree with enough statistical content', fee='£[fee] application fee, then the GradStat annual fee',
+         time='Usually 4 to 6 weeks', need='Degree certificate and transcript',
+         faqs=[("Is my degree accredited?", "Check the list of accredited degrees. If yours is not on it, we can still assess your transcript."),
+               ("How do I move from GradStat to CStat?", "Once you have five years of experience, apply for CStat from MyRSS.")]),
+    dict(file='data-analyst.html', title='Data Analyst', short='Data Analyst', grade='analyst',
+         lead='Data Analyst status recognises people who work with data professionally, whatever their route in, including apprenticeships.',
+         who='Analysts with relevant experience, or who have completed a Level 4 data analyst apprenticeship', fee='£[fee] application fee, then the Data Analyst annual fee',
+         time='Usually 4 to 6 weeks', need='CV, a short statement of your work, and one referee or your apprenticeship certificate',
+         faqs=[("Do I need a degree?", "No. Experience or an apprenticeship is enough."),
+               ("Can I go on to GradStat or CStat later?", "Yes. Your Data Analyst status and CPD count towards it.")]),
+    dict(file='data-science-professional.html', title='Data Science Professional', short='Data Science Professional', grade='dsp',
+         lead='Data Science Professional (DSP) and Advanced Data Science Professional (AdvDSP) are awarded with the Alliance for Data Science Professionals, to a shared standard.',
+         who='Data scientists who meet the Alliance standard, at practitioner (DSP) or advanced (AdvDSP) level', fee='£[fee] application fee',
+         time='Usually 8 to 12 weeks', need='CV, evidence against the Alliance standard, two referees',
+         faqs=[("What is the difference between DSP and AdvDSP?", "AdvDSP is for senior practitioners who lead data science work and set direction."),
+               ("Is AdvDSP being renamed?", "A change from AdvDSP to Chartered Data Science Professional (CDSP) is under discussion.")]),
+]
+
+PD_NAV = [('professional-development.html', 'Overview')] + [(q['file'], q['title']) for q in QUALS] + [('professional-development.html#cpd', 'CPD'), ('accreditation.html', 'Accreditation')]
+
+
+def pd_sidenav(current):
+    cur = ' aria-current="page"'
+    lis = ''.join(f'<li><a href="~/pages/{f}"{cur if f == current else ""}>{e(t)}</a></li>' for f, t in PD_NAV)
+    return f'<nav class="sidenav" aria-label="Professional development"><h2>Professional development</h2><ul>{lis}</ul></nav>'
+
+
 def pd_hub():
     n = Notes()
+    cards = ''.join(f'<article class="card"><h3 class="card-title"><a href="~/pages/{q["file"]}">{e(q["title"])}</a></h3><p class="card-text">{e(q["who"])}.</p></article>' for q in QUALS)
     body = f'''
       <section class="hub-hero">
         <div>
@@ -17,16 +55,22 @@ def pd_hub():
       <!-- Professional status (REQ-187, REQ-192) -->
       <section aria-labelledby="status">
         <h2 class="section-title" id="status">Professional status</h2>
-        <div class="grid grid-4">
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Chartered Statistician (CStat)</a></h3><p class="card-text">Qualifications plus five years' experience.</p></article>
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Graduate Statistician (GradStat)</a></h3><p class="card-text">For graduates with a degree that meets our standard.</p></article>
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Data Analyst</a></h3><p class="card-text">For people working with data, including apprentices.</p></article>
-          <article class="card"><h3 class="card-title"><a href="~/pages/chartered-statistician.html">Data Science Professional</a></h3><p class="card-text">AdvDSP and DSP, awarded with the Alliance for Data Science Professionals.</p></article>
-        </div>
+        <div class="grid grid-4">{cards}</div>
       </section>
 
-      <section class="grid grid-3" aria-label="CPD, accreditation and the register">
-        <article class="card"><h2 class="card-title">CPD</h2><p class="card-text">Plan and record your continuing professional development in MyRSS, and download your record for any period.</p><a class="card-link" href="~/pages/myrss-cpd.html">Your CPD record</a></article>
+      <!-- CPD explained publicly; the record itself is in MyRSS (REQ-195) -->
+      <section id="cpd" aria-labelledby="cpd-title" class="content-highlight">
+        <div>
+          <h2 id="cpd-title">Continuing professional development (CPD)</h2>
+          <p>Holders of professional status record at least 30 hours of CPD a year. Courses, conferences, reviewing, mentoring and self-directed study all count. RSS courses and events are added to your record automatically.</p>
+          <p data-show-for="member lapsed" hidden><a class="btn" href="~/pages/myrss-cpd.html">Open your CPD record</a></p>
+          <p data-show-for="guest registered">Members keep their CPD record in MyRSS. <a href="~/pages/sign-in.html">Sign in</a> or <a href="~/pages/join.html">join</a>.</p>
+        </div>
+        <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+      </section>
+      {n("CPD is explained to everyone; only the record itself is behind sign-in.", "REQ-195, REQ-178")}
+
+      <section class="grid grid-2" aria-label="Accreditation and the register">
         <article class="card"><h2 class="card-title">Accreditation</h2><p class="card-text">How universities and training providers get their programmes accredited.</p><a class="card-link" href="~/pages/accreditation.html">About accreditation</a></article>
         <article class="card"><h2 class="card-title">Professional Register</h2><p class="card-text">Check whether someone holds CStat, GradStat or Data Analyst status.</p><a class="card-link" href="~/pages/find-an-expert.html">Search the register</a></article>
       </section>
@@ -42,57 +86,51 @@ def pd_hub():
     page('professional-development.html', 'Professional development', body, 'professional-development', [('Professional development', None)])
 
 
-def cstat():
+def qual_page(q):
     n = Notes()
+    faqs = ''.join(f'<div class="accordion-item"><button class="accordion-title" type="button">{e(a)} <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>{e(b)}</p></div></div>' for a, b in q['faqs'])
+    member_cta = ('<p data-show-for="member" hidden><span class="status-pill">You hold CStat</span> <a href="~/pages/myrss.html">Download your certificate</a></p>'
+                  '<p data-show-for="lapsed" hidden><a class="btn" href="~/pages/myrss.html#renew">Renew to keep your status</a></p>') if q['grade'] == 'cstat' else \
+                 '<p data-show-for="member lapsed" hidden><a class="btn" href="~/pages/myrss.html#applications">Start your application in MyRSS</a></p>'
     body = f'''
       <div class="with-sidenav">
-        <nav class="sidenav" aria-label="Professional development">
-          <h2>Professional development</h2>
-          <ul>
-            <li><a href="~/pages/professional-development.html">Overview</a></li>
-            <li><a href="~/pages/chartered-statistician.html" aria-current="page">Chartered Statistician (CStat)</a></li>
-            <li><a href="#">Graduate Statistician (GradStat)</a></li>
-            <li><a href="#">Data Analyst</a></li>
-            <li><a href="#">Data Science Professional</a></li>
-            <li><a href="~/pages/myrss-cpd.html">CPD</a></li>
-            <li><a href="~/pages/accreditation.html">Accreditation</a></li>
-          </ul>
-        </nav>
+        {pd_sidenav(q['file'])}
         <article>
-          <h1>Chartered Statistician (CStat)</h1>
-          <p class="lead">CStat is the Society's highest professional award. It shows employers and clients that you have the qualifications, experience and commitment to professional development of a senior statistician.</p>
+          <h1>{e(q['title'])}</h1>
+          <p class="lead">{e(q['lead'])}</p>
           {n("Standard content page: left-hand section menu, rich text with headings, and reusable components (key facts, steps, accordion, call to action) placed by editors.", "REQ-029, REQ-013, REQ-014", "CMS")}
           <section class="panel surface">
             <h2 class="h4">At a glance</h2>
             <dl class="summary-list">
-              <dt>Who it is for</dt><dd>Statisticians with an approved degree and at least five years of professional experience</dd>
-              <dt>Fee</dt><dd>£[fee] application fee, then the CStat annual fee</dd>
-              <dt>How long it takes</dt><dd>Usually 8 to 12 weeks from a complete application</dd>
-              <dt>You will need</dt><dd>Degree certificate, CV, two referees, CPD record</dd>
+              <dt>Who it is for</dt><dd>{e(q['who'])}</dd>
+              <dt>Fee</dt><dd>{e(q['fee'])}</dd>
+              <dt>How long it takes</dt><dd>{e(q['time'])}</dd>
+              <dt>You will need</dt><dd>{e(q['need'])}</dd>
             </dl>
           </section>
           <h2>How to apply</h2>
-          <ol class="steps" aria-label="Steps to CStat"><li>Join as a Fellow</li><li>Apply in MyRSS</li><li>Assessment</li><li>Award</li></ol>
+          <ol class="steps" aria-label="Steps to {e(q['short'])}"><li>Join as a Fellow</li><li>Apply in MyRSS</li><li>Assessment</li><li>Award</li></ol>
           <div class="prose">
             <p>You apply from MyRSS once you are a member. Your application is assessed by the Professional Affairs Committee, which may ask for more evidence.</p>
             <p>Once awarded, you will appear on the public Professional Register unless you choose not to.</p>
           </div>
           <p data-show-for="guest registered"><a class="btn" href="~/pages/join.html">Join, then apply</a></p>
-          <p data-show-for="member lapsed" hidden><a class="btn" href="~/pages/myrss.html#applications">Start your application in MyRSS</a></p>
-          {n("The button changes with the viewer: non-members are sent to join first; members go straight to the application in MyRSS.", "REQ-109, REQ-177")}
+          {member_cta}
+          {n("The call to action changes with the viewer: non-members are sent to join first; members go to the application in MyRSS, or are told they already hold the status.", "REQ-109, REQ-177")}
           <h2>Frequently asked questions</h2>
-          <div class="accordion">
-            <div class="accordion-item"><button class="accordion-title" type="button">My degree is not in statistics. Can I still apply? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>Yes, if your degree has enough statistical content. We assess each case.</p></div></div>
-            <div class="accordion-item"><button class="accordion-title" type="button">What counts as professional experience? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>Work in which you apply statistical methods and take responsibility for the results.</p></div></div>
-            <div class="accordion-item"><button class="accordion-title" type="button">How much CPD do I need to keep CStat? <span class="accordion-icon" aria-hidden="true">&#9662;</span></button><div class="accordion-content"><p>At least 30 hours a year, recorded in MyRSS.</p></div></div>
-          </div>
+          <div class="accordion">{faqs}</div>
           <div class="share-row" style="margin-top:2rem"><span class="wf-meta">Last reviewed 12 September 2026 by Professional Affairs</span></div>
           {n("Every page has a named owner and a review date; the owner is reminded when it falls due.", "REQ-143, REQ-122", "CMS")}
         </article>
       </div>
 '''
-    page('chartered-statistician.html', 'Chartered Statistician (CStat)', body, 'professional-development',
-         [('Professional development', '~/pages/professional-development.html'), ('Chartered Statistician', None)])
+    page(q['file'], q['title'], body, 'professional-development',
+         [('Professional development', '~/pages/professional-development.html'), (q['short'], None)])
+
+
+def cstat():
+    for q in QUALS:
+        qual_page(q)
 
 
 def accreditation():
@@ -191,7 +229,7 @@ def finder():
         short = trunc(x['title'].split(':')[-1].strip(), 34)
         snapshot = f"{x['title']}. {drange(x['date'], x['end'])}. {x['time']}. {fmt_label(x['fmt'])}. {x['price']}"
         items += f'''
-            <article class="list-item" data-item data-kind="{x['kind']}" data-type="{x['kind']}" data-topic="{' '.join(x['topics'])}" data-fmt="{x['fmt']}" data-sub="{slug(x.get('sub', ''))}" data-audience="{' '.join(x['aud'])}"
+            <article class="list-item" data-item data-sid="event-{x['id']}" data-kind="{x['kind']}" data-type="{x['kind']}" data-topic="{' '.join(x['topics'])}" data-fmt="{x['fmt']}" data-sub="{slug(x.get('sub', ''))}" data-audience="{' '.join(x['aud'])}"
               data-date="{x['date']}" data-end="{x['end']}" data-title="{e(x['title'])}" data-text="{e(text)}" data-short="{e(short)}" data-snapshot="{e(snapshot)}">
               <div class="date-block" aria-hidden="true"><span class="d">{int(dd)}</span><span class="m">{MONTHS[int(m)-1][:3]} {y}</span></div>
               <div>
@@ -247,7 +285,7 @@ def finder():
             <div data-list-view>
               <div>{items}
               </div>
-              <p class="empty-state" data-empty hidden>No events or courses match. Try removing a filter, or <a href="~/pages/events.html?when=past">look at past events</a>.</p>
+              <p class="empty-state" data-empty hidden>No events or courses match. Try removing a filter, or <a href="~/pages/events.html?when=past">look at past events</a>.<span data-site-search-wrap hidden> Or <a data-site-search href="search.html">search the whole site</a>.</span></p>
               <p style="text-align:center;margin-top:1.5rem"><button class="btn btn-secondary" type="button" data-more>Show more</button></p>
             </div>
             <div data-calendar hidden>
@@ -257,6 +295,7 @@ def finder():
               {n("Month view with the same filters. Each item shows a quick snapshot on hover or focus and links to the full listing. Events and courses are told apart by a pattern here; in design, by colour.", "REQ-210, REQ-212")}
             </div>
             {n("Each event appears once whatever its format, tagged Hybrid where it is. Multi-day courses appear once, not on every day. Fully booked courses stay listed with a waiting list.", "REQ-201, REQ-218, REQ-223")}
+            {n("Availability labels on listings ('Few places left', 'Fully booked') are ClerksWell's suggestion REQ-289 (a Could). They are shown on two courses only to illustrate it.", "REQ-289", "Proposed")}
           </div>
         </div>
       </section>
@@ -331,8 +370,10 @@ def event():
 
 def course():
     n = Notes()
-    dates = [('2026-11-10', '2026-11-11', 'Online', 'Places available'), ('2027-02-16', '2027-02-17', 'Online', 'Places available'), ('2027-04-20', '2027-04-21', 'In person, London', 'Few places left')]
-    radios = ''.join(f'<label class="radio-card"><input type="radio" name="date" value="{a}" data-date-choice="{drange(a, b)}"{" checked" if i == 0 else ""}> <strong>{drange(a, b)}</strong>{fmt} &middot; {st}</label>' for i, (a, b, fmt, st) in enumerate(dates))
+    dates = [('2026-11-10', '2026-11-11', 'online', 'Places available', 345, 460, False),
+             ('2027-02-16', '2027-02-17', 'online', 'Fully booked: waiting list', 345, 460, True),
+             ('2027-04-20', '2027-04-21', 'in person, London', 'Places available', 395, 520, False)]
+    radios = ''.join(f'<label class="radio-card"><input type="radio" name="date" value="{a}" data-date-choice="{drange(a, b)}" data-format="{fmt}" data-member="{m}" data-nonmember="{nm}"{" data-full" if full else ""}{" checked" if i == 0 else ""}> <strong>{drange(a, b)}</strong>{fmt[0].upper() + fmt[1:]} &middot; £{m} members, £{nm} non-members &middot; {st}</label>' for i, (a, b, fmt, st, m, nm, full) in enumerate(dates))
     body = f'''
       <article>
         <p class="meta-row"><span class="tag">Training course</span><span class="tag">Foundation</span><span class="tag">Online and in person</span><span class="tag">12 CPD hours</span><span class="tag">Quality Mark</span></p>
@@ -354,12 +395,16 @@ def course():
           <aside class="panel surface" aria-label="Choose a date">
             <h2 class="h4">Choose a date</h2>
             <form><fieldset class="field"><legend class="visually-hidden">Course dates</legend><div class="stack">{radios}</div></fieldset></form>
-            <dl class="summary-list"><dt>Members</dt><dd>£345</dd><dt>Non-members</dt><dd>£460</dd></dl>
-            <p data-show-for="member" hidden class="wf-meta">You will pay the member rate.</p>
-            <p><a class="btn btn-block" href="~/pages/book.html">Book <span data-chosen-date>10 to 11 November 2026</span></a></p>
-            <p><button class="btn btn-block btn-secondary" type="button" data-add-basket="Introduction to R|10 to 11 November 2026, online|345">Add to basket</button><span class="wf-meta" data-added hidden>Added. <a href="~/pages/basket.html">View basket</a></span></p>
-            <p><a href="#">Join the waiting list for a full date</a></p>
-            {n("Every date and price on one page, so nobody has to move between pages to compare. A full date offers a waiting list, synced with Dynamics.", "REQ-214, REQ-218, REQ-094")}
+            <p class="wf-meta" data-price-for-viewer data-member="345" data-nonmember="460"></p>
+            <div data-book-actions>
+              <p><a class="btn btn-block" href="~/pages/book.html" data-book-link>Book <span data-chosen-date>10 to 11 November 2026</span></a></p>
+              <p><button class="btn btn-block btn-secondary" type="button" data-add-basket="Introduction to R||345" data-price-nonmember="460" data-uses-date>Add to basket</button><span class="wf-meta" data-added hidden>Added. <a href="~/pages/basket.html">View basket</a></span></p>
+            </div>
+            <div data-waitlist hidden>
+              <p>This date is full. Join the waiting list and we'll email you if a place comes up.</p>
+              <p><button class="btn btn-block btn-secondary" type="button" data-modal-open="waitlist-modal">Join the waiting list</button></p>
+            </div>
+            {n("Every date and price on one page, so nobody has to move between pages to compare. The date chosen and the viewer's price carry through to booking and the basket. A full date (February here) swaps booking for the waiting list, synced with Dynamics.", "REQ-214, REQ-218, REQ-094, REQ-087")}
           </aside>
         </div>
       </article>
@@ -368,6 +413,17 @@ def course():
         <div class="grid grid-3">{"".join(f'<article class="card"><p class="meta-row"><span class="tag">{e(x.get("level", ""))}</span><span class="tag">{fmt_label(x["fmt"])}</span></p><h3 class="card-title"><a href="~/pages/course.html">{e(x["title"])}</a></h3><p class="card-text">{drange(x["date"], x["end"])}</p></article>' for x in EVENTS if x["kind"] == "course" and x["id"] in ("dataviz", "bayes-stan", "intro-ml"))}</div>
         {n("Cross-sell from shared tags across CMS and CRM.", "REQ-220")}
       </section>
+      <div class="wf-modal" id="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="wl-title">
+        <div class="wf-modal-panel">
+          <button class="wf-modal-close" type="button" aria-label="Close">&times;</button>
+          <h2 id="wl-title">Join the waiting list</h2>
+          <form data-validate novalidate>
+            <div class="field"><label for="wl-email">Email address</label><input type="email" id="wl-email" name="email" required></div>
+            <button class="btn" type="submit">Join the waiting list</button>
+            <p class="form-success" hidden>You're on the list for 16 to 17 February 2027. We'll email you if a place comes up.</p>
+          </form>
+        </div>
+      </div>
 '''
     page('course.html', 'Introduction to R', body, 'events-training', [('Events and training', '~/pages/events-training.html'), ('Training courses', '~/pages/events.html?type=course'), ('Introduction to R', None)])
 
@@ -376,11 +432,11 @@ def book():
     n = Notes()
     body = f'''
       <h1>Book: Introduction to R</h1>
-      <p class="lead">10 to 11 November 2026, online</p>
+      <p class="lead" data-book-date>10 to 11 November 2026, online</p>
       <ol class="steps" aria-label="Booking progress"><li>Who is attending</li><li>Delegate details</li><li>Your organisation</li><li>Check and pay</li></ol>
-      {n("Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS.", "REQ-215, REQ-216, REQ-204")}
+      {n("Booking for yourself or for others, with the booker and each delegate kept separate. Delegates get their own account so the course appears in their MyRSS.", "REQ-215, REQ-216")}
       <div class="split">
-        <form data-steps data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R, 10 to 11 November 2026, online" novalidate>
+        <form data-steps data-book-form data-course="Introduction to R" data-default-date="10 to 11 November 2026" data-default-format="online" data-member="345" data-nonmember="460" data-pay-for="course" data-pay-amount="345" data-pay-desc="Introduction to R" novalidate>
           <section class="form-step">
             <h2>Who is attending?</h2>
             <fieldset class="field"><legend>I am booking for</legend>
@@ -388,7 +444,7 @@ def book():
               <label class="radio-card"><input type="radio" name="who" value="others" data-reveal="others-note"> <strong>Someone else, or a group</strong>You pay; each delegate gets the joining details</label>
             </fieldset>
             <div class="reveal" id="others-note" hidden><p>You will add each delegate on the next step. We will create a basic account for each delegate and tell them why.</p>
-              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5 or more</option></select></div></div>
+              <div class="field"><label for="b-count">Number of delegates</label><select id="b-count" name="count"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><p class="field-hint">Booking six or more? <a href="~/pages/about.html#contact">Ask us about a group rate or in-house course</a>.</p></div></div>
             <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
           </section>
           <section class="form-step" hidden>
@@ -406,12 +462,8 @@ def book():
           <section class="form-step" hidden>
             <h2>Your organisation</h2>
             <div class="field"><label for="b-org">Organisation (optional)</label><input type="text" id="b-org" name="org"></div>
-            <fieldset class="field"><legend>Payment</legend>
-              <label class="check"><input type="radio" name="pay" value="card" required data-error="Choose how to pay"> Card</label>
-              <label class="check"><input type="radio" name="pay" value="invoice" data-reveal="po-field"> Invoice or purchase order</label>
-            </fieldset>
-            <div class="reveal" id="po-field" hidden><div class="field"><label for="b-po">Purchase order number</label><input type="text" id="b-po" name="po"></div></div>
-            {n("Is booking by invoice or purchase order offered today? ClerksWell has suggested it (REQ-290, a Could).", "REQ-290", "Open question")}
+            <p>Payment is by card on the next step.</p>
+            {n("Paying by invoice or purchase order is ClerksWell's suggestion REQ-290 (a Could), so it is not built. Is it offered today?", "REQ-290", "Open question")}
             <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
           </section>
           <section class="form-step" hidden data-review>
@@ -420,16 +472,17 @@ def book():
             <div class="field"><label for="b-code">Discount code (optional)</label><div class="inline-field"><input type="text" id="b-code" name="code"><button class="btn btn-secondary btn-small" type="button">Apply</button></div></div>
             {n("Discount codes are entered here and validated with the payment provider. Member and early-bird prices are applied automatically.", "REQ-217, REQ-087")}
             <div class="field"><label class="check"><input type="checkbox" name="terms" required data-error="Accept the booking terms"> I accept the <a href="#">booking terms and cancellation policy</a></label></div>
-            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: £345</button></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Continue to payment: <span data-book-total>£345</span></button></div>
           </section>
           <section class="form-success" data-complete hidden>
             <h2>Booking confirmed</h2>
-            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My Training.</p>
+            <p>We have emailed a receipt to you and joining instructions to the delegate. The course now appears in My events and training.</p>
             <p><a class="btn" href="~/pages/myrss-bookings.html">View in MyRSS</a></p>
             {n("If the booker leaves before paying, an abandoned-booking reminder is sent.", "REQ-221, REQ-089")}
           </section>
         </form>
-        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br>10 to 11 November 2026, online</p><p>Member price: £345</p></aside>
+        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Introduction to R</strong><br><span data-book-date>10 to 11 November 2026, online</span></p><p data-book-rate>Member price: £345 per delegate</p><p><span data-book-count>1 delegate</span>: <strong data-book-total>£345</strong></p>
+          {n("The date, the viewer's price (member or non-member) and the number of delegates all come through from the course page and set the amount paid.", "REQ-087, REQ-215")}</aside>
       </div>
 '''
     page('book.html', 'Book a course', body, 'events-training', [('Events and training', '~/pages/events-training.html'), ('Introduction to R', '~/pages/course.html'), ('Book', None)])
@@ -442,13 +495,14 @@ def basket_page():
       {n("A persistent basket so several courses, events and conference add-ons can be bought in one payment. It is kept for signed-in users across visits. Add a course from the <a href=\'course.html\'>course page</a> to try it.", "REQ-094, REQ-008")}
       <div class="split">
         <div data-basket-list></div>
-        <aside class="panel surface">
-          <dl class="summary-list"><dt>Subtotal</dt><dd data-basket-sub>£0.00</dd><dt>Discount</dt><dd data-basket-discount>£0.00</dd><dt>VAT</dt><dd>£0.00</dd><dt>Total</dt><dd><strong data-basket-total>£0</strong></dd></dl>
+        <aside class="panel surface" data-basket-summary hidden>
+          <dl class="summary-list"><dt>Subtotal</dt><dd data-basket-sub>£0.00</dd><dt>Discount</dt><dd data-basket-discount>£0.00</dd><dt>VAT</dt><dd data-basket-vat>£0.00</dd><dt>Total</dt><dd><strong data-basket-total>£0.00</strong></dd></dl>
           <form data-promo-form>
             <div class="field"><label for="promo">Voucher or promo code</label><div class="inline-field"><input type="text" id="promo" name="code"><button class="btn btn-secondary btn-small" type="submit">Apply</button></div><p class="field-hint" data-promo-msg aria-live="polite">Try MEMBER10</p></div>
           </form>
           <p><button class="btn btn-block" type="button" data-checkout>Checkout and pay</button></p>
-          {n("Pricing logic covers member grade, early-bird and late rates, concessions, bundles, codes and VAT. A downloadable receipt follows payment.", "REQ-087, REQ-116")}
+          {n("Pricing logic covers member grade, early-bird and late rates, concessions, bundles, codes and VAT. A downloadable receipt follows payment.", "REQ-087")}
+          {n("Baskets left without paying prompt a reminder email and appear in ecommerce reporting.", "REQ-089, REQ-116")}
         </aside>
       </div>
 '''
@@ -511,13 +565,13 @@ def conference():
         <div class="table-wrap"><table class="data-table">
           <thead><tr><th scope="col">Ticket</th><th scope="col">Includes</th><th scope="col">Member</th><th scope="col">Non-member</th><th scope="col"></th></tr></thead>
           <tbody>
-            <tr><th scope="row">Full conference</th><td>All sessions, lunches, refreshments, welcome reception</td><td>£595</td><td>£795</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595">Add</button></td></tr>
-            <tr><th scope="row">Day ticket</th><td>One day, lunch and refreshments</td><td>£225</td><td>£295</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: day ticket|Choose your day at checkout|225">Add</button></td></tr>
-            <tr><th scope="row">Student</th><td>All sessions and lunches</td><td>£295</td><td>£345</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: student|6 to 9 September 2027|295">Add</button></td></tr>
-            <tr><th scope="row">Optional: conference dinner</th><td>Tuesday evening</td><td>£85</td><td>£85</td><td><button class="btn btn-small" type="button" data-add-basket="Conference dinner|7 September 2027|85">Add</button></td></tr>
+            <tr><th scope="row">Full conference</th><td>All sessions, lunches, refreshments, welcome reception</td><td>£595</td><td>£795</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595" data-price-nonmember="795" aria-label="Add full to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
+            <tr><th scope="row">Day ticket</th><td>One day, lunch and refreshments</td><td>£225</td><td>£295</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: day ticket|Choose your day at checkout|225" data-price-nonmember="295" aria-label="Add day ticket to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
+            <tr><th scope="row">Student</th><td>All sessions and lunches</td><td>£295</td><td>£345</td><td><button class="btn btn-small" type="button" data-add-basket="RSS Conference 2027: student|6 to 9 September 2027|295" data-price-nonmember="345" aria-label="Add student to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
+            <tr><th scope="row">Optional: conference dinner</th><td>Tuesday evening</td><td>£85</td><td>£85</td><td><button class="btn btn-small" type="button" data-add-basket="Conference dinner|7 September 2027|85" data-price-nonmember="85" aria-label="Add Conference dinner to basket">Add</button><span class="wf-meta" data-added hidden> Added</span></td></tr>
           </tbody></table></div>
-        <p><span data-added hidden></span><a class="btn" href="~/pages/basket.html">Book now</a></p>
-        {n("What each ticket includes and the price of every extra are shown before checkout.", "REQ-230, REQ-087")}
+        <p><button class="btn" type="button" data-add-basket="RSS Conference 2027: full|6 to 9 September 2027|595" data-price-nonmember="795" data-go-basket>Book now: full conference</button> <a href="~/pages/basket.html">View basket</a></p>
+        {n("What each ticket includes and the price of every extra are shown before checkout. Tickets go into the basket at the viewer's price: member or non-member.", "REQ-230, REQ-087, REQ-094")}
       </section>
 
       <section id="attending" aria-labelledby="att-title">
