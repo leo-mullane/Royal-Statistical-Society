@@ -51,6 +51,7 @@
           <li><a class="basket-link" href="../pages/basket.html">Basket <span class="basket-count" data-basket-count>0</span></a></li>
           <li data-show-for="guest"><a href="../pages/sign-in.html">Sign in</a></li>
           <li data-show-for="registered member lapsed"><a href="../pages/myrss.html">MyRSS <span class="persona-name" data-persona-name></span></a></li>
+          <li data-show-for="registered member lapsed"><a href="../pages/home.html" data-sign-out>Sign out</a></li>
           <li data-show-for="guest registered"><a class="btn btn-small" href="../pages/join.html">Join the RSS</a></li>
           <li data-show-for="lapsed"><a class="btn btn-small" href="../pages/myrss.html#renew">Renew</a></li>
         </ul>
@@ -360,12 +361,12 @@
         <h1>MyRSS</h1>
         <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
         <p><a class="btn" href="../pages/sign-in.html">Sign in</a> <a href="../pages/sign-in.html">Create an account</a></p>
-        <div class="wf-note" data-note="7"><span class="wf-note-label">Proposed</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected (the simplest form of ClerksWell's Could, REQ-280). Use View as in the dark bar to see the signed-in versions. <span class="wf-req">REQ-178, REQ-280</span></div>
+        <div class="wf-note" data-note="9"><span class="wf-note-label">Proposed</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected (the simplest form of ClerksWell's Could, REQ-280). Use View as in the dark bar to see the signed-in versions. <span class="wf-req">REQ-178, REQ-280</span></div>
       </div>
       <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
         <nav class="sidenav" aria-label="MyRSS">
           <h2>MyRSS</h2>
-          <ul><li><a href="../pages/myrss.html">Dashboard</a></li><li><a href="../pages/myrss-profile.html" aria-current="page">Profile and directory listings</a></li><li><a href="../pages/myrss-bookings.html">My events and training</a></li><li><a href="../pages/myrss-cpd.html">CPD record</a></li><li><a href="../pages/myrss-groups.html">Sections and groups</a></li><li><a href="../pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="../pages/home.html" data-sign-out>Sign out</a></li></ul>
+          <ul><li><a href="../pages/myrss.html">Dashboard</a></li><li><a href="../pages/myrss-profile.html" aria-current="page">Profile and directory listings</a></li><li><a href="../pages/myrss-bookings.html">My events and training</a></li><li><a href="../pages/myrss-payments.html">Payments and receipts</a></li><li><a href="../pages/myrss-cpd.html">CPD record</a></li><li><a href="../pages/myrss-groups.html">Sections and groups</a></li><li><a href="../pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="../pages/home.html" data-sign-out>Sign out</a></li></ul>
         </nav>
         <div>
           <h1>Profile and directory listings</h1>
@@ -379,15 +380,21 @@
                 <div class="field-row"><div class="field"><label for="p-first">First name</label><input type="text" id="p-first" name="first" value="Alex" required></div><div class="field"><label for="p-last">Last name</label><input type="text" id="p-last" name="last" value="Morgan" required></div></div>
                 <div class="field"><label for="p-email">Email</label><input type="email" id="p-email" name="email" value="alex.morgan@example.org" required></div>
                 <button class="btn btn-small" type="submit">Save personal details</button><p class="form-success" hidden>Saved.</p></form></div></div>
+            <div class="accordion-item"><button class="accordion-title" type="button">Profile photo <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
+              <div class="accordion-content"><form data-validate novalidate>
+                <div class="photo-row"><div class="wf-placeholder avatar">Photo</div><div class="field"><label for="p-photo">Upload a new photo</label><input type="file" id="p-photo" name="photo" accept=".jpg,.jpeg,.png" required data-error="Choose a photo to upload"><p class="field-hint">JPG or PNG, up to 5 MB. You can crop it after uploading.</p></div></div>
+                <label class="check"><input type="checkbox" name="photo-dirs" checked> Show my photo in the directories I am listed in</label>
+                <button class="btn btn-small" type="submit">Save photo</button> <button class="btn-link" type="button">Remove photo</button><p class="form-success" hidden>Saved.</p></form>
+              <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Uploads are checked for file type and signature and scanned for malware before they are stored. The photo appears on the member banner and, if the member chooses, in directory listings. <span class="wf-req">REQ-173, REQ-254, REQ-258</span></div></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Address <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate><div class="field"><label for="p-post">Postcode</label><div class="inline-field"><input type="text" id="p-post" name="postcode" value="EC1Y 8LX" required><button class="btn btn-secondary btn-small" type="button">Find address</button></div></div><button class="btn btn-small" type="submit">Save address</button><p class="form-success" hidden>Saved.</p></form></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Employment <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate><div class="field"><label for="p-emp">Employer</label><input type="text" id="p-emp" name="employer" value="Northbridge NHS Foundation Trust"></div><div class="field"><label for="p-role">Job title</label><input type="text" id="p-role" name="role" value="Head of Statistics"></div><button class="btn btn-small" type="submit">Save employment</button><p class="form-success" hidden>Saved.</p></form></div></div>
-            <div class="accordion-item"><button class="accordion-title" type="button">Interests <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
-              <div class="accordion-content"><form data-validate novalidate><fieldset class="field"><legend>Topics you are interested in</legend><label class="check"><input type="checkbox" name="interests" value="official"> Official statistics</label><label class="check"><input type="checkbox" name="interests" value="datasci"> Data science and AI</label><label class="check"><input type="checkbox" name="interests" value="health" checked> Medical and health statistics</label><label class="check"><input type="checkbox" name="interests" value="methods" checked> Methodology</label><label class="check"><input type="checkbox" name="interests" value="education"> Statistical education</label><label class="check"><input type="checkbox" name="interests" value="social"> Social statistics</label><label class="check"><input type="checkbox" name="interests" value="environment"> Environmental statistics</label><label class="check"><input type="checkbox" name="interests" value="business"> Business and industry</label><label class="check"><input type="checkbox" name="interests" value="computing"> Statistical computing</label><label class="check"><input type="checkbox" name="interests" value="public"> Public understanding of statistics</label></fieldset><button class="btn btn-small" type="submit">Save interests</button><p class="form-success" hidden>Saved. Your recommendations will update.</p></form>
-              <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Interests drive personalisation. <span class="wf-req">REQ-109</span></div>
-              <div class="wf-note" data-note="4"><span class="wf-note-label">Proposed</span>Using the site's topic list for interests, instead of today's 29 specialisations, is part of REQ-282 (a Could). <span class="wf-req">REQ-282</span></div>
-              <div class="wf-note query" data-note="5"><span class="wf-note-label">Open question</span>Q: Can the 29 areas of specialisation in Dynamics be replaced by the shared topic list, and what happens to existing data? <span class="wf-req">REQ-109</span></div></div></div>
+            <div class="accordion-item"><button class="accordion-title" type="button">Specialisations and interests <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
+              <div class="accordion-content"><form data-validate novalidate><fieldset class="field"><legend>Your areas of specialisation and interest</legend><label class="check"><input type="checkbox" name="interests" value="official"> Official statistics</label><label class="check"><input type="checkbox" name="interests" value="datasci"> Data science and AI</label><label class="check"><input type="checkbox" name="interests" value="health" checked> Medical and health statistics</label><label class="check"><input type="checkbox" name="interests" value="methods" checked> Methodology</label><label class="check"><input type="checkbox" name="interests" value="education"> Statistical education</label><label class="check"><input type="checkbox" name="interests" value="social"> Social statistics</label><label class="check"><input type="checkbox" name="interests" value="environment"> Environmental statistics</label><label class="check"><input type="checkbox" name="interests" value="business"> Business and industry</label><label class="check"><input type="checkbox" name="interests" value="computing"> Statistical computing</label><label class="check"><input type="checkbox" name="interests" value="public"> Public understanding of statistics</label></fieldset><button class="btn btn-small" type="submit">Save specialisations</button><p class="form-success" hidden>Saved. Your recommendations will update.</p></form>
+              <div class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Interests drive personalisation. <span class="wf-req">REQ-109</span></div>
+              <div class="wf-note" data-note="5"><span class="wf-note-label">Proposed</span>Using the site's topic list for interests, instead of today's 29 specialisations, is part of REQ-282 (a Could). <span class="wf-req">REQ-282</span></div>
+              <div class="wf-note query" data-note="6"><span class="wf-note-label">Open question</span>Q: Can the 29 areas of specialisation in Dynamics be replaced by the shared topic list, and what happens to existing data? <span class="wf-req">REQ-109</span></div></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Directory listings <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate>
                 <label class="check"><input type="checkbox" name="dir" value="fellows" checked> Include me in the Fellows Directory (members only)</label>
@@ -395,7 +402,20 @@
                 <label class="check"><input type="checkbox" name="dir" value="consultants" data-reveal="consultant-detail"> List me in the Consultants Directory</label>
                 <div class="reveal" id="consultant-detail" hidden><div class="field"><label for="p-cons">Areas of consultancy</label><textarea id="p-cons" name="cons" rows="3"></textarea></div><p class="wf-meta">Listings are checked by staff before they appear.</p></div>
                 <button class="btn btn-small" type="submit">Save listings</button><p class="form-success" hidden>Saved.</p></form>
-              <div class="wf-note" data-note="6"><span class="wf-note-label">Behaviour</span>Members manage their own directory listings. <span class="wf-req">REQ-196, REQ-194</span></div></div></div>
+              <div class="wf-note" data-note="7"><span class="wf-note-label">Behaviour</span>Members manage their own directory listings. <span class="wf-req">REQ-196, REQ-194</span></div></div></div>
+            <div class="accordion-item"><button class="accordion-title" type="button">Sign-in and security <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
+              <div class="accordion-content">
+                <form data-validate novalidate>
+                  <div class="field"><label for="p-cur">Current password</label><input type="password" id="p-cur" name="current" required autocomplete="current-password"></div>
+                  <div class="field"><label for="p-new">New password</label><input type="password" id="p-new" name="new" required autocomplete="new-password"><p class="field-hint">At least 12 characters.</p></div>
+                  <button class="btn btn-small" type="submit">Change password</button><p class="form-success" hidden>Password changed. We have emailed you to confirm.</p>
+                </form>
+                <h3 class="h4">Two-step verification</h3>
+                <p><span class="status-pill">On</span> Authenticator app, added 12 March 2026. <a href="#">Replace app</a> &middot; <a href="#">Get new recovery codes</a></p>
+                <h3 class="h4">Connected sign-in accounts</h3>
+                <p>Microsoft (alex.morgan@example.org) <a href="#">Disconnect</a> &middot; <a href="#">Connect Google, LinkedIn or ORCID</a></p>
+                <div class="wf-note" data-note="8"><span class="wf-note-label">Behaviour</span>Members manage their own password, app-based two-step verification and any third-party sign-in accounts. <span class="wf-req">REQ-075, REQ-080, REQ-081</span></div>
+              </div></div>
           </div>
 
         </div>

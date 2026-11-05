@@ -51,6 +51,7 @@
           <li><a class="basket-link" href="../pages/basket.html">Basket <span class="basket-count" data-basket-count>0</span></a></li>
           <li data-show-for="guest"><a href="../pages/sign-in.html">Sign in</a></li>
           <li data-show-for="registered member lapsed"><a href="../pages/myrss.html">MyRSS <span class="persona-name" data-persona-name></span></a></li>
+          <li data-show-for="registered member lapsed"><a href="../pages/home.html" data-sign-out>Sign out</a></li>
           <li data-show-for="guest registered"><a class="btn btn-small" href="../pages/join.html">Join the RSS</a></li>
           <li data-show-for="lapsed"><a class="btn btn-small" href="../pages/myrss.html#renew">Renew</a></li>
         </ul>
@@ -359,9 +360,13 @@
       <!-- Payment confirmation page (REQ-089, REQ-087) -->
       <section data-pay-complete class="split">
         <div>
-          <div data-pay-method-block="card dd">
+          <div data-pay-method-block="card">
             <h1>Payment successful</h1>
             <p class="lead">Thank you. We have emailed your receipt.</p>
+          </div>
+          <div data-pay-method-block="dd" hidden>
+            <h1>Direct Debit set up</h1>
+            <p class="lead">Thank you. We have emailed confirmation of your Direct Debit and your invoice. The first payment is collected in about 10 working days, and you are covered by the Direct Debit Guarantee.</p>
           </div>
           <div data-pay-method-block="invoice" hidden>
             <h1>Application received</h1>
@@ -415,7 +420,9 @@
             <dt>Reference</dt><dd data-pay-ref></dd>
             <dt>Date</dt><dd>30 October 2026</dd>
           </dl>
-          <p><a href="#">Download receipt (PDF)</a></p>
+          <p data-pay-method-block="card"><a href="#">Download receipt (PDF)</a></p>
+          <p data-pay-method-block="dd invoice" hidden><a href="#">Download invoice (PDF)</a></p>
+          <p class="wf-meta">Every invoice and receipt is also kept in MyRSS under <a href="../pages/myrss-payments.html">Payments and receipts</a>.</p>
           <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Downloadable receipt that meets HMRC requirements, with VAT shown where it applies. The transaction is written to Dynamics and the purchase is tracked in analytics and ecommerce reporting. <span class="wf-req">REQ-087, REQ-091, REQ-114, REQ-116</span></div>
         </aside>
       </section>

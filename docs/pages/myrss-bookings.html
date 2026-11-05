@@ -51,6 +51,7 @@
           <li><a class="basket-link" href="../pages/basket.html">Basket <span class="basket-count" data-basket-count>0</span></a></li>
           <li data-show-for="guest"><a href="../pages/sign-in.html">Sign in</a></li>
           <li data-show-for="registered member lapsed"><a href="../pages/myrss.html">MyRSS <span class="persona-name" data-persona-name></span></a></li>
+          <li data-show-for="registered member lapsed"><a href="../pages/home.html" data-sign-out>Sign out</a></li>
           <li data-show-for="guest registered"><a class="btn btn-small" href="../pages/join.html">Join the RSS</a></li>
           <li data-show-for="lapsed"><a class="btn btn-small" href="../pages/myrss.html#renew">Renew</a></li>
         </ul>
@@ -365,7 +366,7 @@
       <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
         <nav class="sidenav" aria-label="MyRSS">
           <h2>MyRSS</h2>
-          <ul><li><a href="../pages/myrss.html">Dashboard</a></li><li><a href="../pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="../pages/myrss-bookings.html" aria-current="page">My events and training</a></li><li><a href="../pages/myrss-cpd.html">CPD record</a></li><li><a href="../pages/myrss-groups.html">Sections and groups</a></li><li><a href="../pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="../pages/home.html" data-sign-out>Sign out</a></li></ul>
+          <ul><li><a href="../pages/myrss.html">Dashboard</a></li><li><a href="../pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="../pages/myrss-bookings.html" aria-current="page">My events and training</a></li><li><a href="../pages/myrss-payments.html">Payments and receipts</a></li><li><a href="../pages/myrss-cpd.html">CPD record</a></li><li><a href="../pages/myrss-groups.html">Sections and groups</a></li><li><a href="../pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="../pages/home.html" data-sign-out>Sign out</a></li></ul>
         </nav>
         <div>
           <h1>My events and training</h1>
@@ -377,9 +378,9 @@
           <div>
             <div class="tab-panel active" id="b-up" role="tabpanel" aria-labelledby="tab-b-up">
               <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col"></th></tr></thead><tbody>
-                <tr><td><a href="../pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a></td></tr>
-                <tr><td><a href="../pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Cancel</a></td></tr>
-                <tr><td><a href="../pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="../pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay invoice</a></td></tr>
+                <tr><td><a href="../pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a><br><a href="#">Receipt (PDF)</a></td></tr>
+                <tr><td><a href="../pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Add to calendar</a><br><a href="#">Cancel</a></td></tr>
+                <tr><td><a href="../pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="../pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay invoice</a><br><a href="#">Invoice (PDF)</a></td></tr>
               </tbody></table>
             </div>
             <div class="tab-panel" id="b-past" role="tabpanel" aria-labelledby="tab-b-past">
