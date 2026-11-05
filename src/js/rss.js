@@ -809,6 +809,12 @@
         if (t) t.hidden = true;
       });
     });
+    /* Forms marked data-prefill tick the radio named in the URL, e.g. ?format=online */
+    $$('form[data-prefill]').forEach(function (form) {
+      params().forEach(function (v, k) {
+        $$('input[type="radio"][name="' + k + '"]', form).forEach(function (r) { if (r.value === v) r.checked = true; });
+      });
+    });
     initCourseDates();
     initBookPage();
     /* Empty listings offer the whole-site search for the same words */

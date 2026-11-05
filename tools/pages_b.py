@@ -146,8 +146,9 @@ def accreditation():
             <article class="card"><h3 class="card-title">Alliance for Data Science Professionals (AfDSP)</h3><p class="card-text">For programmes that lead to Data Science Professional status.</p></article>
           </div>
           <h2>How it works</h2>
-          <p>Tell us about your programme using the form. If it looks eligible, we will invite you to apply in the accreditation portal, where you can track your application and see past ones.</p>
-          {n("Applications are made in a signed-in portal with admin pages for RSS staff and a review workflow for the Professional Affairs Committee: in progress, submitted, under review, approved. The portal is outside this first draft.", "REQ-190", "Behaviour")}
+          <p>Tell us about your programme using the form. If it looks eligible, we will invite you to apply online, where you can save your application as you go, track it and see past ones.</p>
+          <p><a class="btn btn-secondary" href="~/pages/accreditation-apply.html">Start or continue an application</a> <a href="~/pages/myrss-accreditation.html">Your applications</a></p>
+          {n("Applications are made online by a signed-in contact at the university or provider, with save and return, document upload and a status they can follow. Staff and the Professional Affairs Committee review them in the CMS.", "REQ-190")}
         </article>
         <!-- Expression of interest (REQ-191) -->
         <form class="panel" data-validate novalidate>
@@ -347,8 +348,8 @@ def event():
               <dt>Where</dt><dd>{e(ev["place"])}</dd>
               <dt>Cost</dt><dd>{e(ev["price"])}</dd>
             </dl>
-            <p><a class="btn btn-block" href="~/pages/book.html?format=in-person">Attend in person</a></p>
-            <p><a class="btn btn-block btn-secondary" href="~/pages/book.html?format=online">Join online</a></p>
+            <p><a class="btn btn-block" href="~/pages/book-event.html?format=in-person">Attend in person</a></p>
+            <p><a class="btn btn-block btn-secondary" href="~/pages/book-event.html?format=online">Join online</a></p>
             <p class="wf-meta">Online joining details are emailed the day before.</p>
             <p><a href="#">Add to calendar</a></p>
             {n("One event page whatever the format, with a booking button per option. Each button links to its own booking endpoint in Dynamics. For free events the confirmation email leaves out payment wording.", "REQ-201, REQ-202, REQ-206, REQ-207")}
@@ -642,6 +643,102 @@ def submit_event():
     page('submit-event.html', 'Submit a group event', body, 'events-training', [('Events and training', '~/pages/events-training.html'), ('Submit a group event', None)])
 
 
+
+def accreditation_apply():
+    n = Notes()
+    body = f'''
+      <h1>Apply for accreditation</h1>
+      <p class="lead">Your application saves as you go. You can leave and come back to it from MyRSS.</p>
+      <ol class="steps" aria-label="Application progress"><li>Route</li><li>Your organisation</li><li>The programme</li><li>Evidence</li><li>Check and submit</li></ol>
+      {n("Online application for University and AfDSP accreditation by a signed-in contact. Each step saves to a draft, so an applicant can leave and return.", "REQ-190, REQ-082")}
+      <div class="split">
+        <form data-steps novalidate>
+          <section class="form-step">
+            <h2>Which route are you applying for?</h2>
+            <fieldset class="field"><legend>Route</legend>
+              <label class="radio-card"><input type="radio" name="route" value="University accreditation" required data-error="Choose a route"> <strong>University accreditation</strong>Undergraduate and master's degrees with substantial statistical content</label>
+              <label class="radio-card"><input type="radio" name="route" value="AfDSP"> <strong>Alliance for Data Science Professionals (AfDSP)</strong>Programmes that lead to Data Science Professional status</label>
+            </fieldset>
+            <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>Your organisation</h2>
+            <div class="field"><label for="aa-org">University or provider</label><input type="text" id="aa-org" name="org" value="University of Eastwick" required></div>
+            <div class="field"><label for="aa-dept">Department or school</label><input type="text" id="aa-dept" name="dept" required></div>
+            <div class="field-row"><div class="field"><label for="aa-contact">Main contact</label><input type="text" id="aa-contact" name="contact" value="Sam Green" required></div><div class="field"><label for="aa-email">Contact email</label><input type="email" id="aa-email" name="cemail" value="s.green@eastwick.example.ac.uk" required></div></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Save and continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>The programme</h2>
+            <div class="field"><label for="aa-prog">Programme title</label><input type="text" id="aa-prog" name="programme" required></div>
+            <div class="field-row"><div class="field"><label for="aa-level">Level</label><select id="aa-level" name="level" required><option value="">Choose</option><option>Undergraduate</option><option>Master's</option><option>Other</option></select></div><div class="field"><label for="aa-start">First intake</label><input type="text" id="aa-start" name="start" placeholder="e.g. September 2027"></div></div>
+            <div class="field"><label for="aa-mode">Mode of study</label><select id="aa-mode" name="mode"><option>Full time</option><option>Part time</option><option>Both</option></select></div>
+            <div class="field"><label for="aa-out">How does the programme meet the learning outcomes?</label><textarea id="aa-out" name="outcomes" rows="5" required></textarea><p class="field-hint">Summarise here; the full mapping goes in the evidence step.</p></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Save and continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>Evidence</h2>
+            <div class="field"><label for="aa-map">Learning outcomes mapping</label><input type="file" id="aa-map" name="mapping" accept=".pdf,.docx,.xlsx" required data-error="Upload the learning outcomes mapping"><p class="field-hint">PDF, Word or Excel, up to 20 MB. <a href="#">Download the mapping template</a></p></div>
+            <div class="field"><label for="aa-hand">Programme handbook and module descriptors</label><input type="file" id="aa-hand" name="handbook" accept=".pdf,.docx" multiple></div>
+            {n("Uploads are restricted to accepted file types, checked by file signature and scanned for malware before they are stored.", "REQ-254, REQ-258, REQ-259")}
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Save and continue</button></div>
+          </section>
+          <section class="form-step" hidden data-review>
+            <h2>Check and submit</h2>
+            <div data-summary></div>
+            <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm the declaration"> I confirm the information is accurate and I am authorised to apply on behalf of the organisation</label></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Submit application</button></div>
+          </section>
+          <section class="form-success" data-complete hidden>
+            <h2>Application submitted</h2>
+            <p>Your reference is <strong>ACC-2026-118</strong>. We have emailed a copy. The accreditation team will acknowledge it within 10 working days, and you can follow its progress in MyRSS.</p>
+            <p><a class="btn" href="~/pages/myrss-accreditation.html">Your applications</a></p>
+          </section>
+        </form>
+        <aside class="panel surface">
+          <h2 class="h4">Before you start</h2>
+          <p>You will need the programme handbook, module descriptors and a learning outcomes mapping.</p>
+          <p class="wf-meta">Draft saved 2 November 2026, 14:32</p>
+          {n("Is there an application fee? If so, it is paid on the submit step through the same payment page as every other purchase.", "REQ-190, REQ-086", "Open question")}
+        </aside>
+      </div>
+'''
+    page('accreditation-apply.html', 'Apply for accreditation', body, 'professional-development',
+         [('Professional development', '~/pages/professional-development.html'), ('Accreditation', '~/pages/accreditation.html'), ('Apply', None)])
+
+
+def book_event():
+    n = Notes()
+    ev = EVENTS[0]
+    body = f'''
+      <h1>Book: {e(ev["title"])}</h1>
+      <p class="lead">{weekday(ev["date"])} {d(ev["date"])}, {e(ev["time"])}. Free.</p>
+      {n("Free events have a short booking: no payment step, and a confirmation email without payment wording. Signed-in users' details are filled in from MyRSS.", "REQ-206, REQ-207")}
+      <div class="split">
+        <form data-validate data-prefill novalidate>
+          <div data-show-for="guest" class="panel">
+            <p><a href="~/pages/sign-in.html">Sign in</a> to book faster, or continue as a guest. We will create a free account so the booking appears in MyRSS.</p>
+            {n("Booking creates a basic account for anyone without one, so every booking sits against a contact in Dynamics. Should guests be asked to create a password now, or later?", "REQ-076, REQ-154", "Open question")}
+          </div>
+          <fieldset class="field"><legend>How will you attend?</legend>
+            <label class="radio-card"><input type="radio" name="format" value="in-person" required data-error="Choose how you will attend"> <strong>In person</strong>{e(ev["place"].split(",")[0])}, Errol Street, London</label>
+            <label class="radio-card"><input type="radio" name="format" value="online"> <strong>Online</strong>Joining link emailed the day before</label>
+          </fieldset>
+          <div class="field-row"><div class="field"><label for="be-first">First name</label><input type="text" id="be-first" name="first" required></div><div class="field"><label for="be-last">Last name</label><input type="text" id="be-last" name="last" required></div></div>
+          <div class="field"><label for="be-email">Email</label><input type="email" id="be-email" name="email" required></div>
+          <div class="field"><label for="be-needs">Access requirements (optional)</label><textarea id="be-needs" name="needs" rows="2"></textarea></div>
+          <button class="btn" type="submit">Book my free place</button>
+          <div class="form-success panel" hidden>
+            <h2 class="h4">You're booked</h2>
+            <p>We have emailed your confirmation. The event is in My events and training.</p>
+            <p><a class="btn btn-small" href="~/pages/myrss-bookings.html">View my bookings</a> <a href="#">Add to calendar</a></p>
+          </div>
+        </form>
+        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>{e(ev["title"])}</strong><br>{d(ev["date"])}</p><p>Cost: Free</p></aside>
+      </div>
+'''
+    page('book-event.html', 'Book a free event', body, 'events-training', [('Events and training', '~/pages/events-training.html'), ('Event', '~/pages/event.html'), ('Book', None)])
+
 def build():
     pd_hub()
     cstat()
@@ -651,6 +748,8 @@ def build():
     event()
     course()
     book()
+    book_event()
+    accreditation_apply()
     basket_page()
     conference()
     submit_event()

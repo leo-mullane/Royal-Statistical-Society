@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a free event | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="events-training">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/events-training.html">Events and training</a></li><li class="breadcrumb-item"><a href="~/pages/event.html">Event</a></li><li class="breadcrumb-item" aria-current="page">Book</li></ul></nav>
+
+      <h1>Book: Discussion meeting: Statistical aspects of evaluating large language models</h1>
+      <p class="lead">Wed 4 November 2026, 17:00 to 19:00 GMT. Free.</p>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Free events have a short booking: no payment step, and a confirmation email without payment wording. Signed-in users' details are filled in from MyRSS. <span class="wf-req">REQ-206, REQ-207</span></div>
+      <div class="split">
+        <form data-validate data-prefill novalidate>
+          <div data-show-for="guest" class="panel">
+            <p><a href="~/pages/sign-in.html">Sign in</a> to book faster, or continue as a guest. We will create a free account so the booking appears in MyRSS.</p>
+            <div class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Q: Booking creates a basic account for anyone without one, so every booking sits against a contact in Dynamics. Should guests be asked to create a password now, or later? <span class="wf-req">REQ-076, REQ-154</span></div>
+          </div>
+          <fieldset class="field"><legend>How will you attend?</legend>
+            <label class="radio-card"><input type="radio" name="format" value="in-person" required data-error="Choose how you will attend"> <strong>In person</strong>RSS, Errol Street, London</label>
+            <label class="radio-card"><input type="radio" name="format" value="online"> <strong>Online</strong>Joining link emailed the day before</label>
+          </fieldset>
+          <div class="field-row"><div class="field"><label for="be-first">First name</label><input type="text" id="be-first" name="first" required></div><div class="field"><label for="be-last">Last name</label><input type="text" id="be-last" name="last" required></div></div>
+          <div class="field"><label for="be-email">Email</label><input type="email" id="be-email" name="email" required></div>
+          <div class="field"><label for="be-needs">Access requirements (optional)</label><textarea id="be-needs" name="needs" rows="2"></textarea></div>
+          <button class="btn" type="submit">Book my free place</button>
+          <div class="form-success panel" hidden>
+            <h2 class="h4">You're booked</h2>
+            <p>We have emailed your confirmation. The event is in My events and training.</p>
+            <p><a class="btn btn-small" href="~/pages/myrss-bookings.html">View my bookings</a> <a href="#">Add to calendar</a></p>
+          </div>
+        </form>
+        <aside class="panel surface"><h2 class="h4">Your booking</h2><p><strong>Discussion meeting: Statistical aspects of evaluating large language models</strong><br>4 November 2026</p><p>Cost: Free</p></aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
+</body>
+</html>

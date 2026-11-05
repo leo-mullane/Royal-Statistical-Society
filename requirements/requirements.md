@@ -58,22 +58,22 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-069 | F | Security & compliance | Vulnerability/security-issue reporting via a form. | about.html |
 | REQ-073 | N | Security & compliance | No high/critical/medium pen-test or PCI findings at go-live. | not shown |
 | REQ-074 | F | Identity & access | Secure SSO for staff and key volunteers (with an M365 account in the RSS tenant) via Microsoft Entra ID, with MFA required. | sign-in.html |
-| REQ-075 | F | Identity & access / Header | Sign in / out for members and registered users, with app-based MFA support. | header.html, join.html, sign-in.html |
-| REQ-076 | F | Identity & access | User registration: a non-member can create a basic account and later upgrade to full membership; includes password resets. | join.html, sign-in.html |
+| REQ-075 | F | Identity & access / Header | Sign in / out for members and registered users, with app-based MFA support. | header.html, join.html, myrss-profile.html, sign-in.html |
+| REQ-076 | F | Identity & access | User registration: a non-member can create a basic account and later upgrade to full membership; includes password resets. | book-event.html, join.html, sign-in.html |
 | REQ-077 | F | Identity & access | Ability to impersonate a CMS user (time-limited, audited, requires elevated approval) to replicate their experience for debugging. | not shown |
 | REQ-078 | F | Identity & access | Granular role-based permissions in the CMS for staff and key volunteers. | sign-in.html |
 | REQ-079 | F | Identity & access | Custom roles (e.g. for trustees/volunteers) definable and updatable by RSS web staff. | not shown |
-| REQ-080 | F | Identity & access | Self-service password resets requiring a time-limited confirmation link. | sign-in.html |
-| REQ-082 | F | Forms | Accessible form builder: required/optional indicators, roll-over tips, inline instructions, multi-step/multi-page forms, tabs, branching, save-and-resume, restricted-type file uploads, and email notifications to submitter and staff. | about.html, join.html, statisticians-for-society.html |
+| REQ-080 | F | Identity & access | Self-service password resets requiring a time-limited confirmation link. | myrss-profile.html, sign-in.html |
+| REQ-082 | F | Forms | Accessible form builder: required/optional indicators, roll-over tips, inline instructions, multi-step/multi-page forms, tabs, branching, save-and-resume, restricted-type file uploads, and email notifications to submitter and staff. | about.html, accreditation-apply.html, join.html, statisticians-for-society.html |
 | REQ-083 | F | Forms | RSS staff can edit form content (headings, instructions, roll-over tips) without raising a support ticket with the digital agency. | join.html |
 | REQ-084 | F | Payments | Direct Debit support via Access Paysuite for mandates, instalments and renewals, with secure webhook processing and CRM write-back. | donate.html, join.html, pay.html |
 | REQ-085 | F | Forms / Security | Spam/bot protection (e.g. reCAPTCHA) and server-side validation on forms. | about.html, accreditation.html, statisticians-for-society.html |
-| REQ-086 | F | Payments | Payment integration via a PCI DSS-compliant gateway (currently Elavon) with secure tokenisation, support for AVS/CVV/3D Secure, redirecting to the processor's secure pages; payments reconciled with CRM (and CMS where appropriate). | donate.html, join.html, pay.html |
+| REQ-086 | F | Payments | Payment integration via a PCI DSS-compliant gateway (currently Elavon) with secure tokenisation, support for AVS/CVV/3D Secure, redirecting to the processor's secure pages; payments reconciled with CRM (and CMS where appropriate). | accreditation-apply.html, donate.html, join.html, pay.html |
 | REQ-087 | F | Payments / Ecommerce | Pricing logic (member grade, early-bird/late, concession, bundles), voucher/promo codes, VAT handling and downloadable HMRC-compliant receipts. | basket.html, book.html, conference.html, course.html, grades-fees.html, join.html, payment-complete.html |
 | REQ-088 | F | Jobs | Jobs board with pricing tiers (standard/featured), search, filter, categories/tags, custom fields, featured image, expiry date with auto-unpublish and analytics. | jobs.html, post-job.html |
 | REQ-089 | F | Payments / Ecommerce | Payment confirmation pages and email notifications, including dropped-basket and abandoned-application notifications. | basket.html, book.html, join.html, pay.html, payment-complete.html |
 | REQ-090 | F | Ecommerce | Donations and fundraising with Gift Aid declarations. | donate.html |
-| REQ-091 | F | Payments / Integration | Payment transactions synced with Dynamics CRM; form fields map to equivalent CRM fields. | join.html, pay.html, payment-complete.html |
+| REQ-091 | F | Payments / Integration | Payment transactions synced with Dynamics CRM; form fields map to equivalent CRM fields. | join.html, myrss-payments.html, pay.html, payment-complete.html |
 | REQ-092 | F | Forms | Address look-up / validation integration (Loqate). | join.html |
 | REQ-093 | F | Advertising | Advertising slots/banners with reporting on impressions and click-through rates. | about.html, jobs.html |
 | REQ-100 | F | Templates | Template builder allowing RSS to create and edit templates, clone or create child templates, and define/edit header and footer regions. | library.html |
@@ -111,7 +111,7 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-151 | F | Email automation / Membership | Replicate the automated renewals sequence: pre-renewal, renewal notice, prompts, outstanding-payment reminders, suspension and lapse notices (varying by member type and payment method). | myrss.html |
 | REQ-152 | F | Email automation | Replicate transactional and staff-notification emails: payment-successful, corporate joining invitation, payment-unsuccessful and abandoned-application alerts. | join.html, pay.html, payment-complete.html |
 | REQ-153 | F | Integrations | Integrate with the required platforms: Entra (SSO), Copilot (AI), M365/Exchange (email), Dynamics 365 (CRM), Power Automate, Elavon/Opayo (payments), Access Paysuite (Direct Debits), CookieYes, OUP, PushEngage, YouTube, SoundCloud, Meta, Google (ads/analytics/tag manager), LinkedIn, BlueSky, X, Loqate and KnowBot. | pay.html, search.html |
-| REQ-154 | F | Integrations / CRM | Two-way near-real-time sync with Dynamics 365 CRM for users, events, conference, training, publications access, newsletters, directory inclusions and group membership. | grades-fees.html |
+| REQ-154 | F | Integrations / CRM | Two-way near-real-time sync with Dynamics 365 CRM for users, events, conference, training, publications access, newsletters, directory inclusions and group membership. | book-event.html, grades-fees.html |
 | REQ-155 | F | Integrations / CRM | Identify API limitations, where the CMS is source of truth and why, data-synchronisation timeframes, and error handling/retry/fallback scenarios. | not shown |
 | REQ-159 | F | Newsletters | Newsletter opt-in/out controlled via MyRSS sign-up options, with an unsubscribe link in every newsletter. | footer.html, myrss-preferences.html |
 | REQ-160 | F | Newsletters | Mailing lists sync with CRM, where opt-in/outs are recorded. | footer.html, myrss-groups.html, myrss-preferences.html |
@@ -128,17 +128,17 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-174 | N | MyRSS portal | Clear, intuitive MyRSS user interface. | not shown |
 | REQ-175 | N | MyRSS portal | Fast page loads and filtering in MyRSS. | not shown |
 | REQ-176 | F | MyRSS portal / CRM | Two-way sync between MyRSS and Dynamics CRM in near-real-time. | myrss.html |
-| REQ-177 | F | MyRSS portal / Personalisation | Page/content-block visibility based on member type (e.g. Data Science Professionals see data-science resources). | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html, home.html, myrss.html |
-| REQ-178 | F | MyRSS portal / Personalisation | Page/content-block visibility based on membership status (e.g. a lapsed member loses access until they have paid). | find-an-expert.html, home.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-preferences.html, myrss-profile.html, myrss.html, professional-development.html, resources.html |
+| REQ-177 | F | MyRSS portal / Personalisation | Page/content-block visibility based on member type (e.g. Data Science Professionals see data-science resources). | chartered-statistician.html, data-analyst.html, data-science-professional.html, graduate-statistician.html, home.html, myrss-accreditation.html, myrss.html |
+| REQ-178 | F | MyRSS portal / Personalisation | Page/content-block visibility based on membership status (e.g. a lapsed member loses access until they have paid). | find-an-expert.html, home.html, myrss-accreditation.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-payments.html, myrss-preferences.html, myrss-profile.html, myrss.html, professional-development.html, resources.html |
 | REQ-179 | F | MyRSS portal | Member banner displaying name, type, category and number, with quick links to edit profile and apply for memberships, plus e-certificate download. | myrss.html |
 | REQ-180 | F | MyRSS portal / Events / Training | My Events and My Training areas displaying booked, past and related items. | myrss-bookings.html, myrss.html |
-| REQ-181 | F | MyRSS portal / Payments | Outstanding-balance dynamic area with a 'Pay now' pathway and clear payment-status indicators. | myrss.html |
+| REQ-181 | F | MyRSS portal / Payments | Outstanding-balance dynamic area with a 'Pay now' pathway and clear payment-status indicators. | myrss-payments.html, myrss.html |
 | REQ-182 | F | MyRSS portal / Sections & Groups | Sections and groups page where members view subscriptions and select group mailing lists (tabs for Sections, SIGs, LGs). | myrss-groups.html |
 | REQ-186 | F | Membership / Join | Online joining: multi-part form capturing member type, payment type, journal subscriptions and newsletter subscriptions, directing to the payment gateway then MyRSS on success. | join.html |
 | REQ-187 | F | Membership / Join | Support 6 membership classes (Fellow, CStat, GradStat, Data Analyst, FIS/MIS, e-Student) and their grades, with correct joining and renewal fees, concessions, VAT codes and payment methods. | grades-fees.html, join.html, membership.html, professional-development.html |
-| REQ-188 | F | Membership / Renewal | Membership renewals via credit/debit card or Direct Debit, with invoice/receipt provided to the user. | myrss.html, pay.html |
+| REQ-188 | F | Membership / Renewal | Membership renewals via credit/debit card or Direct Debit, with invoice/receipt provided to the user. | myrss-payments.html, myrss.html, pay.html |
 | REQ-189 | F | Membership / Payments | Pricing logic reflecting member grade/class including concessions (career break, EDA, new graduate, retired, student), 60+, honorary, compounder and staff rates. | grades-fees.html, join.html, membership.html |
-| REQ-190 | F | Accreditation | Accreditation applications (University and AfDSP) with admin management pages, past-applications views and PAC review workflow (in-progress, submitted, pending, awarded, rejected, filterable). | accreditation.html |
+| REQ-190 | F | Accreditation | Accreditation applications (University and AfDSP) with admin management pages, past-applications views and PAC review workflow (in-progress, submitted, pending, awarded, rejected, filterable). | accreditation-apply.html, accreditation.html, myrss-accreditation.html |
 | REQ-192 | F | Professional services | Professional Register listing CStat, GradStat and Data Analyst holders, with search; able to show AdvDSP/ADSP and accommodate the AdvDSP -> CDSP (Chartered Data Science Professional) rename. | find-an-expert.html, professional-development.html |
 | REQ-193 | F | Professional services | Fellows Directory with filtering menu. | find-an-expert.html |
 | REQ-196 | F | Professional services | Directory listing management (consultant/fellow directory inclusion) by members. | find-an-expert.html, myrss-profile.html |
@@ -149,7 +149,7 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-203 | F | Events | Sections, SIGs and Local Groups can submit events (free and charged); once approved they appear on the calendar. | submit-event.html |
 | REQ-204 | F | Events / Forms | Modular, template-based registration forms supporting event-specific custom fields without bespoke builds (e.g. standard, conference, free, catering templates). | book.html |
 | REQ-205 | F | Events | CMS-level data capture for additional fields outside CRM (stored temporarily or emailed to organisers). | book.html, submit-event.html |
-| REQ-206 | F | Events | Streamlined booking journey, particularly for free events, with clear pre-booking information (format, location, joining details). | event.html |
+| REQ-206 | F | Events | Streamlined booking journey, particularly for free events, with clear pre-booking information (format, location, joining details). | book-event.html, event.html |
 | REQ-209 | F | Events | Event booking page displaying information in tabs (speakers, organiser, costs) with a 'Book now' button. | event.html |
 | REQ-213 | F | Training | Course listings dynamically driven from CRM, with teaser descriptions, tags, optional tutor highlights, and filters for topic, date, format and price plus keyword search. | course.html, events.html, home.html |
 | REQ-214 | F | Training | Course detail pages with full descriptions, learning outcomes, pricing, all available dates on one page, testimonials and tutor information, with direct booking. | course.html |
@@ -169,12 +169,12 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-249 | F | Jobs | Jobs board landing page listing recent posts with salary, location and employer. | jobs.html |
 | REQ-250 | F | Jobs | Job post detail page including the job description and an 'Apply now' button. | job.html |
 | REQ-252 | F | Policy / Resources | Searchable, filterable policy documents listing (by category, subcategory, date, file type and size) with per-item title, description and download button. | policy.html |
-| REQ-254 | F | File uploads | Restrict uploads to accepted file types (PDF, DOCX, XLSX, JPG/PNG, CSV) and reject ZIP/compressed, executable/script, legacy Office (.doc/.xls) and password-protected/encrypted files. | submit-event.html |
+| REQ-254 | F | File uploads | Restrict uploads to accepted file types (PDF, DOCX, XLSX, JPG/PNG, CSV) and reject ZIP/compressed, executable/script, legacy Office (.doc/.xls) and password-protected/encrypted files. | accreditation-apply.html, myrss-profile.html, submit-event.html |
 | REQ-255 | F | File uploads | Enforce file size limits (max 25 MB per file, 100 MB per application) with admin ability to control/override limits. | submit-event.html |
 | REQ-256 | F | File uploads | Allow RSS admins to control the allowed/blocked list of file types. | not shown |
 | REQ-257 | F | File uploads | Normalise file names on upload (replace spaces/special characters), reject double extensions (e.g. cv.pdf.exe) and apply a consistent internal naming pattern (e.g. ApplicationID_Surname_Firstname_DocumentType_YYYYMMDD.ext). | submit-event.html |
-| REQ-258 | N | File uploads / Security | Validate MIME type and file signature (not just extension) and scan all uploads for malware before storage or access. | not shown |
-| REQ-259 | N | File uploads / Compliance | Treat file names as personal data (include in access logs); define retention periods and auto-delete unsuccessful applications after the retention period. | not shown |
+| REQ-258 | N | File uploads / Security | Validate MIME type and file signature (not just extension) and scan all uploads for malware before storage or access. | accreditation-apply.html, myrss-profile.html |
+| REQ-259 | N | File uploads / Compliance | Treat file names as personal data (include in access logs); define retention periods and auto-delete unsuccessful applications after the retention period. | accreditation-apply.html |
 | REQ-266 | N | Testing & QA | Test plans covering unit, integration, UAT, cross-browser/device, accessibility, performance and security testing, with zero 'blocker' defects at launch. | not shown |
 | REQ-268 | N | Support & documentation | Support SLA covering incidents (P1 response <= 1h, resolution targets), security and maintenance patching, and feature requests. | not shown |
 | REQ-269 | N | Support & documentation | Detailed documentation, user guides and videos. | not shown |
@@ -207,7 +207,7 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-059 | F | SEO | Automatic metadata suggestions and broken-link monitoring. | not shown |
 | REQ-070 | N | Security & compliance / Hosting | DDoS protection, Web Application Firewall / edge rules and IP reputation filtering. | not shown |
 | REQ-071 | F | Security & compliance | Data Subject Access Request (DSAR) support. | not shown |
-| REQ-081 | F | Identity & access | Log in/out support for third-party identity providers. | sign-in.html |
+| REQ-081 | F | Identity & access | Log in/out support for third-party identity providers. | myrss-profile.html, sign-in.html |
 | REQ-094 | F | Ecommerce | Persistent shopping basket to facilitate multiple purchases. | basket.html, conference.html, course.html, header.html |
 | REQ-095 | F | Jobs | Submission, review and billing process for the job board. | jobs.html, post-job.html |
 | REQ-096 | N | Forms / Security | Virus scanning on all file uploads. | not shown |
@@ -240,8 +240,8 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 | REQ-191 | F | Accreditation | Expression-of-interest form for accreditation (University Accreditation / AfDSP). | accreditation.html |
 | REQ-194 | F | Professional services | Consultants Directory: searchable, filterable listing of qualified members offering statistical consultancy, with back-office management. | find-an-expert.html, myrss-profile.html |
 | REQ-195 | F | CPD / Professional services | CPD management: add CPD activities and view/edit/delete a dynamic CPD record, with downloadable activity records for a selected period. | myrss-cpd.html, professional-development.html |
-| REQ-207 | F | Events / Email automation | Suppress or customise payment-confirmation emails for free events and supplement CRM emails with clearer CMS-triggered or reminder emails. | event.html, payment-complete.html |
-| REQ-208 | F | Events / MyRSS portal | Improve My RSSEvents: clear payment-status indicators, prominent 'Pay outstanding invoice' pathways, and profile management for members and non-members. | myrss-bookings.html |
+| REQ-207 | F | Events / Email automation | Suppress or customise payment-confirmation emails for free events and supplement CRM emails with clearer CMS-triggered or reminder emails. | book-event.html, event.html, payment-complete.html |
+| REQ-208 | F | Events / MyRSS portal | Improve My RSSEvents: clear payment-status indicators, prominent 'Pay outstanding invoice' pathways, and profile management for members and non-members. | myrss-bookings.html, myrss-payments.html |
 | REQ-210 | F | Events calendar | Fast events calendar offering both list and calendar views, showing upcoming and previous events, with different colours per event type. | events.html |
 | REQ-211 | F | Events calendar | Combined, filterable display of events and training (by type, topic, date) with the ability to create pre-filtered views (e.g. training-only from a training newsletter). | events-training.html, events.html |
 | REQ-212 | F | Events calendar | Calendar items provide a quick snapshot of event/training info that links through to the full listing. | events.html |
@@ -278,9 +278,10 @@ Only Must and Should requirements are prototyped. "Shown in" lists the source fi
 - REQ-276: Membership pathway finder: a short set of questions (career stage, qualifications, experience, data science focus) that recommends a membership grade and add-ons, shows the price including concessions, and starts the join form pre-filled. (grades-fees.html)
 - REQ-277: Allow applicants to start a GradStat, CStat or Data Analyst application within the joining journey, rather than joining then upgrading in MyRSS. (membership.html)
 - REQ-278: Staff-editable promoted results ('best bets') for priority searches such as join, renew, fees and CStat. (search-configuration.html)
-- REQ-280: Member-only features show a locked state explaining what they offer, with a join or renew route, instead of redirecting. (find-an-expert.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-preferences.html, myrss-profile.html, myrss.html)
+- REQ-280: Member-only features show a locked state explaining what they offer, with a join or renew route, instead of redirecting. (find-an-expert.html, myrss-accreditation.html, myrss-bookings.html, myrss-cpd.html, myrss-groups.html, myrss-payments.html, myrss-preferences.html, myrss-profile.html, myrss.html)
 - REQ-281: MyRSS dashboard tailored by account type (member, lapsed member, registered non-member), leading with status, renewal, bookings and suggestions. (myrss.html)
 - REQ-282: One shared interests taxonomy used by the profile, newsletter preferences, personalisation and recommendations; profile split into short sections each with its own save. (myrss-profile.html)
+- REQ-283: Self-service change of payment method (card to Direct Debit and back) in MyRSS. (myrss-payments.html)
 - REQ-284: Unified 'Find an expert' search across the Professional Register, Consultants Directory, Statistical Ambassadors and Statisticians for Society, with credential verification for employers. (find-an-expert.html)
 - REQ-285: Filterable 'Find a group' list and map of sections, local groups (including international groups) and SIGs. (groups.html)
 - REQ-286: Policy outputs published as HTML summary pages (key points, date, topic) with the full document attached, to improve search and AI discoverability. (policy.html)

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for accreditation | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="professional-development">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/professional-development.html">Professional development</a></li><li class="breadcrumb-item"><a href="~/pages/accreditation.html">Accreditation</a></li><li class="breadcrumb-item" aria-current="page">Apply</li></ul></nav>
+
+      <h1>Apply for accreditation</h1>
+      <p class="lead">Your application saves as you go. You can leave and come back to it from MyRSS.</p>
+      <ol class="steps" aria-label="Application progress"><li>Route</li><li>Your organisation</li><li>The programme</li><li>Evidence</li><li>Check and submit</li></ol>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Online application for University and AfDSP accreditation by a signed-in contact. Each step saves to a draft, so an applicant can leave and return. <span class="wf-req">REQ-190, REQ-082</span></div>
+      <div class="split">
+        <form data-steps novalidate>
+          <section class="form-step">
+            <h2>Which route are you applying for?</h2>
+            <fieldset class="field"><legend>Route</legend>
+              <label class="radio-card"><input type="radio" name="route" value="University accreditation" required data-error="Choose a route"> <strong>University accreditation</strong>Undergraduate and master's degrees with substantial statistical content</label>
+              <label class="radio-card"><input type="radio" name="route" value="AfDSP"> <strong>Alliance for Data Science Professionals (AfDSP)</strong>Programmes that lead to Data Science Professional status</label>
+            </fieldset>
+            <div class="form-nav"><span></span><button class="btn" type="button" data-next>Continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>Your organisation</h2>
+            <div class="field"><label for="aa-org">University or provider</label><input type="text" id="aa-org" name="org" value="University of Eastwick" required></div>
+            <div class="field"><label for="aa-dept">Department or school</label><input type="text" id="aa-dept" name="dept" required></div>
+            <div class="field-row"><div class="field"><label for="aa-contact">Main contact</label><input type="text" id="aa-contact" name="contact" value="Sam Green" required></div><div class="field"><label for="aa-email">Contact email</label><input type="email" id="aa-email" name="cemail" value="s.green@eastwick.example.ac.uk" required></div></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Save and continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>The programme</h2>
+            <div class="field"><label for="aa-prog">Programme title</label><input type="text" id="aa-prog" name="programme" required></div>
+            <div class="field-row"><div class="field"><label for="aa-level">Level</label><select id="aa-level" name="level" required><option value="">Choose</option><option>Undergraduate</option><option>Master's</option><option>Other</option></select></div><div class="field"><label for="aa-start">First intake</label><input type="text" id="aa-start" name="start" placeholder="e.g. September 2027"></div></div>
+            <div class="field"><label for="aa-mode">Mode of study</label><select id="aa-mode" name="mode"><option>Full time</option><option>Part time</option><option>Both</option></select></div>
+            <div class="field"><label for="aa-out">How does the programme meet the learning outcomes?</label><textarea id="aa-out" name="outcomes" rows="5" required></textarea><p class="field-hint">Summarise here; the full mapping goes in the evidence step.</p></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Save and continue</button></div>
+          </section>
+          <section class="form-step" hidden>
+            <h2>Evidence</h2>
+            <div class="field"><label for="aa-map">Learning outcomes mapping</label><input type="file" id="aa-map" name="mapping" accept=".pdf,.docx,.xlsx" required data-error="Upload the learning outcomes mapping"><p class="field-hint">PDF, Word or Excel, up to 20 MB. <a href="#">Download the mapping template</a></p></div>
+            <div class="field"><label for="aa-hand">Programme handbook and module descriptors</label><input type="file" id="aa-hand" name="handbook" accept=".pdf,.docx" multiple></div>
+            <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Uploads are restricted to accepted file types, checked by file signature and scanned for malware before they are stored. <span class="wf-req">REQ-254, REQ-258, REQ-259</span></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Save and continue</button></div>
+          </section>
+          <section class="form-step" hidden data-review>
+            <h2>Check and submit</h2>
+            <div data-summary></div>
+            <div class="field"><label class="check"><input type="checkbox" name="declare" required data-error="Confirm the declaration"> I confirm the information is accurate and I am authorised to apply on behalf of the organisation</label></div>
+            <div class="form-nav"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="submit">Submit application</button></div>
+          </section>
+          <section class="form-success" data-complete hidden>
+            <h2>Application submitted</h2>
+            <p>Your reference is <strong>ACC-2026-118</strong>. We have emailed a copy. The accreditation team will acknowledge it within 10 working days, and you can follow its progress in MyRSS.</p>
+            <p><a class="btn" href="~/pages/myrss-accreditation.html">Your applications</a></p>
+          </section>
+        </form>
+        <aside class="panel surface">
+          <h2 class="h4">Before you start</h2>
+          <p>You will need the programme handbook, module descriptors and a learning outcomes mapping.</p>
+          <p class="wf-meta">Draft saved 2 November 2026, 14:32</p>
+          <div class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Q: Is there an application fee? If so, it is paid on the submit step through the same payment page as every other purchase. <span class="wf-req">REQ-190, REQ-086</span></div>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments and receipts | Royal Statistical Society (prototype)</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/rss.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body data-section="">
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list"><li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li><li class="breadcrumb-item"><a href="~/pages/myrss.html">MyRSS</a></li><li class="breadcrumb-item" aria-current="page">Payments and receipts</li></ul></nav>
+
+      <div data-show-for="guest" class="locked">
+        <h1>MyRSS</h1>
+        <p>Sign in to manage your membership, bookings, CPD and preferences.</p>
+        <p><a class="btn" href="~/pages/sign-in.html">Sign in</a> <a href="~/pages/sign-in.html">Create an account</a></p>
+        <div class="wf-note" data-note="3"><span class="wf-note-label">Proposed</span>Signed-out visitors see what MyRSS is and how to get in, rather than being redirected (the simplest form of ClerksWell's Could, REQ-280). Use View as in the dark bar to see the signed-in versions. <span class="wf-req">REQ-178, REQ-280</span></div>
+      </div>
+      <div class="myrss-layout" data-show-for="registered member lapsed" hidden>
+        <nav class="sidenav" aria-label="MyRSS">
+          <h2>MyRSS</h2>
+          <ul><li><a href="~/pages/myrss.html">Dashboard</a></li><li><a href="~/pages/myrss-profile.html">Profile and directory listings</a></li><li><a href="~/pages/myrss-bookings.html">My events and training</a></li><li><a href="~/pages/myrss-payments.html" aria-current="page">Payments and receipts</a></li><li><a href="~/pages/myrss-cpd.html">CPD record</a></li><li><a href="~/pages/myrss-groups.html">Sections and groups</a></li><li><a href="~/pages/myrss-preferences.html">Newsletters and preferences</a></li><li><a href="~/pages/home.html" data-sign-out>Sign out</a></li></ul>
+        </nav>
+        <div>
+          <h1>Payments and receipts</h1>
+
+          <p class="lead">Every payment you have made to the Society, with an invoice or receipt for each.</p>
+          <section class="panel" data-show-for="member">
+            <h2 class="h4">How you pay for membership</h2>
+            <p>Direct Debit, collected on 1 January each year. Account ending 4321.</p>
+            <p><a href="#">Change bank details</a> &middot; <a href="~/pages/pay.html?for=renewal&amp;amount=230.00&amp;desc=RSS+membership+2027&amp;method=card">Pay by card instead</a></p>
+            <div class="wf-note" data-note="1"><span class="wf-note-label">Proposed</span>Changing between card and Direct Debit without contacting the membership team is ClerksWell's suggestion REQ-283 (a Could). It is shown in its simplest form. <span class="wf-req">REQ-283</span></div>
+          </section>
+          <section class="panel" data-show-for="lapsed" hidden>
+            <p><strong>£165.00 outstanding</strong> for your 2026 to 2027 membership. <a class="btn btn-small" href="~/pages/myrss.html#renew">Renew now</a></p>
+          </section>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th scope="col">Date</th><th scope="col">What for</th><th scope="col">Amount</th><th scope="col">Paid by</th><th scope="col">Status</th><th scope="col">Document</th></tr></thead>
+            <tbody>
+              <tr><td>28 Oct 2026</td><td>RSS Conference 2027, full ticket</td><td>£795.00</td><td>Invoice</td><td><span class="status-pill warn">Unpaid</span></td><td><a href="#">Invoice (PDF)</a> &middot; <a href="~/pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay now</a></td></tr>
+              <tr><td>14 Oct 2026</td><td>Introduction to R, 10 to 11 Nov 2026</td><td>£345.00</td><td>Card</td><td><span class="status-pill">Paid</span></td><td><a href="#">Receipt (PDF)</a></td></tr>
+              <tr data-show-for="member"><td>2 Jan 2026</td><td>Membership 2026, Fellow with CStat</td><td>£230.00</td><td>Direct Debit</td><td><span class="status-pill">Paid</span></td><td><a href="#">Invoice (PDF)</a> &middot; <a href="#">Receipt (PDF)</a></td></tr>
+              <tr><td>3 Jun 2025</td><td>Practical survey design</td><td>£295.00</td><td>Card</td><td><span class="status-pill">Paid</span></td><td><a href="#">Receipt (PDF)</a></td></tr>
+            </tbody>
+          </table></div>
+          <div class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Invoices and receipts for joining, renewals, bookings, conference tickets, donations and job adverts, read from Dynamics. Unpaid invoices can be paid from here. <span class="wf-req">REQ-181, REQ-188, REQ-208, REQ-091</span></div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/search-engine.js"></script>
+  <script src="~/js/wireframe.js"></script>
+  <script src="~/js/rss.js"></script>
+  <script src="~/js/search-ui.js"></script>
+</body>
+</html>

@@ -389,3 +389,13 @@ button.nav-link { background: none; border: 0; font: inherit; color: inherit; cu
   .ta-detail { display: none; }
   .layout-switch { display: none; }
 }
+
+/* Sign-in options and profile photo (v0.6) */
+.sso-options { margin-top: 1rem; }
+.sso-options .chips { margin-top: 0.25rem; }
+.photo-row { display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap; }
+.photo-row .avatar { width: 72px; height: 72px; flex: none; }
+.table-wrap { overflow-x: auto; }
+.myrss-layout > div { min-width: 0; }
+@media (max-width: 768px) { .data-table { display: block; overflow-x: auto; } }
+.with-sidenav > * { min-width: 0; }

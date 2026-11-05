@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *  # noqa
 import pages_a, pages_b, pages_c, pages_d, pages_e, pages_f  # noqa
 
-VERSION = 'v0.5'
+VERSION = 'v0.6'
 
 # Contents hub: grouped by the proposed top-level navigation, so the hub doubles as the sitemap
 SITEMAP = [
@@ -38,7 +38,8 @@ SITEMAP = [
         ('graduate-statistician.html', 'Graduate Statistician', 'Same template', 'REQ-029'),
         ('data-analyst.html', 'Data Analyst', 'Same template', 'REQ-029'),
         ('data-science-professional.html', 'Data Science Professional', 'Same template', 'REQ-029'),
-        ('accreditation.html', 'Accreditation', 'Expression of interest form', 'REQ-190, REQ-191'),
+        ('accreditation.html', 'Accreditation', 'Expression of interest form, and the way into an application', 'REQ-190, REQ-191'),
+        ('accreditation-apply.html', 'Apply for accreditation', 'Multi-step application with save and return and document upload', 'REQ-190, REQ-082'),
     ]),
     ('Events and training', [
         ('events-training.html', 'Events and training hub', 'Hub with pre-filtered views, conference, recordings', 'REQ-034, REQ-211, REQ-107'),
@@ -46,6 +47,7 @@ SITEMAP = [
         ('event.html', 'Event page', 'One page per event, tabs, a booking button per format', 'REQ-201, REQ-202, REQ-209'),
         ('course.html', 'Course page', 'Every date and price on one page, waiting list', 'REQ-213, REQ-214, REQ-218'),
         ('book.html', 'Book a course', 'Booking for yourself or others', 'REQ-215, REQ-216, REQ-217'),
+        ('book-event.html', 'Book a free event', 'Short booking with no payment step', 'REQ-206, REQ-207'),
         ('conference.html', 'RSS Conference 2027', 'Conference landing page', 'REQ-224 to REQ-233'),
         ('submit-event.html', 'Submit a group event', 'For group officers', 'REQ-203'),
     ]),
@@ -80,8 +82,10 @@ SITEMAP = [
     ]),
     ('MyRSS', [
         ('myrss.html', 'Dashboard', 'Member banner, balance and renewal, bookings, publications', 'REQ-173, REQ-179, REQ-181, REQ-188'),
-        ('myrss-profile.html', 'Profile and directory listings', 'Sections that save separately; interests', 'REQ-173, REQ-196'),
+        ('myrss-profile.html', 'Profile and directory listings', 'Sections that save separately: photo, specialisations, directory listings, sign-in and security', 'REQ-173, REQ-196, REQ-075'),
         ('myrss-bookings.html', 'My events and training', 'Upcoming, past, payment status', 'REQ-180, REQ-208, REQ-219'),
+        ('myrss-payments.html', 'Payments and receipts', 'Every invoice and receipt, and how membership is paid', 'REQ-181, REQ-188'),
+        ('myrss-accreditation.html', 'Accreditation applications', 'Current and past applications for accreditation contacts', 'REQ-190'),
         ('myrss-cpd.html', 'CPD record', 'Add, edit, download', 'REQ-195'),
         ('myrss-groups.html', 'Sections and groups', 'Subscriptions and mailing lists', 'REQ-182'),
         ('myrss-preferences.html', 'Newsletters and preferences', 'Opt in and out', 'REQ-159, REQ-160'),
@@ -190,13 +194,14 @@ def hub():
         <ul class="wf-hub-list">
           <li><p>Could requirements, including ClerksWell's REQ-276 to REQ-291, and the Won't requirements. Where a Could would change a page, or a page shows its simplest form, a "Proposed" note says so.</p></li>
           <li><p>Back-office and CMS functions (workflow, permissions, media library, newsletter editor, reporting). These are shown as CMS notes on the pages they affect.</p></li>
-          <li><p>The accreditation application portal and the embedded conference programme (Phase 2 in the SoW).</p></li>
+          <li><p>The embedded conference programme (Phase 2 in the SoW).</p></li>
+          <li><p>Journeys for administrators, such as creating and sending newsletters and managing advertising. These are shown as CMS notes.</p></li>
         </ul>
       </section>
 
       <section>
         <h2 class="section-title">Change log</h2>
-        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li><li>v0.3: compact header switches without disappearing; payment added to joining, course booking, basket checkout, donations, renewal, invoices and job adverts, via a hosted payment page and a confirmation page.</li><li>v0.4: menu and Events/Resources search boxes fixed; menu labels are buttons; separate qualification pages and Get involved pages; course date, price and delegates carry through booking and the basket; full date with waiting list; conference tickets priced by viewer; empty basket state; tab ARIA; Coulds labelled Proposed; requirement citations checked; consistency fixes.</li><li>v0.5: search rebuilt to ClerksWell's search standard: ranking by page type, grouped suggestions, tabs with counts, filter layouts, copy link, section searches that widen, browse before typing, surname A to Z, advanced search builder with a live count, and a page showing how search is configured.</li></ol>
+        <ol class="changelog"><li>v0.1: complete draft from the draft requirements catalogue and the immersion findings.</li><li>v0.2: navigation moves into a menu below 1200px; header shrinks to one 64px row on scroll; event type filter and more discussion meetings; one listing per course; check-your-answers shows everything entered; question on fees and concessions; calendar labels shortened at a word; side menus clear the header.</li><li>v0.3: compact header switches without disappearing; payment added to joining, course booking, basket checkout, donations, renewal, invoices and job adverts, via a hosted payment page and a confirmation page.</li><li>v0.4: menu and Events/Resources search boxes fixed; menu labels are buttons; separate qualification pages and Get involved pages; course date, price and delegates carry through booking and the basket; full date with waiting list; conference tickets priced by viewer; empty basket state; tab ARIA; Coulds labelled Proposed; requirement citations checked; consistency fixes.</li><li>v0.5: search rebuilt to ClerksWell's search standard: ranking by page type, grouped suggestions, tabs with counts, filter layouts, copy link, section searches that widen, browse before typing, surname A to Z, advanced search builder with a live count, and a page showing how search is configured.</li><li>v0.6: checked against RSS's key processes and user journeys. Added the accreditation application (with save and return and uploads) and an applications list in MyRSS; a short booking for free events; Payments and receipts in MyRSS; invoices for Direct Debit payments; two-step verification and other sign-in providers at sign-in; profile photo, specialisations and sign-in security in the profile; Sign out in the header.</li></ol>
       </section>
     </div>
   </main>

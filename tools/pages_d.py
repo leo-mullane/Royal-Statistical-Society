@@ -246,8 +246,19 @@ def sign_in():
                 <div class="field"><label for="si-email">Email address</label><input type="email" id="si-email" name="email" required autocomplete="username"></div>
                 <div class="field"><label for="si-pass">Password</label><input type="password" id="si-pass" name="password" required autocomplete="current-password"><p class="field-hint"><a href="#" data-modal-open="reset-modal">Forgotten your password?</a></p></div>
                 <button class="btn" type="submit">Sign in</button>
-                <p class="form-success" hidden>Enter the 6-digit code from your authenticator app. <span class="wf-meta">(prototype: use the demo links instead)</span></p>
+                <div class="form-success panel" hidden>
+                  <h2 class="h4">Check it's you</h2>
+                  <p>Enter the 6-digit code from your authenticator app.</p>
+                  <div class="field"><label for="si-code">Security code</label><input type="text" id="si-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6"></div>
+                  <p><a class="btn" href="~/pages/myrss.html" data-sign-in-as="member">Verify and sign in</a> <a href="#">Use a recovery code</a></p>
+                </div>
               </form>
+              <div class="sso-options">
+                <p class="wf-meta">Or sign in with</p>
+                <p class="chips"><a class="chip" href="#">Google</a> <a class="chip" href="#">Microsoft</a> <a class="chip" href="#">LinkedIn</a> <a class="chip" href="#">ORCID</a></p>
+              </div>
+              {n("Sign-in with a third-party identity provider, linked to the member's record in Dynamics. Members can connect or disconnect providers in MyRSS (Profile, Sign-in and security).", "REQ-081")}
+              {n("Which providers does RSS want? Each one adds set-up and support, and depends on the identity provider chosen for members.", "REQ-081, REQ-075", "Open question")}
               {n("Members and registered users sign in with email and password, with app-based MFA. The identity provider is still to be decided.", "REQ-075, REQ-081")}
               {n("Which identity provider (Entra External ID or another), is MFA required or optional for members, and are existing passwords migrated or reset?", "REQ-075, REQ-148", "Open question")}
             </div>
@@ -294,7 +305,7 @@ def sign_in():
 
 def myrss_shell(current, inner, n, title):
     links = [('myrss.html', 'Dashboard'), ('myrss-profile.html', 'Profile and directory listings'), ('myrss-bookings.html', 'My events and training'),
-             ('myrss-cpd.html', 'CPD record'), ('myrss-groups.html', 'Sections and groups'), ('myrss-preferences.html', 'Newsletters and preferences')]
+             ('myrss-payments.html', 'Payments and receipts'), ('myrss-cpd.html', 'CPD record'), ('myrss-groups.html', 'Sections and groups'), ('myrss-preferences.html', 'Newsletters and preferences')]
     cur = ' aria-current="page"'
     lis = ''.join(f'<li><a href="~/pages/{f}"{cur if f == current else ""}>{e(t)}</a></li>' for f, t in links)
     return f'''
@@ -397,12 +408,18 @@ def myrss_profile():
                 <div class="field-row"><div class="field"><label for="p-first">First name</label><input type="text" id="p-first" name="first" value="Alex" required></div><div class="field"><label for="p-last">Last name</label><input type="text" id="p-last" name="last" value="Morgan" required></div></div>
                 <div class="field"><label for="p-email">Email</label><input type="email" id="p-email" name="email" value="alex.morgan@example.org" required></div>
                 <button class="btn btn-small" type="submit">Save personal details</button><p class="form-success" hidden>Saved.</p></form></div></div>
+            <div class="accordion-item"><button class="accordion-title" type="button">Profile photo <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
+              <div class="accordion-content"><form data-validate novalidate>
+                <div class="photo-row"><div class="wf-placeholder avatar">Photo</div><div class="field"><label for="p-photo">Upload a new photo</label><input type="file" id="p-photo" name="photo" accept=".jpg,.jpeg,.png" required data-error="Choose a photo to upload"><p class="field-hint">JPG or PNG, up to 5 MB. You can crop it after uploading.</p></div></div>
+                <label class="check"><input type="checkbox" name="photo-dirs" checked> Show my photo in the directories I am listed in</label>
+                <button class="btn btn-small" type="submit">Save photo</button> <button class="btn-link" type="button">Remove photo</button><p class="form-success" hidden>Saved.</p></form>
+              {n("Uploads are checked for file type and signature and scanned for malware before they are stored. The photo appears on the member banner and, if the member chooses, in directory listings.", "REQ-173, REQ-254, REQ-258")}</div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Address <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate><div class="field"><label for="p-post">Postcode</label><div class="inline-field"><input type="text" id="p-post" name="postcode" value="EC1Y 8LX" required><button class="btn btn-secondary btn-small" type="button">Find address</button></div></div><button class="btn btn-small" type="submit">Save address</button><p class="form-success" hidden>Saved.</p></form></div></div>
             <div class="accordion-item"><button class="accordion-title" type="button">Employment <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
               <div class="accordion-content"><form data-validate novalidate><div class="field"><label for="p-emp">Employer</label><input type="text" id="p-emp" name="employer" value="Northbridge NHS Foundation Trust"></div><div class="field"><label for="p-role">Job title</label><input type="text" id="p-role" name="role" value="Head of Statistics"></div><button class="btn btn-small" type="submit">Save employment</button><p class="form-success" hidden>Saved.</p></form></div></div>
-            <div class="accordion-item"><button class="accordion-title" type="button">Interests <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
-              <div class="accordion-content"><form data-validate novalidate><fieldset class="field"><legend>Topics you are interested in</legend>{topic_checks}</fieldset><button class="btn btn-small" type="submit">Save interests</button><p class="form-success" hidden>Saved. Your recommendations will update.</p></form>
+            <div class="accordion-item"><button class="accordion-title" type="button">Specialisations and interests <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
+              <div class="accordion-content"><form data-validate novalidate><fieldset class="field"><legend>Your areas of specialisation and interest</legend>{topic_checks}</fieldset><button class="btn btn-small" type="submit">Save specialisations</button><p class="form-success" hidden>Saved. Your recommendations will update.</p></form>
               {n("Interests drive personalisation.", "REQ-109")}
               {n("Using the site's topic list for interests, instead of today's 29 specialisations, is part of REQ-282 (a Could).", "REQ-282", "Proposed")}
               {n("Can the 29 areas of specialisation in Dynamics be replaced by the shared topic list, and what happens to existing data?", "REQ-109", "Open question")}</div></div>
@@ -414,6 +431,19 @@ def myrss_profile():
                 <div class="reveal" id="consultant-detail" hidden><div class="field"><label for="p-cons">Areas of consultancy</label><textarea id="p-cons" name="cons" rows="3"></textarea></div><p class="wf-meta">Listings are checked by staff before they appear.</p></div>
                 <button class="btn btn-small" type="submit">Save listings</button><p class="form-success" hidden>Saved.</p></form>
               {n("Members manage their own directory listings.", "REQ-196, REQ-194")}</div></div>
+            <div class="accordion-item"><button class="accordion-title" type="button">Sign-in and security <span class="accordion-icon" aria-hidden="true">&#9662;</span></button>
+              <div class="accordion-content">
+                <form data-validate novalidate>
+                  <div class="field"><label for="p-cur">Current password</label><input type="password" id="p-cur" name="current" required autocomplete="current-password"></div>
+                  <div class="field"><label for="p-new">New password</label><input type="password" id="p-new" name="new" required autocomplete="new-password"><p class="field-hint">At least 12 characters.</p></div>
+                  <button class="btn btn-small" type="submit">Change password</button><p class="form-success" hidden>Password changed. We have emailed you to confirm.</p>
+                </form>
+                <h3 class="h4">Two-step verification</h3>
+                <p><span class="status-pill">On</span> Authenticator app, added 12 March 2026. <a href="#">Replace app</a> &middot; <a href="#">Get new recovery codes</a></p>
+                <h3 class="h4">Connected sign-in accounts</h3>
+                <p>Microsoft (alex.morgan@example.org) <a href="#">Disconnect</a> &middot; <a href="#">Connect Google, LinkedIn or ORCID</a></p>
+                {n("Members manage their own password, app-based two-step verification and any third-party sign-in accounts.", "REQ-075, REQ-080, REQ-081")}
+              </div></div>
           </div>
 '''
     page('myrss-profile.html', 'Profile', myrss_shell('myrss-profile.html', inner, n, 'Profile and directory listings'), '', [('MyRSS', '~/pages/myrss.html'), ('Profile', None)])
@@ -429,9 +459,9 @@ def myrss_bookings():
           <div>
             <div class="tab-panel active" id="b-up">
               <table class="data-table"><thead><tr><th scope="col">Event or course</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col"></th></tr></thead><tbody>
-                <tr><td><a href="~/pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a></td></tr>
-                <tr><td><a href="~/pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Cancel</a></td></tr>
-                <tr><td><a href="~/pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="~/pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay invoice</a></td></tr>
+                <tr><td><a href="~/pages/course.html">Introduction to R</a><br><span class="wf-meta">Online. Joining link emailed 9 November</span></td><td>10 to 11 Nov 2026</td><td><span class="status-pill">Paid</span></td><td><a href="#">Add to calendar</a><br><a href="#">Receipt (PDF)</a></td></tr>
+                <tr><td><a href="~/pages/event.html">Discussion meeting: evaluating large language models</a><br><span class="wf-meta">In person</span></td><td>4 Nov 2026</td><td><span class="status-pill">Free</span></td><td><a href="#">Add to calendar</a><br><a href="#">Cancel</a></td></tr>
+                <tr><td><a href="~/pages/conference.html">RSS Conference 2027: full</a></td><td>6 to 9 Sep 2027</td><td><span class="status-pill warn">Invoice unpaid</span></td><td><a class="btn btn-small" href="~/pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay invoice</a><br><a href="#">Invoice (PDF)</a></td></tr>
               </tbody></table>
             </div>
             <div class="tab-panel" id="b-past">
@@ -526,6 +556,53 @@ def myrss_prefs():
     page('myrss-preferences.html', 'Newsletters and preferences', myrss_shell('myrss-preferences.html', inner, n, 'Newsletters and preferences'), '', [('MyRSS', '~/pages/myrss.html'), ('Preferences', None)])
 
 
+
+def myrss_payments():
+    n = Notes()
+    inner = f'''
+          <p class="lead">Every payment you have made to the Society, with an invoice or receipt for each.</p>
+          <section class="panel" data-show-for="member">
+            <h2 class="h4">How you pay for membership</h2>
+            <p>Direct Debit, collected on 1 January each year. Account ending 4321.</p>
+            <p><a href="#">Change bank details</a> &middot; <a href="~/pages/pay.html?for=renewal&amp;amount=230.00&amp;desc=RSS+membership+2027&amp;method=card">Pay by card instead</a></p>
+            {n("Changing between card and Direct Debit without contacting the membership team is ClerksWell's suggestion REQ-283 (a Could). It is shown in its simplest form.", "REQ-283", "Proposed")}
+          </section>
+          <section class="panel" data-show-for="lapsed" hidden>
+            <p><strong>£165.00 outstanding</strong> for your 2026 to 2027 membership. <a class="btn btn-small" href="~/pages/myrss.html#renew">Renew now</a></p>
+          </section>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th scope="col">Date</th><th scope="col">What for</th><th scope="col">Amount</th><th scope="col">Paid by</th><th scope="col">Status</th><th scope="col">Document</th></tr></thead>
+            <tbody>
+              <tr><td>28 Oct 2026</td><td>RSS Conference 2027, full ticket</td><td>£795.00</td><td>Invoice</td><td><span class="status-pill warn">Unpaid</span></td><td><a href="#">Invoice (PDF)</a> &middot; <a href="~/pages/pay.html?for=invoice&amp;amount=795.00&amp;desc=Invoice+RSS-INV-204517%3A+RSS+Conference+2027%2C+full+ticket&amp;method=card">Pay now</a></td></tr>
+              <tr><td>14 Oct 2026</td><td>Introduction to R, 10 to 11 Nov 2026</td><td>£345.00</td><td>Card</td><td><span class="status-pill">Paid</span></td><td><a href="#">Receipt (PDF)</a></td></tr>
+              <tr data-show-for="member"><td>2 Jan 2026</td><td>Membership 2026, Fellow with CStat</td><td>£230.00</td><td>Direct Debit</td><td><span class="status-pill">Paid</span></td><td><a href="#">Invoice (PDF)</a> &middot; <a href="#">Receipt (PDF)</a></td></tr>
+              <tr><td>3 Jun 2025</td><td>Practical survey design</td><td>£295.00</td><td>Card</td><td><span class="status-pill">Paid</span></td><td><a href="#">Receipt (PDF)</a></td></tr>
+            </tbody>
+          </table></div>
+          {n("Invoices and receipts for joining, renewals, bookings, conference tickets, donations and job adverts, read from Dynamics. Unpaid invoices can be paid from here.", "REQ-181, REQ-188, REQ-208, REQ-091")}
+'''
+    page('myrss-payments.html', 'Payments and receipts', myrss_shell('myrss-payments.html', inner, n, 'Payments and receipts'), '', [('MyRSS', '~/pages/myrss.html'), ('Payments and receipts', None)])
+
+
+def accreditation_apps():
+    n = Notes()
+    inner = f'''
+          <p class="lead">Applications for University and AfDSP accreditation made by your organisation.</p>
+          <p><a class="btn" href="~/pages/accreditation-apply.html">Start a new application</a></p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th scope="col">Programme</th><th scope="col">Route</th><th scope="col">Status</th><th scope="col">Updated</th><th scope="col"></th></tr></thead>
+            <tbody>
+              <tr><td>MSc Data Science</td><td>AfDSP</td><td><span class="status-pill warn">Draft</span></td><td>2 Nov 2026</td><td><a href="~/pages/accreditation-apply.html">Continue</a></td></tr>
+              <tr><td>BSc Mathematics and Statistics</td><td>University accreditation</td><td><span class="status-pill">Under review</span></td><td>18 Oct 2026</td><td><a href="#">View</a></td></tr>
+              <tr><td>MSc Statistics</td><td>University accreditation</td><td><span class="status-pill">Accredited until 2030</span></td><td>4 Jul 2025</td><td><a href="#">View</a> &middot; <a href="#">Certificate (PDF)</a></td></tr>
+            </tbody>
+          </table></div>
+          {n("Applicants see their current and past applications and where each has reached: draft, submitted, under review (by the Professional Affairs Committee), further information requested, accredited. Staff manage them in the CMS.", "REQ-190")}
+          {n("This page appears in MyRSS only for people Dynamics records as an accreditation contact for their university or provider. They need a registered account, not membership.", "REQ-190, REQ-177", "Behaviour")}
+          {n("Who applies, and is there an application fee to pay online?", "REQ-190", "Open question")}
+'''
+    page('myrss-accreditation.html', 'Accreditation applications', myrss_shell('myrss-accreditation.html', inner, n, 'Accreditation applications'), '', [('MyRSS', '~/pages/myrss.html'), ('Accreditation applications', None)])
+
 def build():
     resources()
     journalists()
@@ -540,3 +617,5 @@ def build():
     myrss_cpd()
     myrss_groups()
     myrss_prefs()
+    myrss_payments()
+    accreditation_apps()

@@ -112,9 +112,13 @@ def complete_page():
       <!-- Payment confirmation page (REQ-089, REQ-087) -->
       <section data-pay-complete class="split">
         <div>
-          <div data-pay-method-block="card dd">
+          <div data-pay-method-block="card">
             <h1>Payment successful</h1>
             <p class="lead">Thank you. We have emailed your receipt.</p>
+          </div>
+          <div data-pay-method-block="dd" hidden>
+            <h1>Direct Debit set up</h1>
+            <p class="lead">Thank you. We have emailed confirmation of your Direct Debit and your invoice. The first payment is collected in about 10 working days, and you are covered by the Direct Debit Guarantee.</p>
           </div>
           <div data-pay-method-block="invoice" hidden>
             <h1>Application received</h1>
@@ -168,7 +172,9 @@ def complete_page():
             <dt>Reference</dt><dd data-pay-ref></dd>
             <dt>Date</dt><dd>30 October 2026</dd>
           </dl>
-          <p><a href="#">Download receipt (PDF)</a></p>
+          <p data-pay-method-block="card"><a href="#">Download receipt (PDF)</a></p>
+          <p data-pay-method-block="dd invoice" hidden><a href="#">Download invoice (PDF)</a></p>
+          <p class="wf-meta">Every invoice and receipt is also kept in MyRSS under <a href="~/pages/myrss-payments.html">Payments and receipts</a>.</p>
           {n("Downloadable receipt that meets HMRC requirements, with VAT shown where it applies. The transaction is written to Dynamics and the purchase is tracked in analytics and ecommerce reporting.", "REQ-087, REQ-091, REQ-114, REQ-116")}
         </aside>
       </section>
